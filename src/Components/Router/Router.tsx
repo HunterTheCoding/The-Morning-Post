@@ -28,14 +28,7 @@ const Mybrowser = createBrowserRouter([
         path:'/signup',
         element:<Signup></Signup>
       },
-      {
-        path:"/history",
-        element:<OurHistory></OurHistory>
-      },
-      {
-        path:'/news',
-        element:<FeatureNews></FeatureNews>
-      }
+   
     ]
   },
 ]);
