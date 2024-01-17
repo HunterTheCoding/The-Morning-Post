@@ -12,7 +12,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 
 const Bannar = () => {
     return (
-        <div className='grid md:grid-cols-3 grid-cols-1 gap-4'>
+        <div className='grid md:grid-cols-3 grid-cols-1 my-4 gap-4'>
             <div className='col-span-2 shadow-lg'>
                 <Swiper
                     slidesPerView={1}
