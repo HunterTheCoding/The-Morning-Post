@@ -1,15 +1,13 @@
 
 import './App.css'
+import Login from './Component/Shared/Login'
 
 function App() {
 
 
   return (
     <>
-      <div>
-      </div>
-      <h1 className='text-red-700 font-bold'>Vite + React</h1>
-    
+<Login></Login>
     </>
   )
 }
