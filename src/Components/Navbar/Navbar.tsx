@@ -8,7 +8,7 @@ const Navbar = () => {
                     <div>
                         <p>We are for the people</p>
                     </div>
-                    <h1 className=" ml-10 font-extrabold text-4xl">The Morning Post</h1>
+                    <h1 className=" ml-3 lg:ml-5 font-semibold lg:font-extrabold text-2xl lg:text-4xl">The Morning Post</h1>
                 </div>
                 <img src="https://via.placeholder.com/100" alt="logo" />
             </header>
@@ -23,6 +23,7 @@ const Navbar = () => {
                 <a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">Technology</a>
                 <a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">Opinion</a>
             </nav>
+            {/* test */}
             <div className="text-black flex pl-5vw pr-5vw">
                 Breaking News:
                 <Marquee className="bg-white text-black">

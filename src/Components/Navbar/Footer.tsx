@@ -29,10 +29,9 @@ const Footer = () => {
                                 </button>
                             </div>
                         </div>
-                        <div className="w-full lg:w-6/12 px-4 ">
-                            <div className="flex flex-wrap items-top mb-6 ">
+                        <div className="w-full lg:w-6/12 px-4">
+                            <div className="flex items-top mb-6">
                                 <div className="w-full lg:w-4/12 px-4 ml-auto border-l-2">
-                                    <span className="block uppercase text-blueGray-500 text-sm font-semibold mb-2">Useful Links</span>
                                     <ul className="list-unstyled">
                                         <li>
                                             <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">জাতীয়</a>
@@ -44,12 +43,24 @@ const Footer = () => {
                                             <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">প্রথম পাতা</a>
                                         </li>
                                         <li>
+                                            <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">চায়ের দেশ</a>
+                                        </li>
+                                        <li>
+                                            <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">পেছনের পৃষ্ঠা</a>
+                                        </li>
+                                        <li>
                                             <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">ই-পেপার</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div className="w-full lg:w-4/12 px-4">
                                     <ul className="list-unstyled">
+                                        <li>
+                                            <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">নগর জীবন</a>
+                                        </li>
+                                        <li>
+                                            <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">দেশগ্রাম</a>
+                                        </li>
                                         <li>
                                             <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">নগর জীবন</a>
                                         </li>
@@ -64,22 +75,6 @@ const Footer = () => {
                                         </li>
                                     </ul>
                                 </div>
-                                <div className="w-full lg:w-4/12 px-4">
-                                    <ul className="list-unstyled">
-                                        <li>
-                                            <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">দেশগ্রাম</a>
-                                        </li>
-                                        <li>
-                                            <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">চায়ের দেশ</a>
-                                        </li>
-                                        <li>
-                                            <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">পেছনের পৃষ্ঠা</a>
-                                        </li>
-                                        <li>
-                                            <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm" href="#">নগর জীবন</a>
-                                        </li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -87,7 +82,7 @@ const Footer = () => {
                     <div className="flex flex-wrap items-center md:justify-between justify-center">
                         <div className="w-full md:w-4/12 px-4 mx-auto text-center">
                             <div className="text-sm text-blueGray-500 font-semibold py-1">
-                                Copyright © <span id="get-current-year">2021</span><a href="#" className="text-blueGray-500 hover:text-gray-800" target="_blank" /> The Morning Post by
+                                Copyright © <span id="get-current-year">2024</span><a href="#" className="text-blueGray-500 hover:text-gray-800" target="_blank" /> The Morning Post by
                                 <a href="#" className="text-blueGray-500 hover:text-blueGray-800"> Hunter The Coding</a>.
                             </div>
                         </div>
