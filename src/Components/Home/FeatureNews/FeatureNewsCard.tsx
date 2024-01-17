@@ -1,13 +1,13 @@
 
 
 
-const FeatureNewsCard = ({news}) => {
-    const {id} = news
-    console.log(news);
+const FeatureNewsCard = () => {
+    // const {id} = news
+    // console.log(news);
     
     return (
         <div>
-            <h1 className="text-7xl">{id}</h1>
+            <h1 className="text-7xl"></h1>
         </div>
     );
 };
