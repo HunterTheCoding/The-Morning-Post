@@ -1,0 +1,45 @@
+[
+    {
+      "id": 1,
+      "headline": "Breaking News: Scientists Make Groundbreaking Discovery",
+      "writer": "John Doe",
+      "image": "https://example.com/image1.jpg",
+      "date": "2024-01-17"
+    },
+    {
+      "id": 2,
+      "headline": "Tech Giants Unveil Revolutionary Gadgets at Expo",
+      "writer": "Jane Smith",
+      "image": "https://example.com/image2.jpg",
+      "date": "2024-01-18"
+    },
+    {
+      "id": 3,
+      "headline": "Sports: Thrilling Overtime Victory for Home Team",
+      "writer": "Mike Johnson",
+      "image": "https://example.com/image3.jpg",
+      "date": "2024-01-19"
+    },
+    {
+      "id": 4,
+      "headline": "Entertainment Buzz: Blockbuster Movie Premiere Tonight",
+      "writer": "Emily White",
+      "image": "https://example.com/image4.jpg",
+      "date": "2024-01-20"
+    },
+    {
+      "id": 5,
+      "headline": "Health: New Breakthrough in Cancer Research",
+      "writer": "David Miller",
+      "image": "https://example.com/image5.jpg",
+      "date": "2024-01-21"
+    },
+    {
+      "id": 6,
+      "headline": "Business Update: Global Markets React to Economic Shift",
+      "writer": "Sara Brown",
+      "image": "https://example.com/image6.jpg",
+      "date": "2024-01-22"
+    }
+  ]
+  
