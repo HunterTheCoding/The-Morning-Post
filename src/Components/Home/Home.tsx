@@ -1,9 +1,14 @@
+import Bannar from "./Bannar/Bannar";
+import FeatureNews from "./FeatureNews/FeatureNews.js";
+import OurHistory from "./OurHistory/OurHistory.jsx"
 
 
 const Home = () => {
     return (
         <div>
-            <h1>Home page</h1>
+            <Bannar></Bannar>
+            <OurHistory></OurHistory>
+            <FeatureNews></FeatureNews>
         </div>
     );
 };
