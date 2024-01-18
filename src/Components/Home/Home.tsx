@@ -9,10 +9,7 @@ const Home = () => {
             <Bannar></Bannar>
             <OurHistory></OurHistory>
             <FeatureNews></FeatureNews>
-<<<<<<< HEAD
         
-=======
->>>>>>> 6e19a5fa676d4b8884be72065d68ebf84a7b3f1b
         </div>
     );
 };

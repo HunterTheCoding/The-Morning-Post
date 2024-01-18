@@ -1,31 +1,97 @@
 import { useEffect, useState } from "react";
-import FeatureNewsCard from "./FeatureNewsCard";
-
+// for real time from moment.js
+import moment from "moment"
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+// import './styles.css';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { TfiWrite } from "react-icons/tfi";
+import { TiStopwatch } from "react-icons/ti";
+// defining typescript 
 interface NewsItem {
     id: number;
     headline: string;
     writer: string;
     image: string;
     date: string;
-
 }
+
 const FeatureNews = () => {
     const [featureData, setFeatureData] = useState<NewsItem[]>([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch("/featureData.json")
-        .then(res => res.json())
-        .then(data => setFeatureData(data))
+            .then(res => res.json())
+            .then(data => setFeatureData(data))
     }, [])
-    // console.log(featureData);
-    
+
     return (
-        <div>
-            <h1>{featureData.length} </h1>
+        <div className="md:px-6">
+            <h1 className="text-4xl font-bold py-3">Feature News</h1>
             <div>
-                {
-                  featureData.map((news: NewsItem) => <FeatureNewsCard key={news.id} news={news}></FeatureNewsCard>)
-                }
+                <Swiper
+                    // slidesPerView={3}
+                    spaceBetween={15}
+                    // centeredSlides={true}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
+                    // pagination={{
+                    //     clickable: true,
+                    // }}
+                    navigation={true}
+                    modules={[Autoplay, Pagination, Navigation]}
+                    className="mySwiper"
+                    breakpoints={{
+                        640: {
+                            slidesPerView: "auto",
+                        },
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 15,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 15,
+                        },
+                    }}
+                >
+                    <div>
+                        {
+                            featureData.map((news: NewsItem) => (
+                                <div className="">
+                                    <SwiperSlide key={news.id} className="">
+                                        <div className=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                                            <a href="#">
+                                                <div>
+                                                    <img className="rounded-t-lg h-60 w-full object-cover" src={news.image} alt="" />
+                                                </div>
+                                            </a>
+                                            <div className="p-5">
+                                                <a href="#">
+                                                    <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{news.headline}</h5>
+                                                </a>
+                                                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{news.headline}</p>
+                                                <div className="flex gap-5">
+                                                    <p className="flex items-center text-sm"><TfiWrite className="mr-1" />{news.writer}</p>
+                                                    <p className="flex items-center text-sm"><TiStopwatch className="mr-1" />
+                                                    {moment().format('LL')}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </SwiperSlide>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </Swiper>
+
             </div>
         </div>
     );
