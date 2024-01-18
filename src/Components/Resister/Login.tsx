@@ -1,85 +1,28 @@
-import { useCallback, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
   validateCaptcha,
 } from "react-simple-captcha";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
-import { useDropzone } from "react-dropzone";
-import Context from "../../Hook/useContext";
-import toast from "react-hot-toast";
-
 const Login = () => {
-  const [ShowPassword,setShowPassword]=useState(false)
-  const {createUser,updeateProfile}=Context()
-  const navigate = useNavigate()
-  const Handleregister = (e)=>{
-      e.preventDefault()
-  const emailvalue = e.target.email.value;
-  const namevalue = e.target.Name.value;
-  const passwordvalue = e.target.password.value;
-  // const photoUrlValue = e.target.photoUrl.value;
-  // const UserProfile ={
-  //     emailvalue,namevalue,passwordvalue,photoUrlValue
-  // }
-  console.log(emailvalue,namevalue,passwordvalue);
-  if (/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@#$%^&+=!])[A-Za-z\d@#$%^&+=!]{6,}$/.test(passwordvalue)) {
-      console.log("Valid password:", passwordvalue);
-      createUser(emailvalue, passwordvalue)
-        .then((result) => {
-            toast.success( result.user,'You Have SuccessFully Create Account')
-            updeateProfile(emailvalue,namevalue)
-            .then((results) => {
-  
-                console.log(result);
-                toast.success('🦄 Wow so easy!', {
-                  position: "top-right",
-                  autoClose: 5000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                  theme: "dark",
-                  });
-  
-   console.log(results.user,'updateProfile successfully  ');
-              navigate('/')
-            }).catch((error) => {
-          
-              console.log(error.message);
-            });
-            
-  
-        })
-        .catch(error => {
-          
-          toast.error(error.message);
-        });
-    } else {
-     
-      toast.error("Password must contain at least one letter and one number, and be at least 8 characters long.");
-      
-    }
-   
-    
-  console.log(emailvalue,passwordvalue);
-  }
-  // const onDrop = useCallback(acceptedFiles => {
-  //   // Do something with the files
-  // }, [])
-  // const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
-
   const [disabled, setDisabled] = useState(true);
 
 
+  const Handleregister = (e: React.FormEvent<HTMLFormElement>) => {     e.preventDefault()
+    const emailvalue = (e.currentTarget.email as HTMLInputElement).value;
+    const namevalue = (e.currentTarget.Name as HTMLInputElement).value;
+    const passwordvalue = (e.currentTarget.password as HTMLInputElement).value;
 
+  console.log(emailvalue,namevalue,passwordvalue);
+
+  }
   useEffect(() => {
     loadCaptchaEnginge(6);
   }, []);
 
-  const handlevalidetCapture = (e) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handlevalidetCapture = (e: { target: { value: any } }) => {
     const user_captcha_value = e.target.value;
     console.log(user_captcha_value);
     if (validateCaptcha(user_captcha_value)) {
@@ -89,34 +32,32 @@ const Login = () => {
     }
   };
 
-
-  const handleOpenLoginModal = () => {
-    document.getElementById("my_modal_login").showModal();
-
+  const handleOpenModal = (modalId: string) => {
+    const modal = document.getElementById(modalId) as HTMLDialogElement | null;
+    if (modal) {
+      modal.showModal();
+    }
   };
-  const handleCloseLoginModal = () => {
-    // setLoginModalOpen(false);
-  };
-  const handleCloseSignUpModal = () => {
-    // setSignUpModalOpen(false);
-  };
-  const handleOpenSignUpModal = () => {
-    document.getElementById("my_modal_sighup").showModal();
-    // handleCloseLoginModal(); // Close the login modal before opening the signup modal
-    // setSignUpModalOpen(true);
+  
+  const handleSignUpOpenModal = (modalId: string) => {
+    const modal = document.getElementById(modalId) as HTMLDialogElement | null;
+    if (modal) {
+      modal.showModal();
+    }
   };
     return (
         <div className="flex justify-center gap-4">
             {/* <h2 className="text-3xl font-extrabold">This is Login Section</h2> */}
     
-<button className="btn" onClick={handleOpenLoginModal}>Sign In</button>
+<button className="btn"  onClick={() => handleOpenModal("my_modal_login")}
+      >Sign In</button>
 
 <dialog id="my_modal_login" className="modal">
   <div className="modal-box">
     <form  method="dialog">
    
       {/* if there is a button in form, it will close the modal */}
-      <button   onClick={handleCloseLoginModal} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+      <button  className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
 
     </form>
     <form
@@ -208,12 +149,13 @@ const Login = () => {
  
   </div>
 </dialog>
-<button className="btn" onClick={handleOpenSignUpModal}>Sign Up</button>
+<button className="btn" onClick={() => handleSignUpOpenModal("my_modal_sighup")}
+      >Sign Up</button>
 <dialog id="my_modal_sighup" className="modal">
   <div className="modal-box">
     <form  method="dialog" >
       {/* if there is a button in form, it will close the modal */}
-      <button onClick={handleCloseSignUpModal} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+      <button  className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
     </form>
     <form
           onSubmit={Handleregister}

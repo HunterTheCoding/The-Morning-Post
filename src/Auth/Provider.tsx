@@ -1,9 +1,8 @@
-
 import { createContext, useEffect, useState } from "react";
 
 import {
-  Auth,
   GoogleAuthProvider,
+  User,
   UserCredential,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -12,60 +11,57 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import { auth } from "../Components/Firbase/Firebase.config";
 // import useAxiosPublic from "../Hooks/useAxiosPublic";
-import { auth } from '../Components/Firbase/Firebase.config.js';  
-
-interface AuthInfo {
+export const AuthContext = createContext<{
   updateUserProfile: (name: string, photo: string) => Promise<void>;
-  user: Auth['currentUser'];
+  user: User | null;
   loading: boolean;
   createUser: (email: string, password: string) => Promise<UserCredential>;
   signInUser: (email: string, password: string) => Promise<UserCredential>;
   signInWithGoogle: () => Promise<UserCredential>;
   logOut: () => Promise<void>;
-}
-export const AuthContext = createContext<AuthInfo | null>(null);
+} | null>(null);
 
 const googleProvider = new GoogleAuthProvider();
 
+
 const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // const AxiosPublic = useAxiosPublic();
-  const [user, setUser] = useState<Auth['currentUser'] | null>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const createUser = (email: string, password: string): Promise<UserCredential> => {
+  const createUser = (email: string, password: string) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const signInUser = (email: string, password: string): Promise<UserCredential> => {
+  const signInUser = (email: string, password: string) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const signInWithGoogle = (): Promise<UserCredential> => {
+  const signInWithGoogle = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
-  const logOut = (): Promise<void> => {
+  const logOut = () => {
     setLoading(true);
     return signOut(auth);
   };
 
-  const updateUserProfile = (name: string, photo: string): Promise<void> => {
+  const updateUserProfile = (name: string, photo: string) => {
     console.log(name, photo);
-    return updateProfile(auth.currentUser, {
+    return updateProfile(auth.currentUser!, {
       displayName: name,
       photoURL: photo,
     });
   };
 
   useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (User) => {
-      setUser(User);
-      console.log('Current user', User);
-      setLoading(false);
+    const unSubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+      console.log('Current user', user);
       setLoading(false);
     });
     return () => {
@@ -73,7 +69,7 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     };
   }, []);
 
-  const authInfo: AuthInfo = {
+  const authInfo = {
     updateUserProfile,
     user,
     loading,
@@ -82,10 +78,8 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     signInWithGoogle,
     logOut,
   };
-
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
 };
-
 export default Provider;
