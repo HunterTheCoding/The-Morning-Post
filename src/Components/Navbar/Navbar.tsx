@@ -1,5 +1,7 @@
+
 import Marquee from "react-fast-marquee";
 import { IoMdMenu } from "react-icons/io";
+
 
 const Navbar = () => {
     const list = [
@@ -13,6 +15,8 @@ const Navbar = () => {
         <a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">Opinion</a>,
     ];
     return (
+
+        <div>
         <div className="font-sans bg-gray-300 m-0 p-0">
             <header className="bg-gray-800 text-white p-6 text-center flex justify-between px-2px lg:px-5vw">
                 <div className="flex flex-col text-start">
