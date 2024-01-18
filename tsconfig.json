@@ -18,8 +18,17 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Additional Strictness */
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true
   },
-  "include": ["src"],
+ "include": [ "src/**/*.ts",
+    "src/**/*.tsx",
+    "types/**/*.d.ts", "src/Pages/Contact"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
