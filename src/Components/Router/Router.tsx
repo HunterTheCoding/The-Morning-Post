@@ -5,8 +5,8 @@ import Mainpage from "../Mainpage";
 import Error from "../Error/Error";
 import Signin from "../Resister/Signin";
 import Signup from "../Resister/Signup";
-import OurHistory from "../Home/OurHistory/OurHistory";
-import FeatureNews from "../Home/FeatureNews/FeatureNews";
+// import OurHistory from "../Home/OurHistory/OurHistory";
+// import FeatureNews from "../Home/FeatureNews/FeatureNews";
 
 
 
