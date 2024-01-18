@@ -2,7 +2,7 @@
 import Marquee from "react-fast-marquee";
 import { IoMdMenu } from "react-icons/io";
 import { Link } from "react-router-dom";
-
+import logo from "../../../public/news.png"
 
 const Navbar = () => {
     const list = [
@@ -27,7 +27,7 @@ const Navbar = () => {
                         </div>
                         <h1 className=" ml-3 lg:ml-5 font-semibold lg:font-extrabold text-2xl lg:text-4xl">The Morning Post</h1>
                     </div>
-                    <img src="https://via.placeholder.com/100" alt="logo" />
+                    <img className="rounded-lg" src={logo} alt="" />
                 </header>
 
                 <nav className="bg-gray-700 overflow-hidden pl-20 px-5vw hidden md:flex">
