@@ -6,8 +6,6 @@ import { FaRegClock } from "react-icons/fa";
 
 import { IoIosStar, IoIosStarHalf, IoIosStarOutline } from "react-icons/io";
 import Rating from "react-rating";
-
-
 const OurHistory = () => {
     return (
         <div className="mt-10 lg:flex ">
