@@ -29,6 +29,6 @@
   },
  "include": [ "src/**/*.ts",
     "src/**/*.tsx",
-    "types/**/*.d.ts"],
+    "types/**/*.d.ts", "src/Pages/Contact"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

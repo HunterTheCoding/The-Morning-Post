@@ -7,10 +7,11 @@ import OurHistory from "./OurHistory/OurHistory.jsx"
 const Home = () => {
     return (
         <div>
-            <Login></Login>
+          
             <Bannar></Bannar>
             <OurHistory></OurHistory>
             <FeatureNews></FeatureNews>
+            <Login></Login>
         </div>
     );
 };
