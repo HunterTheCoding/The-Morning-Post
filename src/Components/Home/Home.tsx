@@ -11,11 +11,8 @@ const Home = () => {
             <Bannar></Bannar>
             <OurHistory></OurHistory>
             <FeatureNews></FeatureNews>
-<<<<<<< HEAD
             <Login></Login>
-=======
         
->>>>>>> 479c2fcdaf4eea231aa992a034b34b689b2351d7
         </div>
     );
 };
