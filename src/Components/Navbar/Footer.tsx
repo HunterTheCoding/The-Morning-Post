@@ -28,7 +28,9 @@ const Footer = () => {
                                     <FaYoutube className=" w-10 h-10" />
                                 </button>
                             </div>
+                           
                         </div>
+                        
                         <div className="w-full lg:w-6/12 px-4">
                             <div className="flex items-top mb-6">
                                 <div className="w-full lg:w-4/12 px-4 ml-auto border-l-2">
