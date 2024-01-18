@@ -6,6 +6,7 @@ import { FaRegClock } from "react-icons/fa";
 
 import { IoIosStar, IoIosStarHalf, IoIosStarOutline } from "react-icons/io";
 import Rating from "react-rating";
+const FixedRating = Rating as any;
 const OurHistory = () => {
     return (
         <div className="mt-10 lg:flex ">
@@ -40,28 +41,53 @@ const OurHistory = () => {
                             <div className="flex border-b-2 py-2 mb-1 p-2  w-[300px] lg:w-full">
                                 <img className=" w-[60px] h-[50px] lg:w-[100px] :lgh-[70px] mr-4 " src={p2} alt="" />
 
-                                <div className="mb-1">
+                                {/* <div className="mb-1">
                                     <h1 className="text-base w-full lg:w-full font-normal lg:text-lg lg:font-medium ">Suspendisse posuere mi lacus, leo gravida eu.</h1>
                                     <div className="flex mt-2 text-[12px] lg:text-base text-gray-400">
                                         <FaRegClock className="mr-2" />
                                         <p className="-mt-1 ">March 17.2014</p>
                                     </div>
-                                </div>
-
+                                </div> */}
+        <div className="mb-1">
+              <h1 className="text-base w-full lg:w-full font-normal lg:text-lg lg:font-medium ">
+                Suspendisse posuere mi lacus, leo gravida eu.
+              </h1>
+              {/* Use FixedRating instead of Rating here */}
+              <FixedRating
+                className="text-blue-400 mr-4 text-xl"
+                placeholderRating={3.5}
+                emptySymbol={<IoIosStarOutline />}
+                placeholderSymbol={<IoIosStar />}
+                fullSymbol={<IoIosStarHalf />}
+              />
+            </div>
                             </div>
                         </Link>
                         <Link to="#">
                             <div className="flex border-b-2 py-2 mb-1 p-2  w-[300px] lg:w-full">
                                 <img className=" w-[60px] h-[50px] lg:w-[100px] :lgh-[70px] mr-4 " src={p2} alt="" />
 
-                                <div className="mb-1">
+                                {/* <div className="mb-1">
                                     <h1 className="text-base w-full lg:w-full font-normal lg:text-lg lg:font-medium ">Suspendisse posuere mi lacus, leo gravida eu.</h1>
                                     <div className="flex mt-2 text-[12px] lg:text-base text-gray-400">
                                         <FaRegClock className="mr-2" />
                                         <p className="-mt-1 ">March 17.2014</p>
                                     </div>
-                                </div>
+                                </div> */}
 
+<div className="mb-1">
+              <h1 className="text-base w-full lg:w-full font-normal lg:text-lg lg:font-medium ">
+                Suspendisse posuere mi lacus, leo gravida eu.
+              </h1>
+              {/* Use FixedRating instead of Rating here */}
+              <FixedRating
+                className="text-blue-400 mr-4 text-xl"
+                placeholderRating={3.5}
+                emptySymbol={<IoIosStarOutline />}
+                placeholderSymbol={<IoIosStar />}
+                fullSymbol={<IoIosStarHalf />}
+              />
+            </div>
                             </div>
                         </Link>
                     </div>
@@ -74,7 +100,7 @@ const OurHistory = () => {
                 </div>
                 <div className=" ">
                     <div className="hero h-[250px] w-[300px] lg:w-full  relative  bg-black  mt-5 " style={{ backgroundImage: `url(${p3})` }}>
-                        <div className="absolute bottom-8 px-2">
+                        {/* <div className="absolute bottom-8 px-2">
                             <p className="text-2xl font-semibold text-white">The future of News Blogger Themes. Custom Post Carousel.</p>
                             <Rating
                                 className="text-blue-400 mr-4 text-xl"
@@ -83,14 +109,14 @@ const OurHistory = () => {
                                 placeholderSymbol={<IoIosStar />}
                                 fullSymbol={<IoIosStarHalf />}
                             />
-                        </div>
+                        </div> */}
                     </div>
                     <div className="w-full ">
                         <Link to="#">
                             <div className="flex border-b-2 py-2 mb-1 p-2  w-[300px] lg:w-full">
                                 <img className=" w-[60px] h-[50px] lg:w-[100px] :lgh-[70px] mr-4 " src={p2} alt="" />
 
-                                <div className="mb-1">
+                                {/* <div className="mb-1">
                                     <h1 className="text-base w-full lg:w-full font-normal lg:text-lg lg:font-medium ">Suspendisse posuere mi lacus, leo gravida eu.</h1>
                                     <Rating
                                         className="text-blue-400 mr-4 text-xl"
@@ -99,7 +125,20 @@ const OurHistory = () => {
                                         placeholderSymbol={<IoIosStar />}
                                         fullSymbol={<IoIosStarHalf />}
                                     />
-                                </div>
+                                </div> */}
+                                        <div className="mb-1">
+              <h1 className="text-base w-full lg:w-full font-normal lg:text-lg lg:font-medium ">
+                Suspendisse posuere mi lacus, leo gravida eu.
+              </h1>
+              {/* Use FixedRating instead of Rating here */}
+              <FixedRating
+                className="text-blue-400 mr-4 text-xl"
+                placeholderRating={3.5}
+                emptySymbol={<IoIosStarOutline />}
+                placeholderSymbol={<IoIosStar />}
+                fullSymbol={<IoIosStarHalf />}
+              />
+            </div>
 
                             </div>
                         </Link>
@@ -107,7 +146,7 @@ const OurHistory = () => {
                             <div className="flex border-b-2 py-2 mb-1 p-2  w-[300px] lg:w-full">
                                 <img className=" w-[60px] h-[50px] lg:w-[100px] :lgh-[70px] mr-4 " src={p2} alt="" />
 
-                                <div className="mb-1">
+                                {/* <div className="mb-1">
                                     <h1 className="text-base w-full lg:w-full font-normal lg:text-lg lg:font-medium ">Suspendisse posuere mi lacus, leo gravida eu.</h1>
                                     <Rating
                                         className="text-blue-400 mr-4 text-xl"
@@ -116,7 +155,20 @@ const OurHistory = () => {
                                         placeholderSymbol={<IoIosStar />}
                                         fullSymbol={<IoIosStarHalf />}
                                     />
-                                </div>
+                                </div> */}
+                                        <div className="mb-1">
+              <h1 className="text-base w-full lg:w-full font-normal lg:text-lg lg:font-medium ">
+                Suspendisse posuere mi lacus, leo gravida eu.
+              </h1>
+              {/* Use FixedRating instead of Rating here */}
+              <FixedRating
+                className="text-blue-400 mr-4 text-xl"
+                placeholderRating={3.5}
+                emptySymbol={<IoIosStarOutline />}
+                placeholderSymbol={<IoIosStar />}
+                fullSymbol={<IoIosStarHalf />}
+              />
+            </div>
 
                             </div>
                         </Link>
