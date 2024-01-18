@@ -9,6 +9,7 @@ const Home = () => {
             <Bannar></Bannar>
             <OurHistory></OurHistory>
             <FeatureNews></FeatureNews>
+        
         </div>
     );
 };
