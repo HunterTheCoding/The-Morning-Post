@@ -1,8 +1,16 @@
+import React, { useRef } from "react";
 
-const Signup = () => {
+const Signup: React.FC = () => {
+  const modalRef = useRef<HTMLDialogElement>(null);
+  const openModal =()=>{
+    if (modalRef.current) {
+      modalRef.current.showModal();
+    }
+  }
+
   return (
     <div>
-        <button className="btn" onClick={() => document.getElementById('my_modal_4').showModal()}>open modal</button>
+        <button className="btn" onClick={openModal}>open modal</button>
         <dialog id="my_modal_2" className="modal">
           <div className="modal-box">
             <h3 className="font-bold text-lg">Hello!</h3>
