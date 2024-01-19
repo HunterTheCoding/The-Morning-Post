@@ -36,7 +36,7 @@ const OurHistory = () => {
                         </Link>
                     </div>
                     <div className="w-full lg:w-[50%]">
-
+                        
                         <Link to="#">
                             <div className="flex border-b-2 py-2 mb-1 p-2  w-[300px] lg:w-full">
                                 <img className=" w-[60px] h-[50px] lg:w-[100px] :lgh-[70px] mr-4 " src={p2} alt="" />
