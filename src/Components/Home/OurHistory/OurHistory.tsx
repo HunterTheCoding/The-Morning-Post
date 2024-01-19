@@ -6,6 +6,7 @@ import { FaRegClock } from "react-icons/fa";
 
 import { IoIosStar, IoIosStarHalf, IoIosStarOutline } from "react-icons/io";
 import Rating from "react-rating";
+
 const FixedRating = Rating as any;
 const OurHistory = () => {
     return (
@@ -48,19 +49,19 @@ const OurHistory = () => {
                                         <p className="-mt-1 ">March 17.2014</p>
                                     </div>
                                 </div> */}
-        <div className="mb-1">
-              <h1 className="text-base w-full lg:w-full font-normal lg:text-lg lg:font-medium ">
-                Suspendisse posuere mi lacus, leo gravida eu.
-              </h1>
-              {/* Use FixedRating instead of Rating here */}
-              <FixedRating
-                className="text-blue-400 mr-4 text-xl"
-                placeholderRating={3.5}
-                emptySymbol={<IoIosStarOutline />}
-                placeholderSymbol={<IoIosStar />}
-                fullSymbol={<IoIosStarHalf />}
-              />
-            </div>
+                                <div className="mb-1">
+                                    <h1 className="text-base w-full lg:w-full font-normal lg:text-lg lg:font-medium ">
+                                        Suspendisse posuere mi lacus, leo gravida eu.
+                                    </h1>
+                                    {/* Use FixedRating instead of Rating here */}
+                                    <FixedRating
+                                        className="text-blue-400 mr-4 text-xl"
+                                        placeholderRating={3.5}
+                                        emptySymbol={<IoIosStarOutline />}
+                                        placeholderSymbol={<IoIosStar />}
+                                        fullSymbol={<IoIosStarHalf />}
+                                    />
+                                </div>
                             </div>
                         </Link>
                         <Link to="#">
@@ -75,19 +76,19 @@ const OurHistory = () => {
                                     </div>
                                 </div> */}
 
-<div className="mb-1">
-              <h1 className="text-base w-full lg:w-full font-normal lg:text-lg lg:font-medium ">
-                Suspendisse posuere mi lacus, leo gravida eu.
-              </h1>
-              {/* Use FixedRating instead of Rating here */}
-              <FixedRating
-                className="text-blue-400 mr-4 text-xl"
-                placeholderRating={3.5}
-                emptySymbol={<IoIosStarOutline />}
-                placeholderSymbol={<IoIosStar />}
-                fullSymbol={<IoIosStarHalf />}
-              />
-            </div>
+                                <div className="mb-1">
+                                    <h1 className="text-base w-full lg:w-full font-normal lg:text-lg lg:font-medium ">
+                                        Suspendisse posuere mi lacus, leo gravida eu.
+                                    </h1>
+                                    {/* Use FixedRating instead of Rating here */}
+                                    <FixedRating
+                                        className="text-blue-400 mr-4 text-xl"
+                                        placeholderRating={3.5}
+                                        emptySymbol={<IoIosStarOutline />}
+                                        placeholderSymbol={<IoIosStar />}
+                                        fullSymbol={<IoIosStarHalf />}
+                                    />
+                                </div>
                             </div>
                         </Link>
                     </div>
@@ -126,19 +127,19 @@ const OurHistory = () => {
                                         fullSymbol={<IoIosStarHalf />}
                                     />
                                 </div> */}
-                                        <div className="mb-1">
-              <h1 className="text-base w-full lg:w-full font-normal lg:text-lg lg:font-medium ">
-                Suspendisse posuere mi lacus, leo gravida eu.
-              </h1>
-              {/* Use FixedRating instead of Rating here */}
-              <FixedRating
-                className="text-blue-400 mr-4 text-xl"
-                placeholderRating={3.5}
-                emptySymbol={<IoIosStarOutline />}
-                placeholderSymbol={<IoIosStar />}
-                fullSymbol={<IoIosStarHalf />}
-              />
-            </div>
+                                <div className="mb-1">
+                                    <h1 className="text-base w-full lg:w-full font-normal lg:text-lg lg:font-medium ">
+                                        Suspendisse posuere mi lacus, leo gravida eu.
+                                    </h1>
+                                    {/* Use FixedRating instead of Rating here */}
+                                    <FixedRating
+                                        className="text-blue-400 mr-4 text-xl"
+                                        placeholderRating={3.5}
+                                        emptySymbol={<IoIosStarOutline />}
+                                        placeholderSymbol={<IoIosStar />}
+                                        fullSymbol={<IoIosStarHalf />}
+                                    />
+                                </div>
 
                             </div>
                         </Link>
@@ -156,19 +157,19 @@ const OurHistory = () => {
                                         fullSymbol={<IoIosStarHalf />}
                                     />
                                 </div> */}
-                                        <div className="mb-1">
-              <h1 className="text-base w-full lg:w-full font-normal lg:text-lg lg:font-medium ">
-                Suspendisse posuere mi lacus, leo gravida eu.
-              </h1>
-              {/* Use FixedRating instead of Rating here */}
-              <FixedRating
-                className="text-blue-400 mr-4 text-xl"
-                placeholderRating={3.5}
-                emptySymbol={<IoIosStarOutline />}
-                placeholderSymbol={<IoIosStar />}
-                fullSymbol={<IoIosStarHalf />}
-              />
-            </div>
+                                <div className="mb-1">
+                                    <h1 className="text-base w-full lg:w-full font-normal lg:text-lg lg:font-medium ">
+                                        Suspendisse posuere mi lacus, leo gravida eu.
+                                    </h1>
+                                    {/* Use FixedRating instead of Rating here */}
+                                    <FixedRating
+                                        className="text-blue-400 mr-4 text-xl"
+                                        placeholderRating={3.5}
+                                        emptySymbol={<IoIosStarOutline />}
+                                        placeholderSymbol={<IoIosStar />}
+                                        fullSymbol={<IoIosStarHalf />}
+                                    />
+                                </div>
 
                             </div>
                         </Link>
