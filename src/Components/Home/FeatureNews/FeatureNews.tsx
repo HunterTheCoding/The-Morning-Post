@@ -9,8 +9,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 // import './styles.css';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import { TfiWrite } from "react-icons/tfi";
-import { TiStopwatch } from "react-icons/ti";
+// import { TfiWrite } from "react-icons/tfi";
+// import { TiStopwatch } from "react-icons/ti";
 // defining typescript 
 interface NewsItem {
     id: number;
@@ -78,10 +78,10 @@ const FeatureNews = () => {
                                                 </a>
                                                 <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{news.headline}</p>
                                                 <div className="flex gap-5">
-                                                    <p className="flex items-center text-sm"><TfiWrite className="mr-1" />{news.writer}</p>
+                                                    {/* <p className="flex items-center text-sm"><TfiWrite className="mr-1" />{news.writer}</p>
                                                     <p className="flex items-center text-sm"><TiStopwatch className="mr-1" />
                                                     {moment().format('LL')}
-                                                    </p>
+                                                    </p> */}
                                                 </div>
                                             </div>
                                         </div>
