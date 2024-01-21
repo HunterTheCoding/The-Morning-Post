@@ -1,16 +1,18 @@
-import {  useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
   validateCaptcha,
 } from "react-simple-captcha";
-import { FcGoogle } from "react-icons/fc";
-const Login = () => {
+
+import SocialLogin from "./Social";
+import { Link } from "react-router-dom";
+const Login: React.FC = () => {
   const [disabled, setDisabled] = useState(true);
 
 
-  const Handleregister = (e: React.FormEvent<HTMLFormElement>) => {     e.preventDefault()
-    const emailvalue = (e.currentTarget.email as HTMLInputElement).value;
+  const  HandleLogin = (e: React.FormEvent<HTMLFormElement>) => {  e.preventDefault()
+    const emailvalue= (e.currentTarget.email as HTMLInputElement).value;
     const namevalue = (e.currentTarget.Name as HTMLInputElement).value;
     const passwordvalue = (e.currentTarget.password as HTMLInputElement).value;
 
@@ -22,7 +24,7 @@ const Login = () => {
   }, []);
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handlevalidetCapture = (e: { target: { value: any } }) => {
+  const handlevalidetCapture = (e: { target: { value: unknown } }) => {
     const user_captcha_value = e.target.value;
     console.log(user_captcha_value);
     if (validateCaptcha(user_captcha_value)) {
@@ -32,219 +34,61 @@ const Login = () => {
     }
   };
 
-  const handleOpenModal = (modalId: string) => {
-    const modal = document.getElementById(modalId) as HTMLDialogElement | null;
-    if (modal) {
-      modal.showModal();
-    }
-  };
-  
-  const handleSignUpOpenModal = (modalId: string) => {
-    const modal = document.getElementById(modalId) as HTMLDialogElement | null;
-    if (modal) {
-      modal.showModal();
-    }
-  };
+
     return (
-        <div className="flex justify-center gap-4">
-            {/* <h2 className="text-3xl font-extrabold">This is Login Section</h2> */}
-    
-<button className="btn"  onClick={() => handleOpenModal("my_modal_login")}
-      >Sign In</button>
-
-<dialog id="my_modal_login" className="modal">
-  <div className="modal-box">
-    <form  method="dialog">
-   
-      {/* if there is a button in form, it will close the modal */}
-      <button  className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-
-    </form>
-    <form
-          // onSubmit={HandleFrom}
-          // noValidate=""
-          action=""
-          className="space-y-6 ng-untouched ng-pristine ng-valid"
-        >
-          <div className="space-y-4">
-            <div>
-              <label htmlFor="email" className="block mb-2 text-sm">
-                Email address
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                required
-                placeholder="Enter Your Email Here"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900"
-                data-temp-mail-org="0"
-              />
-            </div>
-            <div>
-              <div className="flex justify-between">
-                <label htmlFor="password" className="text-sm mb-2">
-                  Password
-                </label>
-              </div>
-              <input
-                type="password"
-                name="password"
-                autoComplete="current-password"
-                id="password"
-                required
-                placeholder="*******"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900"
-              />
-            </div>
-            <div className="flex items-center">
-  <label className=" p-2">
-    <LoadCanvasTemplate />
-  </label>
-
-  <input
-    onBlur={handlevalidetCapture}
-    type="text"
-    placeholder="type the captcha above"
-    className="input border-2 ml-4 p-2"  
-    name="captcha"
-    required
-  />
-</div>
+      <div>
+      <div className="hero min-h-screen bg-base-200">
+        <div className="hero-content flex-col ">
+          <div className="text-center lg:text-left">
+            <h1 className="text-5xl font-bold">Login now!</h1>
+            <p className="py-6">
+              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
+              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
+              et a id nisi.
+            </p>
           </div>
-
-          <div>
-          
-            <button
-            
-              disabled={disabled}
-              type="submit"
-            
-              className="bg-rose-500 w-full rounded-md py-3 text-white"
-            >
-              LOGIN NOW
-            </button>
-          </div>
-        </form>          
-        <div className="space-y-1">
-          <button className="text-xs hover:underline hover:text-rose-500 text-gray-400">
-            Forgot password?
-          </button>
-        </div>
-        <div className="flex items-center pt-4 space-x-1">
-          <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-          <p className="px-3 text-sm dark:text-gray-400">
-            Login with Social accounts
-          </p>
-          <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-        </div>
-        <div
-          // onClick={handleGoogleSignIn}
-          className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer"
-        >
-          <FcGoogle size={32} />
-
-          <p>Continue with GOOGLE</p>
-        </div>
- 
+          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <form onSubmit={HandleLogin} className="card-body">
+            <div className="relative z-0 w-full mb-5 group">
+      <input type="email" name="floating_email" id="floating_email" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+      <label htmlFor="floating_email" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
   </div>
-</dialog>
-<button className="btn" onClick={() => handleSignUpOpenModal("my_modal_sighup")}
-      >Sign Up</button>
-<dialog id="my_modal_sighup" className="modal">
-  <div className="modal-box">
-    <form  method="dialog" >
-      {/* if there is a button in form, it will close the modal */}
-      <button  className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-    </form>
-    <form
-          onSubmit={Handleregister}
-          // noValidate=""
-          action=""
-          className="space-y-6 ng-untouched ng-pristine ng-valid"
-        >
-          <div className="space-y-4">
-            <div>
-              <label htmlFor="email" className="block mb-2 text-sm">
-                Name
-              </label>
-              <input
-                type="Name"
-                name="Name"
-                id="Name"
-                required
-                placeholder="Enter Your Name Here"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900"
-                data-temp-mail-org="0"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block mb-2 text-sm">
-                Email address
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                required
-                placeholder="Enter Your Email Here"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900"
-                data-temp-mail-org="0"
-              />
-            </div>
-     
-            <div>
-              <div className="flex justify-between">
-                <label htmlFor="password" className="text-sm mb-2">
-                  Password
-                </label>
-              </div>
-              <input
-                type="password"
-                name="password"
-                autoComplete="current-password"
-                id="password"
-                required
-                placeholder="*******"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900"
-              />
-            </div>
-
-          </div>
-
-          <div>
-          
-            <button
-            
-          
-              type="submit"
-            
-              className="bg-rose-500 w-full rounded-md py-3 text-white"
-            >
-              Sign Up 
-            </button>
-          </div>
-        </form>          
-
-        <div className="flex items-center pt-4 space-x-1">
-          <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-          <p className="px-3 text-sm dark:text-gray-400">
-            Sign Up with Social accounts
-          </p>
-          <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-        </div>
-        <div
-          // onClick={handleGoogleSignIn}
-          className="flex justify-center items-center space-x-2 border m-3 p-2 border-gray-300 border-rounded cursor-pointer"
-        >
-          <FcGoogle size={32} />
-
-          <p>Continue with GOOGLE</p>
-        </div>
+            <div className="relative z-0 w-full mb-5 group">
+      <input type="password" name="Password" id="Password" className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+      <label htmlFor="Password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+  </div>
   
-  </div>
-</dialog>
+
+              <div className="form-control">
+                <label className="label">
+                  {/* <span className="label-text">Password</span>
+                   */}
+                  <LoadCanvasTemplate />
+                </label>
+                <input  onBlur={handlevalidetCapture}
+                  type="text"
+                  placeholder="type the captcha above"
+                  className="input input-bordered"
+                  name="captcha"
+                  required
+                />
+              </div>
+              <div className="form-control mt-6">
+                {/* <input type="submit"  className="btn btn-primary">Login Now</input> */}
+             <input  type="submit" className="btn btn-primary" disabled={disabled} value="Login Now" />
+              </div>
+            </form>
+            <div className="text-sm font-medium text-gray-500 dark:text-gray-300 text-center">
+                            You have Already registered? <Link to='/singup'
+                            className="text-blue-700 hover:underline dark:text-blue-500">Login Now</Link>
+                        </div>
+                     <div className="flex justify-center">
+                     <SocialLogin></SocialLogin>
+                     </div>
+          </div>
         </div>
+      </div>
+    </div>
     );
 };
 

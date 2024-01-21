@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-
 import {
   GoogleAuthProvider,
   User,
@@ -12,19 +11,20 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../Components/Firbase/Firebase.config";
-// import useAxiosPublic from "../Hooks/useAxiosPublic";
-export const AuthContext = createContext<{
+
+
+export  interface AuthContextProps {
   updateUserProfile: (name: string, photo: string) => Promise<void>;
   user: User | null;
   loading: boolean;
-  createUser: (email: string, password: string) => Promise<UserCredential>;
+  createUser: (email: string, password: string) => Promise<UserCredential | null>;
   signInUser: (email: string, password: string) => Promise<UserCredential>;
   signInWithGoogle: () => Promise<UserCredential>;
   logOut: () => Promise<void>;
-} | null>(null);
+}
 
+export const AuthContext =createContext <AuthContextProps|null> (null)
 const googleProvider = new GoogleAuthProvider();
-
 
 const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
@@ -77,9 +77,13 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     signInUser,
     signInWithGoogle,
     logOut,
-  };
+  }as AuthContextProps;
+
   return (
-    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={authInfo}>
+      {children}
+    </AuthContext.Provider>
   );
 };
+
 export default Provider;

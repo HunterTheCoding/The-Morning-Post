@@ -6,9 +6,11 @@ import { FaRegClock } from "react-icons/fa";
 
 import { IoIosStar, IoIosStarHalf, IoIosStarOutline } from "react-icons/io";
 import Rating from "react-rating";
+import React from "react";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const FixedRating = Rating as any;
-const OurHistory = () => {
+const OurHistory : React.FC = () => {
     return (
         <div className="mt-10 lg:flex ">
             <div className="lg:w-2/3 w-full">
