@@ -2,18 +2,17 @@
 import Marquee from "react-fast-marquee";
 import { IoMdMenu } from "react-icons/io";
 import { Link } from "react-router-dom";
-
+import logo from "../../../public/news.png"
 
 const Navbar = () => {
     const list = [
-        <a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">Home</a>,
-        <a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">World</a>,
-        <a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">Politics</a>,
-        <a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">Business</a>,
-        <a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">Sports</a>,
-        <a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">Entertainment</a>,
-        <a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">Technology</a>,
-        <a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">Opinion</a>,
+        <Link to="/"><a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="/">Home</a></Link>,
+        <Link to="/world"><a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">World</a></Link>,
+        <Link to="/busineess"><a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">Business</a></Link>,
+        <Link to="/science"><a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">Science</a></Link>,
+        <Link to="/national"><a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">National</a></Link>,
+        <Link to="/sport"><a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">Sport</a></Link>,
+        <Link to="/entertainment"><a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">entertainment</a></Link>,
         <Link to='Contact-US' className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" >Contact Us</Link>,
     ];
     return (
@@ -27,7 +26,7 @@ const Navbar = () => {
                         </div>
                         <h1 className=" ml-3 lg:ml-5 font-semibold lg:font-extrabold text-2xl lg:text-4xl">The Morning Post</h1>
                     </div>
-                    <img src="https://via.placeholder.com/100" alt="logo" />
+                    <img className="rounded-lg" src={logo} alt="" />
                 </header>
 
                 <nav className="bg-gray-700 overflow-hidden pl-20 px-5vw hidden md:flex">
