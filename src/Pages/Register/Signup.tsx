@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { FaEyeSlash, FaEye } from 'react-icons/fa';
@@ -97,8 +98,9 @@ const Signup: React.FC = () => {
         .catch((error) => {
           toast.error(error.message);
         });
-    } catch (error) {
-      console.error(error.message);
+    } catch (error: any) {
+      // Declare the type of 'error' explicitly as 'any' or 'Error'
+      console.error((error as Error).message);
     }
   };
 

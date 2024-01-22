@@ -14,7 +14,6 @@ import { auth } from "../Components/Firbase/Firebase.config";
 import useAxiosPublic from "../Hook/useAxiosPublic";
 
 import Swal from "sweetalert2";
-import axios from "axios";
 export interface AuthContextProps {
   updateUserProfile: (name: string,  photo: string) => Promise<void>;
   user: User | null;
@@ -77,7 +76,7 @@ const userInfo ={
 
 }
 if(userEmail || loggedUser){
-  axios.post("http://localhost:5000/users", userInfo).then((res) => {
+  AxiosPublic.post("/users", userInfo).then((res) => {
     if (res.data.insertedId) {
       console.log("urser added to the database");
   
