@@ -23,11 +23,13 @@ const NavNational = () => {
                     <div className="flex h-[165px] md:h-[190px] w-[100%] bg-gray-200 rounded-md ">
                         <h1 className="w-[40%] text-lg md:text-xl font-semibold py-1 px-2 md:py-2 md:px-5"> রবিবার রাত ১০টার দিকে নিজ বাড়ি  </h1>
                         <img className="w-[60%]" src={p1} alt="" />
-                        L</div>
-
-                    L</div>
+                        </div>
+                    </div>
+                    <div className="flex justify-end px-5">
+                        <button className="btn text-xl hover:text-black hover:bg-green-200  font-medium text-black border-none bg-green-300 ">View All</button>
+                    </div>
             </div>
-            <div className="w-full lg:w-1/3 mt-5 p-5">
+            <div className="w-full lg:w-1/3  p-5">
                 <div className="  rounded-md flex justify-between border bg-gray-200" >
                     <h1 className="text-2xl px-2 text-red-400 mt-1 font-bold ">Resent news</h1>
                     <button className="bg-red-500 px-4 py-3 rounded-r-md "><FaArrowCircleRight className="text-2xl text-white" /></button>
@@ -42,9 +44,7 @@ const NavNational = () => {
                     <div className="flex h-[150px] lg:h-[85px] w-[100%] bg-gray-200 rounded-md mb-4 ">
                         <img className=" w-[230px] lg:w-[120px] h-[150px] lg:h-[85px]" src={p1} alt="" />
                         <p className=" text-lg lg:text-base font-medium py-2 px-2"> রবিবার রাত ১০টার দিকে নিজ বাড়ি  </p>
-                        IL</div>
-
-
+                        </div>
                 </div>
             </div>
         </div>
