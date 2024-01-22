@@ -9,6 +9,7 @@ import SocialLogin from "../../Components/Register/Social";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Context from "../../Hook/useContext";
 import toast from "react-hot-toast";
+import Github from "../../Components/Register/Github";
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -137,6 +138,9 @@ const {signInUser}= Context()
             </div>
             <div className="flex -mt-8 justify-center">
               <SocialLogin></SocialLogin>
+            </div>
+            <div className="flex -mt-8 justify-center">
+              <Github></Github>
             </div>
           </div>
         </div>
