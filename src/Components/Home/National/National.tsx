@@ -17,35 +17,26 @@ const National = () => {
                         <p className="text-base font-medium= ml-4 py-2">রংপুরে অস্বচ্ছলতা সুযোগে ৪০ হাজার টাকার বিনিময়ে</p>
                     </div>
                 </Link>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-1 lg:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-[2px] lg:gap-6">
                     <Link to="#">
-                        <div className="w-full mb-5 md:mb-0 object-cover  md:w-[125px] lg:w-[165px] h-[250px] md:h-[220px] lg:h-[224px] border rounded-lg">
-                            <img className=" w-full md:w-[125px] lg:w-[165px] h-[200px] md:h-[110px] rounded-lg" src={p2} alt="" />
-                            <h1 className="p-1 lg:py-1 text-[18px] md:text-[12px] py-2 lg:text-base font-medium">বগুড়ায় রাইস মিলে অভিযান</h1>
+                        <div className="w-full mb-5 md:mb-0 object-cover  md:w-[100%] lg:w-[100%] h-[200px] md:h-[220px] lg:h-[224px] border rounded-lg">
+                            <img className=" w-full md:w-[100%] lg:w-[100%] h-[150px] md:h-[110px] rounded-lg" src={p2} alt="" />
+                            <h1 className="p-1 lg:py-1 text-[14px] md:text-[12px] py-2 lg:text-base font-medium">বগুড়ায় রাইস মিলে অভিযান</h1>
                         </div>
                     </Link>
-                    <div className="w-full mb-5 md:mb-0 object-cover  md:w-[125px] lg:w-[165px] h-[250px] md:h-[220px] lg:h-[224px] border rounded-lg">
-                        <img className=" w-full md:w-[125px] lg:w-[165px] h-[200px] md:h-[110px] rounded-lg" src={p2} alt="" />
-                        <h1 className="p-1 lg:py-1 text-[18px] md:text-[12px] py-2 lg:text-base font-medium">বগুড়ায় রাইস মিলে অভিযান</h1>
-                    </div>
-                    <div className="w-full mb-5 md:mb-0 object-cover  md:w-[125px] lg:w-[165px] h-[250px] md:h-[220px] lg:h-[224px] border rounded-lg">
-                        <img className=" w-full md:w-[125px] lg:w-[165px] h-[200px] md:h-[110px] rounded-lg" src={p2} alt="" />
-                        <h1 className="p-1 lg:py-1 text-[18px] md:text-[12px] py-2 lg:text-base font-medium">বগুড়ায় রাইস মিলে অভিযান</h1>
-                    </div>
                     <Link to="#">
-                        <div className="w-full mb-5 md:mb-0 object-cover  md:w-[125px] lg:w-[165px] h-[250px] md:h-[220px] lg:h-[224px] border rounded-lg">
-                            <img className=" w-full md:w-[125px] lg:w-[165px] h-[200px] md:h-[110px] rounded-lg" src={p2} alt="" />
-                            <h1 className="p-1 lg:py-1 text-[18px] md:text-[12px] py-2 lg:text-base font-medium">বগুড়ায় রাইস মিলে অভিযান</h1>
+                        <div className="w-full mb-5 md:mb-0 object-cover  md:w-[100%] lg:w-[100%] h-[200px] md:h-[220px] lg:h-[224px] border rounded-lg">
+                            <img className=" w-full md:w-[100%] lg:w-[100%] h-[150px] md:h-[110px] rounded-lg" src={p2} alt="" />
+                            <h1 className="p-1 lg:py-1 text-[14px] md:text-[12px] py-2 lg:text-base font-medium">বগুড়ায় রাইস মিলে অভিযান</h1>
                         </div>
                     </Link>
-                    <div className="w-full mb-5 md:mb-0 object-cover  md:w-[125px] lg:w-[165px] h-[250px] md:h-[220px] lg:h-[224px] border rounded-lg">
-                        <img className=" w-full md:w-[125px] lg:w-[165px] h-[200px] md:h-[110px] rounded-lg" src={p2} alt="" />
-                        <h1 className="p-1 lg:py-1 text-[18px] md:text-[12px] py-2 lg:text-base font-medium">বগুড়ায় রাইস মিলে অভিযান</h1>
-                    </div>
-                    <div className="w-full mb-5 md:mb-0 object-cover  md:w-[125px] lg:w-[165px] h-[250px] md:h-[220px] lg:h-[224px] border rounded-lg">
-                        <img className=" w-full md:w-[125px] lg:w-[165px] h-[200px] md:h-[110px] rounded-lg" src={p2} alt="" />
-                        <h1 className="p-1 lg:py-1 text-[18px] md:text-[12px] py-2 lg:text-base font-medium">বগুড়ায় রাইস মিলে অভিযান</h1>
-                    </div>
+                    <Link to="#">
+                        <div className="w-full mb-5 md:mb-0 object-cover  md:w-[100%] lg:w-[100%] h-[200px] md:h-[220px] lg:h-[224px] border rounded-lg">
+                            <img className=" w-full md:w-[100%] lg:w-[100%] h-[150px] md:h-[110px] rounded-lg" src={p2} alt="" />
+                            <h1 className="p-1 lg:py-1 text-[14px] md:text-[12px] py-2 lg:text-base font-medium">বগুড়ায় রাইস মিলে অভিযান</h1>
+                        </div>
+                    </Link>
+            
                 </div>
             </div>
         </div>
