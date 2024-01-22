@@ -7,6 +7,8 @@ import { FaRegClock } from "react-icons/fa";
 import { IoIosStar, IoIosStarHalf, IoIosStarOutline } from "react-icons/io";
 import Rating from "react-rating";
 
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const FixedRating = Rating as any;
 const OurHistory = () => {
 
@@ -38,7 +40,7 @@ const OurHistory = () => {
                         </Link>
                     </div>
                     <div className="w-full lg:w-[50%]">
-
+                        
                         <Link to="#">
                             <div className="flex border-b-2 py-2 mb-1 p-2  w-full lg:w-full">
                                 <img className=" w-[60px] h-[50px] lg:w-[100px] :lgh-[70px] mr-4 " src={p2} alt="" />
