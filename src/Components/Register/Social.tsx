@@ -34,12 +34,12 @@ const SocialLogin = () => {
     }
 
     return (
-        <div className="p-8">
-            <div className="divider"></div>
-            <div>
-                <button onClick={handleGoogleSignIn} className="btn">
-                    <FaGoogle className="mr-2"></FaGoogle>
-                    Google
+        <div className="p-8 w-full">
+            <div className="divider w-1/2 ml-20"></div>
+            <div className="">
+                <button onClick={handleGoogleSignIn} className="btn w-full bg-blue-800 hover:bg-blue-500 btn-outline  ">
+                    <FaGoogle className="mr-2 "></FaGoogle>
+                Sign In With Google
                 </button>
             </div>
         </div>
