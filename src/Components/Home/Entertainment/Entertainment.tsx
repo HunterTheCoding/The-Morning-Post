@@ -142,7 +142,7 @@ const Entertainment = () => {
                     </div>
                 </div>
                 {/* sidebar */}
-                <div className="col-span-2 bg-gray-300">
+                <div className="col-span-2 bg-gray-300 mt-4 rounded-md">
                     Sidebar
                 </div>
             </div>
