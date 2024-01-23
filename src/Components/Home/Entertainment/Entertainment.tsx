@@ -35,7 +35,7 @@ const Entertainment = () => {
             <div className="grid grid-cols-6 gap-4">
                 <div className="col-span-4">
                     <div className="grid grid-cols-9">
-                        <div className="col-span-6 p-4">
+                        <div className="col-span-9 md:col-span-6 lg:col-span-6 p-4">
                             <Swiper
                                 slidesPerView={1}
                                 spaceBetween={30}
@@ -66,7 +66,7 @@ const Entertainment = () => {
 
                             </Swiper>
                         </div>
-                        <div className="col-span-3 p-4">
+                        <div className="hidden md:col-span-3 lg:col-span-3 p-4">
                             <div className="card card-compact bg-base-100 shadow-xl">
                                 <figure><img src={sidebanner2} className='w-full md:h-[150px] lg:h-[200px]' alt="news" /></figure>
                                 <div className="card-body">
