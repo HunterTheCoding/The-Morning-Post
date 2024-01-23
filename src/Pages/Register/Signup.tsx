@@ -174,12 +174,9 @@ const Signup: React.FC = () => {
                      <div className="flex -mt-8 justify-center">
                      <SocialLogin></SocialLogin>
                      </div>
-                     <div className="flex -mt-8 justify-center">
-                     <SocialLogin></SocialLogin>
-                     </div>
+                   
           </div>
-  
-          <div className=' mt-10    md:w-4/12  '>
+          <div className=' mt-10  md:w-4/12'>
   {/* <Lottie className='w-4/5' animationData={SignUpAnemition}>
   
   </Lottie> */}

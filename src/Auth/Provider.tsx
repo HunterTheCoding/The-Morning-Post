@@ -106,7 +106,6 @@ if(userEmail || loggedUser){
     signInWithGoogle,
     logOut,
   }as AuthContextProps;
-
   return (
     <AuthContext.Provider value={authInfo}>
       {children}
