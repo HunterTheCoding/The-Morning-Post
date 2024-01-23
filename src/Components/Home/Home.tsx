@@ -1,4 +1,4 @@
-import Login from "../Resister/Login.js";
+
 import Bannar from "./Bannar/Bannar.js";
 import Entertainment from "./Entertainment/Entertainment.js";
 import FeatureNews from "./FeatureNews/FeatureNews.js";
