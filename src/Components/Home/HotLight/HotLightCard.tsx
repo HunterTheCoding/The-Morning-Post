@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { News } from "./HotLight";
 import { Link } from "react-router-dom";
 
@@ -8,9 +7,6 @@ interface HotLightCardProps {
 
 const HotLightCard: React.FC<HotLightCardProps> = ({ news }) => {
   const {  headline,summary, image } = news;
-  const [showFullSummary, setShowFullSummary] = useState(false);
-
-
 
   return (
     <div>
