@@ -3,6 +3,7 @@ import Bannar from "./Bannar/Bannar.js";
 import Entertainment from "./Entertainment/Entertainment.js";
 import FeatureNews from "./FeatureNews/FeatureNews.js";
 import HotLight from "./HotLight/HotLight.js";
+import International from "./International/International.js";
 import National from "./National/National.js";
 import OurHistory from "./OurHistory/OurHistory.js";
 
@@ -19,6 +20,7 @@ const Home = () => {
             <National></National>
             <Entertainment></Entertainment>
             <Login></Login>
+            <International></International>
         </div>
     );
 };
