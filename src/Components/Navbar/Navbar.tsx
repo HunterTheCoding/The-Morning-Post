@@ -61,14 +61,32 @@ const Navbar = () => {
                 className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
                 href="#"
             >
-                entertainment
+                Entertainment
             </a>
         </Link>,
         <Link
-            to="Contact-US"
+            to="/Contact-US"
             className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
         >
             Contact Us
+        </Link>,
+        <Link
+            to="/jobs"
+            className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+        >
+            Jobs
+        </Link>,
+        <Link
+            to="donation"
+            className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+        >
+    Donation
+        </Link>,
+        <Link
+            to="live-telecast"
+            className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+        >
+    Live Telecast
         </Link>,
     ];
     return (
