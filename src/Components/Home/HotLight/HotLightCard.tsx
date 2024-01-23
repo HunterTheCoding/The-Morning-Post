@@ -23,7 +23,7 @@ const HotLightCard: React.FC<HotLightCardProps> = ({ news }) => {
             </a>
             <p      
               className={`mb-3 font-normal text-gray-700 dark:text-gray-400 ${
-                showFullSummary ? "" : "line-clamp-3"
+               "line-clamp-3"
               }`}
             >
               {summary}
