@@ -6,6 +6,7 @@ import { SlBadge } from "react-icons/sl";
 import Context from "../../Hook/useContext";
 
 const Navbar = () => {
+
     const {user,logOut}=Context()
   const list = [
     <Link to="/">
@@ -100,7 +101,19 @@ const Navbar = () => {
                   tabIndex={0}
                   className="menu menu-sm dropdown-content  mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                 >
-               
+    const list = [
+
+        <Link to="/"><a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="/">Home</a></Link>,
+        <Link to="/world"><a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">World</a></Link>,
+        <Link to="/business"><a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">Business</a></Link>,
+        <Link to="/science"><a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">Science</a></Link>,
+        <Link to="/national"><a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">National</a></Link>,
+        <Link to="/sport"><a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">Sport</a></Link>,
+        <Link to="/entertainment"><a className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" href="#">entertainment</a></Link>,
+        <Link to='Contact-US' className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700" >Contact Us</Link>,
+    ];
+    return (
+
 
                   <li>
                     <NavLink
