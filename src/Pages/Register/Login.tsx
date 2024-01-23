@@ -138,6 +138,7 @@ const {signInUser}= Context()
             <div className="flex -mt-8 justify-center">
               <SocialLogin></SocialLogin>
             </div>
+       
           </div>
         </div>
       </div>

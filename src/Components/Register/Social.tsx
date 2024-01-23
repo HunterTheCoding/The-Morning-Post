@@ -1,10 +1,7 @@
 import { FaGoogle } from "react-icons/fa";
 
 import { useNavigate } from "react-router-dom";
-import Context from "../../Hook/useContext";
-
-
-
+import Context from "../../Hook/useContext"
 const SocialLogin = () => {
     const { signInWithGoogle } = Context();
     // const axiosPublic = useAxiosPublic();
