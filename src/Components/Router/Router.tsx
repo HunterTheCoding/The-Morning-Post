@@ -17,6 +17,7 @@ import Jobs from "../OtherSection/Jobs/Jobs";
 import Donation from "../OtherSection/Donation/Donation";
 import LiveTelecast from "../OtherSection/Live-telecast/LiveTelecast";
 import Pdf from "../OtherSection/Pdf/Pdf";
+import Photo from "../NavbarItem/Photo/Photo";
 
 
 const Mybrowser = createBrowserRouter([
@@ -85,6 +86,10 @@ const Mybrowser = createBrowserRouter([
         path:'/pdf',
         element:<Pdf></Pdf>
       },
+      {
+        path:"/picture",
+        element:<Photo></Photo>
+      }
       
     ]
   },

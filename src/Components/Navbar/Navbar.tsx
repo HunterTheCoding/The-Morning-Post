@@ -64,12 +64,15 @@ const Navbar = () => {
                 Entertainment
             </a>
         </Link>,
-        <Link
-            to="/Contact-US"
-            className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
-        >
-            Contact Us
+        <Link to="/picture">
+            <a
+                className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+                href="#"
+            >
+                Photo
+            </a>
         </Link>,
+     
         <Link
             to="/jobs"
             className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
@@ -88,6 +91,12 @@ const Navbar = () => {
         >
     Live Telecast
         </Link>,
+           <Link
+           to="/Contact-US"
+           className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+       >
+           Contact Us
+       </Link>
     ];
     return (
         <div>
