@@ -14,9 +14,7 @@ import Login from "../../Pages/Register/Login";
 import Signup from "../../Pages/Register/Signup";
 import World from "../NavbarItem/World/World";
 
-// import Signup from "../Resister/Signup";
-// import OurHistory from "../Home/OurHistory/OurHistory";
-// import FeatureNews from "../Home/FeatureNews/FeatureNews";
+
 const Mybrowser = createBrowserRouter([
   {
     path: "/",
