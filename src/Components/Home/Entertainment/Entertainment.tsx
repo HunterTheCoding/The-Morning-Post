@@ -66,7 +66,7 @@ const Entertainment = () => {
 
                             </Swiper>
                         </div>
-                        <div className="hidden md:col-span-3 lg:col-span-3 p-4">
+                        <div className="hidden md:flex lg:flex md:col-span-3 lg:col-span-3 p-4">
                             <div className="card card-compact bg-base-100 shadow-xl">
                                 <figure><img src={sidebanner2} className='w-full md:h-[150px] lg:h-[200px]' alt="news" /></figure>
                                 <div className="card-body">
