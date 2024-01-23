@@ -19,7 +19,6 @@ const Home = () => {
             <FeatureNews></FeatureNews>
             <National></National>
             <Entertainment></Entertainment>
-            <Login></Login>
             <International></International>
         </div>
     );
