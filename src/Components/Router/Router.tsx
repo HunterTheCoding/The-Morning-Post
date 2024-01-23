@@ -10,7 +10,7 @@ import Business from "../NavbarItem/Business/Business";
 import NewsDetails from "../NavbarItem/NewsDetails/NewsDetails";
 import Science from "../NavbarItem/Science/Science";
 import Sport from "../NavbarItem/Sport/Sport";
-import Word from "../NavbarItem/World/Word";
+import World from "../NavbarItem/World/World";
 
 // import Signup from "../Resister/Signup";
 // import OurHistory from "../Home/OurHistory/OurHistory";
@@ -55,7 +55,7 @@ const Mybrowser = createBrowserRouter([
       },
       {
         path:'/world',
-        element:<Word></Word>
+        element:<World></World>
       }
       
     ]
