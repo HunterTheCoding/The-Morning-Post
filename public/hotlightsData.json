@@ -1,22 +1,16 @@
 [
-  {"section":"Politic",
- "headline":"Government Announces New Economic Stimulus Package","source":"National News Network","date":"2024-01-19",
-  "writer": "John Doe","summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.","details":["The stimulus package includes tax incentives for small businesses.","Funds will be allocated to infrastructure projects to create jobs.","Social welfare programs will be expanded to assist vulnerable populations."]},
+  {"section":"Politics","headline":"Government Announces New Economic Stimulus Package","source":"National News Network","date":"2024-01-19","summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.","details":["The stimulus package includes tax incentives for small businesses.","Funds will be allocated to infrastructure projects to create jobs.","Social welfare programs will be expanded to assist vulnerable populations."]},
     {
-        "section":"Politic",
-        "writer": "John Doe",
+        "section":"Politics",
         "headline":"Government Announces New Economic Stimulus Package","source":"National News Network","date":"2024-01-19",
-      
         "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
         "image": "https://i.ibb.co/YLBX6JF/landscape-through-magnifying-glass-607202-2626.jpg",
         "title": "Breaking: Scientists Discover New Species in Amazon Rainforest",
         "news": "In a groundbreaking discovery, scientists have identified a new species of amphibian in the heart of the Amazon rainforest. The species, named 'Amazonensis Frog,' has distinctive markings and behavior not observed in any known amphibians."
       },
       {
-        "section":"Politic",
- 
+        "section":"Politics",
         "headline":"Government Announces New Economic Stimulus Package","source":"National News Network","date":"2024-01-19",
-        "writer": "John Doe",
         "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
         "image": "https://i.ibb.co/25SssJ4/man-putting-ballot-box.jpg",
         "title": "Election Update: Key Candidates Unveil Policy Proposals",
@@ -25,7 +19,6 @@
       {
         "section":"HotLight",
         "headline":"Government Announces New Economic Stimulus Package","source":"National News Network","date":"2024-01-19",
-        "writer": "John Doe",
         "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
         "image": "https://ibb.co/JpMQpGN",
         "title": "Local Hero Honored for Community Service",
@@ -34,7 +27,6 @@
       {
         "section":"HotLight",
         "headline":"Government Announces New Economic Stimulus Package","source":"National News Network","date":"2024-01-19",
-        "writer": "John Doe",
         "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
         "image": "https://i.ibb.co/zsvfYjL/Rectangle-2-6.png",
         "title": "Tech Innovation: Company X Unveils Revolutionary AI Assistant",
@@ -43,7 +35,6 @@
       {
         "section":"HotLight",
         "headline":"Government Announces New Economic Stimulus Package","source":"National News Network","date":"2024-01-19",
-        "writer": "John Doe",
         "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
         "image": "https://i.ibb.co/myW3CqY/sideways-tennis-racket-balls.jpg",
         "title": "Sports Highlight: Underdog Team Secures Surprise Victory",
@@ -52,7 +43,6 @@
       {
         "section":"HotLight",
         "headline":"Government Announces New Economic Stimulus Package","source":"National News Network","date":"2024-01-19",
-        "writer": "John Doe",
         "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
         "image": "https://i.ibb.co/b1wXRT7/top-view-arrangement-cinema-elements-yellow-background-with-copy-space-23-2148416777.jpg",
         "title": "Entertainment Buzz: Hollywood A-Lister Announces Directorial Debut",
@@ -61,7 +51,6 @@
       {
         "section":"HotLight",
         "headline":"Government Announces New Economic Stimulus Package","source":"National News Network","date":"2024-01-19",
-        "writer": "John Doe",
         "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
         "image": "https://i.ibb.co/Lkb9ZPs/Health.png",
         "title": "Health Report: Study Reveals Surprising Benefits of Meditation",
@@ -70,7 +59,6 @@
       {
         "section":"HotLight",
         "headline":"Government Announces New Economic Stimulus Package","source":"National News Network","date":"2024-01-19",
-        "writer": "John Doe",
         "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
         "image": "https://i.ibb.co/wKr2P3p/group-volunteers-nature.jpg",
         "title": "Opinion: Editorial Calls for Global Collaboration on Climate Change",
@@ -79,7 +67,6 @@
     {
       "section":"HotLight",
       "headline":"Government Announces New Economic Stimulus Package","source":"National News Network","date":"2024-01-19",
-      "writer": "John Doe",
       "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
       "image": "https://i.ibb.co/tLRhRL9/user3.jpg",
       "title": "Business Update: Market Trends",
@@ -88,7 +75,6 @@
     {
       "section":"HotLight",
       "headline":"Government Announces New Economic Stimulus Package","source":"National News Network","date":"2024-01-19",
-      "writer": "John Doe",
       "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
       "image": "https://i.ibb.co/xMnQ2YZ/Rectangle-4287-1.png",
       "title": "Education Spotlight: Academic Achievements",
@@ -97,7 +83,6 @@
     {
       "section":"HotLight",
       "headline":"Government Announces New Economic Stimulus Package","source":"National News Network","date":"2024-01-19",
-      "writer": "John Doe",
       "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
       "image": "https://i.ibb.co/VqYRqB7/Rectangle-2-3.png",
       "title": "Science Breakthrough: Research Findings",
@@ -106,7 +91,6 @@
     {
       "section":"HotLight",
       "headline":"Government Announces New Economic Stimulus Package","source":"National News Network","date":"2024-01-19",
-      "writer": "John Doe",
       "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
       "image": "https://i.ibb.co/2ysw7F3/beautiful-landscape.jpg",
       "title": "Environment Watch: Conservation Efforts",
