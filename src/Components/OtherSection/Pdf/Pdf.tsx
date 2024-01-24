@@ -1,6 +1,6 @@
 
 
-const Error = () => {
+const Pdf = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const Error = () => {
     );
 };
 
-export default Error;
+export default Pdf;

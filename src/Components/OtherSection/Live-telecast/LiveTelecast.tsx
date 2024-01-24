@@ -1,6 +1,6 @@
 
 
-const Error = () => {
+const LiveTelecast = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const Error = () => {
     );
 };
 
-export default Error;
+export default LiveTelecast;

@@ -1,6 +1,6 @@
 
 
-const Word = () => {
+const Donation = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const Word = () => {
     );
 };
 
-export default Word;
+export default Donation;

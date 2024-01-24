@@ -10,11 +10,16 @@ import Business from "../NavbarItem/Business/Business";
 import NewsDetails from "../NavbarItem/NewsDetails/NewsDetails";
 import Science from "../NavbarItem/Science/Science";
 import Sport from "../NavbarItem/Sport/Sport";
-import Word from "../NavbarItem/World/Word";
+import Login from "../../Pages/Register/Login";
+import Signup from "../../Pages/Register/Signup";
+import World from "../NavbarItem/World/World";
+import Jobs from "../OtherSection/Jobs/Jobs";
+import Donation from "../OtherSection/Donation/Donation";
+import LiveTelecast from "../OtherSection/Live-telecast/LiveTelecast";
+import Pdf from "../OtherSection/Pdf/Pdf";
+import Photo from "../NavbarItem/Photo/Photo";
 
-// import Signup from "../Resister/Signup";
-// import OurHistory from "../Home/OurHistory/OurHistory";
-// import FeatureNews from "../Home/FeatureNews/FeatureNews";
+
 const Mybrowser = createBrowserRouter([
   {
     path: "/",
@@ -55,7 +60,35 @@ const Mybrowser = createBrowserRouter([
       },
       {
         path:'/world',
-        element:<Word></Word>
+        element:<World></World>
+      },
+      {
+        path:'/Login',
+        element:<Login></Login>
+      },
+      {
+        path:'/SignUp',
+        element:<Signup></Signup>
+      },
+      {
+        path:'/jobs',
+        element:<Jobs></Jobs>
+      },
+      {
+        path:'/donation',
+        element:<Donation></Donation>
+      },
+      {
+        path:'/live-telecast',
+        element:<LiveTelecast></LiveTelecast>
+      },
+      {
+        path:'/pdf',
+        element:<Pdf></Pdf>
+      },
+      {
+        path:"/picture",
+        element:<Photo></Photo>
       }
       
     ]
