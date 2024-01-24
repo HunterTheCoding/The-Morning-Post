@@ -1,31 +1,51 @@
 [
     {
-      "id": 1,
+      "section":"sport",
+        "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
+        "source":"National News Network","date":"2024-01-19",
+        "news": "In a groundbreaking discovery, scientists have identified a new species of amphibian in the heart of the Amazon rainforest. The species, named 'Amazonensis Frog,' has distinctive markings and behavior not observed in any known amphibians.",
+
       "headline": "Exciting News Ahead",
       "paragraph": "Stay tuned for some groundbreaking developments in the coming days.",
       "image": "https://i.ibb.co/bBw9zgX/360-F-224869519-a-Rae-Lneq-ALf-PNBzg0xx-MZXghtv-BXkf-IA.jpg"
     },
     {
-      "id": 2,
+      "section":"sport",
+        "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
+        "source":"National News Network","date":"2024-01-19",
+        "news": "In a groundbreaking discovery, scientists have identified a new species of amphibian in the heart of the Amazon rainforest. The species, named 'Amazonensis Frog,' has distinctive markings and behavior not observed in any known amphibians.",
+
       "headline": "Tech Innovation Unveiled",
       "paragraph": "Discover the latest technological advancements that are set to redefine the industry.",
       "image": "https://i.ibb.co/wY8BK7d/images-2.jpg"
     },
     {
-      "id": 3,
+      "section":"sport",
+        "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
+        "source":"National News Network","date":"2024-01-19",
+        "news": "In a groundbreaking discovery, scientists have identified a new species of amphibian in the heart of the Amazon rainforest. The species, named 'Amazonensis Frog,' has distinctive markings and behavior not observed in any known amphibians.",
+
       "headline": "Health and Wellness Tips",
       "paragraph": "Explore valuable insights on maintaining a healthy lifestyle and well-being.",
       "image": "https://i.ibb.co/RNjQHHf/istockphoto-1423179087-1024x1024.jpg"
     },
     {
-      "id": 4,
+      "section":"sport",
+        "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
+        "source":"National News Network","date":"2024-01-19",
+        "news": "In a groundbreaking discovery, scientists have identified a new species of amphibian in the heart of the Amazon rainforest. The species, named 'Amazonensis Frog,' has distinctive markings and behavior not observed in any known amphibians.",
+
       "headline": "Culinary Delights Unveiled",
       "paragraph": "Indulge in the world of gastronomy with our exclusive coverage of culinary masterpieces.",
       "image": "https://i.ibb.co/Xsw9Dk4/tasks-word-on-wooden-cubes-260nw-1904598853.webp"
     },
 
     {
-      "id": 5,
+      "section":"sport",
+        "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
+        "source":"National News Network","date":"2024-01-19",
+        "news": "In a groundbreaking discovery, scientists have identified a new species of amphibian in the heart of the Amazon rainforest. The species, named 'Amazonensis Frog,' has distinctive markings and behavior not observed in any known amphibians.",
+
       "headline": "Culinary Delights Unveiled",
       "paragraph": "Indulge in the world of gastronomy with our exclusive coverage of culinary masterpieces.",
       "image": "https://i.ibb.co/bQYhhhx/Cryptocurrency-4-380x214.jpg"

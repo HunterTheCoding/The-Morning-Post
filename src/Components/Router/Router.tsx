@@ -11,20 +11,23 @@ import NewsDetails from "../NavbarItem/NewsDetails/NewsDetails";
 import Science from "../NavbarItem/Science/Science";
 import Sport from "../NavbarItem/Sport/Sport";
 import Login from "../../Pages/Register/Login";
-import Signup from "../../Pages/Register/Signup";
+
 import World from "../NavbarItem/World/World";
 import Jobs from "../OtherSection/Jobs/Jobs";
 import Donation from "../OtherSection/Donation/Donation";
 import LiveTelecast from "../OtherSection/Live-telecast/LiveTelecast";
 import Pdf from "../OtherSection/Pdf/Pdf";
 import Photo from "../NavbarItem/Photo/Photo";
+import ErrorPage from "../../Pages/ErrorPage/Error";
+import Signup from "../../Pages/Register/Signup";
+
 
 
 const Mybrowser = createBrowserRouter([
   {
     path: "/",
     element: <Mainpage></Mainpage>,
-    errorElement:<Error></Error>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",

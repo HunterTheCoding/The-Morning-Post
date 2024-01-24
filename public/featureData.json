@@ -1,41 +1,59 @@
 [
     {
-      "id": 1,
+      "section":"Politics",
+      "source":"National News Network",
+        "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
+        "news": "In a groundbreaking discovery, scientists have identified a new species of amphibian in the heart of the Amazon rainforest. The species, named 'Amazonensis Frog,' has distinctive markings and behavior not observed in any known amphibians.",
       "headline": "Breaking News Scientists Make Groundbreaking  ",
       "writer": "John Doe",
       "image": "https://i.ibb.co/PmybsM3/photo-1587560699334-bea93391dcef.jpg",
       "date": "2024-01-17"
     },
     {
-      "id": 2,
+      "section":"Politics",
+      "source":"National News Network",
+        "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
+        "news": "In a groundbreaking discovery, scientists have identified a new species of amphibian in the heart of the Amazon rainforest. The species, named 'Amazonensis Frog,' has distinctive markings and behavior not observed in any known amphibians.",
       "headline": "Tech Giants Unveil Revolutionary Gadgets at Expo",
       "writer": "Jane Smith",
       "image": "https://i.ibb.co/RNjQHHf/istockphoto-1423179087-1024x1024.jpg",
       "date": "2024-01-18"
     },
     {
-      "id": 3,
+      "section":"Politics",
+      "source":"National News Network",
+        "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
+        "news": "In a groundbreaking discovery, scientists have identified a new species of amphibian in the heart of the Amazon rainforest. The species, named 'Amazonensis Frog,' has distinctive markings and behavior not observed in any known amphibians.",
       "headline": "Sports Thrilling Overtime Victory for Home Team ",
       "writer": "Mike Johnson",
       "image": "https://i.ibb.co/0sjLfQ7/carlos-muza-hpj-Sk-U2-UYSU-unsplash.jpg",
       "date": "2024-01-19"
     },
     {
-      "id": 4,
+      "section":"Politics",
+      "source":"National News Network",
+        "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
+        "news": "In a groundbreaking discovery, scientists have identified a new species of amphibian in the heart of the Amazon rainforest. The species, named 'Amazonensis Frog,' has distinctive markings and behavior not observed in any known amphibians.",
       "headline": "Entertainment Buzz: Blockbuster Movie Premiere  ",
       "writer": "Emily White",
       "image": "https://i.ibb.co/bQYhhhx/Cryptocurrency-4-380x214.jpg",
       "date": "2024-01-20"
     },
     {
-      "id": 5,
+      "section":"Politics",
+      "source":"National News Network",
+        "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
+        "news": "In a groundbreaking discovery, scientists have identified a new species of amphibian in the heart of the Amazon rainforest. The species, named 'Amazonensis Frog,' has distinctive markings and behavior not observed in any known amphibians.",
       "headline": "Health New Breakthrough in Cancer Research ",
       "writer": "David Miller",
       "image": "https://i.ibb.co/Xsw9Dk4/tasks-word-on-wooden-cubes-260nw-1904598853.webp",
       "date": "2024-01-21"
     },
     {
-      "id": 6,
+      "section":"Politics",
+      "source":"National News Network",
+        "summary":"In a bid to boost the economy, the government unveiled a comprehensive stimulus package aimed at supporting businesses and individuals affected by recent economic challenges.",
+        "news": "In a groundbreaking discovery, scientists have identified a new species of amphibian in the heart of the Amazon rainforest. The species, named 'Amazonensis Frog,' has distinctive markings and behavior not observed in any known amphibians.",
       "headline": "Business Update Global Markets React to  health  ",
       "writer": "Sara Brown",
       "image": "https://i.ibb.co/R0TnYYr/bitcoin-1813503-640.webp",

@@ -16,8 +16,6 @@ import mendela from '../../../assets/131904_bangladesh_pratidin_Mandela.jpg'
 import { FaBookmark } from "react-icons/fa";
 
 
-
-
 const World = () => {
     return (
         <div className="md:px-6 my-5">
@@ -27,7 +25,6 @@ const World = () => {
                     <button className="bg-red-500 text-white font-bold p-2 rounded-md">Back to Home</button>
                 </Link>
             </div>
-
             <div className="grid md:grid-cols-6 grid-cols-1 gap-4 mt-4">
                 <div className="col-span-4">
                     <div className="text-center mb-4 bg-base-200 relative">
