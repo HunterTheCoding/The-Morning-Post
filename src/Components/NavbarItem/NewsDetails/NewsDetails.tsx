@@ -29,7 +29,7 @@ const NewsDetails = () => {
                     </div>
 
                     <div className="p-5">
-                        <h2 className="text-2xl font-bold my-4">Stuff Corresponded || New York || USA.</h2>
+                        <h2 className="text-2xl font-bold my-4">Stuff Correspondent || New York || USA.</h2>
                         <p>
                             Severe snowfall in the USA can have significant and harmful impacts on the general public's health. The extreme weather conditions associated with heavy snowfall often lead to transportation disruptions, making it challenging for individuals to access essential services such as healthcare facilities and pharmacies.
                         </p>
