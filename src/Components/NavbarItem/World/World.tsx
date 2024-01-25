@@ -14,21 +14,27 @@ import snowStrom from '../../../assets/084958_bangladesh_pratidin_zzzzzzzzzzzzzz
 import saudi from '../../../assets/125314_bangladesh_pratidin_Saudi.jpg'
 import mendela from '../../../assets/131904_bangladesh_pratidin_Mandela.jpg'
 import { FaBookmark } from "react-icons/fa";
+import { useRef } from "react";
+import { useReactToPrint } from "react-to-print";
 
 
-
-
-const World = () => {
+const World: React.FC = () => {
+    const componentRef = useRef(null);
+    const handlePrint = useReactToPrint({
+      content: () => componentRef.current,
+    });
+  
     return (
         <div className="md:px-6 my-5">
             <div className="flex justify-between bg-gray-200 p-4">
                 <h2 className="text-3xl font-bold ">World News</h2>
-                <Link to='/'>
+                <Link to={"/"}>
                     <button className="bg-red-500 text-white font-bold p-2 rounded-md">Back to Home</button>
+                    <button onClick={handlePrint} className="bg-gray-300 text-white font-bold p-2 rounded-md">Print</button>
                 </Link>
             </div>
 
-            <div className="grid md:grid-cols-6 grid-cols-1 gap-4 mt-4">
+            <div ref={componentRef} className="grid md:grid-cols-6 grid-cols-1 gap-4 mt-4">
                 <div className="col-span-4">
                     <div className="text-center mb-4 bg-base-200 relative">
                         <img src={snowImg} className="w-full md:h-[400px]" alt="" />
