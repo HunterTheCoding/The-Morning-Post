@@ -10,7 +10,7 @@ const Navbar = () => {
     const list = [
         <Link to="/">
             <a
-                className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+                className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2 lg:flex-1 hover:bg-gray-300 hover:text-gray-700"
                 href="/"
             >
                 Home
@@ -18,7 +18,7 @@ const Navbar = () => {
         </Link>,
         <Link to="/world">
             <a
-                className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+                className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2 lg:flex-1 hover:bg-gray-300 hover:text-gray-700"
                 href="#"
             >
                 World
@@ -26,7 +26,7 @@ const Navbar = () => {
         </Link>,
         <Link to="/business">
             <a
-                className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+                className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2 lg:flex-1 hover:bg-gray-300 hover:text-gray-700"
                 href="#"
             >
                 Business
@@ -34,7 +34,7 @@ const Navbar = () => {
         </Link>,
         <Link to="/science">
             <a
-                className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+                className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2 lg:flex-1 hover:bg-gray-300 hover:text-gray-700"
                 href="#"
             >
                 Science
@@ -42,7 +42,7 @@ const Navbar = () => {
         </Link>,
         <Link to="/national">
             <a
-                className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+                className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2 lg:flex-1 hover:bg-gray-300 hover:text-gray-700"
                 href="#"
             >
                 National
@@ -50,58 +50,59 @@ const Navbar = () => {
         </Link>,
         <Link to="/sport">
             <a
-                className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+                className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2 lg:flex-1 hover:bg-gray-300 hover:text-gray-700"
                 href="#"
             >
                 Sport
             </a>
         </Link>,
-        <Link to="/entertainment">
-            <a
-                className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
-                href="#"
-            >
-                Entertainment
-            </a>
-        </Link>,
+
         <Link to="/picture">
             <a
-                className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+                className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2 lg:flex-1 hover:bg-gray-300 hover:text-gray-700"
                 href="#"
             >
                 Photo
             </a>
         </Link>,
-     
+
         <Link
             to="/jobs"
-            className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+            className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2 lg:flex-1 hover:bg-gray-300 hover:text-gray-700"
         >
             Jobs
         </Link>,
-        <Link
-            to="donation"
-            className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
-        >
-    Donation
+        <Link to="/entertainment">
+            <a
+                className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2 lg:flex-1 hover:bg-gray-300 hover:text-gray-700"
+                href="#"
+            >
+                Entertainment
+            </a>
         </Link>,
         <Link
             to="live-telecast"
-            className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+            className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2 lg:flex-1 hover:bg-gray-300 hover:text-gray-700"
         >
-    Live Telecast
+            Live Telecast
         </Link>,
-           <Link
-           to="/Contact-US"
-           className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
-       >
-           Contact Us
-       </Link>
+        <Link
+            to="donation"
+            className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2 lg:flex-1 hover:bg-gray-300 hover:text-gray-700"
+        >
+            Donation
+        </Link>,
+        <Link
+            to="/Contact-US"
+            className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2 lg:flex-1 hover:bg-gray-300 hover:text-gray-700"
+        >
+            Contact Us
+        </Link>
     ];
     return (
         <div>
             <div className="font-sans bg-gray-300 m-0 p-0">
-                <header className="bg-gray-800 text-white p-6 text-center flex justify-between px-2px lg:px-5vw">
+                <header className="bg-gray-800 text-white p-6 text-center flex justify-between px-2 lg:flex-1px lg:px-5vw">
                     <div className="flex flex-col text-start">
                         <div>
                             <p>We are for the people</p>
@@ -170,7 +171,7 @@ const Navbar = () => {
 
                 </header>
 
-                <nav className="bg-gray-700 overflow-hidden pl-20 px-5vw hidden md:flex">
+                <nav className="bg-gray-700 overflow-hidden hidden md:grid md:grid-cols-5 lg:flex lg:flex-1">
                     {list}
                 </nav>
                 <div className="navbar bg-gray-700 md:hidden lg:hidden">
