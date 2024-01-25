@@ -1,5 +1,5 @@
 import Marquee from "react-fast-marquee";
-import { IoMdMenu } from "react-icons/io";
+// import { IoMdMenu } from "react-icons/io";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../public/news.png";
 import { SlBadge } from "react-icons/sl";
