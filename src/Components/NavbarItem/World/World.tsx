@@ -15,7 +15,6 @@ import saudi from '../../../assets/125314_bangladesh_pratidin_Saudi.jpg'
 import mendela from '../../../assets/131904_bangladesh_pratidin_Mandela.jpg'
 import { FaBookmark } from "react-icons/fa";
 
-
 const World = () => {
     return (
         <div className="md:px-6 my-5">

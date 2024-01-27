@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from "axios";
  interface axiosPublic extends AxiosInstance{}
 const AxiosPublic :axiosPublic = axios.create({
-  baseURL: "https://the-mornong-post-server-omega.vercel.app",
+  baseURL: "https://the-mornong-post-server-omega.vercel.app/",
   withCredentials: true ,
 });
 const useAxiosPublic = () => {
@@ -9,3 +9,5 @@ const useAxiosPublic = () => {
 };
 
 export default useAxiosPublic;
+// http://localhost:5000/
+// https://the-mornong-post-server-omega.vercel.app/

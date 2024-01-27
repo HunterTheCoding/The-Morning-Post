@@ -15,17 +15,22 @@ import useAxiosPublic from "../Hook/useAxiosPublic";
 
 import Swal from "sweetalert2";
 export interface AuthContextProps {
-  updateUserProfile: (name: string,  photo: string) => Promise<void>;
+  updateUserProfile: (name: string, photo: string) => Promise<void>;
   user: User | null;
   loading: boolean;
-  createUser: (email: string, password: string) => Promise<UserCredential | null>;
-  signInUser: (email: string, password: string | number) => Promise<UserCredential>;
+  createUser: (
+    email: string,
+    password: string
+  ) => Promise<UserCredential | null>;
+  signInUser: (
+    email: string,
+    password: string | number
+  ) => Promise<UserCredential>;
   signInWithGoogle: () => Promise<UserCredential>;
   logOut: () => Promise<void>;
 }
 
-
-export const AuthContext =createContext <AuthContextProps|null> (null)
+export const AuthContext = createContext<AuthContextProps | null>(null);
 const googleProvider = new GoogleAuthProvider();
 
 const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -33,7 +38,7 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const AxiosPublic = useAxiosPublic();
 
-  const createUser = (email: string, password: string ) => {
+  const createUser = (email: string, password: string) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
@@ -66,31 +71,41 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       setUser(user);
       const userEmail = user?.email || user?.email;
       const loggedUser = { email: userEmail };
-      console.log('Current user', userEmail,user);
-const userInfo ={
-  name: user?.displayName,
-  Email:user?.email,
-  photo: user?.photoURL,
-  createTime :user?.metadata?.creationTime,
-  LastSignInTime :user?.metadata?.lastSignInTime
+      console.log("Current user", userEmail, user);
+      const userInfo = {
+        name: user?.displayName,
+        Email: user?.email,
+        photo: user?.photoURL,
+        createTime: user?.metadata?.creationTime,
+        LastSignInTime: user?.metadata?.lastSignInTime,
+      };
+      if (userEmail || loggedUser) {
+        AxiosPublic.post("/users", userInfo).then((res) => {
+          if (res.data.insertedId) {
+            console.log("urser added to the database");
 
-}
-if(userEmail || loggedUser){
-  AxiosPublic.post("/users", userInfo).then((res) => {
-    if (res.data.insertedId) {
-      console.log("urser added to the database");
-  
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "User created successfully.",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-    }
-  });
-}
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "User created successfully.",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+      }
       setLoading(false);
+      if (user || userEmail) {
+        AxiosPublic.post("/jwt", loggedUser).then((res) => {
+          console.log("token response", res.data);
+        });
+      } else {
+        AxiosPublic.post("/logout", loggedUser, {
+          withCredentials: true,
+        }).then((res) => {
+          console.log(res.data);
+        });
+      }
     });
     return () => {
       unSubscribe();
@@ -105,11 +120,9 @@ if(userEmail || loggedUser){
     signInUser,
     signInWithGoogle,
     logOut,
-  }as AuthContextProps;
+  } as AuthContextProps;
   return (
-    <AuthContext.Provider value={authInfo}>
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
 };
 
