@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import p1 from "../../../assets/National/natioal4.jpg"
 import { FaArrowCircleRight } from "react-icons/fa";
+import useAdmin from "../../../Hook/useNews";
 const NavNational = () => {
+    const { newsData: National, isLoading: NationalLoading } =
+    useAdmin("National");
+//   const {_id, section, headline, source, date, summary, details, image} =National;
+    console.log(National,NationalLoading);
+
     return (
         <div className="mt-10 lg:flex">
             <div className="w-full md:w-full lg:w-2/3">

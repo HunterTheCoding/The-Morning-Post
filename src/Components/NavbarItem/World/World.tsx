@@ -16,6 +16,7 @@ import mendela from '../../../assets/131904_bangladesh_pratidin_Mandela.jpg'
 import { FaBookmark } from "react-icons/fa";
 import { useRef } from "react";
 import { useReactToPrint } from "react-to-print";
+import useAdmin from "../../../Hook/useNews";
 
 
 const World: React.FC = () => {
@@ -23,6 +24,12 @@ const World: React.FC = () => {
     const handlePrint = useReactToPrint({
       content: () => componentRef.current,
     });
+
+    const { newsData: InternationalData, isLoading: InternationalDataLoading } =
+    useAdmin("International");
+//   const {_id, section, headline, source, date, summary, details, image} =InternationalData;
+ console.log(InternationalData,InternationalDataLoading);
+ 
   
     return (
         <div className="md:px-6 my-5">

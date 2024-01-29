@@ -1,23 +1,28 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+import useAdmin from "../../../Hook/useNews";
 
-interface businessItem {
-    id: number;
-    headline: string;
-    paragraph: string
-    image: string;
-}
+// interface businessItem {
+//     id: number;
+//     headline: string;
+//     paragraph: string
+//     image: string;
+// }
 
 const Sport = () => {
-    const [businessData, setBusinessData] = useState<businessItem[]>([]);
-    useEffect(() => {
-        fetch("/sports.json")
-            .then(res => res.json())
-            .then(data => setBusinessData(data as businessItem[]))
-            .catch(error => {
-                console.log(error);
-            })
-    }, [])
-    console.log(businessData);
+    // const [businessData, setBusinessData] = useState<businessItem[]>([]);
+    // useEffect(() => {
+    //     fetch("/sports.json")
+    //         .then(res => res.json())
+    //         .then(data => setBusinessData(data as businessItem[]))
+    //         .catch(error => {
+    //             console.log(error);
+    //         })
+    // }, [])
+
+    const { newsData: SportData, isLoading: SportDataLoading } =useAdmin("Sports");
+//   const {_id, section, headline, source, date, summary, details, image,title,Writer} =SportData;
+ 
+    console.log(SportData,SportDataLoading);
     return (
         <div className="my-5">
 
@@ -29,7 +34,9 @@ const Sport = () => {
 
                         <div className="col-span-2">
                             {
-                                businessData.slice(0, 1).map((item, index) => {
+                                SportData.slice(0, 1).map((item, index) => {
+                                    console.log(item);
+                                    
                                     return (
                                         <div className="" key={index}>
 
@@ -42,7 +49,7 @@ const Sport = () => {
                                                     <a href="#">
                                                         <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">{item.headline}</h5>
                                                     </a>
-                                                    <p className="mb-3 font-normal text-white">{item.paragraph}</p>
+                                                    <p className="mb-3 font-normal text-white">{item.title}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -54,7 +61,7 @@ const Sport = () => {
                         {/* <span>hell</span> */}
                         <div>
                             {
-                                businessData.slice(0, 1).map((item, index) => {
+                                SportData.slice(0, 1).map((item, index) => {
                                     return (
                                         <div className=" h-full" key={index}>
                                             <div className="h-full bg-white  border-l pl-4 ">
@@ -65,7 +72,7 @@ const Sport = () => {
                                                     <a href="#">
                                                         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.headline}</h5>
                                                     </a>
-                                                    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.paragraph}</p>
+                                                    <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.title}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -77,7 +84,7 @@ const Sport = () => {
                     <div className="border  border-gray-300"></div>
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                         {
-                            businessData.slice(1, 4).map((item) => {
+                            SportData.slice(1, 4).map((item) => {
                                 return (
                                     <div className="bg-white  first:pr-4 last:pl-4 border-gray-200 first:border-r last:border-l">
 

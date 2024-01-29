@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react';
 import moment from "moment"
 import { TfiWrite } from "react-icons/tfi";
 import { TiStopwatch } from "react-icons/ti";
+import useAdmin from '../../../Hook/useNews';
 
 interface NewsItem {
     id: number;
@@ -29,6 +30,12 @@ const Entertainment = () => {
             .then(res => res.json())
             .then(data => setFeatureData(data))
     }, [])
+    const { newsData: Entertainment, isLoading: EntertainmentLoading } =
+    useAdmin("Entertainment");
+//   const {_id, section, headline, source, date, summary, details, image} =Entertainment;
+ 
+  console.log(Entertainment,EntertainmentLoading);
+  
 
     return (
         <div>
