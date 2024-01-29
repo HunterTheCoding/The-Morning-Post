@@ -1,5 +1,5 @@
 import Marquee from "react-fast-marquee";
-import { IoMdMenu } from "react-icons/io";
+// import { IoMdMenu } from "react-icons/io";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../../public/news.png";
 import { SlBadge } from "react-icons/sl";
@@ -9,16 +9,15 @@ const Navbar = () => {
     const { user, logOut } = Context()
     const list = [
         <Link to="/">
-            <a
-                className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
-                href="/"
+            <p
+                className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2  hover:bg-gray-300 hover:text-gray-700"
             >
                 Home
-            </a>
+            </p>
         </Link>,
         <Link to="/world">
             <a
-                className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+                className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2  hover:bg-gray-300 hover:text-gray-700"
                 href="#"
             >
                 World
@@ -26,7 +25,7 @@ const Navbar = () => {
         </Link>,
         <Link to="/business">
             <a
-                className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+                className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2  hover:bg-gray-300 hover:text-gray-700"
                 href="#"
             >
                 Business
@@ -34,7 +33,7 @@ const Navbar = () => {
         </Link>,
         <Link to="/science">
             <a
-                className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+                className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2  hover:bg-gray-300 hover:text-gray-700"
                 href="#"
             >
                 Science
@@ -42,7 +41,7 @@ const Navbar = () => {
         </Link>,
         <Link to="/national">
             <a
-                className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+                className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2  hover:bg-gray-300 hover:text-gray-700"
                 href="#"
             >
                 National
@@ -50,58 +49,54 @@ const Navbar = () => {
         </Link>,
         <Link to="/sport">
             <a
-                className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+                className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2  hover:bg-gray-300 hover:text-gray-700"
                 href="#"
             >
                 Sport
             </a>
         </Link>,
-        <Link to="/entertainment">
-            <a
-                className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
-                href="#"
-            >
-                Entertainment
-            </a>
-        </Link>,
+
         <Link to="/picture">
             <a
-                className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+                className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2  hover:bg-gray-300 hover:text-gray-700"
                 href="#"
             >
                 Photo
             </a>
         </Link>,
-     
+
         <Link
             to="/jobs"
-            className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+            className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2  hover:bg-gray-300 hover:text-gray-700"
         >
             Jobs
         </Link>,
+        <Link to="/entertainment">
+            <a
+                className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2 hover:bg-gray-300 hover:text-gray-700"
+                href="#"
+            >
+                Entertainment
+            </a>
+        </Link>,
         <Link
             to="donation"
-            className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+            className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2  hover:bg-gray-300 hover:text-gray-700"
         >
-    Donation
+            Donation
         </Link>,
         <Link
-            to="live-telecast"
-            className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
+            to="/Contact-US"
+            className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2  hover:bg-gray-300 hover:text-gray-700"
         >
-    Live Telecast
-        </Link>,
-           <Link
-           to="/Contact-US"
-           className="block float-left text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-4 hover:bg-gray-300 hover:text-gray-700"
-       >
-           Contact Us
-       </Link>
+            Contact Us
+        </Link>
     ];
+    
     return (
         <div>
             <div className="font-sans bg-gray-300 m-0 p-0">
-                <header className="bg-gray-800 text-white p-6 text-center flex justify-between px-2px lg:px-5vw">
+                <header className="bg-gray-800 text-white p-6 text-center flex justify-between px-2 px lg:px-5vw">
                     <div className="flex flex-col text-start">
                         <div>
                             <p>We are for the people</p>
@@ -170,10 +165,10 @@ const Navbar = () => {
 
                 </header>
 
-                <nav className="bg-gray-700 overflow-hidden pl-20 px-5vw hidden md:flex">
+                <nav className="bg-gray-700 overflow-hidden grid grid-cols-4 md:grid-cols-5 lg:flex lg:pl-14">
                     {list}
                 </nav>
-                <div className="navbar bg-gray-700 md:hidden lg:hidden">
+                {/* <div className="navbar bg-gray-700 md:hidden lg:hidden">
                     <div className="navbar-start">
                         <div className="dropdown">
                             <div tabIndex={0} role="button" className="btn btn-ghost">
@@ -183,16 +178,17 @@ const Navbar = () => {
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                             >
-                                {list}
+                                <nav className="bg-gray-700 overflow-hidden hidden md:grid md:grid-cols-5 lg:flex">
+                                    {list}
+                                </nav>
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className="text-black flex pl-5vw pr-5vw">
                     <div className=" pl-5 bg-yellow-500">Breaking News:</div>
                     <Marquee className="bg-white text-black">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et
-                        lectus nec turpis consequat posuere.
+                        Obaidul Quader is returning home in the evening, which is in the 100-day action plan of the Ministry of Environment of Arakan Army, which demands the occupation of the important port city of Myanmar.
                     </Marquee>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import {
+  FacebookAuthProvider,
   GoogleAuthProvider,
   User,
   UserCredential,
@@ -27,11 +28,13 @@ export interface AuthContextProps {
     password: string | number
   ) => Promise<UserCredential>;
   signInWithGoogle: () => Promise<UserCredential>;
+  SignInWithFacebook: () => Promise<UserCredential>;
   logOut: () => Promise<void>;
 }
 
 export const AuthContext = createContext<AuthContextProps | null>(null);
 const googleProvider = new GoogleAuthProvider();
+const FacebookProvider = new FacebookAuthProvider();
 
 const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
@@ -52,6 +55,10 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
+  const SignInWithFacebook = ()=>{
+    setLoading(true);
+    signInWithPopup(auth, FacebookProvider)
+  }
 
   const logOut = () => {
     setLoading(true);
@@ -103,7 +110,7 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         AxiosPublic.post("/logout", loggedUser, {
           withCredentials: true,
         }).then((res) => {
-          console.log(res.data);
+          console.log(res);
         });
       }
     });
@@ -120,6 +127,7 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     signInUser,
     signInWithGoogle,
     logOut,
+    SignInWithFacebook
   } as AuthContextProps;
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

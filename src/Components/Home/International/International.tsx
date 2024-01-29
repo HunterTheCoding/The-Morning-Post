@@ -13,7 +13,7 @@ import { FaBookmark } from "react-icons/fa";
 
 const International = () => {
     return (
-        <div className="md:px-6 my-5">
+        <div className="md:px-6 lg:px-0 my-5">
             <div className="flex justify-between bg-gray-200 p-4">
                 <h2 className="text-3xl font-bold ">International News</h2>
                 <Link to='/world'>
