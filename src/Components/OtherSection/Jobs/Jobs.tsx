@@ -16,7 +16,7 @@ const Jobs = () => {
                     <div className=" md:flex gap-5 p-5">
                         <div className=" md:w-2/3  relative mb-5 md:mb-0 w-full  lg:w-[600px] h-[300px] md:h-[350px] rounded-md border">
                             <img src={j5} className="w-full obj lg:w-[600px] md:w-full rounded-md md:h-[350px] h-[300px]" alt="" />
-                            <h4 className="absolute w-full h-14 mt-4  text-white bottom-0 md:bottom-10 lg:bottom-0 font-2xl font-bold px-5">রংপুরে বিক্রি হওয়া নবজাতক উদ্ধার, গ্রেফতার ৩</h4>
+                            <h4 className="absolute w-full h-14 mt-4  text-white bottom-0 md:bottom-10 lg:bottom-0 font-2xl font-bold px-5">১৮তম শিক্ষক নিবন্ধন: ১৮ লাখ প্রার্থীর প্রিলিমিনারি পরীক্ষা মার্চে</h4>
                         </div>
                         <div className="w-full b md:w-1/3 rounded-md h-[400px] md:h-[180px] border-l-2">
                             <img className="w-full h-[250px] md:h-[160px] rounded-md" src={j1} alt="" />

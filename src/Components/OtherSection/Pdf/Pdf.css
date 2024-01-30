@@ -1,9 +1,4 @@
-.obj {
-    background-repeat: no-repeat;
-}
-
 .my-element {
-    color: oklch(60% 54 356);
     /* Primary color with oklch */
     color: rgb(255, 136, 0);
     /* Fallback for unsupported browsers */
