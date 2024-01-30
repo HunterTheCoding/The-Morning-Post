@@ -1,14 +1,5 @@
 import { Link } from "react-router-dom";
-import snowImage from '../../../assets/snowfall.jpg'
-import israel from '../../../assets/081157_bangladesh_pratidin_US_Israel.jpg';
-import iraq from '../../../assets/082432_bangladesh_pratidin_Iraq.jpg'
-import gaza from '../../../assets/085941_bangladesh_pratidin_Gaza3.jpg'
-import earthquake from '../../../assets/103756_bangladesh_pratidin_earthquake-magnitude-bdp.jpg'
-import russia from '../../../assets/160001_bangladesh_pratidin_Russia.jpg'
-import satelite from '../../../assets/091413_bangladesh_pratidin_Satellite.jpg'
-import jail from '../../../assets/095722_bangladesh_pratidin_Jail.jpg'
-import netaniyahu from '../../../assets/102918_bangladesh_pratidin_Netanyahu2.jpg'
-import mendela from '../../../assets/131904_bangladesh_pratidin_Mandela.jpg'
+
 import { FaBookmark } from "react-icons/fa";
 import useAdmin from "../../../Hook/useNews";
 
@@ -31,94 +22,64 @@ const International = () => {
                 <div className="col-span-4">
                     <div className="grid md:grid-cols-4 grid-cols-1 gap-4">
                         <div className="col-span-3 my-3 flex">
-                            <div className="w-1/3 md:h-[200px] bg-gray-200 relative">
-                                <h2 className="font-bold lg:text-2xl md:text-xl text-lg  p-2">Severe snowfall in USA. 80 people are died.
+                            {
+                                InternationalData.slice(0, 1).map((news)=><>
+                                <div className="w-1/3 md:h-[200px] bg-gray-200 relative">
+                                <h2 className="font-bold lg:text-2xl md:text-xl text-lg  p-2">{news.headline}
                                 </h2>
                                 <div className="absolute bottom-2 right-2">
                                     <button className="text-xs"><FaBookmark></FaBookmark></button>
                                 </div>
 
                             </div>
-                            <img src={snowImage} className="w-2/3 h-[200px]" alt="" />
+                            <img src={news.image} className="w-2/3 h-[200px]" alt="" />
+                                </>)
+                            }
                         </div>
-                        <div className="md:h-[200px] w-full ml-4 md:ml-0 my-3 relative bg-gray-200">
-                            <img src={israel} className="w-full" alt="" />
-                            <h2 className="font-bold p-2">Netaniyahu is destroying Palestine.
+                        {
+                            InternationalData.slice(1,2).map((news)=><div key={news._id}>
+                            <div className="md:h-[200px] w-full ml-4 md:ml-0 my-3 relative bg-gray-200">
+                            <img src={news.image} className="w-full" alt="image" />
+                            <h2 className="font-bold p-2">{news.headline}
                             </h2>
                             <div className="absolute bottom-2 right-2">
                                 <button className="text-xs"><FaBookmark></FaBookmark></button>
                             </div>
                         </div>
+                            </div>)
+                        }
 
                     </div>
                     <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
-                        <div className="md:h-[204px] md:my-3 bg-gray-200 relative">
-                            <img src={iraq} className="w-full" alt="" />
-                            <h2 className="font-bold text-sm p-2">Iraq is attacking on ISIS. </h2>
+                        {
+                            InternationalData.slice(2,6).map((news)=>
+                            <div key={news._id} className="md:h-[204px] md:my-3 bg-gray-200 relative">
+                            <img src={news.image} className="w-full" alt="" />
+                            <h2 className="font-bold text-sm p-2">{news.headline} </h2>
                             <div className="absolute bottom-2 right-2">
                                 <button className="text-xs"><FaBookmark></FaBookmark></button>
                             </div>
                         </div>
-                        <div className="md:h-[204px] md:my-3 bg-gray-200 relative">
-                            <img src={gaza} className="w-full" alt="" />
-                            <h2 className="font-bold text-sm p-2">Hammas is fighting against America.</h2>
-                            <div className="absolute bottom-2 right-2">
-                                <button className="text-xs"><FaBookmark></FaBookmark></button>
-                            </div>
-                        </div>
-                        <div className="md:h-[204px] md:my-3 bg-gray-200 relative">
-                            <img src={earthquake} className="w-full" alt="" />
-                            <h2 className="font-bold text-sm p-2">7.5 magnitude earthquake in Brazil. </h2>
-                            <div className="absolute bottom-2 right-2">
-                                <button className="text-xs"><FaBookmark></FaBookmark></button>
-                            </div>
-                        </div>
-                        <div className="md:h-[204px] md:my-3 bg-gray-200 relative">
-                            <img src={russia} className="w-full" alt="" />
-                            <h2 className="font-bold text-sm p-2">Russian plane is crashed. </h2>
-                            <div className="absolute bottom-2 right-2">
-                                <button className="text-xs"><FaBookmark></FaBookmark></button>
-                            </div>
-                        </div>
+                            )
+                        }
+                        
                     </div>
                 </div>
                 <div className="col-span-2">
-                    <div className="flex pl-10 md:pl-0 mt-4">
-                        <img src={satelite} className="w-1/3 h-[100px]" alt="" />
+                    {
+                        InternationalData.slice(0,4).map((news)=>
+                        <div key={news._id} className="flex pl-10 md:pl-0 mt-4">
+                        <img src={news.image} className="w-1/3 h-[100px]" alt="" />
                         <div className="w-2/3 h-[100px] bg-gray-200 relative">
-                            <h2 className="font-bold p-2">Iran sent new satelite in space. </h2>
+                            <h2 className="font-bold p-2">{news.headline} </h2>
                             <div className="absolute bottom-2 right-2">
                                 <button className="text-xs"><FaBookmark></FaBookmark></button>
                             </div>
                         </div>
                     </div>
-                    <div className="flex pl-10 md:pl-0 mt-2">
-                        <img src={jail} className="w-1/3 h-[100px]" alt="" />
-                        <div className="w-2/3 h-[100px] bg-gray-200 relative">
-                            <h2 className="font-bold p-2">Putin is sending people to jail. </h2>
-                            <div className="absolute bottom-2 right-2">
-                                <button className="text-xs"><FaBookmark></FaBookmark></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="flex pl-10 md:pl-0 mt-2">
-                        <img src={netaniyahu} className="w-1/3 h-[100px]" alt="" />
-                        <div className="w-2/3 h-[100px] bg-gray-200 relative">
-                            <h2 className="font-bold p-2">Israel is returning army from gaza. </h2>
-                            <div className="absolute bottom-2 right-2">
-                                <button className="text-xs"><FaBookmark></FaBookmark></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="flex pl-10 md:pl-0 mt-2">
-                        <img src={mendela} className="w-1/3 h-[100px]" alt="" />
-                        <div className="w-2/3 h-[100px] bg-gray-200 relative">
-                            <h2 className="font-bold p-2">Everybody is remembering Nelson Mendela. </h2>
-                            <div className="absolute bottom-2 right-2">
-                                <button className="text-xs"><FaBookmark></FaBookmark></button>
-                            </div>
-                        </div>
-                    </div>
+                        )
+                    }
+                    
                 </div>
             </div>
         </div>
