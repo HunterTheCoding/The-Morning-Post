@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-
 import Home from "../Home/Home";
 import Mainpage from "../Mainpage";
 import Error from "../Error/Error";
@@ -16,8 +15,8 @@ import World from "../NavbarItem/World/World";
 import Jobs from "../OtherSection/Jobs/Jobs";
 import Donation from "../OtherSection/Donation/Donation";
 import LiveTelecast from "../OtherSection/Live-telecast/LiveTelecast";
-import Pdf from "../OtherSection/Pdf/Pdf";
 import Photo from "../NavbarItem/Photo/Photo";
+
 
 
 const Mybrowser = createBrowserRouter([
@@ -81,10 +80,6 @@ const Mybrowser = createBrowserRouter([
       {
         path:'/live-telecast',
         element:<LiveTelecast></LiveTelecast>
-      },
-      {
-        path:'/pdf',
-        element:<Pdf></Pdf>
       },
       {
         path:"/picture",

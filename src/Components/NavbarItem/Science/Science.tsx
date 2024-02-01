@@ -1,4 +1,12 @@
+import useAdmin from "../../../Hook/useNews";
+
 const Science = () => {
+    const { newsData: Science, isLoading: ScienceLoading } =
+    useAdmin("Science");
+//   const {_id, section, headline, source, date, summary, details, image,title,Writer} =Science;
+ 
+console.log(Science),ScienceLoading;
+
     return (
         <div className="border-2border-red-700 ">
             <div className="grid grid-cols-3 gap-10">

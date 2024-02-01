@@ -9,12 +9,11 @@ const Navbar = () => {
     const { user, logOut } = Context()
     const list = [
         <Link to="/">
-            <a
+            <p
                 className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2  hover:bg-gray-300 hover:text-gray-700"
-                href="/"
             >
                 Home
-            </a>
+            </p>
         </Link>,
         <Link to="/world">
             <a
@@ -81,12 +80,6 @@ const Navbar = () => {
             </a>
         </Link>,
         <Link
-            to="live-telecast"
-            className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2  hover:bg-gray-300 hover:text-gray-700"
-        >
-            Live Telecast
-        </Link>,
-        <Link
             to="donation"
             className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2  hover:bg-gray-300 hover:text-gray-700"
         >
@@ -99,6 +92,7 @@ const Navbar = () => {
             Contact Us
         </Link>
     ];
+    
     return (
         <div>
             <div className="font-sans bg-gray-300 m-0 p-0">
@@ -171,7 +165,7 @@ const Navbar = () => {
 
                 </header>
 
-                <nav className="bg-gray-700 overflow-hidden grid grid-cols-4 md:grid-cols-5 lg:flex">
+                <nav className="bg-gray-700 overflow-hidden grid grid-cols-4 md:grid-cols-5 lg:flex lg:pl-14">
                     {list}
                 </nav>
                 {/* <div className="navbar bg-gray-700 md:hidden lg:hidden">
@@ -194,8 +188,7 @@ const Navbar = () => {
                 <div className="text-black flex pl-5vw pr-5vw">
                     <div className=" pl-5 bg-yellow-500">Breaking News:</div>
                     <Marquee className="bg-white text-black">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et
-                        lectus nec turpis consequat posuere.
+                        Obaidul Quader is returning home in the evening, which is in the 100-day action plan of the Ministry of Environment of Arakan Army, which demands the occupation of the important port city of Myanmar.
                     </Marquee>
                 </div>
             </div>

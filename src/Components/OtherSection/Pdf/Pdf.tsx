@@ -28,9 +28,10 @@ const Pdf: React.FC<Props> = ({ rootElementId, downloadFileName }) => {
  
   };
 
+const Pdf = () => {
   return (
-    <div className="my-element">
-      <button className="btn btn-primary" onClick={downloadFileDocument} >Download Page</button>
+    <div>
+      
     </div>
   );
 };

@@ -1,12 +1,15 @@
-import { News } from "./HotLight";
+
 import { Link } from "react-router-dom";
+import { News } from "../../../Hook/useNews";
 
 interface HotLightCardProps {
   news: News;
 }
 
-const HotLightCard: React.FC<HotLightCardProps> = ({ news }) => {
-  const { _id, headline,summary, image,} = news;
+const HotLightCard: React.FC<HotLightCardProps> = ({ news:News }) => {
+  const { _id, headline,summary, image} = News;
+  // console.log(News);
+  
 
   return (
     <div >

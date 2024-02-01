@@ -1,27 +1,35 @@
 import { useQuery } from "@tanstack/react-query";
-
-// import useAxiosSecure from "./useAxiosSecure";
 import useAxiosPublic from "./useAxiosPublic";
+import { useState } from "react";
 
+export interface News {
+  _id: string;
+  section: string;
+  headline: string;
+  source: string;
+  date: string;
+  summary: string;
+  details: string;
+  image: string;
+  title: string;
+  writer: string;
+  // other properties...
+}
 
-
-const useAdmin = (newsSection: string |undefined) => {
-
-  // const [admin,setAdmin]=useState()
-  // const axiosSecure = useAxiosSecure();
+const useAdmin = (newsSection: string | undefined) => {
   const AxiosPublic = useAxiosPublic();
+  const [newsData, setNewsData] = useState<News[]>([]); // State to hold news data
 
-
-  const { data: isNews, isLoading: isNewsLoading } = useQuery({
+  const { isLoading: isLoadingNews } = useQuery({
     queryKey: ["requestNews", newsSection],
-    // enabled: !!user?.email,
     queryFn: async () => {
       const res = await AxiosPublic.get(`/News/${newsSection}`);
-      console.log( res.data);
+      setNewsData(res.data); // Set news data to state
       return res.data;
     },
   });
-  return [isNews, isNewsLoading];
+
+  return { newsData, isLoading: isLoadingNews };
 };
 
 export default useAdmin;
