@@ -122,8 +122,6 @@ const Navbar = () => {
                                     tabIndex={0}
                                     className="menu menu-sm dropdown-content  mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                                 >
-
-
                                     <li>
                                         <NavLink
                                             onClick={logOut}
@@ -168,23 +166,6 @@ const Navbar = () => {
                 <nav className="bg-gray-700 overflow-hidden grid grid-cols-4 md:grid-cols-5 lg:flex lg:pl-14">
                     {list}
                 </nav>
-                {/* <div className="navbar bg-gray-700 md:hidden lg:hidden">
-                    <div className="navbar-start">
-                        <div className="dropdown">
-                            <div tabIndex={0} role="button" className="btn btn-ghost">
-                                <IoMdMenu className=" h-10 w-10" />
-                            </div>
-                            <ul
-                                tabIndex={0}
-                                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-                            >
-                                <nav className="bg-gray-700 overflow-hidden hidden md:grid md:grid-cols-5 lg:flex">
-                                    {list}
-                                </nav>
-                            </ul>
-                        </div>
-                    </div>
-                </div> */}
                 <div className="text-black flex pl-5vw pr-5vw">
                     <div className=" pl-5 bg-yellow-500">Breaking News:</div>
                     <Marquee className="bg-white text-black">
