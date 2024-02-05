@@ -4,7 +4,7 @@ import useAdmin from "../../../Hook/useNews";
 // interface businessItem {
 //     id: number;
 //     headline: string;
-//     paragraph: stringb 
+//     paragraph: string
 //     image: string;
 // }
 const Business = () => {
