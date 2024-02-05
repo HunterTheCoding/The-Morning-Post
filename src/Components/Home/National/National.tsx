@@ -2,7 +2,13 @@ import { Link } from "react-router-dom"
 import p1 from "../../../assets/National/nation1.jpg"
 import p2 from "../../../assets/National/national3.jpg"
 import "./Nation.css"
+import useAdmin from "../../../Hook/useNews";
 const National = () => {
+    const { newsData: National, isLoading: NationalLoading } =
+    useAdmin("National");
+//   const {_id, section, headline, source, date, summary, details, image} =National;
+ console.log(National,NationalLoading);
+ 
     return (
         <div className="mt-5 mb-5">
             <h1 className=" text-xl lg:text-2xl font-bold p-5">National</h1>
