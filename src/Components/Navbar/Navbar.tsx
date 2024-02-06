@@ -4,6 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../../public/news.png";
 import { SlBadge } from "react-icons/sl";
 import Context from "../../Hook/useContext";
+import Weather from "../Weather/Weather";
 
 const Navbar = () => {
     const { user, logOut } = Context()
@@ -165,7 +166,7 @@ const Navbar = () => {
                             </NavLink>
                         )}
                     </div>
-                    <div className="p-5 rounded-md"><p className="">Weather</p></div>
+                    <div className="p-5 rounded-md"><p className=""><Weather></Weather></p></div>
                     <img className="rounded-lg" src={logo} alt="" />
 
 
