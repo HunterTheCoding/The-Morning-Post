@@ -81,20 +81,34 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       console.log("Current user", userEmail, user);
       const userInfo = {
         name: user?.displayName,
+        role:"user",
         Email: user?.email,
         photo: user?.photoURL,
         createTime: user?.metadata?.creationTime,
         LastSignInTime: user?.metadata?.lastSignInTime,
       };
-      if (userEmail || loggedUser) {
+      // console.log(userEmail,loggedUser);
+      
+      if ( userEmail || loggedUser.email) {
         AxiosPublic.post("/users", userInfo).then((res) => {
+     
+          
           if (res.data.insertedId) {
-            console.log("urser added to the database");
+            console.log("urser added to the database",res.data.insertedId);
 
             Swal.fire({
               position: "top-end",
               icon: "success",
               title: "User created successfully.",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+          else{
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "User Login successfully.",
               showConfirmButton: false,
               timer: 1500,
             });
