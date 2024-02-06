@@ -39,7 +39,7 @@
     "react-to-pdf": "^1.0.1",
     "react-to-print": "^2.14.15",
     "sort-by": "^1.2.0",
-    "sweetalert2": "^11.10.4",
+    "sweetalert2": "^11.10.5",
     "swiper": "^11.0.5"
   },
   "devDependencies": {
