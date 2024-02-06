@@ -1044,6 +1044,11 @@
   resolved "https://registry.npmjs.org/@wojtekmaj/react-hooks/-/react-hooks-1.18.1.tgz"
   integrity sha512-hvaKC4+xBt+jrccMZsV3oHveaAjcO/Lw833vH78Y/auIwya14H4WH9E1i7EEnm/RcGJmUzCYNA9Ulx9aY1TMhQ==
 
+"@zegocloud/zego-uikit-prebuilt@^1.10.2":
+  version "1.10.2"
+  resolved "https://registry.npmjs.org/@zegocloud/zego-uikit-prebuilt/-/zego-uikit-prebuilt-1.10.2.tgz"
+  integrity sha512-B4ukHvhVqiThpf7BaIfzse8ixYFDwzEozZ9bKLGfJoBCYEbc5aMtruLJp2WIZrexNrAHdiTuyWSrbOpXzbAuCQ==
+
 abab@^1.0.0:
   version "1.0.4"
   resolved "https://registry.npmjs.org/abab/-/abab-1.0.4.tgz"
