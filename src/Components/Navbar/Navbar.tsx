@@ -91,12 +91,7 @@ const Navbar = () => {
         >
             Contact Us
         </Link>,
-        <Link
-            to="/live-telecast"
-            className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2  hover:bg-gray-300 hover:text-gray-700"
-        >
-            Live Telecast
-        </Link>,
+    
         <Link
             to="/daseboard/adminhome"
             className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2  hover:bg-gray-300 hover:text-gray-700"

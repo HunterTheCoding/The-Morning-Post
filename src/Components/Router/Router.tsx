@@ -25,6 +25,8 @@ import Addjobs from "../Daseboard/AdminDaseboard/Addjobs";
 import UserHome from "../Daseboard/UserDaseboard/UserHome";
 import BooksMarks from "../Daseboard/UserDaseboard/BooksMarks";
 import AllDonation from "../Daseboard/UserDaseboard/AllDonation";
+import LiveSection from "../Daseboard/AdminDaseboard/LiveSection";
+import UserDonation from "../Daseboard/AdminDaseboard/UserDonation";
 
 
 
@@ -118,6 +120,14 @@ const Mybrowser = createBrowserRouter([
         {
           path:"addnews",
           element:<NewsPost></NewsPost>
+        },
+        {
+          path:"live",
+          element:<LiveSection></LiveSection>
+        },
+        {
+          path:"userdonation",
+          element:<UserDonation></UserDonation>
         },
         {
           path:"userhome",
