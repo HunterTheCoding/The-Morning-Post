@@ -205,7 +205,7 @@ const DonationForm: React.FC<DonationFormProps> = ({ setAmount, clientSecret }) 
           <button
             type="submit"
             className="btn bg-sky-400 hover:bg-sky-700 text-white"
-            disabled={!stripe || !clientSecret}
+            // disabled={!stripe || !clientSecret}
           >
             Donate
           </button>
