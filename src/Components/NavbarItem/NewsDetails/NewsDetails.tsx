@@ -1,14 +1,52 @@
 import { FaBookmark } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import snowImg from '../../../assets/snowfall.jpg';
 import satelite from '../../../assets/091413_bangladesh_pratidin_Satellite.jpg';
 import jail from '../../../assets/095722_bangladesh_pratidin_Jail.jpg';
 import netaniyahu from '../../../assets/081157_bangladesh_pratidin_US_Israel.jpg'
-
 import mendela from '../../../assets/131904_bangladesh_pratidin_Mandela.jpg'
+import useAuth from "../../../Hook/useAuth";
+import useAxiosPublic from "../../../Hook/useAxiosPublic";
+import Swal from "sweetalert2";
+import useSingleNews from "../../../Hook/useSingleNews";
+const NewsDetails: React.FC = () => {
+    type UserEmail = string;
+    const navigate = useNavigate();
+    const { user }: { user: UserEmail } = useAuth();
+    const { id } = useParams();
+    const { news } = useSingleNews(id);
+    console.log(news,user)
+    const axoius = useAxiosPublic()
+    interface Users {
+        newsid: string | number;
+        useremail: string | HTMLElement;
+    }
+    const booksmarksnews = () => {
 
+        const newsinfo: Users = {
+            useremail: user?.email
+        }
+        if (user) {
+            axoius.post('/bookmarks', newsinfo)
+                .then(res => {
+                    console.log(res.data)
+                    if (res.data.acknowledged) {
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: "Your news has been saved",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                }).catch(error => {
+                    console.log(error)
+                })
+        } else {
+            navigate("/login")
+        }
 
-const NewsDetails = () => {
+    }
     return (
         <div className="md:px-6 my-5">
             <div className="flex justify-between bg-gray-200 p-4">
@@ -24,7 +62,7 @@ const NewsDetails = () => {
                         <img src={snowImg} className="w-full md:h-[400px]" alt="" />
                         <h2 className="font-bold text-2xl p-2">Severe snowfall in USA. 80 people are died. People can not go outside. Traffic are stopped. A lot of people are getting sick and admitted to hospital.  </h2>
                         <div className="absolute bottom-2 right-2">
-                            <button className="text-xs"><FaBookmark></FaBookmark></button>
+                            <button onClick={booksmarksnews} className="text-xs"><FaBookmark></FaBookmark></button>
                         </div>
                     </div>
 
@@ -47,11 +85,11 @@ const NewsDetails = () => {
                         </p>
 
                         <p>
-                        Furthermore, the widespread power outages often associated with severe snowfall can jeopardize public health by hindering access to essential utilities. Heating systems may fail, exposing individuals to dangerously low temperatures indoors.
+                            Furthermore, the widespread power outages often associated with severe snowfall can jeopardize public health by hindering access to essential utilities. Heating systems may fail, exposing individuals to dangerously low temperatures indoors.
                         </p>
 
                         <p>
-                        This not only increases the risk of cold-related illnesses but also creates challenges in preserving medications and medical supplies that require specific storage conditions. The combination of physical, mental, and economic stressors during severe snowfall underscores the need for robust emergency preparedness and response measures to mitigate the adverse impacts on the general public's health.
+                            This not only increases the risk of cold-related illnesses but also creates challenges in preserving medications and medical supplies that require specific storage conditions. The combination of physical, mental, and economic stressors during severe snowfall underscores the need for robust emergency preparedness and response measures to mitigate the adverse impacts on the general public's health.
                         </p>
                     </div>
                 </div>
@@ -63,7 +101,7 @@ const NewsDetails = () => {
                             <div className="lg:w-2/3 w-1/2 h-[100px] bg-gray-200 relative">
                                 <h2 className="font-bold text-sm  lg:text-base p-2">Iran sent new satelite in space. </h2>
                                 <div className="absolute bottom-2 right-2">
-                                    <button className="text-xs"><FaBookmark></FaBookmark></button>
+                                    <button onClick={booksmarksnews} className="text-xs"><FaBookmark></FaBookmark></button>
                                 </div>
                             </div>
                         </div>

@@ -4,9 +4,11 @@ import { FaBookmark } from "react-icons/fa";
 import useAdmin from "../../../Hook/useNews";
 
 const International = () => {
-    const { newsData: InternationalData} =
+    const { newsData: InternationalData, isLoading: InternationalDataLoading } =
     useAdmin("International");
-
+//   const {_id, section, headline, source, date, summary, details, image,title,writer }=InternationalData;
+ console.log(InternationalData,InternationalDataLoading);
+ 
     return (
         <div className="md:px-6 lg:px-0 my-5">
             <div className="flex justify-between bg-gray-200 p-4">

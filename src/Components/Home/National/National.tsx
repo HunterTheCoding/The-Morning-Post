@@ -3,8 +3,9 @@ import { Link } from "react-router-dom"
 import "./Nation.css"
 import useAdmin from "../../../Hook/useNews";
 const National = () => {
-    const { newsData: National} =useAdmin("National");
-//   const {_id, section, headline, source, date, summary, details, image} =National
+    const { newsData: National, isLoading: NationalLoading } =useAdmin("National");
+//   const {_id, section, headline, source, date, summary, details, image} =National;
+ console.log(National,NationalLoading);
  
     return (
         <div className="mt-5 mb-5">
@@ -30,7 +31,10 @@ const National = () => {
                         <h1 className="p-1 text-black lg:py-1 text-[14px] md:text-[12px] py-2 lg:text-base font-medium">{news2?.headline}</h1>
                     </div>
                 </Link>)
-                  }           
+                  }
+                    
+                  
+            
                 </div>
             </div>
         

@@ -90,7 +90,13 @@ const Navbar = () => {
             className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2  hover:bg-gray-300 hover:text-gray-700"
         >
             Contact Us
-        </Link>
+        </Link>,
+        <Link
+            to="/daseboard"
+            className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2  hover:bg-gray-300 hover:text-gray-700"
+        >
+            Daseboard
+        </Link>,
     ];
     
     return (

@@ -4,8 +4,10 @@ import { FaArrowCircleRight } from "react-icons/fa";
 
 import useAdmin, { News } from "../../../Hook/useNews";
 const Jobs = () => {
-    const { newsData: Jobs} = useAdmin("jobs");
+    const { newsData: Jobs, isLoading: JobsLoading } = useAdmin("jobs");
     //   const {_id, section, headline, source, date, summary, details, image} =National;
+    console.log(Jobs, JobsLoading);
+const lic:string = 'https://jobs.bdjobs.com/jobdetails.asp?id=1225211&ln=1'
     return (
         <div>
             <div className="px-5" >  <h1 className="text-2xl font-bold py-5">Jobs</h1>
@@ -14,7 +16,7 @@ const Jobs = () => {
                 <div className="lg:w-3/4 w-full">
                     <div className=" md:flex gap-5 p-5">
                         {
-                            Jobs?.slice(0, 1)?.map((news1: News) => <Link to={`/newsdetails/${news1?._id}`} key={news1?._id}>
+                            Jobs?.slice(0, 1)?.map((news1: News) => <Link to={`${lic}`} key={news1?._id}  >
                                 <div className=" md:w-2/3  relative mb-5 md:mb-0 w-full  lg:w-[600px] h-[300px] md:h-[350px] rounded-md border">
                                     <img src={news1?.image} className="w-full obj lg:w-[600px] md:w-full rounded-md md:h-[350px] h-[300px]" alt="" />
                                     <h4 className="absolute w-full h-14 mt-4  text-white bottom-0 md:bottom-10 lg:bottom-0 font-2xl font-bold px-5">{news1?.headline}</h4>
@@ -48,6 +50,8 @@ const Jobs = () => {
                                 </div>
                             </Link>)
                         }
+
+
                     </div>
                 </div>
                 <div className="w-full lg:w-1/4 border-l-2 p-5">
