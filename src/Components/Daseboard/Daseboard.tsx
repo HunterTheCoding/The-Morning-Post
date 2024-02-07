@@ -23,6 +23,12 @@ const isAdmin = true;
                         <ul className="menu ">
                             <li className=" border bg-gray-300 rounded-md font-bold text-lg"><Link to="/daseboard/addjobs"><FaAd></FaAd> Add Jobs</Link></li>
                         </ul>
+                        <ul className="menu ">
+                            <li className=" border bg-gray-300 rounded-md font-bold text-lg"><Link to="/daseboard/live"><FaAd></FaAd>Live Section</Link></li>
+                        </ul>
+                        <ul className="menu ">
+                            <li className=" border bg-gray-300 rounded-md font-bold text-lg"><Link to="/daseboard/userdonation"><FaAd></FaAd>Donation</Link></li>
+                        </ul>
                     </>:<>
                         <ul className="menu ">
                             <li className=" border bg-gray-300 rounded-md font-bold  text-lg"><Link to="/daseboard/userhome"> <FaHome></FaHome> Profile</Link></li>

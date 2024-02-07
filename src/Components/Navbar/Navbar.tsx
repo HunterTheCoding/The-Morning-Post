@@ -91,14 +91,15 @@ const Navbar = () => {
         >
             Contact Us
         </Link>,
+    
         <Link
-            to="/daseboard"
+            to="/daseboard/adminhome"
             className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2  hover:bg-gray-300 hover:text-gray-700"
         >
             Daseboard
-        </Link>,
+        </Link>
     ];
-    
+
     return (
         <div>
             <div className="font-sans bg-gray-300 m-0 p-0">
@@ -128,8 +129,6 @@ const Navbar = () => {
                                     tabIndex={0}
                                     className="menu menu-sm dropdown-content  mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                                 >
-
-
                                     <li>
                                         <NavLink
                                             onClick={logOut}
@@ -166,6 +165,7 @@ const Navbar = () => {
                             </NavLink>
                         )}
                     </div>
+                    <div className="p-5 rounded-md"><p className="">Weather</p></div>
                     <img className="rounded-lg" src={logo} alt="" />
 
 
@@ -174,23 +174,6 @@ const Navbar = () => {
                 <nav className="bg-gray-700 overflow-hidden grid grid-cols-4 md:grid-cols-5 lg:flex lg:pl-14">
                     {list}
                 </nav>
-                {/* <div className="navbar bg-gray-700 md:hidden lg:hidden">
-                    <div className="navbar-start">
-                        <div className="dropdown">
-                            <div tabIndex={0} role="button" className="btn btn-ghost">
-                                <IoMdMenu className=" h-10 w-10" />
-                            </div>
-                            <ul
-                                tabIndex={0}
-                                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-                            >
-                                <nav className="bg-gray-700 overflow-hidden hidden md:grid md:grid-cols-5 lg:flex">
-                                    {list}
-                                </nav>
-                            </ul>
-                        </div>
-                    </div>
-                </div> */}
                 <div className="text-black flex pl-5vw pr-5vw">
                     <div className=" pl-5 bg-yellow-500">Breaking News:</div>
                     <Marquee className="bg-white text-black">

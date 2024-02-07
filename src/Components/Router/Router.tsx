@@ -25,6 +25,8 @@ import Addjobs from "../Daseboard/AdminDaseboard/Addjobs";
 import UserHome from "../Daseboard/UserDaseboard/UserHome";
 import BooksMarks from "../Daseboard/UserDaseboard/BooksMarks";
 import AllDonation from "../Daseboard/UserDaseboard/AllDonation";
+import LiveSection from "../Daseboard/AdminDaseboard/LiveSection";
+import UserDonation from "../Daseboard/AdminDaseboard/UserDonation";
 
 
 
@@ -94,48 +96,55 @@ const Mybrowser = createBrowserRouter([
         path:"/picture",
         element:<Photo></Photo>
       }
-      
-    ]
-  },
-  {
-    path:"/daseboard",
-    element:<Daseboard></Daseboard>,
-    children:[
-      {
-        path:"/daseboard/adminhome",
-        element:<AdminHome></AdminHome>
-      },
-      {
-        path:"jobs",
-        element:<Jobspost></Jobspost>
-      },
-      {
-        path:"addjobs",
-        element:<Addjobs></Addjobs>
-      },
-      {
-        path:"news",
-        element:<News></News>
-      },
-      {
-        path:"addnews",
-        element:<NewsPost></NewsPost>
-      },
-      {
-        path:"userhome",
-        element:<UserHome></UserHome>
-      },
-      {
-        path:"bookmarks",
-        element:<BooksMarks></BooksMarks>
-      },
-      {
-        path:"alldonation",
-        element:<AllDonation></AllDonation>
-      }
+    ]},
+    {
+      path:"/daseboard",
+      element:<Daseboard></Daseboard>,
+      children:[
+        {
+          path:"/daseboard/adminhome",
+          element:<AdminHome></AdminHome>
+        },
+        {
+          path:"jobs",
+          element:<Jobspost></Jobspost>
+        },
+        {
+          path:"addjobs",
+          element:<Addjobs></Addjobs>
+        },
+        {
+          path:"news",
+          element:<News></News>
+        },
+        {
+          path:"addnews",
+          element:<NewsPost></NewsPost>
+        },
+        {
+          path:"live",
+          element:<LiveSection></LiveSection>
+        },
+        {
+          path:"userdonation",
+          element:<UserDonation></UserDonation>
+        },
+        {
+          path:"userhome",
+          element:<UserHome></UserHome>
+        },
+        {
+          path:"bookmarks",
+          element:<BooksMarks></BooksMarks>
+        },
+        {
+          path:"alldonation",
+          element:<AllDonation></AllDonation>
+        }
+  
+      ]
+    }
 
-    ]
-  }
 ]);
 
 
