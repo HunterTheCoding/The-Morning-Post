@@ -1,9 +1,5 @@
 import { useState } from 'react';
 import clear from '../../assets/weather/clear.png';
-import cloud from '../../assets/weather/cloud.png';
-import drizzle from '../../assets/weather/drizzle.png';
-import rain from '../../assets/weather/rain.png';
-import snow from '../../assets/weather/snow.png';
 import { useEffect } from 'react';
 
 const Weather = () => {
