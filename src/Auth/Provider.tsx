@@ -104,15 +104,15 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               timer: 1500,
             });
           }
-          else{
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: "User Login successfully.",
-              showConfirmButton: false,
-              timer: 1500,
-            });
-          }
+          // else{
+          //   Swal.fire({
+          //     position: "top-end",
+          //     icon: "success",
+          //     title: "User Login successfully.",
+          //     showConfirmButton: false,
+          //     timer: 1500,
+          //   });
+          // }
         });
       }
       setLoading(false);
@@ -131,7 +131,7 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return () => {
       unSubscribe();
     };
-  }, []);
+  }, [AxiosPublic]);
 
   const authInfo = {
     updateUserProfile,

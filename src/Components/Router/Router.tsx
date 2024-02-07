@@ -28,118 +28,133 @@ import Addjobs from "../Daseboard/AdminDaseboard/Addjobs";
 import UserHome from "../Daseboard/UserDaseboard/UserHome";
 import BooksMarks from "../Daseboard/UserDaseboard/BooksMarks";
 import AllDonation from "../Daseboard/UserDaseboard/AllDonation";
-
-
+import LiveSection from "../Daseboard/AdminDaseboard/LiveSection";
+import UserDonation from "../Daseboard/AdminDaseboard/UserDonation";
+import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
 
 const Mybrowser = createBrowserRouter([
   {
     path: "/",
     element: <Mainpage></Mainpage>,
-    errorElement:<ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
       },
       {
         path: "/Contact-US",
-        element: <Contact></Contact>
+        element: <Contact></Contact>,
       },
       {
-        path:'/entertainment',
-        element:<NavEntertainment></NavEntertainment>
+        path: "/entertainment",
+        element: <NavEntertainment></NavEntertainment>,
       },
       {
-        path:'/national',
-        element:<NavNational></NavNational>
+        path: "/national",
+        element: <NavNational></NavNational>,
       },
       {
-        path:'/business',
-        element:<Business></Business>
+        path: "/business",
+        element: <Business></Business>,
       },
       {
-        path:'/newsdetails/:id',
-        element:<NewsDetails></NewsDetails>
+        path: "/newsdetails/:id",
+        element: <NewsDetails></NewsDetails>,
       },
       {
-        path:'/science',
-        element:<Science></Science>
+        path: "/science",
+        element: <Science></Science>,
       },
       {
-        path:'/sport',
-        element:<Sport></Sport>
+        path: "/sport",
+        element: <Sport></Sport>,
       },
       {
-        path:'/world',
-        element:<World></World>
+        path: "/world",
+        element: <World></World>,
       },
       {
-        path:'/Login',
-        element:<Login></Login>
+        path: "/Login",
+        element: <Login></Login>,
       },
       {
-        path:'/SignUp',
-        element:<Signup></Signup>
+        path: "/SignUp",
+        element: <Signup></Signup>,
       },
       {
-        path:'/jobs',
-        element:<Jobs></Jobs>
+        path: "/jobs",
+        element: <Jobs></Jobs>,
       },
       {
-        path:'/donation',
-        element:<Donation></Donation>
+        path: "/donation",
+        element: <Donation></Donation>,
       },
       {
-        path:'/live-telecast',
-        element:<LiveTelecast></LiveTelecast>
+        path: "/live-telecast",
+        element: <LiveTelecast></LiveTelecast>,
       },
       {
-        path:"/picture",
-        element:<Photo></Photo>
-      }
-      
-    ]
+        path: "/picture",
+        element: <Photo></Photo>,
+      },
+    ],
   },
   {
-    path:"/daseboard",
-    element:<Daseboard></Daseboard>,
-    children:[
+    path: "/daseboard",
+    element: (
+      <PrivateRoute>
+        <Daseboard></Daseboard>
+      </PrivateRoute>
+    ),
+    children: [
       {
-        path:"/daseboard/adminhome",
-        element:<AdminHome></AdminHome>
+        path: "/daseboard/adminhome",
+        element: (
+          <PrivateRoute><AdminRoute>
+          <AdminHome></AdminHome>
+        </AdminRoute></PrivateRoute>
+        ),
       },
       {
-        path:"jobs",
-        element:<Jobspost></Jobspost>
+        path: "jobs",
+        element: <Jobspost></Jobspost>,
       },
       {
-        path:"addjobs",
-        element:<Addjobs></Addjobs>
+        path: "addjobs",
+        element: <Addjobs></Addjobs>,
       },
       {
-        path:"news",
-        element:<News></News>
+        path: "news",
+        element: <News></News>,
       },
       {
-        path:"addnews",
-        element:<NewsPost></NewsPost>
+        path: "addnews",
+        element: <NewsPost></NewsPost>,
       },
       {
-        path:"userhome",
-        element:<UserHome></UserHome>
+        path: "live",
+        element: <LiveSection></LiveSection>,
       },
       {
-        path:"bookmarks",
-        element:<BooksMarks></BooksMarks>
+        path: "userdonation",
+        element: <UserDonation></UserDonation>,
       },
       {
-        path:"alldonation",
-        element:<AllDonation></AllDonation>
-      }
-
-    ]
-  }
+        path: "userhome",
+        element: <UserHome></UserHome>,
+      },
+      {
+        path: "bookmarks",
+        element: <BooksMarks></BooksMarks>,
+      },
+      {
+        path: "alldonation",
+        element: <AllDonation></AllDonation>,
+      },
+    ],
+  },
 ]);
 
-
-export { Mybrowser }
+export { Mybrowser };
