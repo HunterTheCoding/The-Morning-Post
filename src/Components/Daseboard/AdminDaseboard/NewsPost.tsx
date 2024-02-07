@@ -4,7 +4,7 @@ import { News } from "../../../Hook/useNews";
 
 const NewsPost = () => {
     const AxiosPublic = useAxiosPublic();
-    const { data, refetch, isLoading } = useQuery({
+    const { data } = useQuery({
         queryKey: ["News"],
         queryFn: async () => {
             const res = await AxiosPublic.get(`/News`);
