@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^2.4.0",
+    "@stripe/stripe-js": "^2.4.0",
     "@tanstack/react-query": "^5.17.15",
     "@wojtekmaj/react-hooks": "^1.18.1",
     "axios": "^1.6.5",
@@ -39,6 +41,7 @@
     "react-to-pdf": "^1.0.1",
     "react-to-print": "^2.14.15",
     "sort-by": "^1.2.0",
+    "stripe": "^14.15.0",
     "sweetalert2": "^11.10.5",
     "swiper": "^11.0.5"
   },
