@@ -13,7 +13,7 @@ const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <div className='max-w-screen-xl mx-auto bg-[#4e93be]'>
+    <div className='max-w-screen-xl mx-auto '>
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
         <Provider>
