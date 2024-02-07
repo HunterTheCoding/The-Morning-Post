@@ -5,14 +5,13 @@ import logo from "../../../public/news.png";
 import { SlBadge } from "react-icons/sl";
 import Context from "../../Hook/useContext";
 import useAdmin from "../../Hook/useAdmin";
-
 const Navbar = () => {
   const [isAdmin] = useAdmin();
   console.log(isAdmin);
 
   const { user, logOut } = Context();
   console.log(user);
-  
+
   const list = [
     <Link to="/">
       <p className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2  hover:bg-gray-300 hover:text-gray-700">
@@ -117,55 +116,76 @@ const Navbar = () => {
             </h1>
           </div>
           <div className="navbar-end ml-10 ">
-          {user?.email ? (
-            <div className="dropdown dropdown-end dropdown-hover text-black ">
-              <label
-                tabIndex={0}
-                className="btn  online btn-ghost btn-circle avatar"
-              >
-                <div className="w-full border rounded-full">
-                <img src={user?.displayName || ''} alt="" />
-                  <SlBadge />
-                </div>
-              </label>
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content  mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-              >
-      
-
-                <li>
-                  <NavLink
-                      className={({ isPending, isActive }) => isPending
-                        ? "pending "
-                        : isPending
+            {user?.email ? (
+              <div className="dropdown dropdown-end dropdown-hover text-black ">
+                <label
+                  tabIndex={0}
+                  className="btn  online btn-ghost btn-circle avatar"
+                >
+                  <div className="w-full border rounded-full">
+                    <img className=" h-5/6" src={user.photoURL || undefined} />
+                    <SlBadge />
+                  </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content  mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li className=" py-2 ">
+                    <NavLink
+                      to={
+                        isAdmin?.isAdmin
+                          ? "daseboard/adminhome"
+                          : "daseboard/userhome"
+                      }
+                      className={({ isPending, isActive }) =>
+                        isPending
                           ? "pending "
                           : isActive
-                            ? "btn btn-outline  "
-                            : "btn btn-ghost "}
-                      onClick={logOut} to={""}                  >
-                    LOGOUT
-                  </NavLink>
-                </li>
-              </ul>
-            </div>
-          ) : (
-            <NavLink
-              to="/login"
-              className={({ isActive, isPending }) =>
-                isPending
-                  ? "pending "
-                  : isPending
-                  ? "pending "
-                  : isActive
-                  ? "btn btn-warning "
-                  : "btn btn-ghost "
-              }
-            >
-              Login
-            </NavLink>
-          )}
-        </div>
+                          ? "btn btn-warning "
+                          : "btn btn-ghost "
+                      }
+                    >
+                      PROFILE
+                    </NavLink>
+                  </li>
+
+                  <li>
+                    <NavLink
+                      className={({ isPending, isActive }) =>
+                        isPending
+                          ? "pending "
+                          : isPending
+                          ? "pending "
+                          : isActive
+                          ? "btn btn-outline  "
+                          : "btn btn-ghost "
+                      }
+                      onClick={logOut}
+                      to={""}
+                    >
+                      LOGOUT
+                    </NavLink>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <NavLink
+                to="/login"
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "pending "
+                    : isPending
+                    ? "pending "
+                    : isActive
+                    ? "btn btn-warning "
+                    : "btn btn-ghost "
+                }
+              >
+                Login
+              </NavLink>
+            )}
+          </div>
           <div className="p-5 rounded-md">
             <p className="">Weather</p>
           </div>

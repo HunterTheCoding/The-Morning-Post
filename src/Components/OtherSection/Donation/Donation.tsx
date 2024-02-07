@@ -11,13 +11,13 @@ import { loadStripe } from "@stripe/stripe-js";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
-interface DonationItem {
-  id: number;
-  amount: number;
-  name: string;
-  email: string;
-  option: string;
-}
+// interface DonationItem {
+//   id: number;
+//   amount: number;
+//   name: string;
+//   email: string;
+//   option: string;
+// }
 
 interface DonationFormProps {
   setAmount: React.Dispatch<React.SetStateAction<number | null>>;
