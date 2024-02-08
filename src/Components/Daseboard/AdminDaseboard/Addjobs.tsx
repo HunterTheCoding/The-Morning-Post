@@ -3,14 +3,14 @@
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hook/useAxiosPublic";
-import useAuth from "../../../Hook/useAuth";
+
 
 const Addjob = () => {
     const { register, handleSubmit, reset } = useForm();
     const axouspublic = useAxiosPublic();
     // const axioussecret = useAxousSecret();
-    const { user } = useAuth();
-    const onSubmit = async (data :any) => {
+
+    const onSubmit = async (data : any) => {
         console.log(data)
         const jobsinfo = {
             headline: data.headline,
