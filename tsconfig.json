@@ -26,6 +26,9 @@
     "strictBindCallApply": true,
     "noImplicitThis": true,
     "alwaysStrict": true
+
+    // parallax js 
+    
   },
  "include": [ "src/**/*.ts",
     "src/**/*.tsx",
