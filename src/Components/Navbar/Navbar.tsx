@@ -5,6 +5,7 @@ import logo from "../../../public/news.png";
 import { SlBadge } from "react-icons/sl";
 import Context from "../../Hook/useContext";
 import useAdmin from "../../Hook/useAdmin";
+import Weather from "../Weather/Weather";
 const Navbar = () => {
   const [isAdmin] = useAdmin();
   console.log(isAdmin);
@@ -95,12 +96,6 @@ const Navbar = () => {
       Contact Us
     </Link>,
 
-    <Link
-      to="/daseboard/adminhome"
-      className="block text-white text-center border-r-2 border-gray-300 no-underline relative py-3 px-2  hover:bg-gray-300 hover:text-gray-700"
-    >
-      Daseboard
-    </Link>,
   ];
 
   return (
@@ -187,7 +182,7 @@ const Navbar = () => {
             )}
           </div>
           <div className="p-5 rounded-md">
-            <p className="">Weather</p>
+          <div className="p-5 rounded-md"><p className=""><Weather /></p></div>
           </div>
           <img className="rounded-lg" src={logo} alt="" />
         </header>

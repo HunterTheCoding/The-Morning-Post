@@ -10,15 +10,12 @@ import NewsDetails from "../NavbarItem/NewsDetails/NewsDetails";
 import Science from "../NavbarItem/Science/Science";
 import Sport from "../NavbarItem/Sport/Sport";
 import Login from "../../Pages/Register/Login";
-
 import World from "../NavbarItem/World/World";
 import Jobs from "../OtherSection/Jobs/Jobs";
 import Donation from "../OtherSection/Donation/Donation";
 import LiveTelecast from "../OtherSection/Live-telecast/LiveTelecast";
 import Photo from "../NavbarItem/Photo/Photo";
-import ErrorPage from "../../Pages/ErrorPage/Error";
 import Signup from "../../Pages/Register/Signup";
-
 import Daseboard from "../Daseboard/Daseboard";
 import AdminHome from "../Daseboard/AdminDaseboard/AdminHome";
 import Jobspost from "../Daseboard/AdminDaseboard/Jobspost";
@@ -32,12 +29,13 @@ import LiveSection from "../Daseboard/AdminDaseboard/LiveSection";
 import UserDonation from "../Daseboard/AdminDaseboard/UserDonation";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
+import Error from "../Error/Error";
 
 const Mybrowser = createBrowserRouter([
   {
     path: "/",
     element: <Mainpage></Mainpage>,
-    errorElement: <ErrorPage></ErrorPage>,
+    errorElement: <Error />,
     children: [
       {
         path: "/",

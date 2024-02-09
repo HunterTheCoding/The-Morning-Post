@@ -32,7 +32,8 @@ export interface AuthContextProps {
   logOut: () => Promise<void>;
 }
 
-export const AuthContext = createContext<AuthContextProps | null>(null);
+
+export const AuthContext = createContext<AuthContextProps | null>(null)
 const googleProvider = new GoogleAuthProvider();
 const FacebookProvider = new FacebookAuthProvider();
 
@@ -104,15 +105,6 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               timer: 1500,
             });
           }
-          // else{
-          //   Swal.fire({
-          //     position: "top-end",
-          //     icon: "success",
-          //     title: "User Login successfully.",
-          //     showConfirmButton: false,
-          //     timer: 1500,
-          //   });
-          // }
         });
       }
       setLoading(false);
@@ -141,7 +133,6 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     signInUser,
     signInWithGoogle,
     logOut,
-    SignInWithFacebook
   } as AuthContextProps;
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

@@ -1,31 +1,37 @@
 import { FaBookmark } from "react-icons/fa";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import snowImg from '../../../assets/snowfall.jpg';
 import satelite from '../../../assets/091413_bangladesh_pratidin_Satellite.jpg';
 import jail from '../../../assets/095722_bangladesh_pratidin_Jail.jpg';
 import netaniyahu from '../../../assets/081157_bangladesh_pratidin_US_Israel.jpg'
-import mendela from '../../../assets/131904_bangladesh_pratidin_Mandela.jpg'
-import useAuth from "../../../Hook/useAuth";
+import mendela from '../../../assets/131904_bangladesh_pratidin_Mandela.jpg';
 import useAxiosPublic from "../../../Hook/useAxiosPublic";
 import Swal from "sweetalert2";
 import useSingleNews from "../../../Hook/useSingleNews";
+import Context from "../../../Hook/useContext";
+
+// Define a type for newsinfo
+interface NewsInfo {
+    newsid: string | undefined;
+    useremail: string | undefined
+}
+
 const NewsDetails: React.FC = () => {
-    type UserEmail = string;
     const navigate = useNavigate();
-    const { user }: { user: UserEmail } = useAuth();
+    const { user} = Context()
     const { id } = useParams();
     const { news } = useSingleNews(id);
     console.log(news,user)
     const axoius = useAxiosPublic()
-    interface Users {
-        newsid: string | number;
-        useremail: string | HTMLElement;
-    }
-    const booksmarksnews = () => {
+    console.log(id);
 
-        const newsinfo: Users = {
-            useremail: user?.email
-        }
+    // Declare newsinfo with type NewsInfo
+    const booksmarksnews = () => {
+        const newsinfo: NewsInfo = {
+            newsid: id,
+            useremail: user?.email || ""// user?.email might be undefined, which is allowed by the interface
+        };
+        console.log(newsinfo);
+        
         if (user) {
             axoius.post('/bookmarks', newsinfo)
                 .then(res => {
@@ -45,8 +51,8 @@ const NewsDetails: React.FC = () => {
         } else {
             navigate("/login")
         }
-
     }
+
     return (
         <div className="md:px-6 my-5">
             <div className="flex justify-between bg-gray-200 p-4">

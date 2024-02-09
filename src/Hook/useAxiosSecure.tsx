@@ -42,5 +42,3 @@ const useAxiosSecure = () => {
 
 export default useAxiosSecure;
 
-// http://localhost:5000/
-// https://the-mornong-post-server-omega.vercel.app/
