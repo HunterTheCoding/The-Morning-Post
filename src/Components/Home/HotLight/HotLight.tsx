@@ -1,27 +1,19 @@
 import React from "react";
-import useAdmin from "../../../Hook/useNews";
+import useAdmin, { News } from "../../../Hook/useNews"; // Import the News interface from useNews
 import HotLightCard from "./HotLightCard";
 
-export interface News {
-  _id: string;
-  section: string;
-  headline: string;
-  source: string;
-  date: string;
-  summary: string;
-  details: string;
-  image: string;
-  // other properties...
-}
-
 const HotLight: React.FC = () => {
-  // Pass the desired news section to the useAdmin hook
-  const [isNews, isNewsLoading] = useAdmin("HotLight");
+  // Destructuring the returned object from useAdmin
+  const { newsData: hotLights, isLoading: hotLightsLoading } =
+    useAdmin("HotLight");
+  // const {_id, section, headline, source, date, summary, details, image} =hotLights;
 
   return (
-    <div className="p-5"
+    <div
+      className="p-5"
       style={{
-        backgroundImage: "url('https://www.bd-pratidin.com/assets/newDesktop/img/section-bg.png?v=1.0.0')",
+        backgroundImage:
+          "url('https://www.bd-pratidin.com/assets/newDesktop/img/section-bg.png?v=1.0.0')",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",
@@ -30,20 +22,20 @@ const HotLight: React.FC = () => {
     >
       <h1 className="text-3xl text-white text-center p-2">HotLights</h1>
 
-
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center items-center mx-auto gap-5 ">
-        {isNewsLoading ? (
+        {hotLightsLoading ? (
           <p>Loading...</p>
-        ) : isNews ? (
-          isNews.map((news: News) => (
-            <HotLightCard news={news} key={news._id}></HotLightCard>
-          ))
+        ) : hotLights && hotLights.length > 0 ? (
+          hotLights.map(
+            (
+              news: News // Ensure hotLights is an array and map through it
+            ) => <HotLightCard news={news} key={news._id}></HotLightCard>
+          )
         ) : (
           <p>No news data available</p>
         )}
       </div>
     </div>
-
   );
 };
 

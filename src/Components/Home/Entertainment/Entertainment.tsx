@@ -2,33 +2,22 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import slider1 from '../../../assets/slider1.jpg';
-import slider2 from '../../../assets/slider2.jpg';
-import slider3 from '../../../assets/slider3.jpg';
 import sidebanner2 from '../../../assets/sidebanner2.jpg';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
-import { useEffect, useState } from 'react';
 import moment from "moment"
 import { TfiWrite } from "react-icons/tfi";
 import { TiStopwatch } from "react-icons/ti";
-
-interface NewsItem {
-    id: number;
-    headline: string;
-    writer: string;
-    image: string;
-    date: string;
-}
+import useAdmin from '../../../Hook/useNews';
 
 const Entertainment = () => {
 
-    const [featureData, setFeatureData] = useState<NewsItem[]>([]);
 
-    useEffect(() => {
-        fetch("/featureData.json")
-            .then(res => res.json())
-            .then(data => setFeatureData(data))
-    }, [])
+    const { newsData: Entertainment} =
+    useAdmin("Entertainment");
+//   const {_id, section, headline, source, date, summary, details, image} =Entertainment;
+ 
+const { newsData: EntertainmentCover} =
+useAdmin("Entertainment-cover");
 
     return (
         <div>
@@ -45,25 +34,15 @@ const Entertainment = () => {
                                 modules={[Pagination, Navigation]}
                                 className="mySwiper"
                             >
-                                <SwiperSlide>
-                                    <img src={slider1} className='w-full lg:h-[550px] md:h-[500px] h-[300px]' alt="" />
-                                    <h2 className='card-title mt-2 pl-2'>
-                                        Temparature is going down. People are suffering much. The lowest temparature is recorded at Dinajpur.
-                                    </h2>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <img src={slider2} className='w-full lg:h-[550px] md:h-[500px] h-[300px]' alt="" />
-                                    <h2 className='card-title mt-2 pl-2'>
-                                        Bangladesh army is being developed day by day - says Global Fire Power Ranking.
-                                    </h2>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <img src={slider3} className='w-full lg:h-[550px] md:h-[500px] h-[300px]' alt="" />
-                                    <h2 className='card-title mt-2 pl-2'>
-                                        Bangladesh economy is falling down slowly - says Bangladesh Bank.
-                                    </h2>
-                                </SwiperSlide>
-
+                                {
+                                    EntertainmentCover.map(cover =>(<SwiperSlide key={cover._id}>
+                                        <img src={cover.image} className='w-full lg:h-[550px] md:h-[500px] h-[300px]' alt="" />
+                                        <h2 className='card-title mt-2 pl-2'>
+                                        {cover.headline} 
+                                        </h2>
+                                    </SwiperSlide> ))
+                                }
+                                
                             </Swiper>
                         </div>
                         <div className="hidden md:flex lg:flex md:col-span-3 lg:col-span-3 p-4">
@@ -106,8 +85,8 @@ const Entertainment = () => {
                                 <div className="container mx-auto p-2">
                                     <div className="flex items-stretch -mx-4">
                                         {
-                                            featureData.map((news: NewsItem) => (
-                                                <SwiperSlide key={news.id}>
+                                            Entertainment.map((news) => (
+                                                <SwiperSlide key={news._id}>
                                                     <div className="flex-1 bg-white shadow dark:bg-gray-800 dark:border-gray-700">
                                                         <div className="block overflow-hidden border-2 h-full rounded-md">
                                                             <a href="#">
@@ -116,11 +95,11 @@ const Entertainment = () => {
                                                                 </div>
                                                             </a>
                                                             <div className="p-2">
-                                                                <h2 className="mt-2 mb-2 font-bold text-2xl text-gray-900  font-Heading dark:text-white">
+                                                                <h2 className="mt-2 mb-2 font-bold text-2xl h-44  text-gray-900  font-Heading dark:text-white">
                                                                     {news.headline}
                                                                 </h2>
-                                                                <div className="mb-4 flex flex-wrap text-gray-700 dark:text-gray-400">
-                                                                    {news.headline}
+                                                                <div className="mb-4 flex flex-wrap text-gray-700 h-44 dark:text-gray-400">
+                                                                    {news.summary}
                                                                 </div>
                                                                 {/* <p className="text-md text-justify">Some Description</p> */}
                                                             </div>
@@ -143,7 +122,18 @@ const Entertainment = () => {
                 </div>
                 {/* sidebar */}
                 <div className="col-span-2 bg-gray-300 mt-4 rounded-md">
-                    Sidebar
+                <div dangerouslySetInnerHTML={{__html: `
+      <script type="text/javascript"> 
+       var atOptions = { 
+        'key' : 'd9352f9386f41a6ced0228459f348f0f', 
+        'format' : 'iframe', 
+        'height' : 250, 
+        'width' : 300, 
+        'params' : {} 
+       }; 
+       document.write('<scr' + 'ipt type="text/javascript" src="//www.topcreativeformat.com/d9352f9386f41a6ced0228459f348f0f/invoke.js"></scr' + 'ipt>'); 
+      </script>
+    `}} />
                 </div>
             </div>
 
