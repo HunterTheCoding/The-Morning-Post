@@ -6,7 +6,7 @@ const Science = () => {
     useAdmin("Science");
 //   const {_id, section, headline, source, date, summary, details, image,title,Writer} =Science;
  
-console.log(Science,ScienceLoading);
+console.log(Science),ScienceLoading;
 
     return (
         <div className="border-2 border-red-700 ">

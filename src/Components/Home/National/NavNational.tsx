@@ -3,10 +3,8 @@ import p1 from "../../../assets/National/natioal4.jpg"
 import { FaArrowCircleRight } from "react-icons/fa";
 import useAdmin, { News } from "../../../Hook/useNews";
 const NavNational = () => {
-    const { newsData: National, isLoading: NationalLoading } = useAdmin("National");
+    const { newsData: National} = useAdmin("National");
     //   const {_id, section, headline, source, date, summary, details, image} =National;
-    console.log(National, NationalLoading);
-
 
     return (
         <div>
@@ -30,8 +28,7 @@ const NavNational = () => {
                                     <img className="w-[60%] rounded-r-md " src={news2?.image} alt="" />
                                 </div>
                             </Link>)
-                        }
-                  
+                        }                
                     </div>
                     <div className="flex justify-center px-5">
                         <button className="btn text-xl hover:text-black hover:bg-green-200  font-medium text-black border-none bg-green-300 ">View All</button>

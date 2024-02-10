@@ -1,31 +1,30 @@
 import { FaBookmark } from "react-icons/fa";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import snowImg from '../../../assets/snowfall.jpg';
 import satelite from '../../../assets/091413_bangladesh_pratidin_Satellite.jpg';
 import jail from '../../../assets/095722_bangladesh_pratidin_Jail.jpg';
 import netaniyahu from '../../../assets/081157_bangladesh_pratidin_US_Israel.jpg'
-import mendela from '../../../assets/131904_bangladesh_pratidin_Mandela.jpg'
-import useAuth from "../../../Hook/useAuth";
+import mendela from '../../../assets/131904_bangladesh_pratidin_Mandela.jpg';
 import useAxiosPublic from "../../../Hook/useAxiosPublic";
 import Swal from "sweetalert2";
 import useSingleNews from "../../../Hook/useSingleNews";
+import Context from "../../../Hook/useContext";
 const NewsDetails: React.FC = () => {
-    type UserEmail = string;
     const navigate = useNavigate();
-    const { user }: { user: UserEmail } = useAuth();
+    const { user} = Context()
     const { id } = useParams();
     const { news } = useSingleNews(id);
     console.log(news,user)
     const axoius = useAxiosPublic()
     interface Users {
-        newsid: string | number;
-        useremail: string | HTMLElement;
+        newsid: number;  // Assuming newsid is of type number, adjust accordingly
+        useremail?: string | undefined;  // Assuming useremail is of type string, with optional chaining
     }
     const booksmarksnews = () => {
 
         const newsinfo: Users = {
-            useremail: user?.email
-        }
+            newsid: id ? Number(id) : 0,
+            useremail: user?.email ?? ''
+        };
         if (user) {
             axoius.post('/bookmarks', newsinfo)
                 .then(res => {
@@ -57,40 +56,22 @@ const NewsDetails: React.FC = () => {
             </div>
 
             <div className="grid md:grid-cols-6 grid-cols-1 gap-4 mt-4">
-                <div className="col-span-4">
-                    <div className="text-center mb-4 bg-base-200 relative">
-                        <img src={snowImg} className="w-full md:h-[400px]" alt="" />
-                        <h2 className="font-bold text-2xl p-2">Severe snowfall in USA. 80 people are died. People can not go outside. Traffic are stopped. A lot of people are getting sick and admitted to hospital.  </h2>
+                <div className="col-span-4 ">
+                    <div className="text-center mb-4 bg-base-200 relative rounded-md">
+                        <img src={news?.image} className="w-full md:h-[400px]" alt="" />
+                        <h2 className="font-bold text-start text-2xl p-2">{news?.headline}</h2>
                         <div className="absolute bottom-2 right-2">
-                            <button onClick={booksmarksnews} className="text-xs"><FaBookmark></FaBookmark></button>
+                            <button onClick={booksmarksnews} className="text-xs"><FaBookmark className="text-2xl hover:text-green-500 "></FaBookmark></button>
                         </div>
                     </div>
 
                     <div className="p-5">
                         <h2 className="text-2xl font-bold my-4">Stuff Correspondent || New York || USA.</h2>
-                        <p>
-                            Severe snowfall in the USA can have significant and harmful impacts on the general public's health. The extreme weather conditions associated with heavy snowfall often lead to transportation disruptions, making it challenging for individuals to access essential services such as healthcare facilities and pharmacies.
+                        <p className="text-lg font-medium">
+                            {news?.summary}
                         </p>
 
-                        <p>
-                            Emergency response times may be delayed, posing a threat to those in need of urgent medical attention. Moreover, prolonged exposure to harsh winter conditions can increase the risk of cold-related illnesses, such as hypothermia and frostbite, particularly among vulnerable populations like the homeless or those with limited resources to cope with extreme weather.
-                        </p>
-
-                        <p>
-                            In addition to the physical health risks, severe snowfall can also have adverse effects on mental health. The isolation caused by impassable roads and disrupted public services can lead to feelings of loneliness and anxiety, exacerbating existing mental health conditions.
-                        </p>
-
-                        <p>
-                            Individuals may experience stress due to the uncertainty surrounding their safety and well-being during the prolonged period of snowfall. Moreover, the economic impact of the weather event, including potential job loss and financial strain, can contribute to increased stress levels within the affected communities.
-                        </p>
-
-                        <p>
-                            Furthermore, the widespread power outages often associated with severe snowfall can jeopardize public health by hindering access to essential utilities. Heating systems may fail, exposing individuals to dangerously low temperatures indoors.
-                        </p>
-
-                        <p>
-                            This not only increases the risk of cold-related illnesses but also creates challenges in preserving medications and medical supplies that require specific storage conditions. The combination of physical, mental, and economic stressors during severe snowfall underscores the need for robust emergency preparedness and response measures to mitigate the adverse impacts on the general public's health.
-                        </p>
+                       
                     </div>
                 </div>
                 <div className="col-span-2">

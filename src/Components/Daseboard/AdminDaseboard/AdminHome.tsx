@@ -1,6 +1,7 @@
 import Lottie from "lottie-react";
 import profileAnimation from "../../../../public/adminProfile-animation.json"
 const AdminHome = () => {
+    const {user}=Context()
     return (
         <div>
            <div className="p-6 sm:p-12 dark:bg-gray-900 dark:text-gray-100">

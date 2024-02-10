@@ -11,13 +11,6 @@ import { loadStripe } from "@stripe/stripe-js";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
-interface DonationItem {
-  id: number;
-  amount: number;
-  name: string;
-  email: string;
-  option: string;
-}
 
 interface DonationFormProps {
   setAmount: React.Dispatch<React.SetStateAction<number | null>>;
@@ -78,29 +71,13 @@ const navigate = useNavigate()
 
     if (error) {
       console.log("payment error", error);
-      setError(error.message);
+      setError(error.message || "An unknown payment error occurred");
     } else {
       console.log("payment method", paymentMethod);
       setError("");
     }
 
-    // confirm payment
-    // const {}= await stripe.confirmSofortPayment(clientSecret,paymentMethod)
-    // console.log(clientSecret);
-    // const { paymentIntent, error: confirmError } =
-    //   await stripe.confirmCardPayment(clientSecret, {
-    //     payment_method: {
-    //       card: card,
-    //       billing_details: {
-    //         email: user?.email || "anonymous",
-    //         name: user?.displayName || "anonymous",
-    //       },
-    //     },
-    //   });
 
-
-        // Check if clientSecret is valid before proceeding
-      
         if (!clientSecret) {
           console.error("Client secret is empty or null");
           return;
@@ -279,7 +256,6 @@ const Donation = () => {
 
 export default Donation;
 
-// import React, { useState } from "react";
 
 // interface DonationItem {
 //     id: number;
