@@ -133,6 +133,7 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     signInUser,
     signInWithGoogle,
     logOut,
+    SignInWithFacebook
   } as AuthContextProps;
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

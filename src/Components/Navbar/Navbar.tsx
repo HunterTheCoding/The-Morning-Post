@@ -137,8 +137,8 @@ const Navbar = () => {
                         isPending
                           ? "pending "
                           : isActive
-                          ? "btn btn-warning "
-                          : "btn btn-ghost "
+                            ? "btn btn-warning "
+                            : "btn btn-ghost "
                       }
                     >
                       PROFILE
@@ -151,10 +151,10 @@ const Navbar = () => {
                         isPending
                           ? "pending "
                           : isPending
-                          ? "pending "
-                          : isActive
-                          ? "btn btn-outline  "
-                          : "btn btn-ghost "
+                            ? "pending "
+                            : isActive
+                              ? "btn btn-outline  "
+                              : "btn btn-ghost "
                       }
                       onClick={logOut}
                       to={""}
@@ -171,20 +171,20 @@ const Navbar = () => {
                   isPending
                     ? "pending "
                     : isPending
-                    ? "pending "
-                    : isActive
-                    ? "btn btn-warning "
-                    : "btn btn-ghost "
+                      ? "pending "
+                      : isActive
+                        ? "btn btn-warning "
+                        : "btn btn-ghost "
                 }
               >
                 Login
               </NavLink>
             )}
           </div>
-          <div className="p-5 rounded-md">
-          <div className="p-5 rounded-md"><p className=""><Weather /></p></div>
+          <div className=" rounded-md">
+            <div className=" rounded-md"><p className=""><Weather /></p></div>
           </div>
-          <img className="rounded-lg" src={logo} alt="" />
+          <img className="rounded-lg h-20 md:h-[100px] w-24 lg:w-[150px] hidden md:flex lg:flex" src={logo} alt="" />
         </header>
 
         <nav className="bg-gray-700 overflow-hidden grid grid-cols-4 md:grid-cols-5 lg:flex lg:pl-14">
