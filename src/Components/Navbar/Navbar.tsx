@@ -187,7 +187,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="font-sans bg-gray-300 fixed -mt-4 z-10 max-w-screen-xl mx-auto">
+      <div className="font-sans bg-gray-300 fixed -mt-4 z-50 max-w-screen-xl mx-auto">
         <header className="bg-indigo-950 text-white p-6 text-center flex justify-between px-2 px lg:px-5vw">
           <img
             className="rounded-lg   h-20 md:h-[100px] w-24 lg:w-[150px]  md:flex lg:flex"
