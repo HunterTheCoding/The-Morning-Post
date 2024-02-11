@@ -1,7 +1,14 @@
+import useAdmin from "../../../Hook/useNews";
 import Entertainment from "./Entertainment";
 
 
 const NavEntertainment = () => {
+    const { newsData: EntertainmentData, isLoading: EntertainmentLoading } =
+    useAdmin("Entertainment");
+//   const {_id, section, headline, source, date, summary, details, image} =Entertainment;
+ 
+  console.log(EntertainmentData,EntertainmentLoading);
+  
     return (
         <div>
             <nav className=" h-32 bg-gray-800 text-white">
