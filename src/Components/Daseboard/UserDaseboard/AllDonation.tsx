@@ -1,4 +1,30 @@
+import { useEffect, useState } from "react";
+import useAxiosSecure from "../../../Hook/useAxiosSecure";
+import Context from "../../../Hook/useContext";
+
+interface HandleType {
+  id: number;
+  headline: string;
+  writer: string;
+  date: string;
+}
+
 const AllDonation = () => {
+  const [donation, setDonation] = useState<HandleType[]>([])
+  const axiosSecure=useAxiosSecure()
+  const {user}=Context()
+
+  useEffect(()=>{
+    axiosSecure.get(`/donation/${user?.email}`)
+        .then(res => {
+            setDonation(res.data)
+            console.log(res.data);
+            
+        })
+    
+
+},[axiosSecure, donation, user?.email])
+
     return (
       <div>
         <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100">
@@ -18,8 +44,9 @@ const AllDonation = () => {
                 </tr>
               </thead>
               <tbody className="bg-indigo-50 text-indigo-500">
-                <tr>
-                  <td>1</td>
+                {/* {
+                  donation.map((donationList,index)=>  <tr>
+                  <td>index</td>
                   <td className="p-3">
                   Rasheda
                   </td>
@@ -27,7 +54,9 @@ const AllDonation = () => {
                   <td className="p-3">$400</td>
                   <td className="p-3">ts86657669vbvh7658</td>
                   <td className="p-3">Education</td>
-                </tr>
+                </tr>)
+                } */}
+              
               </tbody>
             </table>
           </div>

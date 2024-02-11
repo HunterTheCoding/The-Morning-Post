@@ -1,6 +1,6 @@
 import {  useEffect, useState } from "react";
-// import useAxiosPublic from "../../../Hook/useAxiosPublic";
-// import useAuth from "../../../Hook/useAuth";
+import useAxiosSecure from "../../../Hook/useAxiosSecure";
+import Context from "../../../Hook/useContext";
 
 interface HandleType {
     id: number;
@@ -10,24 +10,27 @@ interface HandleType {
 }
 const BooksMarks = () => {
     const [bookmark, setBookmark] = useState<HandleType[]>([])
-    // const { user } = useAuth()
-    // const axiosPublic = useAxiosPublic()
+    const { user } =Context()
+    const axiosSecure = useAxiosSecure()
     
-    // axiosPublic.get(`/Bookmark/${user?.email}`)
-    //     .then(res => {
-    //         setBookmark(res.data)
-    //         console.log('from bookmark', res.data);
-    //     })
-    // console.log('bookmark', bookmark);
 
+// useEffect(()=>{
+//     fetch("../bookmark.json")
+//     .then(res => res.json())
+//     .then(data =>{
+//         setBookmark(data)
+//         console.log("from bookmark" ,data);   
+//     })
+// },[])
 useEffect(()=>{
-    fetch("../bookmark.json")
-    .then(res => res.json())
-    .then(data =>{
-        setBookmark(data)
-        console.log("from bookmark" ,data);   
-    })
-},[])
+    axiosSecure.get(`/Bookmark/${user?.email}`)
+        .then(res => {
+            setBookmark(res.data)
+            console.log('from bookmark', res.data);
+        })
+    console.log('bookmark', bookmark);
+
+},[axiosSecure, bookmark, user?.email])
     return (
         <div className="bg-white">
 
