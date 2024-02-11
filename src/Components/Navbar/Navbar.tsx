@@ -8,8 +8,8 @@ import Weather from "../Weather/Weather";
 import { FaUser } from "react-icons/fa";
 import { useEffect, useState } from "react";
 const Navbar = () => {
-  
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
+
   const [isAdmin] = useAdmin();
   // console.log(isAdmin);
 
@@ -18,206 +18,173 @@ const Navbar = () => {
 
   const list = [
     <NavLink
-    className={({ isPending, isActive }) =>
-    isPending
-      ? "pending"
-      : isPending
-      ? "pending"
-      :  isActive
-      ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-      : "btn btn-ghost btn-sm"
-  }
-   to={"/"}
+      className={({ isPending, isActive }) =>
+        isPending
+          ? "pending"
+          : isPending
+          ? "pending"
+          : isActive
+          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+          : "btn btn-ghost btn-sm"
+      }
+      to={"/"}
     >
       <span className=" uppercase text-white text-center">HOME</span>
     </NavLink>,
     <NavLink
-    className={({ isPending, isActive }) =>
-    isPending
-      ? "pending"
-      : isPending
-      ? "pending"
-      :  isActive
-      ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-      : "btn btn-ghost btn-sm"
-  }
+      className={({ isPending, isActive }) =>
+        isPending
+          ? "pending"
+          : isPending
+          ? "pending"
+          : isActive
+          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+          : "btn btn-ghost btn-sm"
+      }
       to="/world"
     >
-      <a
-      className="uppercase text-white text-center font"
-      >
-        World
-      </a>
+      <a className="uppercase text-white text-center font">World</a>
     </NavLink>,
     <NavLink
-       className={({ isPending, isActive }) =>
-      isPending
-        ? "pending"
-        : isPending
-        ? "pending"
-        :  isActive
-        ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-        : "btn btn-ghost btn-sm"
-    }
+      className={({ isPending, isActive }) =>
+        isPending
+          ? "pending"
+          : isPending
+          ? "pending"
+          : isActive
+          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+          : "btn btn-ghost btn-sm"
+      }
       to="/business"
     >
-      <a
-       className="uppercase text-white text-center"
- 
-      >
-        Business
-      </a>
+      <a className="uppercase text-white text-center">Business</a>
     </NavLink>,
     <NavLink
-    className={({ isPending, isActive }) =>
-    isPending
-      ? "pending"
-      : isPending
-      ? "pending"
-      :  isActive
-      ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-      : "btn btn-ghost btn-sm"
-  }
+      className={({ isPending, isActive }) =>
+        isPending
+          ? "pending"
+          : isPending
+          ? "pending"
+          : isActive
+          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+          : "btn btn-ghost btn-sm"
+      }
       to="/science"
     >
-      <a
-       className="uppercase text-white text-center"
-      >
-        Science
-      </a>
+      <a className="uppercase text-white text-center">Science</a>
     </NavLink>,
     <NavLink
-    className={({ isPending, isActive }) =>
-    isPending
-      ? "pending"
-      : isPending
-      ? "pending"
-      :  isActive
-      ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-      : "btn btn-ghost btn-sm"
-  }
+      className={({ isPending, isActive }) =>
+        isPending
+          ? "pending"
+          : isPending
+          ? "pending"
+          : isActive
+          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+          : "btn btn-ghost btn-sm"
+      }
       to="/national"
     >
-      <a
-        className="uppercase text-white text-center"
-      >
-        National
-      </a>
+      <a className="uppercase text-white text-center">National</a>
     </NavLink>,
     <NavLink
-    className={({ isPending, isActive }) =>
-    isPending
-      ? "pending"
-      : isPending
-      ? "pending"
-      :  isActive
-      ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-      : "btn btn-ghost btn-sm"
-  }
+      className={({ isPending, isActive }) =>
+        isPending
+          ? "pending"
+          : isPending
+          ? "pending"
+          : isActive
+          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+          : "btn btn-ghost btn-sm"
+      }
       to="/sport"
     >
-      <a
-className="uppercase text-white text-center"
-      >
-        Sport
-      </a>
+      <a className="uppercase text-white text-center">Sport</a>
     </NavLink>,
 
     <NavLink
-    className={({ isPending, isActive }) =>
-    isPending
-      ? "pending"
-      : isPending
-      ? "pending"
-      :  isActive
-      ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-      : "btn btn-ghost btn-sm"
-  }
+      className={({ isPending, isActive }) =>
+        isPending
+          ? "pending"
+          : isPending
+          ? "pending"
+          : isActive
+          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+          : "btn btn-ghost btn-sm"
+      }
       to="/picture"
     >
       <a className="uppercase text-white text-center">Photo</a>
     </NavLink>,
 
     <NavLink
-    className={({ isPending, isActive }) =>
-    isPending
-      ? "pending"
-      : isPending
-      ? "pending"
-      :  isActive
-      ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-      : "btn btn-ghost btn-sm"
-  }
+      className={({ isPending, isActive }) =>
+        isPending
+          ? "pending"
+          : isPending
+          ? "pending"
+          : isActive
+          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+          : "btn btn-ghost btn-sm"
+      }
       to="/jobs"
-      
     >
       <span className="uppercase text-white text-center">Jobs</span>
     </NavLink>,
     <NavLink
-    className={({ isPending, isActive }) =>
-    isPending
-      ? "pending"
-      : isPending
-      ? "pending"
-      :  isActive
-      ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-      : "btn btn-ghost btn-sm"
-  }
+      className={({ isPending, isActive }) =>
+        isPending
+          ? "pending"
+          : isPending
+          ? "pending"
+          : isActive
+          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+          : "btn btn-ghost btn-sm"
+      }
       to="/entertainment"
     >
-      <a
-        className="uppercase text-white text-center"
-      >
-        Entertainment
-      </a>
+      <a className="uppercase text-white text-center">Entertainment</a>
     </NavLink>,
     <NavLink
-    className={({ isPending, isActive }) =>
-    isPending
-      ? "pending"
-      : isPending
-      ? "pending"
-      :  isActive
-      ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-      : "btn btn-ghost btn-sm"
-  }
+      className={({ isPending, isActive }) =>
+        isPending
+          ? "pending"
+          : isPending
+          ? "pending"
+          : isActive
+          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+          : "btn btn-ghost btn-sm"
+      }
       to="donation"
-      
     >
       <span className="uppercase text-white text-center">Donation</span>
     </NavLink>,
     <NavLink
-    className={({ isPending, isActive }) =>
-    isPending
-      ? "pending"
-      : isPending
-      ? "pending"
-      :  isActive
-      ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-      : "btn btn-ghost btn-sm"
-  }
+      className={({ isPending, isActive }) =>
+        isPending
+          ? "pending"
+          : isPending
+          ? "pending"
+          : isActive
+          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+          : "btn btn-ghost btn-sm"
+      }
       to="/Contact-US"
-      
     >
       <span className="font-bold uppercase text-white"> Contact Us</span>
     </NavLink>,
   ];
-
-
   useEffect(() => {
-    // Update the current date and time every second
     const intervalId = setInterval(() => {
       setCurrentDateTime(new Date());
     }, 1000);
 
-    // Clear the interval when the component unmounts
     return () => clearInterval(intervalId);
   }, []);
 
-  // Format the date and time
-  const formattedDateTime = currentDateTime.toLocaleString();
-  
-  
+  const formattedTime = currentDateTime.toLocaleTimeString();
+  const formattedDate = currentDateTime.toLocaleDateString();
+
   return (
     <div>
       <div className="font-sans bg-gray-300 fixed -mt-4 z-10 max-w-screen-xl mx-auto">
@@ -271,7 +238,10 @@ className="uppercase text-white text-center"
                           : "btn btn-ghost btn-sm"
                       }
                     >
-                     <span className="text-indigo-800 uppercase text-xl font-bold"> PROFILE</span>
+                      <span className="text-indigo-800 uppercase text-xl font-bold">
+                        {" "}
+                        PROFILE
+                      </span>
                     </NavLink>
                   </li>
 
@@ -289,7 +259,9 @@ className="uppercase text-white text-center"
                       onClick={logOut}
                       to={""}
                     >
-                       <span className="text-indigo-800 uppercase text-xl font-bold">Logout</span>
+                      <span className="text-indigo-800 uppercase text-xl font-bold">
+                        Logout
+                      </span>
                     </NavLink>
                   </li>
                 </ul>
@@ -320,13 +292,17 @@ className="uppercase text-white text-center"
           {list}
         </nav>
         <div className="flex pl-5vw pr-5vw">
-          <div className=" pl-5 text-white font-bold uppercase  bg-yellow-500">Breaking News</div>
+          <div className=" pl-5 text-white font-bold uppercase  bg-yellow-500">
+            Breaking News
+          </div>
           <Marquee className="bg-white text-black">
             Obaidul Quader is returning home in the evening, which is in the
             100-day action plan of the Ministry of Environment of Arakan Army,
             which demands the occupation of the important port city of Myanmar.
           </Marquee>
-          <div className=" pl-5 text-white font-bold uppercase  bg-yellow-500">{formattedDateTime}</div>
+          <div className="pl-5 text-white font-bold uppercase bg-yellow-500">
+   {formattedTime}  {formattedDate}
+        </div>
         </div>
       </div>
     </div>
