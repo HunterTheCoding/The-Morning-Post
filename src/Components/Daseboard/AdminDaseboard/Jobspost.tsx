@@ -2,6 +2,15 @@
 import useAdmin from '../../../Hook/useNews';
 const Jobspost = () => {
     const { newsData: Jobs } = useAdmin("jobs");
+
+    const handleJobUpdate = (_id) => {
+        console.log('job updated');
+
+    }
+    const handleJobDelete = () => {
+        console.log('handle job delete');
+
+    }
     return (
         <div className='py-5 px-5'>
             <div>
@@ -36,9 +45,9 @@ const Jobspost = () => {
                                         {job?.headline}
 
                                     </td>
-                                    <td><button  className='btn btn-ghost btn-xs' >Update</button></td>
+                                    <td><button onClick={() => handleJobUpdate(_id)} className='btn btn-ghost btn-xs' >Update</button></td>
                                     <th>
-                                        <button className="btn btn-ghost btn-xs">Delete</button>
+                                        <button onClick={() => handleJobDelete(_id)} className="btn btn-ghost btn-xs">Delete</button>
                                     </th>
                                 </tr>)
                             }
