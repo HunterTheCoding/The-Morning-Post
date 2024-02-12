@@ -50,15 +50,15 @@ const hengledelete=(id:any)=>{
 
             <div className="max-w-xg m-6">
                 <div className="flex gap-5 my-3">
-                    <h1 className="bg-yellow-200 p-3 rounded-lg text-lg font-semibold mt-3">BookMark News List</h1>
-                    <h1 className=" bg-yellow-200 p-3 rounded-lg ml-2 text-lg font-semibold mt-3">Total Bookmarks: {bookmarks?.length}</h1>
+                    <h1 className="bg-yellow-200 p-3 rounded-lg text-[12px] md:text-base lg:text-xl font-semibold mt-3">BookMark News List</h1>
+                    <h1 className=" bg-yellow-200 p-3 rounded-lg ml-2  text-[12px] md:text-base lg:text-xl font-semibold mt-3">Total Bookmarks: {bookmarks?.length}</h1>
                 </div>
 
                 <div className="overflow-x-auto ">
                     <table className="table">
                         {/* head */}
                         <thead>
-                            <tr className="bg-base-300 font-semibold">
+                            <tr className="bg-base-300 font-semibold text-[12px] md:text-[14px] lg:text-base ">
                                 <th>No</th>
                                 <th>Headline</th>
                                 <th>Writer</th>
@@ -70,7 +70,7 @@ const hengledelete=(id:any)=>{
                             {
                                 bookmarks?.map((item:HandleType,idx:idxx) => {
                                     return (
-                                        <tr key={item._id}>
+                                        <tr key={item._id} className="text-[12px] md:text-[14px] lg:text-base">
                                             <th>{idx+1}</th>
                                             <td>{item.headline}</td>
                                             <td>{item.section}</td>
