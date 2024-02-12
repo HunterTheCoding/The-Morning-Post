@@ -9,6 +9,7 @@ import { FaUser } from "react-icons/fa";
 import { useEffect, useState } from "react";
 const Navbar = () => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
+  const [changelng,setchangelag] = useState<boolean>(true);
 
   const [isAdmin] = useAdmin();
   // console.log(isAdmin);
@@ -22,10 +23,10 @@ const Navbar = () => {
         isPending
           ? "pending"
           : isPending
-          ? "pending"
-          : isActive
-          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-          : "btn btn-ghost btn-sm"
+            ? "pending"
+            : isActive
+              ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+              : "btn btn-ghost btn-sm"
       }
       to={"/"}
     >
@@ -36,10 +37,10 @@ const Navbar = () => {
         isPending
           ? "pending"
           : isPending
-          ? "pending"
-          : isActive
-          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-          : "btn btn-ghost btn-sm"
+            ? "pending"
+            : isActive
+              ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+              : "btn btn-ghost btn-sm"
       }
       to="/world"
     >
@@ -50,10 +51,10 @@ const Navbar = () => {
         isPending
           ? "pending"
           : isPending
-          ? "pending"
-          : isActive
-          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-          : "btn btn-ghost btn-sm"
+            ? "pending"
+            : isActive
+              ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+              : "btn btn-ghost btn-sm"
       }
       to="/business"
     >
@@ -64,10 +65,10 @@ const Navbar = () => {
         isPending
           ? "pending"
           : isPending
-          ? "pending"
-          : isActive
-          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-          : "btn btn-ghost btn-sm"
+            ? "pending"
+            : isActive
+              ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+              : "btn btn-ghost btn-sm"
       }
       to="/science"
     >
@@ -78,10 +79,10 @@ const Navbar = () => {
         isPending
           ? "pending"
           : isPending
-          ? "pending"
-          : isActive
-          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-          : "btn btn-ghost btn-sm"
+            ? "pending"
+            : isActive
+              ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+              : "btn btn-ghost btn-sm"
       }
       to="/national"
     >
@@ -92,10 +93,10 @@ const Navbar = () => {
         isPending
           ? "pending"
           : isPending
-          ? "pending"
-          : isActive
-          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-          : "btn btn-ghost btn-sm"
+            ? "pending"
+            : isActive
+              ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+              : "btn btn-ghost btn-sm"
       }
       to="/sport"
     >
@@ -107,10 +108,10 @@ const Navbar = () => {
         isPending
           ? "pending"
           : isPending
-          ? "pending"
-          : isActive
-          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-          : "btn btn-ghost btn-sm"
+            ? "pending"
+            : isActive
+              ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+              : "btn btn-ghost btn-sm"
       }
       to="/picture"
     >
@@ -122,10 +123,10 @@ const Navbar = () => {
         isPending
           ? "pending"
           : isPending
-          ? "pending"
-          : isActive
-          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-          : "btn btn-ghost btn-sm"
+            ? "pending"
+            : isActive
+              ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+              : "btn btn-ghost btn-sm"
       }
       to="/jobs"
     >
@@ -136,10 +137,10 @@ const Navbar = () => {
         isPending
           ? "pending"
           : isPending
-          ? "pending"
-          : isActive
-          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-          : "btn btn-ghost btn-sm"
+            ? "pending"
+            : isActive
+              ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+              : "btn btn-ghost btn-sm"
       }
       to="/entertainment"
     >
@@ -150,10 +151,10 @@ const Navbar = () => {
         isPending
           ? "pending"
           : isPending
-          ? "pending"
-          : isActive
-          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-          : "btn btn-ghost btn-sm"
+            ? "pending"
+            : isActive
+              ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+              : "btn btn-ghost btn-sm"
       }
       to="donation"
     >
@@ -164,15 +165,30 @@ const Navbar = () => {
         isPending
           ? "pending"
           : isPending
+            ? "pending"
+            : isActive
+              ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+              : "btn btn-ghost btn-sm"
+      }
+      to="survay"
+    >
+      <span className="uppercase text-white text-center">Survay</span>
+    </NavLink>,
+    <NavLink
+      className={({ isPending, isActive }) =>
+        isPending
           ? "pending"
-          : isActive
-          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-          : "btn btn-ghost btn-sm"
+          : isPending
+            ? "pending"
+            : isActive
+              ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+              : "btn btn-ghost btn-sm"
       }
       to="/Contact-US"
     >
       <span className="font-bold uppercase text-white"> Contact Us</span>
     </NavLink>,
+         <button className="text-balck bg-green-500 font-bold btn hover:bg-black hover:text-white"  onClick={()=>setchangelag(!changelng)}>{changelng?"English":"Bangla"}</button>
   ];
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -194,6 +210,7 @@ const Navbar = () => {
             src={logo}
             alt=""
           />
+
           <div className="flex flex-col  text-start lg:ml-40  justify-center   ">
             <h1 className=" ml-3 lg:ml-5 font-semibold lg:font-extrabold text-2xl lg:text-4xl">
               The Morning Post
@@ -218,7 +235,9 @@ const Navbar = () => {
                     <img className=" h-5/6" src={user.photoURL || undefined} />
                     <SlBadge />
                   </div>
+              
                 </label>
+              
                 <ul
                   tabIndex={0}
                   className="menu menu-sm border-2 dropdown-content  mt-3 z-[1] p-2 shadow bg-blue-100 rounded-box w-52"
@@ -234,8 +253,8 @@ const Navbar = () => {
                         isPending
                           ? "pending "
                           : isActive
-                          ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
-                          : "btn btn-ghost btn-sm"
+                            ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+                            : "btn btn-ghost btn-sm"
                       }
                     >
                       <span className="text-indigo-800 uppercase text-xl font-bold">
@@ -251,10 +270,10 @@ const Navbar = () => {
                         isPending
                           ? "pending "
                           : isPending
-                          ? "pending "
-                          : isActive
-                          ? "btn btn-outline  "
-                          : "btn btn-ghost "
+                            ? "pending "
+                            : isActive
+                              ? "btn btn-outline  "
+                              : "btn btn-ghost "
                       }
                       onClick={logOut}
                       to={""}
@@ -273,10 +292,10 @@ const Navbar = () => {
                   isPending
                     ? "pending "
                     : isPending
-                    ? "pending "
-                    : isActive
-                    ? "btn"
-                    : "btn btn-ghost "
+                      ? "pending "
+                      : isActive
+                        ? "btn"
+                        : "btn btn-ghost "
                 }
                 title="Login"
               >
@@ -284,8 +303,10 @@ const Navbar = () => {
                   <FaUser />
                 </div>
               </NavLink>
+              
             )}
           </div>
+          
         </header>
 
         <nav className="bg-indigo-900 overflow-hidden grid grid-cols-4 md:grid-cols-5 lg:flex lg:pl-14 py-4 space-x-2 items-center justify-center">
@@ -301,8 +322,8 @@ const Navbar = () => {
             which demands the occupation of the important port city of Myanmar.
           </Marquee>
           <div className="pl-5 text-black font-bold uppercase bg-yellow-500 rounded-l-md">
-   {formattedTime}  {formattedDate}
-        </div>
+            {formattedTime}  {formattedDate}
+          </div>
         </div>
       </div>
     </div>

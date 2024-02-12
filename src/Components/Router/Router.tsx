@@ -30,6 +30,7 @@ import UserDonation from "../Daseboard/AdminDaseboard/UserDonation";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import Error from "../Error/Error";
+import Survay from "../Navbar/Survay";
 
 const Mybrowser = createBrowserRouter([
   {
@@ -96,6 +97,10 @@ const Mybrowser = createBrowserRouter([
       {
         path: "/picture",
         element: <Photo></Photo>,
+      },
+      {
+        path: "/survay",
+        element: <Survay></Survay>
       },
     ],
   },
