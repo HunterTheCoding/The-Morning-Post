@@ -1,30 +1,15 @@
-// import { useEffect, useState } from "react";
+
 import useAdmin from "../../../Hook/useNews";
 
-// interface businessItem {
-//     id: number;
-//     headline: string;
-//     paragraph: string
-//     image: string;
-// }
 
 const Sport = () => {
-    // const [businessData, setBusinessData] = useState<businessItem[]>([]);
-    // useEffect(() => {
-    //     fetch("/sports.json")
-    //         .then(res => res.json())
-    //         .then(data => setBusinessData(data as businessItem[]))
-    //         .catch(error => {
-    //             console.log(error);
-    //         })
-    // }, [])
-
+ 
     const { newsData: SportData, isLoading: SportDataLoading } =useAdmin("Sports");
 //   const {_id, section, headline, source, date, summary, details, image,title,Writer} =SportData;
  
     console.log(SportData,SportDataLoading);
     return (
-        <div className="my-5">
+        <div className="pb-5">
 
             <div className="lg:flex gap-5">
 
