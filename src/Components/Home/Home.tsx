@@ -12,7 +12,8 @@ import OurHistory from "./OurHistory/OurHistory.js";
 
 const Home = () => {
     return (
-        <div className="-mt-[16px]">
+
+        <div className="-mt-4">
             <Bannar></Bannar>
             <HotLight></HotLight>
             <OurHistory></OurHistory>
