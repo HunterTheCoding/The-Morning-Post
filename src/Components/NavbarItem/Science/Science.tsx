@@ -8,7 +8,7 @@ const Science = () => {
 console.log(Science),ScienceLoading;
 
     return (
-        <div className="border-2border-red-700 ">
+        <div className="border-2border-red-700 -mt-5">
             <div className="grid grid-cols-3 gap-10">
                 <div className="lg:col-span-2 col-span-3 m-5">
                     {/*1st layout  */}

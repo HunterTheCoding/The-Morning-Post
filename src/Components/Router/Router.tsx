@@ -30,6 +30,9 @@ import UserDonation from "../Daseboard/AdminDaseboard/UserDonation";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import Error from "../Error/Error";
+import Survay from "../Navbar/Survay";
+import UpdateJobs from "../Daseboard/AdminDaseboard/UpdateJobs";
+
 
 const Mybrowser = createBrowserRouter([
   {
@@ -97,6 +100,10 @@ const Mybrowser = createBrowserRouter([
         path: "/picture",
         element: <Photo></Photo>,
       },
+      {
+        path: "/survay",
+        element: <Survay></Survay>
+      },
     ],
   },
   {
@@ -111,8 +118,8 @@ const Mybrowser = createBrowserRouter([
         path: "/daseboard/adminhome",
         element: (
           <PrivateRoute><AdminRoute>
-          <AdminHome></AdminHome>
-        </AdminRoute></PrivateRoute>
+            <AdminHome></AdminHome>
+          </AdminRoute></PrivateRoute>
         ),
       },
       {
@@ -122,6 +129,11 @@ const Mybrowser = createBrowserRouter([
       {
         path: "addjobs",
         element: <Addjobs></Addjobs>,
+      },
+      {
+        path: "updateJobs/:id",
+        element: <UpdateJobs></UpdateJobs>,
+        loader: ({ params }) => fetch(`http://localhost:5000/api/v1/job/${params.id}`)
       },
       {
         path: "news",
