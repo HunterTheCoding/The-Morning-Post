@@ -30,6 +30,7 @@ import UserDonation from "../Daseboard/AdminDaseboard/UserDonation";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import Error from "../Error/Error";
+import NewsUpdate from "../Daseboard/AdminDaseboard/NewsUpdate";
 
 const Mybrowser = createBrowserRouter([
   {
@@ -108,12 +109,22 @@ const Mybrowser = createBrowserRouter([
     ),
     children: [
       {
-        path: "/daseboard/adminhome",
+        path: "adminhome",
         element: (
           <PrivateRoute><AdminRoute>
           <AdminHome></AdminHome>
         </AdminRoute></PrivateRoute>
         ),
+      },
+      {
+        path: "NewsUpdate/:id",
+        element: (
+         <AdminRoute>
+          <NewsUpdate></NewsUpdate>
+         </AdminRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/singleNews/${params.id}`),
       },
       {
         path: "jobs",

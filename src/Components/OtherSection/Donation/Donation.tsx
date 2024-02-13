@@ -104,13 +104,13 @@ const navigate = useNavigate()
         setTransactionId(paymentIntent.id);
 
         console.log(newDonation);
-        const res = await AxiosPublic.post("/donation", {
+        const res = await AxiosPublic.post("/donation-request", {
           newDonation,
           transactionId,
         });
         console.log("payment saved", res);
         // refetch();
-        if (res.data?.result?.insertedId) {
+        if (res.data?.insertedId) {
           Swal.fire({
             position: "top-end",
             icon: "success",
