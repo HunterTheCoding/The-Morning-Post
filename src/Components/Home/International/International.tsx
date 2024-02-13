@@ -22,8 +22,10 @@ const International = () => {
                             {
                                 InternationalData.slice(0, 1).map((news)=><>
                                 <div className="w-1/3 md:h-[200px] bg-gray-200 relative">
+                                <Link to={`/newsdetails/${news._id}`}>
                                 <h2 className="font-bold lg:text-2xl md:text-xl text-lg  p-2">{news.headline}
                                 </h2>
+                                </Link>
                                 <div className="absolute bottom-2 right-2">
                                     <button className="text-xs"><FaBookmark></FaBookmark></button>
                                 </div>
@@ -37,8 +39,10 @@ const International = () => {
                             InternationalData.slice(1,2).map((news)=><div key={news._id}>
                             <div className="md:h-[200px] w-full ml-4 md:ml-0 my-3 relative bg-gray-200">
                             <img src={news.image} className="w-full" alt="image" />
-                            <h2 className="font-bold p-2">{news.headline}
+                            <Link to={`/newsdetails/${news._id}`}>
+                            <h2 className="font-bold p-2">{news.headline.slice(0, 40)}
                             </h2>
+                            </Link>
                             <div className="absolute bottom-2 right-2">
                                 <button className="text-xs"><FaBookmark></FaBookmark></button>
                             </div>
@@ -52,7 +56,9 @@ const International = () => {
                             InternationalData.slice(2,6).map((news)=>
                             <div key={news._id} className="md:h-[204px] md:my-3 bg-gray-200 relative">
                             <img src={news.image} className="w-full" alt="" />
+                            <Link to={`/newsdetails/${news._id}`}>
                             <h2 className="font-bold text-sm p-2">{news.headline} </h2>
+                            </Link>
                             <div className="absolute bottom-2 right-2">
                                 <button className="text-xs"><FaBookmark></FaBookmark></button>
                             </div>
@@ -67,7 +73,9 @@ const International = () => {
                         <div key={news._id} className="flex pl-10 md:pl-0 mt-4">
                         <img src={news.image} className="w-1/3 h-[100px]" alt="" />
                         <div className="w-2/3 h-[100px] bg-gray-200 relative">
+                            <Link to={`/newsdetails/${news._id}`}>
                             <h2 className="font-bold p-2">{news.headline} </h2>
+                            </Link>
                             <div className="absolute bottom-2 right-2">
                                 <button className="text-xs"><FaBookmark></FaBookmark></button>
                             </div>
