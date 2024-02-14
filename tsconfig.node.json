@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["@stripe/types", "other-types"],
     "composite": true,
     "skipLibCheck": true,
     "module": "ESNext",

@@ -1,4 +1,32 @@
+import { useEffect, useState } from "react";
+
+import Context from "../../../Hook/useContext";
+import useAxiosSecure from "../../../Hook/useAxiosSecure";
+
+
+interface HandleType {
+  
+  id: string,
+  amount: number,
+
+  name:string,
+  email:string,
+  option:string
+}
 const AllDonation = () => {
+ 
+  const axiosSecure = useAxiosSecure()
+  const {user}= Context()
+  const [donation, setDonation] = useState<HandleType[]>([])
+  useEffect(() => {
+    axiosSecure.get(`/donation/${user?.email}`)
+      .then((res) => {
+        setDonation(res.data);
+        console.log('from donation', res.data);
+      });
+    console.log('donation', donation);
+  }, [axiosSecure, donation, user?.email]);
+
     return (
       <div>
         <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100">
@@ -18,16 +46,19 @@ const AllDonation = () => {
                 </tr>
               </thead>
               <tbody className="bg-indigo-50 text-indigo-500">
-                <tr>
-                  <td>1</td>
-                  <td className="p-3">
-                  Rasheda
-                  </td>
-                  <td className="p-3">rasheda@gmail.com</td>
-                  <td className="p-3">$400</td>
-                  <td className="p-3">ts86657669vbvh7658</td>
-                  <td className="p-3">Education</td>
-                </tr>
+              
+              {
+                donation.map((donationList)=>  <tr>
+                <td>id</td>
+                <td className="p-3">
+                Rasheda
+                </td>
+                <td className="p-3">rasheda@gmail.com</td>
+                <td className="p-3">$400</td>
+                <td className="p-3">ts86657669vbvh7658</td>
+                <td className="p-3">Education</td>
+              </tr>)
+              }
               </tbody>
             </table>
           </div>
