@@ -60,7 +60,7 @@ const UpdateJobs = () => {
                             <label className="label">
                                 <span className="label-text">Section</span>
                             </label>
-                            <input type="text" defaultValue={section}  {...register("section", { required: true })} placeholder="section" readOnly defaultValue="jobs" className="input input-bordered w-full" />
+                            <input type="text" defaultValue={section}  {...register("section", { required: true })} placeholder="section" readOnly  className="input input-bordered w-full" />
                         </div>
                     </div>
                     <div className="flex gap-5">

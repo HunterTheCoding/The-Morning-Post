@@ -1,8 +1,8 @@
 import Swal from "sweetalert2";
-import useAuth from "../../../Hook/useAuth";
 import useAxiosSecure from "../../../Hook/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { MdDelete } from "react-icons/md";
+import Context from "../../../Hook/useContext";
 interface HandleType {
     _id: number;
     index:number,
@@ -10,12 +10,10 @@ interface HandleType {
     section: string;
     date: string;
 }
-interface idxx {
-    idx:number,
-}
+
 const BooksMarks = () => {
     const AxiousSecru = useAxiosSecure();
-    const {user} = useAuth();
+    const {user} = Context();
     const { data:bookmarks,refetch } = useQuery({
         queryKey: ["/Bookmark",user?.email],
         queryFn: async () => {
@@ -68,10 +66,10 @@ const hengledelete=(id:any)=>{
                         </thead>
                         <tbody>
                             {
-                                bookmarks?.map((item:HandleType,idx:idxx) => {
+                                bookmarks?.map((item:HandleType,idx:number) => {
                                     return (
                                         <tr key={item._id} className="text-[12px] md:text-[14px] lg:text-base">
-                                            <th>{idx+1}</th>
+                                            <th>{idx +1}</th>
                                             <td>{item.headline}</td>
                                             <td>{item.section}</td>
                                             <td>{item.date}</td>
