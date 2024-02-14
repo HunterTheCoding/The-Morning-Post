@@ -6,7 +6,7 @@ const Mainpage = () => {
   return (
     <div className="">
       <Navbar></Navbar>
-     <div className="pt-[255px]"> <Outlet></Outlet></div>
+     <div className=""> <Outlet></Outlet></div>
       <Footer></Footer>
     </div>
   );

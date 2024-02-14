@@ -6,7 +6,7 @@ const Photo = () => {
 
   return (
     <div>
-      <section className="py-6 dark:bg-gray-800 dark:text-gray-50">
+      <section className="mb-5 -mt-5 dark:bg-gray-800 dark:text-gray-50">
         <div className="container grid grid-cols-2 gap-4 p-4 mx-auto md:grid-cols-4">
           {photo.slice(0, 8).map((item) => {
             return (

@@ -8,6 +8,7 @@ import useAxiosPublic from "../../../Hook/useAxiosPublic";
 import Swal from "sweetalert2";
 import useSingleNews from "../../../Hook/useSingleNews";
 import Context from "../../../Hook/useContext";
+import TranslateText from "../../TranslateText/TranslateText";
 
 // Define a type for newsinfo
 interface NewsInfo {
@@ -78,7 +79,7 @@ const NewsDetails: React.FC = () => {
                             {news?.summary}
                         </p>
 
-                       
+                       <TranslateText></TranslateText>
                     </div>
                 </div>
                 <div className="col-span-2">

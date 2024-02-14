@@ -8,7 +8,7 @@ const NavNational = () => {
 
     return (
         <div>
-            <div className="mt-10 lg:flex">
+            <div className="-mt-5 lg:flex">
                 <div className="w-full md:w-full lg:w-2/3 my-element" id="alls">
                     {
                         National?.slice(0, 1).map((news1: News) => <Link key={news1._id} to={`/newsdetails/${news1?._id}`}>
