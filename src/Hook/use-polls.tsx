@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import axios, { AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
+import useAxiosPublic from './useAxiosPublic';
 
 export interface Poll {
   _id: string;
   title: string;
   description: string;
-  options: { option: string; optionImage: string }[];
+  options: { option: string; optionImage: string , _id:string}[];
+  votes:[]
   isActive: boolean;
 }
 
@@ -22,12 +24,13 @@ const usePolls = (pollType: PollType): PollsHookResponse => {
   const [polls, setPolls] = useState<Poll[]>([]);
   const [pollsLoading, setPollsLoading] = useState<boolean>(true);
   const [pollsError, setPollsError] = useState<boolean>(false);
-
+ const AxiosPublic = useAxiosPublic()
   useEffect(() => {
     const fetchPolls = async () => {
       try {
-        const { data }: AxiosResponse<Poll[]> = await axios.get('/polls');
-
+        const { data }: AxiosResponse<Poll[]> = await AxiosPublic.get('/Show-Pull');
+ console.log(data);
+ 
         const filteredPolls: Poll[] =
           pollType === 'active'
             ? data.filter((poll) => poll.isActive)
@@ -46,7 +49,7 @@ const usePolls = (pollType: PollType): PollsHookResponse => {
     };
 
     fetchPolls();
-  }, [pollType]);
+  }, [AxiosPublic, pollType]);
 
   return {
     polls,

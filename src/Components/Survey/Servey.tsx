@@ -4,12 +4,19 @@ import React from 'react';
 import usePolls, { Poll } from '../../Hook/use-polls';
 import PollCard from '../poll-card/poll-card';
 
+// Define the Option type
+export interface Option {
+  _id: string;
+  option: string;
+}
+interface HomePageProps {}
 
-
-const HomePage: React.FC = () => {
+const HomePage: React.FC<HomePageProps> = () => {
   const { polls, pollsLoading, pollsError } = usePolls('active');
+  console.log(polls,pollsError,pollsError);
+  
   return (
-    <main className="container grid py-5 md:py-10">
+    <main className="container grid py-5 md:py-10 ">
       <h2 className="pb-5 text-2xl font-bold text-center text-white md:text-3xl md:pb-8 font-secondary">
         Currently active Polls
       </h2>
@@ -22,12 +29,16 @@ const HomePage: React.FC = () => {
           </div>
         ) : polls.length ? (
           polls.map((poll: Poll) => (
+            
+            
             <PollCard
+          
               expiresAt={''}
               key={poll._id}
               {...poll}
+              _id={poll?._id}
               options={poll.options.map(option => ({
-                _id: option.option, // Provide a unique identifier for each option
+                _id: option._id, // Provide a unique identifier for each option
                 option: option.option,
                 votes: [], // Assuming votes are initially empty
               }))}

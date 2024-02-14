@@ -41,12 +41,13 @@ const ResultChart: React.FC<{ pollId: string }> = ({ pollId }) => {
       .catch((error: unknown) => {
         console.error('Error fetching poll data:', error);
       });
-  }, [pollId]);
-
+  }, [AxiosPublic, pollId]);
+ console.log(pollData);
+ 
   const data: Data[] = pollData.map((optionData) => ({
-    name: optionData.option,
-    image: optionData.optionImage,
-    value: optionData.votes.length,
+    name: optionData?.option,
+    image: optionData?.optionImage,
+    value: optionData?.votes.length,
   }));
 
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];

@@ -11,7 +11,7 @@ import useAdmin from "../../Hook/useAdmin";
 
 const Daseboard = () => {
   const [isAdmin] = useAdmin();
-  console.log(isAdmin);
+
 
   return (
     <div className="flex">
@@ -55,8 +55,7 @@ const Daseboard = () => {
             </ul>
             <ul className="menu ">
               <li className=" border bg-gray-300 rounded-md font-bold text-lg">
-                <Link to="/
-                daseboard/Add-poll">
+                <Link to="/daseboard/Add-poll">
                   <FaAd></FaAd> Add Servey
                 </Link>
               </li>

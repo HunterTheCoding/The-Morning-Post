@@ -125,14 +125,14 @@ const Mybrowser = createBrowserRouter([
         </AdminRoute>
         ),
       },
-      {
-        path: "Show-Servey",
-        element: (
-        <AdminRoute>
-          <HomePage></HomePage>
-        </AdminRoute>
-        ),
-      },
+      // {
+      //   path: "Show-Servey",
+      //   element: (
+      //   <AdminRoute>
+      //     <HomePage></HomePage>
+      //   </AdminRoute>
+      //   ),
+      // },
       {
         path: "jobs",
         element: <Jobspost></Jobspost>,
