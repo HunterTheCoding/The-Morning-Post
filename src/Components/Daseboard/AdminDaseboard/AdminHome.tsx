@@ -1,5 +1,6 @@
 import Lottie from "lottie-react";
 import profileAnimation from "../../../../public/adminProfile-animation.json"
+import Context from "../../../Hook/useContext";
 const AdminHome = () => {
     const {user}=Context()
     return (

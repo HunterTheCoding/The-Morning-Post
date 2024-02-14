@@ -55,6 +55,21 @@ const Daseboard = () => {
             </ul>
             <ul className="menu ">
               <li className=" border bg-gray-300 rounded-md font-bold text-lg">
+                <Link to="/
+                daseboard/Add-poll">
+                  <FaAd></FaAd> Add Servey
+                </Link>
+              </li>
+            </ul>
+            <ul className="menu ">
+              <li className=" border bg-gray-300 rounded-md font-bold text-lg">
+                <Link to="/daseboard/Show-Servey">
+                  <FaAd></FaAd> Show Servey
+                </Link>
+              </li>
+            </ul>
+            <ul className="menu ">
+              <li className=" border bg-gray-300 rounded-md font-bold text-lg">
                 <Link to="/daseboard/live">
                   <FaAd></FaAd>Live Section
                 </Link>

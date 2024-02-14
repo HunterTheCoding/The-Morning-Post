@@ -8,6 +8,13 @@ import useAxiosPublic from "../../../Hook/useAxiosPublic";
 import Swal from "sweetalert2";
 import useSingleNews from "../../../Hook/useSingleNews";
 import Context from "../../../Hook/useContext";
+
+// Define a type for newsinfo
+interface NewsInfo {
+    newsid: string | undefined;
+    useremail: string | undefined
+}
+
 const NewsDetails: React.FC = () => {
     const navigate = useNavigate();
     const { user} = Context()
@@ -15,16 +22,16 @@ const NewsDetails: React.FC = () => {
     const { news } = useSingleNews(id);
     console.log(news,user)
     const axoius = useAxiosPublic()
-    interface Users {
-        newsid: number;  // Assuming newsid is of type number, adjust accordingly
-        useremail?: string | undefined;  // Assuming useremail is of type string, with optional chaining
-    }
-    const booksmarksnews = () => {
+    console.log(id);
 
-        const newsinfo: Users = {
-            newsid: id ? Number(id) : 0,
-            useremail: user?.email ?? ''
+    // Declare newsinfo with type NewsInfo
+    const booksmarksnews = () => {
+        const newsinfo: NewsInfo = {
+            newsid: id,
+            useremail: user?.email || ""// user?.email might be undefined, which is allowed by the interface
         };
+        console.log(newsinfo);
+        
         if (user) {
             axoius.post('/bookmarks', newsinfo)
                 .then(res => {
@@ -44,8 +51,8 @@ const NewsDetails: React.FC = () => {
         } else {
             navigate("/login")
         }
-
     }
+
     return (
         <div className="md:px-6 my-5">
             <div className="flex justify-between bg-gray-200 p-4">
