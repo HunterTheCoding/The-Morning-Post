@@ -31,7 +31,10 @@ import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import Error from "../Error/Error";
 import NewPoll from "../Daseboard/AdminDaseboard/new-poll";
+import Survay from "../Navbar/Survay";
+import UpdateJobs from "../Daseboard/AdminDaseboard/UpdateJobs";
 import HomePage from "../Survey/Servey";
+
 
 const Mybrowser = createBrowserRouter([
   {
@@ -99,6 +102,10 @@ const Mybrowser = createBrowserRouter([
         path: "/picture",
         element: <Photo></Photo>,
       },
+      {
+        path: "/survay",
+        element: <HomePage></HomePage>
+      },
     ],
   },
   {
@@ -113,8 +120,8 @@ const Mybrowser = createBrowserRouter([
         path: "/daseboard/adminhome",
         element: (
           <PrivateRoute><AdminRoute>
-          <AdminHome></AdminHome>
-        </AdminRoute></PrivateRoute>
+            <AdminHome></AdminHome>
+          </AdminRoute></PrivateRoute>
         ),
       },
       {
@@ -125,14 +132,7 @@ const Mybrowser = createBrowserRouter([
         </AdminRoute>
         ),
       },
-      // {
-      //   path: "Show-Servey",
-      //   element: (
-      //   <AdminRoute>
-      //     <HomePage></HomePage>
-      //   </AdminRoute>
-      //   ),
-      // },
+
       {
         path: "jobs",
         element: <Jobspost></Jobspost>,
@@ -140,6 +140,11 @@ const Mybrowser = createBrowserRouter([
       {
         path: "addjobs",
         element: <Addjobs></Addjobs>,
+      },
+      {
+        path: "updateJobs/:id",
+        element: <UpdateJobs></UpdateJobs>,
+        loader: ({ params }) => fetch(`http://localhost:5000/api/v1/job/${params.id}`)
       },
       {
         path: "news",
