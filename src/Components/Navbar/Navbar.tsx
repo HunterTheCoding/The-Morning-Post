@@ -9,7 +9,9 @@ import { FaUser } from "react-icons/fa";
 import { useEffect, useState } from "react";
 const Navbar = () => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
+
   const [changelng,setchangelag] = useState<boolean>(true);
+
 
   const [isAdmin] = useAdmin();
   // console.log(isAdmin);
@@ -184,11 +186,14 @@ const Navbar = () => {
               ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
               : "btn btn-ghost btn-sm"
       }
+
       to="/Contact-US"
     >
       <span className="font-bold uppercase text-white"> Contact Us</span>
     </NavLink>,
-         <button className="text-balck bg-green-500 font-bold btn hover:bg-black hover:text-white"  onClick={()=>setchangelag(!changelng)}>{changelng?"English":"Bangla"}</button>
+
+         <button className="font-bold uppercase text-white"  onClick={()=>setchangelag(!changelng)}>{changelng?"English":"Bangla"}</button>
+
   ];
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -202,6 +207,7 @@ const Navbar = () => {
   const formattedDate = currentDateTime.toLocaleDateString();
 
   return (
+
     <div>
       <div className="font-sans bg-gray-300  -mt-4 z-50 max-w-screen-xl mx-auto">
         <header className="bg-indigo-950 text-white p-6 text-center flex justify-between px-2 px lg:px-5vw">
@@ -306,9 +312,7 @@ const Navbar = () => {
               
             )}
           </div>
-          
         </header>
-
         <nav className="bg-indigo-900 overflow-hidden grid grid-cols-4 md:grid-cols-5 lg:flex lg:pl-14 py-4 space-x-2 items-center justify-center">
           {list}
         </nav>
@@ -321,7 +325,7 @@ const Navbar = () => {
             100-day action plan of the Ministry of Environment of Arakan Army,
             which demands the occupation of the important port city of Myanmar.
           </Marquee>
-          <div className="pl-5 text-black font-bold uppercase bg-yellow-500 rounded-l-md">
+          <div className="pl-5 text-white font-bold uppercase bg-yellow-500 rounded-l-md">
             {formattedTime}  {formattedDate}
           </div>
         </div>

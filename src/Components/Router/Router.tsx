@@ -30,8 +30,9 @@ import UserDonation from "../Daseboard/AdminDaseboard/UserDonation";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import Error from "../Error/Error";
-import Survay from "../Navbar/Survay";
+import NewPoll from "../Daseboard/AdminDaseboard/new-poll";
 import UpdateJobs from "../Daseboard/AdminDaseboard/UpdateJobs";
+import HomePage from "../Survey/Servey";
 
 
 const Mybrowser = createBrowserRouter([
@@ -102,7 +103,7 @@ const Mybrowser = createBrowserRouter([
       },
       {
         path: "/survay",
-        element: <Survay></Survay>
+        element: <HomePage></HomePage>
       },
     ],
   },
@@ -122,6 +123,15 @@ const Mybrowser = createBrowserRouter([
           </AdminRoute></PrivateRoute>
         ),
       },
+      {
+        path: "Add-poll",
+        element: (
+        <AdminRoute>
+          <NewPoll></NewPoll>
+        </AdminRoute>
+        ),
+      },
+
       {
         path: "jobs",
         element: <Jobspost></Jobspost>,
