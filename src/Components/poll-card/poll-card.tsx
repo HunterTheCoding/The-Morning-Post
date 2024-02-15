@@ -1,14 +1,12 @@
 import { RadioGroup } from "@headlessui/react";
 import { useEffect, useState } from "react";
-import { toast } from "react-hot-toast";
 import { CgSpinner } from "react-icons/cg";
-
 import PollOption from "./poll-option";
 import { successToast, errorToast } from "../utilities/toast";
 import Context from "../../Hook/useContext";
-import { AxiosError } from "axios"; // Add import for AxiosError
-import CountdownTimer from "./countdown-timer"; // Import CountdownTimer component
-import Button from "../ui/button"; // Import Button component
+import { AxiosError } from "axios";
+import CountdownTimer from "./countdown-timer";
+import Button from "../ui/button";
 import { axiosSecure } from "../../Hook/useAxiosSecure";
 import PollMenu from "./pole-menu";
 import ResultChart from "../Chart/result-chart";
@@ -16,13 +14,9 @@ import ResultChart from "../Chart/result-chart";
 interface Option {
   _id: string;
   option: string;
-  votes: string[]; 
+  votes: string[];
 }
 
-interface ErrorResponse {
-  message: string;
-  // Add other properties if necessary
-}
 interface PollCardProps {
   _id: string;
   options: Option[];
@@ -30,6 +24,11 @@ interface PollCardProps {
   description: string;
   expiresAt: string;
   isActive: boolean;
+}
+
+interface ErrorResponse {
+  message: string;
+
 }
 
 const PollCard: React.FC<PollCardProps> = ({
@@ -44,7 +43,7 @@ const PollCard: React.FC<PollCardProps> = ({
   const [selectedOption, setSelectedOption] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [voteSubmitted, setVoteSubmitted] = useState<boolean>(false); // Track whether vote has been submitted
-
+  const [toastShown, setToastShown] = useState<boolean>(false); // Track whether toast has been shown for expiration
 
   useEffect(() => {
     const prevVotedOption = options.find((option) =>
@@ -52,7 +51,7 @@ const PollCard: React.FC<PollCardProps> = ({
     )?._id;
 
     setSelectedOption(prevVotedOption || "");
-    setVoteSubmitted(!!prevVotedOption); // Set voteSubmitted based on whether user has voted
+    setVoteSubmitted(!!prevVotedOption);
   }, [options, user]);
 
   const handleSubmit = async () => {
@@ -67,7 +66,7 @@ const PollCard: React.FC<PollCardProps> = ({
         return errorToast("Something went wrong");
       }
 
-      await axiosSecure.patch(`/updatePoll/${_id}`, {
+      await axiosSecure.patch(`/updatePoll/${ _id }`, {
         userId: user.uid,
         options: selectedOption,
       });
@@ -75,6 +74,7 @@ const PollCard: React.FC<PollCardProps> = ({
       successToast("Vote submitted");
       setVoteSubmitted(true);
     } catch (error) {
+      console.error(error);
       const axiosError = error as AxiosError<ErrorResponse>;
       const errorMessage = axiosError.response?.data?.message || "Something went wrong";
       errorToast(errorMessage);
@@ -85,9 +85,13 @@ const PollCard: React.FC<PollCardProps> = ({
 
   const handlePollActiveToggle = async (pollId: string) => {
     try {
-      await axiosSecure.patch(`/polls/toggle/${pollId}`, { isActive: false });
-      toast("The poll has expired");
-      window.location.reload();
+      if (!isActive || toastShown) {
+
+        return;
+      }
+      await axiosSecure.patch(`/polls/toggle/${ pollId }`, { isActive: false });
+      setToastShown(true);
+
     } catch (error) {
       console.error(error);
     }
@@ -107,7 +111,7 @@ const PollCard: React.FC<PollCardProps> = ({
           </div>
           <p className="pb-3 whitespace-normal break-all">{description}</p>
           <RadioGroup
-            disabled={!isActive || voteSubmitted} // Disable radio group if vote already submitted or poll inactive
+            disabled={!isActive || voteSubmitted}
             value={selectedOption}
             onChange={setSelectedOption}
             className="space-y-3"
@@ -130,7 +134,7 @@ const PollCard: React.FC<PollCardProps> = ({
               {isActive ? (
                 <Button
                   variant="primary"
-                  disabled={isSubmitting || voteSubmitted} // Disable button if submitting or vote already submitted
+                  disabled={isSubmitting || voteSubmitted}
                   onClick={handleSubmit}
                 >
                   {isSubmitting ? (
@@ -155,5 +159,3 @@ const PollCard: React.FC<PollCardProps> = ({
 };
 
 export default PollCard;
-
-
