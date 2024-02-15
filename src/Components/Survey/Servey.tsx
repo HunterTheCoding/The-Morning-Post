@@ -6,6 +6,7 @@ import PollCard from '../poll-card/poll-card';
 
 // Define the Option type
 export interface Option {
+  votes: any;
   _id: string;
   option: string;
 }
@@ -13,8 +14,7 @@ interface HomePageProps {}
 
 const HomePage: React.FC<HomePageProps> = () => {
   const { polls, pollsLoading, pollsError } = usePolls('active');
-  console.log(polls,pollsError,pollsError);
-  
+
   return (
     <main className="container grid py-5 md:py-10 ">
       <h2 className="pb-5 text-2xl font-bold text-center text-white md:text-3xl md:pb-8 font-secondary">

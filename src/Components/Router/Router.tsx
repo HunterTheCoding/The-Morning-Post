@@ -31,7 +31,6 @@ import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import Error from "../Error/Error";
 import NewPoll from "../Daseboard/AdminDaseboard/new-poll";
-import Survay from "../Navbar/Survay";
 import UpdateJobs from "../Daseboard/AdminDaseboard/UpdateJobs";
 import HomePage from "../Survey/Servey";
 

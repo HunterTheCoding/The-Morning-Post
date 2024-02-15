@@ -47,7 +47,7 @@ const AllDonation = () => {
               </thead>
               <tbody className="bg-indigo-50 text-indigo-500">
               
-              {
+              {/* {
                 donation.map((donationList)=>  <tr>
                 <td>id</td>
                 <td className="p-3">
@@ -58,7 +58,7 @@ const AllDonation = () => {
                 <td className="p-3">ts86657669vbvh7658</td>
                 <td className="p-3">Education</td>
               </tr>)
-              }
+              } */}
               </tbody>
             </table>
           </div>

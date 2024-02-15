@@ -7,9 +7,9 @@ const AdminHome = () => {
         <div>
            <div className="p-6 sm:p-12 dark:bg-gray-900 dark:text-gray-100">
 	<div className="flex flex-col space-y-8  md:space-y-0 relative md:space-x-6 md:flex-row">
-		<img src="https://source.unsplash.com/75x75/?portrait" alt="" className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700" />
+		<img src={user?.photoURL || 'image-url'} alt="" className="self-center flex-shrink-0 w-24 h-24 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700" />
 		<div className="flex flex-col pl-4">
-			<h4 className="text-lg text-indigo-400 font-bold text-center md:text-left">Leroy Jenkins</h4>
+			<h4 className="text-lg text-indigo-400 font-bold text-center md:text-left">{user?.displayName}</h4>
 			<p className="dark:text-gray-400">Sed non nibh iaculis, posuere diam vitae, consectetur neque. Integer velit ligula, semper sed nisl in, cursus commodo elit. Pellentesque sit amet mi luctus ligula euismod lobortis ultricies et nibh.</p>
 		</div>
 	</div>
@@ -36,7 +36,7 @@ const AdminHome = () => {
 		</a>
 	</div>
 </div>
-<div className="w-2/3 grid justify-center items-center left-80  top-5  absolute">
+<div className="w-2/3 grid justify-center items-center left-72  top-5  absolute">
 <Lottie className="w-1/4" animationData={profileAnimation}></Lottie>
 </div>
         </div>

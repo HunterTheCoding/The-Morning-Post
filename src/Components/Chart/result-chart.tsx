@@ -129,7 +129,7 @@ const ResultChart: React.FC<{ pollId: string }> = ({ pollId }) => {
             fill="#8884d8"
             dataKey="value"
             cursor="pointer">
-            {data.map((entry, index) => (
+            {data.map((_entry,index) => (
               <Cell
                 key={`cell-${index}`}
                 fill={COLORS[index % COLORS.length]}
