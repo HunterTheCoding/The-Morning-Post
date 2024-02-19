@@ -107,6 +107,7 @@ const navigate = useNavigate()
         const res = await AxiosPublic.post("/donation", {
           newDonation,
           transactionId,
+          donaremail:user?.email,
         });
         console.log("payment saved", res);
         // refetch();
