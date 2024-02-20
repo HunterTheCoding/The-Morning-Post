@@ -6,9 +6,12 @@ import Footer from "./Navbar/Footer";
 const Mainpage = () => {
     return (
         <div>
-            <Navbar></Navbar>
-            <Outlet></Outlet>
-            <Footer></Footer>
+            <div className="... sticky top-0">A</div>
+            <div>
+                <Navbar></Navbar>
+                <Outlet></Outlet>
+                <Footer></Footer>
+            </div>
         </div>
     );
 };
