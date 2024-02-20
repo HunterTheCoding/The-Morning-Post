@@ -8,6 +8,7 @@ import moment from "moment"
 import { TfiWrite } from "react-icons/tfi";
 import { TiStopwatch } from "react-icons/ti";
 import useAdmin from '../../../Hook/useNews';
+import HomePage from '../../Survey/Servey';
 
 const Entertainment = () => {
 
@@ -121,8 +122,8 @@ useAdmin("Entertainment-cover");
                     </div>
                 </div>
                 {/* sidebar */}
-                <div className="col-span-2 bg-gray-300 mt-4 rounded-md">
-                <div dangerouslySetInnerHTML={{__html: `
+                <div className="col-span-2 mt-4 rounded-md">
+                {/* <div dangerouslySetInnerHTML={{__html: `
       <script type="text/javascript"> 
        var atOptions = { 
         'key' : 'd9352f9386f41a6ced0228459f348f0f', 
@@ -133,7 +134,9 @@ useAdmin("Entertainment-cover");
        }; 
        document.write('<scr' + 'ipt type="text/javascript" src="//www.topcreativeformat.com/d9352f9386f41a6ced0228459f348f0f/invoke.js"></scr' + 'ipt>'); 
       </script>
-    `}} />
+    `}} /> */}
+
+    <HomePage></HomePage>
                 </div>
             </div>
 
