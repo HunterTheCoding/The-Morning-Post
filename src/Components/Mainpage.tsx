@@ -7,7 +7,6 @@ import { useQuery } from "@tanstack/react-query";
 
 const Mainpage = () => {
     const AxiosPublic = useAxiosPublic();
-
     const { data:Live } = useQuery({
         queryKey: ["Live-Link"],
         queryFn: async () => {
