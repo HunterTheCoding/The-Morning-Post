@@ -2,15 +2,26 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import slider1 from '../../../assets/slider1.jpg';
-import slider2 from '../../../assets/slider2.jpg';
-import slider3 from '../../../assets/slider3.jpg';
-import sidebanner1 from '../../../assets/sidebanner1.jpg';
-import sidebanner2 from '../../../assets/sidebanner2.jpg'
-import { Pagination, Navigation } from 'swiper/modules';
-
-
+import 'swiper/css/autoplay';
+import { Pagination, Navigation, Autoplay} from 'swiper/modules';
+import { useQuery } from '@tanstack/react-query';
+import useAxiosPublic from '../../../Hook/useAxiosPublic';
+export interface Bannar {
+    _id: string;
+    title: string;
+    summry:string;
+    image: string;
+}
 const Bannar = () => {
+    const AxiosPublic = useAxiosPublic();
+  const { data:bannar } = useQuery({
+    queryKey: ["bannar"],
+    queryFn: async () => {
+      const res = await AxiosPublic.get(`/bannar`);
+      return res.data;
+    },
+  });
+  console.log(bannar)
     return (
         <div className='grid md:grid-cols-3 grid-cols-1 my-4 gap-4'>
             <div className='col-span-2 shadow-lg'>
@@ -21,51 +32,34 @@ const Bannar = () => {
                     autoplay={true}
                    
                     navigation={true}
-                    modules={[Pagination, Navigation]}
+                    modules={[Pagination, Navigation, Autoplay]}
                     className="mySwiper"
                 >
-                    <SwiperSlide>
+                    {
+                        bannar?.slice(0,3).map((item:Bannar)=><SwiperSlide key={item._id} >
                         
-                        <img src={slider1} className='w-full lg:h-[550px] md:h-[500px] h-[300px]' alt="" />
+                        <img src={item?.image} className='w-full lg:h-[550px] md:h-[500px] h-[300px]' alt="" />
                         <h2 className='card-title mt-2 pl-2'>
-                            Temparature is going down. People are suffering much. The lowest temparature is recorded at Dinajpur.
+                           {item.title}
                         </h2>
                         
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={slider2} className='w-full lg:h-[550px] md:h-[500px] h-[300px]' alt="" />
-                        <h2 className='card-title mt-2 pl-2'>
-                            Bangladesh army is being developed day by day - says Global Fire Power Ranking. 
-                        </h2>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={slider3} className='w-full lg:h-[550px] md:h-[500px] h-[300px]' alt="" />
-                        <h2 className='card-title mt-2 pl-2'>
-                            Bangladesh economy is falling down slowly - says Bangladesh Bank.
-                        </h2>
-                    </SwiperSlide>
+                    </SwiperSlide>)
+                    }
 
                 </Swiper>
             </div>
             <div className='flex flex-col gap-4'>
-                <div className="card card-compact bg-base-100 shadow-xl">
-                    <figure><img src={sidebanner1} className='w-full md:h-[150px] lg:h-[200px]' alt="news" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">
-                           All primary and secondary schools will be closed for severe temparature fall. 
-                        </h2>
-                        
-                    </div>
-                </div>
-                <div className="card card-compact bg-base-100 shadow-xl">
-                    <figure><img src={sidebanner2} className='w-full md:h-[150px] lg:h-[200px]' alt="news" /></figure>
-                    <div className="card-body">
-                        <h2 className="card-title">
-                            Bangladesh and USA will work together - says Peter Haas.
-                        </h2>
-                        
-                    </div>
-                </div>
+           {
+            bannar?.slice(3,5).map((item:Bannar)=><div key={item._id} className="card card-compact bg-base-100 shadow-xl">
+            <figure><img src={item?.image} className='w-full md:h-[150px] lg:h-[200px]' alt="news" /></figure>
+            <div className="card-body">
+                <h2 className="card-title">
+            {item?.title}
+                </h2>
+                
+            </div>
+        </div>)
+           }
             </div>
         </div>
     );

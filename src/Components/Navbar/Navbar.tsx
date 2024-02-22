@@ -7,12 +7,10 @@ import useAdmin from "../../Hook/useAdmin";
 import Weather from "../Weather/Weather";
 import { FaUser } from "react-icons/fa";
 import { useEffect, useState } from "react";
+// import TranslateText from "../TranslateText/TranslateText";
 const Navbar = () => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
-
-  const [changelng,setchangelag] = useState<boolean>(true);
-
-
+  // const [changelng,setchangelag] = useState<boolean>(true);
   const [isAdmin] = useAdmin();
   // console.log(isAdmin);
 
@@ -192,7 +190,8 @@ const Navbar = () => {
       <span className="font-bold uppercase text-white"> Contact Us</span>
     </NavLink>,
 
-         <button className="font-bold uppercase text-white"  onClick={()=>setchangelag(!changelng)}>{changelng?"English":"Bangla"}</button>
+        //  <button className="font-bold uppercase text-white"  onClick={()=>setchangelag(!changelng)}>{changelng?"English":"Bangla"}</button>
+        //  <TranslateText></TranslateText>
 
   ];
   useEffect(() => {
@@ -324,7 +323,7 @@ const Navbar = () => {
             100-day action plan of the Ministry of Environment of Arakan Army,
             which demands the occupation of the important port city of Myanmar.
           </Marquee>
-          <div className="pl-5 text-white font-bold uppercase bg-yellow-500 rounded-l-md">
+          <div className="pl-5 text-black font-bold uppercase  bg-yellow-500 rounded-l-md">
             {formattedTime}  {formattedDate}
           </div>
         </div>

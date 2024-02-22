@@ -105,6 +105,7 @@ const DonationForm: React.FC<DonationFormProps> = ({
         const res = await AxiosPublic.post("/donation-request", {
           newDonation,
           transactionId,
+          donaremail:user?.email,
         });
         console.log("payment saved", res);
         // refetch();
