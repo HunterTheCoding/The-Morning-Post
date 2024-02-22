@@ -105,7 +105,20 @@ const News = () => {
                             <input type="text" placeholder="Writer" {...register('writer', { required: true })} required className="input input-bordered w-full " />
 
                         </div>
-                    </div>
+                </div>
+
+                {/* summary */}
+                <div className="form-control w-full my-6">
+                        <label className="label">
+                            <span className="label-text text-red-600 font-bold">Summary*</span>
+
+                        </label>
+                        <input type="text" placeholder="Summary" {...register('summary', { required: true })}
+                            required
+                            className="input input-bordered w-full " />
+
+                </div>
+                
                 </form>
             </div>
         </div>
