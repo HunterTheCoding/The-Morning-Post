@@ -1,6 +1,7 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import useAxiosPublic from "../../../Hook/useAxiosPublic";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const image_hosting_key = 'b88027922b62974e868687dc6702a672';
 const image_hosting_api =
@@ -34,6 +35,21 @@ const News = () => {
                 summary: data.summary,
                 news: data.news
             }
+
+            const newsRes = await axiosPublic.post('/News', news);
+            console.log(newsRes);
+            if (newsRes.data.insertedId) {
+                reset();
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: `${data.headline} is added successfully`,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        }
+        console.log(res.data)
     }
 
     return (
