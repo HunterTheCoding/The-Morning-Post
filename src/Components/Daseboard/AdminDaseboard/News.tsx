@@ -1,5 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import useAxiosPublic from "../../../Hook/useAxiosPublic";
+import axios from "axios";
 
 const image_hosting_key = 'b88027922b62974e868687dc6702a672';
 const image_hosting_api =
@@ -14,8 +15,14 @@ const News = () => {
 
     const onSubmit: SubmitHandler<Inputs> = async (data) =>{
         console.log(data);
-
-
+        const imageFile = { image: data.image[0] }
+        console.log(imageFile)
+        const res = await axios.post(image_hosting_api, imageFile, {
+            headers: {
+                'Content-type': 'multipart/form-data'
+            }
+        })
+        console.log(res);
     }
 
     return (
