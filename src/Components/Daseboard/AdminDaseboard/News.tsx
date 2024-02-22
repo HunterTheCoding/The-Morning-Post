@@ -7,6 +7,18 @@ const image_hosting_key = 'b88027922b62974e868687dc6702a672';
 const image_hosting_api =
     `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 
+    type Inputs = {
+        section: string,
+        headline: string,
+        source: string,
+        date: string,
+        title: string,
+        writer: string,
+        image: string,
+        summary: string,
+        news: string
+    }
+
 
 const News = () => {
 
