@@ -13,7 +13,7 @@ const NavNational = () => {
                     {
                         National?.slice(0, 1).map((news1: News) => <Link key={news1._id} to={`/newsdetails/${news1?._id}`}>
                             <div className="  p-5 rounded-md"  >
-                                <div className="w-ful object-contain rounded-md h-[300px] md:h-[450px] opacity-85 relative" style={{ backgroundImage: `url(${news1?.image})` }}>
+                                <div className="w-ful bg-cover  rounded-md h-[300px] md:h-[450px] opacity-85 relative" style={{ backgroundImage: `url(${news1?.image})` }}>
                                     <h1 className="text-black absolute bottom-1 md:bottom-2 font-semibold p-5 text-base md:text-2xl ">{news1?.headline}</h1>
                                 </div>
                                 <p className="mt-3 font-normal md:font-medium text-[14px] md:text-base text-black">{news1?.summary}</p>

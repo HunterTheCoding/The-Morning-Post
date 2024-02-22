@@ -13,6 +13,7 @@ export interface News {
   image: string;
   title: string;
   writer: string;
+jobUrl:string
   // other properties...
 }
 
