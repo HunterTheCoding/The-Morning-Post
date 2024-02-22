@@ -2,7 +2,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Pagination, Navigation } from 'swiper/modules';
+import 'swiper/css/autoplay';
+import { Pagination, Navigation, Autoplay} from 'swiper/modules';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '../../../Hook/useAxiosPublic';
 export interface Bannar {
@@ -31,7 +32,7 @@ const Bannar = () => {
                     autoplay={true}
                    
                     navigation={true}
-                    modules={[Pagination, Navigation]}
+                    modules={[Pagination, Navigation, Autoplay]}
                     className="mySwiper"
                 >
                     {
