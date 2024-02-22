@@ -1,5 +1,4 @@
-// import { useEffect, useState } from "react";
-// for real time from moment.js
+
 import moment from "moment"
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -12,29 +11,13 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { TfiWrite } from "react-icons/tfi";
 import { TiStopwatch } from "react-icons/ti";
 import useAdmin, { News } from "../../../Hook/useNews";
-// defining typescript 
-// interface NewsItem {
-//     id: number;
-//     headline: string;
-//     writer: string;
-//     image: string;
-//     date: string;
-// }
+import { Link } from "react-router-dom";
 
 const FeatureNews = () => {
-//     const [featureData, setFeatureData] = useState<NewsItem[]>([]);
 
-//     useEffect(() => {
-//         fetch("/featureData.json")
-//             .then(res => res.json())
-//             .then(data => setFeatureData(data))
-//     }, [])
     const { newsData: Feature, isLoading: FeatureLoading } =
     useAdmin("Feature");
-//   const {_id, section, headline, source, date, summary, details, image} =Feature;
- 
-  console.log(Feature,FeatureLoading);
-  
+//   console.log(Feature,FeatureLoading);
   if (FeatureLoading || !Feature) {
     return <div>Loading...</div>;
 }
@@ -74,7 +57,7 @@ const FeatureNews = () => {
                         {
                             Feature.map((news: News) => (
                                 <div className="">
-                                    <SwiperSlide key={news._id} className="">
+                                   <Link to={`/newsdetails/${news?._id}`} key={news._id}  > <SwiperSlide className="">
                                         <div className=" bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                             <a href="#">
                                                 <div>
@@ -95,7 +78,7 @@ const FeatureNews = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                    </SwiperSlide>
+                                    </SwiperSlide></Link>
                                 </div>
                             ))
                         }
