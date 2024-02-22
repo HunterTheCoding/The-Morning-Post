@@ -70,7 +70,7 @@ const News = () => {
             <div className="bg-gray-200 p-4 rounded-lg m-4">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     
-                <div className="gap-6">
+                <div className="md:flex gap-6">
                         {/* section */}
                         <div className="form-control md:w-1/2 w-full my-6">
                             <label className="label">
@@ -117,7 +117,7 @@ const News = () => {
 
                 </div>
 
-                <div className="gap-6">
+                <div className="md:flex gap-6">
 
                         {/* source */}
                         <div className="form-control md:w-1/2 w-full my-6">
@@ -140,7 +140,7 @@ const News = () => {
 
                 </div>
 
-                <div className="gap-6">
+                <div className="md:flex gap-6">
 
                         {/* title */}
                         <div className="form-control w-full md:w-1/2 my-6">
