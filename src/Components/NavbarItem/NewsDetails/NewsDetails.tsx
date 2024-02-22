@@ -53,7 +53,6 @@ const NewsDetails: React.FC = () => {
             navigate("/login")
         }
     }
-
     return (
         <div className="md:px-6 my-5">
             <div className="flex justify-between bg-gray-200 p-4">
