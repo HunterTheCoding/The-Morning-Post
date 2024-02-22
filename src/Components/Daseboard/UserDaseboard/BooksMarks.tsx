@@ -68,7 +68,7 @@ const hengledelete=(id:any)=>{
                             {
                                 bookmarks?.map((item:HandleType,idx:number) => {
                                     return (
-                                        <tr key={item._id} className="text-[12px] md:text-[14px] lg:text-base">
+                                        <tr key={item._id} className="text-[12px] md:text-[14px] lg:text-base border bg-gray-300 mt-5 mb-2 border-b-indigo-400  ">
                                             <th>{idx +1}</th>
                                             <td>{item.headline}</td>
                                             <td>{item.section}</td>

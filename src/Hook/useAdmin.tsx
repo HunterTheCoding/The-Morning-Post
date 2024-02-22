@@ -7,7 +7,7 @@ const useAdmin = () => {
 
   const axiosSecure = useAxiosSecure();
   // const AxiosPublic = useAxiosPublic();
-  console.log(user);
+  // console.log(user);
 
   const { data: isAdmin, isLoading: isAdminLoading } = useQuery({
     queryKey: ["requestAdmin", user?.email],
