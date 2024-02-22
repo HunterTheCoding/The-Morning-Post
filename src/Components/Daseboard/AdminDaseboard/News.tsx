@@ -134,6 +134,11 @@ const News = () => {
                         <input {...register('image', { required: true })} required type="file" className="file-input my-4 w-full max-w-xs" />
                 </div>
                 
+                <div className="text-center">
+                        <button className="btn btn-primary">
+                            Post News
+                        </button>
+                </div>
                 </form>
             </div>
         </div>
