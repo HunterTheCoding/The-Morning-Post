@@ -30,9 +30,9 @@ import UserDonation from "../Daseboard/AdminDaseboard/UserDonation";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import Error from "../Error/Error";
-import NewsUpdate from "../Daseboard/AdminDaseboard/NewsUpdate";
-import Survay from "../Navbar/Survay";
+import NewPoll from "../Daseboard/AdminDaseboard/new-poll";
 import UpdateJobs from "../Daseboard/AdminDaseboard/UpdateJobs";
+import HomePage from "../Survey/Servey";
 
 
 const Mybrowser = createBrowserRouter([
@@ -81,10 +81,7 @@ const Mybrowser = createBrowserRouter([
         path: "/Login",
         element: <Login></Login>,
       },
-      {
-        path: "/SignUp",
-        element: <Signup></Signup>,
-      },
+ 
       {
         path: "/jobs",
         element: <Jobs></Jobs>,
@@ -103,7 +100,7 @@ const Mybrowser = createBrowserRouter([
       },
       {
         path: "/survay",
-        element: <Survay></Survay>
+        element: <HomePage></HomePage>
       },
     ],
   },
@@ -124,15 +121,14 @@ const Mybrowser = createBrowserRouter([
         ),
       },
       {
-        path: "NewsUpdate/:id",
+        path: "Add-poll",
         element: (
-         <AdminRoute>
-          <NewsUpdate></NewsUpdate>
-         </AdminRoute>
+        <AdminRoute>
+          <NewPoll></NewPoll>
+        </AdminRoute>
         ),
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/singleNews/${params.id}`),
       },
+
       {
         path: "jobs",
         element: <Jobspost></Jobspost>,

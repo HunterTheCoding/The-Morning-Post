@@ -192,7 +192,7 @@ const Navbar = () => {
       <span className="font-bold uppercase text-white"> Contact Us</span>
     </NavLink>,
 
-         <button className="font-bold uppercase text-white" onClick={()=>setchangelag(!changelng)}>{changelng?"English":"Bangla"}</button>
+         <button className="font-bold uppercase text-white"  onClick={()=>setchangelag(!changelng)}>{changelng?"English":"Bangla"}</button>
 
   ];
   useEffect(() => {

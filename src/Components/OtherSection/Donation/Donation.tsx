@@ -11,7 +11,6 @@ import { loadStripe } from "@stripe/stripe-js";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
-
 interface DonationFormProps {
   setAmount: React.Dispatch<React.SetStateAction<number | null>>;
   clientSecret: string | null;
@@ -24,7 +23,7 @@ const DonationForm: React.FC<DonationFormProps> = ({
   const stripe = useStripe();
   const elements = useElements();
   const { user } = Context();
-const navigate = useNavigate()
+  const navigate = useNavigate();
   const AxiosPublic = useAxiosPublic();
 
   const [error, setError] = useState<string>("");
@@ -38,7 +37,7 @@ const navigate = useNavigate()
     event.preventDefault();
     const form = event.target as HTMLFormElement;
     const amount = form.amount.value;
-    setAmount(parseFloat(amount))
+    setAmount(parseFloat(amount));
     const name = (form.name as unknown as HTMLInputElement).value;
     const email = (form.email as unknown as HTMLInputElement).value;
     const option = (form.option as unknown as HTMLInputElement).value;
@@ -46,7 +45,7 @@ const navigate = useNavigate()
     const newDonation = {
       id: Date.now(),
       amount: parseFloat(amount),
-  
+
       name,
       email,
       option,
@@ -77,23 +76,22 @@ const navigate = useNavigate()
       setError("");
     }
 
+    if (!clientSecret) {
+      console.error("Client secret is empty or null");
+      return;
+    }
 
-        if (!clientSecret) {
-          console.error("Client secret is empty or null");
-          return;
-        }
-        
-        // confirm payment
-        const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
-          payment_method: {
-            card: card,
-            billing_details: {
-              email: user?.email || "anonymous",
-              name: user?.displayName || "anonymous",
-            },
+    // confirm payment
+    const { paymentIntent, error: confirmError } =
+      await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: card,
+          billing_details: {
+            email: user?.email || "anonymous",
+            name: user?.displayName || "anonymous",
           },
-        });
-        
+        },
+      });
 
     if (confirmError) {
       console.log("confirm error");
@@ -118,11 +116,10 @@ const navigate = useNavigate()
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate("/dashboard/");
+          navigate("/daseboard/userdonation");
         }
       }
     }
-
   };
 
   return (
@@ -242,7 +239,7 @@ const Donation = () => {
         });
     }
   }, [AxiosPublic, amount]);
-  
+
   return (
     <div>
       {/* ... your existing code ... */}

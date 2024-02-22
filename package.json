@@ -10,12 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@stripe/react-stripe-js": "^2.4.0",
     "@stripe/stripe-js": "^2.4.0",
     "@tanstack/react-query": "^5.17.15",
     "@wojtekmaj/react-hooks": "^1.18.1",
     "@zegocloud/zego-uikit-prebuilt": "^1.10.2",
     "axios": "^1.6.5",
+    "clsx": "^2.1.0",
+    "date-fns": "^3.3.1",
     "firebase": "^10.7.1",
     "html-to-image": "^1.11.11",
     "html2canvas": "^1.4.1",
@@ -38,15 +41,20 @@
     "react-html-parser": "^2.0.2",
     "react-icons": "^5.0.1",
     "react-pdf": "^7.7.0",
+    "react-photo-view": "^1.2.4",
     "react-rating": "^2.0.5",
     "react-router-dom": "^6.21.3",
     "react-simple-captcha": "^9.3.1",
     "react-to-pdf": "^1.0.1",
     "react-to-print": "^2.14.15",
     "react-type-animation": "^3.2.0",
+    "rechart": "^0.0.1",
+    "recharts": "^2.12.0",
     "sort-by": "^1.2.0",
+    "styled-components": "^6.1.8",
     "sweetalert2": "^11.10.5",
-    "swiper": "^11.0.5"
+    "swiper": "^11.0.5",
+    "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.48",

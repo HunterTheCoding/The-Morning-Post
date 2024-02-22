@@ -1,66 +1,67 @@
 import { useEffect, useState } from "react";
-import useAxiosSecure from "../../../Hook/useAxiosSecure";
+
 import Context from "../../../Hook/useContext";
+import useAxiosSecure from "../../../Hook/useAxiosSecure";
+
 
 interface HandleType {
-  id: number;
-  email: string;
-  amount: string;
-  transactionId: string;
-  option: string;
+  
+  id: string,
+  amount: number,
+
+  name:string,
+  email:string,
+  option:string
 }
-
 const AllDonation = () => {
-  const [donation, setDonation] = useState<HandleType[] | null>(null); // Initialize with null
-
-  const axiosSecure = useAxiosSecure();
-  const { user } = Context();
-
+ 
+  const axiosSecure = useAxiosSecure()
+  const {user}= Context()
+  const [donation, setDonation] = useState<HandleType[]>([])
   useEffect(() => {
-    console.log(user);
+    axiosSecure.get(`/donation/${user?.email}`)
+      .then((res) => {
+        setDonation(res.data);
+        console.log('from donation', res.data);
+      });
+    console.log('donation', donation);
+  }, [axiosSecure, donation, user?.email]);
 
-    axiosSecure.get(`/donation/${user?.email}`).then((res) => {
-      setDonation(res.data);
-      console.log(res.data);
-    });
-  }, [axiosSecure, user]);
-
-  return (
-    <div>
+    return (
+      <div>
         <div className="container p-2 mx-auto sm:p-4 dark:text-gray-100">
-            <h2 className="mb-4 text-2xl text-indigo-400 font-semibold leadi">
-                Donation List
-            </h2>
-            <div className="overflow-x-auto">
-                {donation  && donation.length > 0 ? (
-                    <table className="min-w-full text-xs">
-                        <thead className="bg-indigo-200 text-indigo-400">
-                            <tr className="text-left">
-                                <th className="p-3">Donation Id no:</th>
-                           
-                                <th className="p-3">Doner Email</th>
-                                <th className="p-3">Donation Amount</th>
-                                <th className="p-3">Transaction ID</th>
-                                <th className="p-3">Donation Sector</th>
-                            </tr>
-                        </thead>
-                        <tbody className="bg-indigo-50 text-indigo-500">
-                            {donation.map((donationItem, index) => (
-                                <tr key={index}>
-                                    <td>{index}</td>
-                          
-                                    <td className="p-3">{donationItem.email}</td>
-                                    <td className="p-3">{donationItem.amount}</td>
-                                    <td className="p-3">{donationItem.transactionId}</td>
-                                    <td className="p-3">{donationItem.option}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                ) : (
-                    <div>No donation data available.</div>
-                )}
-            </div>
+          <h2 className="mb-4 text-2xl text-indigo-400 font-semibold leadi">
+            Donation List
+          </h2>
+          <div className="overflow-x-auto">
+            <table className="min-w-full text-xs">
+              <thead className="bg-indigo-200 text-indigo-400">
+                <tr className="text-left">
+                  <th className="p-3">Donation Id no:</th>
+                  <th className="p-3">Doner Name</th>
+                  <th className="p-3">Doner Email</th>
+                  <th className="p-3">Donation Amount</th>
+                  <th className="p-3">Transection ID</th>
+                  <th className="p-3">Donation Sector</th>
+                </tr>
+              </thead>
+              <tbody className="bg-indigo-50 text-indigo-500">
+              
+              {/* {
+                donation.map((donationList)=>  <tr>
+                <td>id</td>
+                <td className="p-3">
+                Rasheda
+                </td>
+                <td className="p-3">rasheda@gmail.com</td>
+                <td className="p-3">$400</td>
+                <td className="p-3">ts86657669vbvh7658</td>
+                <td className="p-3">Education</td>
+              </tr>)
+              } */}
+              </tbody>
+            </table>
+          </div>
         </div>
     </div>
 );
@@ -95,4 +96,4 @@ export default AllDonation;
     </tr>
   ))}
   </tbody> */
-}
+  }

@@ -7,17 +7,19 @@ import { RouterProvider } from 'react-router-dom'
 import { Mybrowser } from './Components/Router/Router.tsx'
 import { HelmetProvider } from 'react-helmet-async'
 import Provider from './Auth/Provider.tsx'
+import { Toaster } from 'react-hot-toast';
 
 
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <div className='max-w-screen-xl mx-auto '>
+    <div className='max-w-screen-xl mx-auto'>
     <QueryClientProvider client={queryClient}>
       <HelmetProvider>
         <Provider>
         <RouterProvider router={Mybrowser} />
+        <Toaster position="top-right" />
         </Provider>
       </HelmetProvider>
     </QueryClientProvider>

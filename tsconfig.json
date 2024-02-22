@@ -32,6 +32,6 @@
   },
  "include": [ "src/**/*.ts",
     "src/**/*.tsx",
-    "types/**/*.d.ts", "src/Pages/Contact"],
+    "types/**/*.d.ts", "src/Pages/Contact", "src/Components/poll-card/countdown-timer.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

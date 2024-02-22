@@ -11,7 +11,7 @@ import useAdmin from "../../Hook/useAdmin";
 
 const Daseboard = () => {
   const [isAdmin] = useAdmin();
-  console.log(isAdmin);
+
 
   return (
     <div className="flex">
@@ -93,6 +93,21 @@ const Daseboard = () => {
       : "btn btn-ghost btn-sm"
   } to="/daseboard/addjobs">
                   <FaAd></FaAd> Add Jobs
+                </NavLink>
+              </li>
+            </ul>
+            <ul className="menu ">
+              <li className=" border uppercase text-white rounded-md font-bold text-lg">
+                <NavLink className={({ isPending, isActive }) =>
+    isPending
+      ? "pending"
+      : isPending
+      ? "pending"
+      :  isActive
+      ? "btn bg-white btn-sm  text-black font-bold"
+      : "btn btn-ghost btn-sm"
+  } to="/daseboard/Add-poll">
+                  <FaAd></FaAd> Add Survey
                 </NavLink>
               </li>
             </ul>
