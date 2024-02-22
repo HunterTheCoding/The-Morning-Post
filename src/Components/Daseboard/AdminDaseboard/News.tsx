@@ -127,8 +127,13 @@ const News = () => {
                         </label>
                         <textarea {...register('news', { required: true })} required className="textarea textarea-bordered h-24" placeholder="Recipe Details"></textarea>
 
-                    </div>
-                    
+                </div>
+
+                {/* image */}
+                <div className="form-control w-full my-6">
+                        <input {...register('image', { required: true })} required type="file" className="file-input my-4 w-full max-w-xs" />
+                </div>
+                
                 </form>
             </div>
         </div>
