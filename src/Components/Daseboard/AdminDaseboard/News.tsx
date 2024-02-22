@@ -22,7 +22,18 @@ const News = () => {
                 'Content-type': 'multipart/form-data'
             }
         })
-        console.log(res);
+        if (res.data.success) {
+            const news = {
+                section: data.section,
+                headline: data.headline,
+                source: data.source,
+                date: data.date,
+                title: data.title,
+                writer: data.writer,
+                image: res.data.data.display_url,
+                summary: data.summary,
+                news: data.news
+            }
     }
 
     return (
