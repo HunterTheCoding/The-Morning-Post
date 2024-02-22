@@ -27,9 +27,9 @@ const News = () => {
     const { register, handleSubmit, reset } = useForm<Inputs>();
 
     const onSubmit: SubmitHandler<Inputs> = async (data) =>{
-        console.log(data);
+        // console.log(data);
         const imageFile = { image: data.image[0] }
-        console.log(imageFile)
+        // console.log(imageFile)
         const res = await axios.post(image_hosting_api, imageFile, {
             headers: {
                 'Content-type': 'multipart/form-data'
@@ -49,7 +49,7 @@ const News = () => {
             }
 
             const newsRes = await axiosPublic.post('/News', news);
-            console.log(newsRes);
+            // console.log(newsRes);
             if (newsRes.data.insertedId) {
                 reset();
                 Swal.fire({
@@ -61,7 +61,7 @@ const News = () => {
                 });
             }
         }
-        console.log(res.data)
+        // console.log(res.data)
     }
 
     return (
