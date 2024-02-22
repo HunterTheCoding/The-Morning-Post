@@ -215,7 +215,6 @@ const Navbar = () => {
             src={logo}
             alt=""
           />
-
           <div className="flex flex-col  text-start lg:ml-40  justify-center   ">
             <h1 className=" ml-3 lg:ml-5 font-semibold lg:font-extrabold text-2xl lg:text-4xl">
               The Morning Post
@@ -275,10 +274,10 @@ const Navbar = () => {
                         isPending
                           ? "pending "
                           : isPending
-                            ? "pending "
-                            : isActive
-                              ? "btn btn-outline  "
-                              : "btn btn-ghost "
+                          ? "pending "
+                          : isActive
+                          ? "btn btn-outline  "
+                          : "btn btn-ghost "
                       }
                       onClick={logOut}
                       to={""}

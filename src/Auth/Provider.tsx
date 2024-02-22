@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import {
+  FacebookAuthProvider,
   GoogleAuthProvider,
   User,
   UserCredential,
@@ -18,15 +19,23 @@ export interface AuthContextProps {
   updateUserProfile: (name: string, photo: string) => Promise<void>;
   user: User | null;
   loading: boolean;
-  createUser: (email: string, password: string) => Promise<UserCredential | null>;
-  signInUser: (email: string, password: string | number) => Promise<UserCredential>;
+  createUser: (
+    email: string,
+    password: string
+  ) => Promise<UserCredential | null>;
+  signInUser: (
+    email: string,
+    password: string | number
+  ) => Promise<UserCredential>;
   signInWithGoogle: () => Promise<UserCredential>;
+  SignInWithFacebook: () => Promise<UserCredential>;
   logOut: () => Promise<void>;
 }
 
 
 export const AuthContext = createContext<AuthContextProps | null>(null)
 const googleProvider = new GoogleAuthProvider();
+const FacebookProvider = new FacebookAuthProvider();
 
 const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
@@ -47,6 +56,10 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
+  const SignInWithFacebook = ()=>{
+    setLoading(true);
+    signInWithPopup(auth, FacebookProvider)
+  }
 
   const logOut = () => {
     setLoading(true);
@@ -120,11 +133,10 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     signInUser,
     signInWithGoogle,
     logOut,
+    SignInWithFacebook
   } as AuthContextProps;
   return (
-    <AuthContext.Provider value={authInfo}>
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
 };
 
