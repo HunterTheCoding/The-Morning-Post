@@ -1,17 +1,47 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../Hook/useAxiosPublic";
-import { News } from "../../../Hook/useNews";
+// import { News } from "../../../Hook/useNews";
+import { Link } from "react-router-dom";
+import News from "./News";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../../Hook/useAxiosSecure";
 
 const NewsPost = () => {
-    const AxiosPublic = useAxiosPublic();
-    const { data } = useQuery({
+    const axiosSecure = useAxiosSecure();
+    const { data, refetch } = useQuery({
         queryKey: ["News"],
         queryFn: async () => {
-            const res = await AxiosPublic.get(`/News`);
+            const res = await axiosSecure.get(`/News`);
             // Set news data to state
             return res.data;
         },
     });
+
+    const handleDeleteVlog = (id: string) => {
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            axiosSecure.delete(`/AllNews/${id}`).then((res) => {
+              if (res.data.deletedCount > 0) {
+                refetch();
+                Swal.fire({
+                  title: "Deleted!",
+                  text: "User has been deleted.",
+                  icon: "success",
+                });
+              }
+            });
+          }
+        });
+      };
+    
     return (
         <div className='py-5 px-5 bg-green-100'>
             <div>
@@ -46,9 +76,9 @@ const NewsPost = () => {
                                         {job?.headline}
 
                                     </td>
-                                    <td><button className='btn btn-ghost btn-xs' >Update</button></td>
+                                    <td><Link to={`/daseboard/NewsUpdate/${job?._id}`} className='btn btn-ghost btn-xs' >Update</Link></td>
                                     <th>
-                                        <button className="btn btn-ghost btn-xs">Delete</button>
+                                        <button     onClick={()=>handleDeleteVlog(job?._id)} className="btn btn-ghost btn-xs">Delete</button>
                                     </th>
                                 </tr>)
                             }

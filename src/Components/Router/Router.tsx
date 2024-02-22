@@ -82,10 +82,7 @@ const Mybrowser = createBrowserRouter([
         path: "/Login",
         element: <Login></Login>,
       },
-      {
-        path: "/SignUp",
-        element: <Signup></Signup>,
-      },
+ 
       {
         path: "/jobs",
         element: <Jobs></Jobs>,
@@ -117,7 +114,7 @@ const Mybrowser = createBrowserRouter([
     ),
     children: [
       {
-        path: "/daseboard/adminhome",
+        path: "adminhome",
         element: (
           <PrivateRoute><AdminRoute>
             <AdminHome></AdminHome>
