@@ -33,6 +33,7 @@ import Error from "../Error/Error";
 import NewPoll from "../Daseboard/AdminDaseboard/new-poll";
 import UpdateJobs from "../Daseboard/AdminDaseboard/UpdateJobs";
 import HomePage from "../Survey/Servey";
+import LiveClient from "../Daseboard/AdminDaseboard/LiveClient";
 
 
 const Mybrowser = createBrowserRouter([
@@ -156,6 +157,10 @@ const Mybrowser = createBrowserRouter([
       {
         path: "live",
         element: <LiveSection></LiveSection>,
+      },
+      {
+        path: "liveClient",
+        element: <LiveClient />,
       },
       {
         path: "userdonation",
