@@ -72,7 +72,15 @@ const News = () => {
                             <input type="text" placeholder="Source" {...register('source', { required: true })} required className="input input-bordered w-full " />
 
                         </div>
-                        
+                        {/* date */}
+                        <div className="form-control md:w-1/2 w-full my-6">
+                            <label className="label">
+                                <span className="label-text text-red-600 font-bold">Date*</span>
+
+                            </label>
+                            <input type="date" placeholder="Date" {...register('date', { required: true })} required className="input input-bordered w-full " />
+
+                        </div>
 
                     </div>
                 </form>
