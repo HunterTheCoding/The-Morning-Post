@@ -1,11 +1,21 @@
 import { useForm, SubmitHandler } from "react-hook-form";
+import useAxiosPublic from "../../../Hook/useAxiosPublic";
+
+const image_hosting_key = 'b88027922b62974e868687dc6702a672';
+const image_hosting_api =
+    `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
+
 
 const News = () => {
+
+    const axiosPublic = useAxiosPublic();
 
     const { register, handleSubmit, reset } = useForm<Inputs>();
 
     const onSubmit: SubmitHandler<Inputs> = async (data) =>{
         console.log(data);
+
+
     }
 
     return (
