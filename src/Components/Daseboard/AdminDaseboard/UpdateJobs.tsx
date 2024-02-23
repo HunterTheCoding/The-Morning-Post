@@ -45,9 +45,9 @@ const UpdateJobs = () => {
     }
     return (
         <div>
-        
+        <h1 className="text-center font-semibold text-lg">Update jobs</h1>
             <div className="px-10">
-            <h1 className="py-5 text-xl font-semibold text-white">Update The Job :{headline}</h1>
+         
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="flex gap-5">
                         <div className="form-control w-full">
