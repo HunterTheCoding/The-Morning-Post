@@ -44,12 +44,12 @@ const UpdateJobs = () => {
         }
     }
     return (
-        <div>
-        <h1 className="text-center font-semibold text-lg">Update jobs</h1>
+        <div className="bg-green-100">
+        <h1 className="text-center font-semibold text-2xl">Update jobs</h1>
             <div className="px-10">
          
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="flex gap-5">
+                    <div className="grid grid-cols-1 lg:grid-cols-2  gap-5">
                         <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text">Headline</span>
@@ -63,7 +63,7 @@ const UpdateJobs = () => {
                             <input type="text" defaultValue={section}  {...register("section", { required: true })} placeholder="section" readOnly  className="input input-bordered w-full" />
                         </div>
                     </div>
-                    <div className="flex gap-5">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                         <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text">Image</span>
@@ -78,7 +78,7 @@ const UpdateJobs = () => {
 
                         </div>
                     </div>
-                    <div className="flex gap-5">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                         <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text">Date</span>
