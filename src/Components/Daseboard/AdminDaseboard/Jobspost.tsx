@@ -2,7 +2,7 @@ import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hook/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 interface HandleType {
     _id: string;
     headline: string;
@@ -96,7 +96,7 @@ const Jobspost = () => {
 
                                             </td>
                                             <td> <Link to={`/daseboard/updateJobs/${_id}`}>
-                                                <button className='btn btn-ghost btn-xs' >Update</button>
+                                                <button className='btn bg-red-400' ><FaArrowUpRightFromSquare /></button>
                                             </Link>
                                             </td>
                                             <th>
