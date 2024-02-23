@@ -15,10 +15,10 @@ const Addjob = () => {
         const jobsinfo = {
             headline: data.headline,
             image: data.img,
-            summary: data.summry,
+            summary: data.summary,
             date: data.date,
             section: data.section,
-            jobUrl: data.jobsurl,
+            jobUrl: data.jobUrl,
           
         };
         // reset()
@@ -65,7 +65,7 @@ const Addjob = () => {
                             <label className="label">
                                 <span className="label-text">Summary</span>
                             </label>
-                            <input type="text" {...register("summry", { required: true })}  placeholder="Summry" className="input input-bordered w-full" />
+                            <input type="text" {...register("summary", { required: true })}  placeholder="Summry" className="input input-bordered w-full" />
 
                         </div>
                     </div>
@@ -80,7 +80,7 @@ const Addjob = () => {
                             <label className="label">
                                 <span className="label-text">Job url</span>
                             </label>
-                            <input type="text" {...register("jobsurl", { required: true })}  placeholder="jobs url" className="input input-bordered w-full" />
+                            <input type="text" {...register("jobUrl", { required: true })}  placeholder="jobs url" className="input input-bordered w-full" />
                         </div>
                     </div>
                     <button className="btn btn-success mt-3 px-5 py-5 font-bold ">Add jobs</button>

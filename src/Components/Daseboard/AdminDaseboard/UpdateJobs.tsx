@@ -17,34 +17,35 @@ const UpdateJobs = () => {
     const { headline, image, summary, date, section, jobUrl, _id } = useLoaderData() as loaderData
     
     const { register, handleSubmit, reset } = useForm();
-    const onSubmit = async (data: any) => {
+
+    const onSubmit = async (data : any) => {
         console.log(data)
-        const updatedJobInfo = {
+        const jobsinfo = {
             headline: data.headline,
             image: data.img,
-            summary: data.summry,
+            summary: data.summary,
             date: data.date,
             section: data.section,
-            jobUrl: data.jobsurl,
-
+            jobUrl: data.jobUrl,
+          
         };
         // reset()
-        console.log(updatedJobInfo)
-        const response = await axiosPublic.patch(`/api/v1/jobs/${_id}`, updatedJobInfo);
-        console.log('Response from updated job', response.data)
-        if (response.data.modifiedCount > 0) {
-            reset()
+        console.log(jobsinfo)
+        const jobInfo = await axiosPublic.patch(`/api/v1/jobs/${_id}`, jobsinfo);
+        console.log(jobInfo.data)
+        if (jobInfo.data.insertedId) {
+            reset();
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
-                title: `${headline} updated successfully`,
+                title: 'Item add Successfully ',
                 showConfirmButton: false,
                 timer: 1500
             })
         }
     }
     return (
-        <div className="bg-green-100">
+        <div className="bg-green-100 py-10">
         <h1 className="text-center font-semibold text-2xl">Update jobs</h1>
             <div className="px-10">
          
@@ -74,7 +75,7 @@ const UpdateJobs = () => {
                             <label className="label">
                                 <span className="label-text">Summary</span>
                             </label>
-                            <input type="text" defaultValue={summary} {...register("summry", { required: true })} placeholder="Summry" className="input input-bordered w-full" />
+                            <input type="text" defaultValue={summary} {...register("summary", { required: true })} placeholder="Summry" className="input input-bordered w-full" />
 
                         </div>
                     </div>
@@ -89,10 +90,11 @@ const UpdateJobs = () => {
                             <label className="label">
                                 <span className="label-text">Job url</span>
                             </label>
-                            <input type="text" defaultValue={jobUrl} {...register("jobsurl", { required: true })} placeholder="jobs url" className="input input-bordered w-full" />
+                            <input type="text" defaultValue={jobUrl} {...register("jobUrl", { required: true })} placeholder="jobs url" className="input input-bordered w-full" />
                         </div>
                     </div>
-                    <button className="btn btn-success mt-3 px-5 py-5 font-bold ">update job</button>
+                    <input type="submit" className="btn bg-green-500 text-white hover:bg-green-700 mt-3 px-5  font-bold " value="update job" />
+          
                 </form>
             </div>
         </div>
