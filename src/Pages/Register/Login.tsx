@@ -184,7 +184,7 @@ const Login: React.FC = () => {
 
 
   return (
-    <div className="App grid justify-center h-full mt-10 w-full">
+    <div className="App grid  max-w-screen-xl justify-center h-full mt-10 w-full">
       <div
         className="Login_container  container  w-[1250px]"
         id="container"
@@ -224,7 +224,7 @@ const Login: React.FC = () => {
               onBlur={validatePassword}
             />
             <span
-              className="relative text-xl  -top-11 left-60 md:left-44 lg:left-56 "
+              className="relative text-xl -top-9 left-60 md:left-44 lg:left-56 "
               onClick={() => setShowPassword(!ShowPassword)}
             >
               {ShowPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
@@ -239,7 +239,7 @@ const Login: React.FC = () => {
               placeholder="Confirm Password"
             />
             <span
-              className="relative text-xl  -top-11 left-60 md:left-44 lg:left-56 "
+              className="relative text-xl  -top-9 left-60 md:left-44 lg:left-56 "
               onClick={() => setShowPassword(!ShowPassword)}
             >
               {ShowPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
@@ -275,7 +275,7 @@ const Login: React.FC = () => {
               placeholder="Password"
             />
             <span
-              className="relative text-xl  -top-11 left-60  lg:left-56"
+              className="relative text-xl -top-9 left-60  lg:left-56"
               onClick={() => setShowPassword(!ShowPassword)}
             >
               {ShowPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
