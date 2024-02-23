@@ -14,7 +14,6 @@ const LiveClient = () => {
                 Link: data.Link,
             }
             const newsRes = await axiosPublic.post('/live', live);
-            console.log(newsRes);
             if (newsRes.data.insertedId) {
                 reset();
                 Swal.fire({
