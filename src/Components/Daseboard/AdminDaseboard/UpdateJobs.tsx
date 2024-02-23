@@ -20,7 +20,7 @@ const UpdateJobs = () => {
 
     const onSubmit = async (data : any) => {
         console.log(data)
-        const jobsinfo = {
+        const jobsInfo = {
             headline: data.headline,
             image: data.img,
             summary: data.summary,
@@ -30,15 +30,15 @@ const UpdateJobs = () => {
           
         };
         // reset()
-        console.log(jobsinfo)
-        const jobInfo = await axiosPublic.patch(`/api/v1/jobs/${_id}`, jobsinfo);
+        console.log(jobsInfo)
+        const jobInfo = await axiosPublic.patch(`/api/v1/jobs/${_id}`, jobsInfo);
         console.log(jobInfo.data)
-        if (jobInfo.data.insertedId) {
+        if (jobInfo.data.modifiedCount > 0) {
             reset();
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
-                title: 'Item add Successfully ',
+                title: 'The job item updated Successfully ',
                 showConfirmButton: false,
                 timer: 1500
             })

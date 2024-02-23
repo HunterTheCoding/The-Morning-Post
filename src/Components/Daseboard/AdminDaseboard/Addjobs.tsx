@@ -37,10 +37,11 @@ const Addjob = () => {
         }
     }
     return (
-        <div>
+        <div className="bg-green-100 py-10">
+                     <h1 className='text-2xl font-bold text-center'>Add a Job</h1>
             <div className="px-10">
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="flex gap-5">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                         <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text">Headline</span>
@@ -54,7 +55,7 @@ const Addjob = () => {
                             <input type="text" {...register("section", { required: true })} placeholder="section" readOnly defaultValue="jobs" className="input input-bordered w-full" />
                         </div>
                     </div>
-                    <div className="flex gap-5">
+                    <div className="grid grid-cols-1 lg:grid-cols-2  gap-5">
                         <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text">Image</span>
@@ -69,7 +70,7 @@ const Addjob = () => {
 
                         </div>
                     </div>
-                    <div className="flex gap-5">
+                    <div className="grid grid-cols-1 lg:grid-cols-2  gap-5">
                         <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text">Date</span>
@@ -83,7 +84,7 @@ const Addjob = () => {
                             <input type="text" {...register("jobUrl", { required: true })}  placeholder="jobs url" className="input input-bordered w-full" />
                         </div>
                     </div>
-                    <button className="btn btn-success mt-3 px-5 py-5 font-bold ">Add jobs</button>
+                    <button className="btn bg-green-500 hover:bg-green-700 text-white mt-3 px-5 font-bold ">Add jobs</button>
                 </form>
             </div>
         </div>
