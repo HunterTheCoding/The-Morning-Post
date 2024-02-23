@@ -62,7 +62,7 @@ const Jobspost = () => {
     return (
         <div className='py-5 px-5 bg-green-100'>
             <div>
-                <h1 className='text-2xl font-bold text-center'>Jobs {jobsData.length}</h1>
+                <h1 className='text-2xl font-bold text-center'>Total Jobs: {jobsData.length}</h1>
                 <div className='border mt-5 mb-5 text-black'></div>
             </div>
             <div>
@@ -71,7 +71,7 @@ const Jobspost = () => {
                         <thead className='text-lg py-5'>
                             <tr>
                                 <th>Image</th>
-                                <th>Jobs</th>
+                                <th>Job heading</th>
                                 <th>Update</th>
                                 <th>Delete</th>
                             </tr>
