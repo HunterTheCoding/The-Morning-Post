@@ -51,7 +51,7 @@ const Quiz = () => {
     return (
         <div className="max-w-4xl mx-auto">
             <h1>this is quiz</h1>
-           
+
             <div className="grid grid-cols-1 lg:grid-cols-2">
                 {
                     quiz?.map((item, questionIndex) => {
@@ -82,39 +82,42 @@ const Quiz = () => {
                         )
                     })
                 }
-            
+
             </div>
-           
-                <div className="max-w-2xl mx-auto my-6">
+
+            <div className="max-w-2xl mx-auto my-6">
                 <input onClick={handleSubmit} disabled={submitted} type="submit" className="btn text-white w-full btn-success " value="Submit and get score" />
-                </div>
-            <div className="p-10 bg-white text-black text-lg font-semibold max-w-2xl mx-auto rounded-md">
-          
-                    {
-                        submitted && (
-                            <div>
-                                <h1>Total: {quiz.length}</h1>
-                                <h1>Your Score: {quiz.length - quizResult.inCorrectCount}</h1>
-                                <h1>Correct Answer: {quizResult.correctCount}</h1>
-                                <h1>Incorrect Answer: {quizResult.inCorrectCount}</h1>
-                            </div>
-                        )
-                    }
-                </div>
-                <div >
-                    {
-                        quiz.map(answer => {
-                            return(
-                                <div key={answer._id}>
-                                    <h1><span>{answer.question} </span>{answer.answer}</h1>
-                                </div>
-                            )
-                        })
-                    }
-                </div>
             </div>
-          
-     
+            <div className="p-10 bg-slate-400 text-black text-lg font-semibold max-w-2xl mx-auto rounded-md">
+
+                {
+                    submitted && (
+                        <div>
+                             <h1 className="text-xl bg-gray-900 rounded-md mb-2 text-white p-2">Result</h1>
+                            <h1>Total: {quiz.length}</h1>
+                            <h1>Your Score: {quiz.length - quizResult.inCorrectCount}</h1>
+                            <h1>Correct Answer: {quizResult.correctCount}</h1>
+                            <h1>Incorrect Answer: {quizResult.inCorrectCount}</h1>
+                            <div>
+                                <h1 className="text-xl bg-gray-900 text-white my-2 rounded-md p-2">See the Answer List</h1>
+                                {
+                                    quiz.map(answer => {
+                                        return (
+                                            <div key={answer._id}>
+                                                <h1><span>{answer.question} : </span>{answer.answer}</h1>
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+                    )
+                }
+            </div>
+
+        </div>
+
+
     );
 };
 
