@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import useAxiosPublic from "../../Hook/useAxiosPublic";
-import Button from "../ui/button";
+
 
 interface HandleType {
     question: string;
