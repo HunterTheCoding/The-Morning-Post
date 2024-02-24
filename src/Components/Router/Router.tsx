@@ -33,6 +33,7 @@ import NewPoll from "../Daseboard/AdminDaseboard/new-poll";
 import UpdateJobs from "../Daseboard/AdminDaseboard/UpdateJobs";
 import HomePage from "../Survey/Servey";
 import LiveClient from "../Daseboard/AdminDaseboard/LiveClient";
+import Quiz from "../Quiz/Quiz";
 
 
 const Mybrowser = createBrowserRouter([
@@ -48,6 +49,10 @@ const Mybrowser = createBrowserRouter([
       {
         path: "/Contact-US",
         element: <Contact></Contact>,
+      },
+      {
+        path: "/quiz",
+        element: <Quiz></Quiz>,
       },
       {
         path: "/entertainment",
