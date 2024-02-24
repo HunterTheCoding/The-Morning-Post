@@ -50,7 +50,7 @@ const Quiz = () => {
     }
     return (
         <div className="max-w-4xl mx-auto">
-            <h1>this is quiz</h1>
+            <h1 className="text-2xl font-semibold p-2 text-center mb-3">Welcome today's Quiz</h1>
 
             <div className="grid grid-cols-1 lg:grid-cols-2">
                 {
