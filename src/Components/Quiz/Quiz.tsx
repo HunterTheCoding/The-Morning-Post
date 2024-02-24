@@ -101,7 +101,17 @@ const Quiz = () => {
                         )
                     }
                 </div>
-               
+                <div >
+                    {
+                        quiz.map(answer => {
+                            return(
+                                <div key={answer._id}>
+                                    <h1><span>{answer.question} </span>{answer.answer}</h1>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
             </div>
           
      
