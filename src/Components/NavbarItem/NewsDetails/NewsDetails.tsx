@@ -26,7 +26,34 @@ const NewsDetails: React.FC = () => {
     console.log(id);
 
     // Declare newsinfo with type NewsInfo
-    const booksmarksnews = () => {
+    // const booksmarksnews = () => {
+    //     const newsinfo: NewsInfo = {
+    //         newsid: id,
+    //         useremail: user?.email || ""// user?.email might be undefined, which is allowed by the interface
+    //     };
+    //     console.log(newsinfo);
+        
+    //     if (user) {
+    //         axoius.post('/bookmarks', newsinfo)
+    //             .then(res => {
+    //                 console.log(res.data)
+    //                 if (res.data.acknowledged) {
+    //                     Swal.fire({
+    //                         position: "top-end",
+    //                         icon: "success",
+    //                         title: "Your news has been saved",
+    //                         showConfirmButton: false,
+    //                         timer: 1500
+    //                     });
+    //                 }
+    //             }).catch(error => {
+    //                 console.log(error)
+    //             })
+    //     } else {
+    //         navigate("/login")
+    //     }
+    // }
+ const booksmarksnews = () => {
         const newsinfo: NewsInfo = {
             newsid: id,
             useremail: user?.email || ""// user?.email might be undefined, which is allowed by the interface
@@ -53,7 +80,7 @@ const NewsDetails: React.FC = () => {
             navigate("/login")
         }
     }
-
+    
     return (
         <div className="md:px-6 my-5">
             <div className="flex justify-between bg-gray-200 p-4">
