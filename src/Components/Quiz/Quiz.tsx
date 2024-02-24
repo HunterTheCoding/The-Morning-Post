@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import useAxiosPublic from "../../Hook/useAxiosPublic";
+import Button from "../ui/button";
 
 interface HandleType {
     question: string;
@@ -7,11 +9,12 @@ interface HandleType {
     answer: number;
     correctCount: number;
     _id: number;
-    // inCorrectCount: number;
-    // userAnswers: number;
-    // quizResult: number
+    inCorrectCount: number;
+    userAnswers: number;
+    quizResult: number
 }
 const Quiz = () => {
+    const AxiosPublic = useAxiosPublic()
     const [quiz, setQuiz] = useState<HandleType[]>([])
     const [userAnswer, setUserAnswer] = useState<number[]>([])
     const [submitted, setSubmitted] = useState(false)
@@ -19,14 +22,19 @@ const Quiz = () => {
 
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/v1/quiz")
-            .then(res => res.json())
+        AxiosPublic.get("/api/v1/quiz")
             .then(data => {
-                setQuiz(data as HandleType[])
+                setQuiz(data.data as HandleType[])
             })
-    }, [])
-
-
+    }, [AxiosPublic])
+    // useEffect(() => {
+    //     fetch("http://localhost:5000/api/v1/quiz")
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setQuiz(data as HandleType[])
+    //         })
+    // }, [])
+    
     console.log(quiz);
     const handleOption = (questionIndex: number, optionIndex: number) => {
         setUserAnswer((prevAnswer) => ({
@@ -37,9 +45,8 @@ const Quiz = () => {
 
     const handleSubmit = () => {
         console.log('user answer', userAnswer,);
-        axios.post("http://localhost:5000/api/v1/quiz", userAnswer)
+        AxiosPublic.post("http://localhost:5000/api/v1/quiz", userAnswer)
             .then(response => {
-                console.log('user answer from database', response.data);
                 setQuizResult(response.data)
                 setSubmitted(true)
             })
@@ -109,6 +116,7 @@ const Quiz = () => {
                                         )
                                     })
                                 }
+                                <button className="text-xl btn btn-success text-white my-2 rounded-md p-2">Try Another</button>
                             </div>
                         </div>
                     )
