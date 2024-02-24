@@ -8,8 +8,11 @@ interface HandleType {
     answer: number;
     correctCount: number;
     _id: number;
+
+}
+interface QuizHandle{
+    correctCount: number;
     inCorrectCount: number;
-    userAnswers: number;
     quizResult: number
 }
 const Quiz = () => {
@@ -17,7 +20,7 @@ const Quiz = () => {
     const [quiz, setQuiz] = useState<HandleType[]>([])
     const [userAnswer, setUserAnswer] = useState<number[]>([])
     const [submitted, setSubmitted] = useState(false)
-    const [quizResult, setQuizResult] = useState({})
+    const [quizResult, setQuizResult] = useState<QuizHandle>({})
 
 
     useEffect(() => {
@@ -26,13 +29,7 @@ const Quiz = () => {
                 setQuiz(data.data as HandleType[])
             })
     }, [AxiosPublic])
-    // useEffect(() => {
-    //     fetch("http://localhost:5000/api/v1/quiz")
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setQuiz(data as HandleType[])
-    //         })
-    // }, [])
+   
     
     console.log(quiz);
     const handleOption = (questionIndex: number, optionIndex: number) => {
@@ -53,6 +50,11 @@ const Quiz = () => {
                 console.log(error);
             })
 
+    }
+    const handleTryAnother = ()=>{
+        window.location.reload()
+        console.log('called');
+        
     }
     return (
         <div className="max-w-4xl mx-auto">
@@ -104,6 +106,7 @@ const Quiz = () => {
                             <h1>Your Score: {quiz.length - quizResult.inCorrectCount}</h1>
                             <h1>Correct Answer: {quizResult.correctCount}</h1>
                             <h1>Incorrect Answer: {quizResult.inCorrectCount}</h1>
+                    
                             <div>
                                 <h1 className="text-xl bg-gray-900 text-white my-2 rounded-md p-2">See the Answer List</h1>
                                 {
@@ -115,7 +118,7 @@ const Quiz = () => {
                                         )
                                     })
                                 }
-                                <button className="text-xl btn btn-success text-white my-2 rounded-md p-2">Try Another</button>
+                                <button onClick={handleTryAnother} className="text-xl btn btn-success text-white my-2 rounded-md p-2">Try Another</button>
                             </div>
                         </div>
                     )
