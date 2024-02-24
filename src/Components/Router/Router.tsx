@@ -15,7 +15,6 @@ import Jobs from "../OtherSection/Jobs/Jobs";
 import Donation from "../OtherSection/Donation/Donation";
 import LiveTelecast from "../OtherSection/Live-telecast/LiveTelecast";
 import Photo from "../NavbarItem/Photo/Photo";
-import Signup from "../../Pages/Register/Signup";
 import Daseboard from "../Daseboard/Daseboard";
 import AdminHome from "../Daseboard/AdminDaseboard/AdminHome";
 import Jobspost from "../Daseboard/AdminDaseboard/Jobspost";

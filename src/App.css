@@ -72,7 +72,7 @@
 .Login_Input {
   background-color: #eee;
   border: none;
-  padding: 12px 15px;
+  padding: 6px 15px;
   margin: 8px 0;
   width: 100%;
 }
@@ -92,7 +92,7 @@
   height: 50vh; /* Adjust the percentage as needed */
   /* Allow vertical scrolling if content exceeds container height */
   overflow-y: auto;
-  max-height: 100vh; /* Set a maximum height equal to viewport height */
+  max-height: 80vh;
 }
 
 .form-container {
@@ -219,3 +219,32 @@
   height: 60px;
   width: 60px;
 }
+/*  responsive */
+@media only screen and (max-width: 600px) {
+    .app {height: 600px;}
+    .Login_container {height: 200px; width: 100vh;}
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    .app {height: 700px;}
+    .Login_container {height: 700px;}
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    .app {height: 800px;}
+    .Login_container {height: 800px;}
+  } 
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    .app {height: 1100px;}
+    .Login_container {height: 900px;}
+  } 
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+    .app {height: 1300px;}
+    .Login_container {height: 1000px;}
+  }
