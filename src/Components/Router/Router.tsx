@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../Home/Home";
 import Mainpage from "../Mainpage";
-
 import Contact from "../../Pages/Contact/Contact";
 import NavEntertainment from "../Home/Entertainment/NavEntertainment";
 import NavNational from "../Home/National/NavNational";
@@ -33,7 +32,8 @@ import NewPoll from "../Daseboard/AdminDaseboard/new-poll";
 import UpdateJobs from "../Daseboard/AdminDaseboard/UpdateJobs";
 import HomePage from "../Survey/Servey";
 import LiveClient from "../Daseboard/AdminDaseboard/LiveClient";
-import Quiz from "../Quiz/Quiz";
+import Quiz from "../Daseboard/UserDaseboard/Quiz/Quiz";
+
 
 
 const Mybrowser = createBrowserRouter([
@@ -50,10 +50,7 @@ const Mybrowser = createBrowserRouter([
         path: "/Contact-US",
         element: <Contact></Contact>,
       },
-      {
-        path: "/quiz",
-        element: <Quiz></Quiz>,
-      },
+    
       {
         path: "/entertainment",
         element: <NavEntertainment></NavEntertainment>,
@@ -178,6 +175,10 @@ const Mybrowser = createBrowserRouter([
       {
         path: "alldonation",
         element: <AllDonation></AllDonation>,
+      },
+      {
+        path: "quiz",
+        element: <Quiz></Quiz>,
       },
     ],
   },

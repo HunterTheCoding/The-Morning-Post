@@ -224,7 +224,7 @@ const Navbar = () => {
               <p className="lg:pl-52">We are for the people</p>
             </div>
           </div>
-          <li className="text-green-50"><NavLink to="/quiz">Quiz</NavLink></li>
+       
           <div className=" hidden  w-fit lg:flex rounded-md navbar-end">
             <p className="">
               <Weather />
