@@ -1,0 +1,23 @@
+[
+    {
+        "question": "1st question",
+        "options": ["1st op", "2nd op", "3d op", "4th op"],
+        "answer": 1
+    },
+    {
+        "question": "2st question",
+        "options": ["1st op", "2nd op", "3d op", "4th op"],
+        "answer": 3
+    },
+    {
+        "question": "3rd question",
+        "options": ["1st op", "2nd op", "3d op", "4th op"],
+        "answer": 2
+    },
+    {
+        "question": "4th question",
+        "options": ["1st op", "2nd op", "3d op", "4th op"],
+        "answer": 4
+    }
+   
+]

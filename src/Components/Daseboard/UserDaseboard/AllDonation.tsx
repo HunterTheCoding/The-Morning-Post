@@ -62,14 +62,15 @@ const AllDonation = () => {
             </table>
           </div>
         </div>
-      </div>
-    );
-  };
-  
-  export default AllDonation;
-  
-  {
-    /* <tbody className="bg-yellow-50 text-yellow-600">
+    </div>
+);
+
+};
+
+export default AllDonation;
+
+{
+  /* <tbody className="bg-yellow-50 text-yellow-600">
   {users?.map((user, index) => (
     <tr key={user?._id}>
       <td>{index + 1}</td>
