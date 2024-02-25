@@ -10,5 +10,3 @@ const useAxiosPublic = () => {
 };
 
 export default useAxiosPublic;
-// http://localhost:5000/
-// https://the-mornong-post-server-omega.vercel.app/
