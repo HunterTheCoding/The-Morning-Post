@@ -1,8 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../../Hook/useAxiosPublic";
-// import { News } from "../../../Hook/useNews";
 import { Link } from "react-router-dom";
-import News from "./News";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hook/useAxiosSecure";
 
@@ -61,7 +58,7 @@ const NewsPost = () => {
                         </thead>
                         <tbody>
                             {
-                                data?.map((job: News) => <tr key={job._id}>
+                                data?.map((job:any) => <tr key={job._id}>
                                     <td>
                                         <div className="flex items-center gap-3">
                                             <div className="avatar">

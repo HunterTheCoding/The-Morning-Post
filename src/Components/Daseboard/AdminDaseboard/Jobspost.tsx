@@ -2,7 +2,8 @@ import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hook/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
-
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { FaDeleteLeft } from "react-icons/fa6";
 interface HandleType {
     _id: string;
     headline: string;
@@ -62,7 +63,7 @@ const Jobspost = () => {
     return (
         <div className='py-5 px-5 bg-green-100'>
             <div>
-                <h1 className='text-2xl font-bold text-center'>Jobs {jobsData.length}</h1>
+                <h1 className='text-2xl font-bold text-center'>Total Jobs: {jobsData.length}</h1>
                 <div className='border mt-5 mb-5 text-black'></div>
             </div>
             <div>
@@ -71,7 +72,7 @@ const Jobspost = () => {
                         <thead className='text-lg py-5'>
                             <tr>
                                 <th>Image</th>
-                                <th>Jobs</th>
+                                <th>Job heading</th>
                                 <th>Update</th>
                                 <th>Delete</th>
                             </tr>
@@ -96,11 +97,11 @@ const Jobspost = () => {
 
                                             </td>
                                             <td> <Link to={`/daseboard/updateJobs/${_id}`}>
-                                                <button className='btn btn-ghost btn-xs' >Update</button>
+                                                <button className='btn bg-green-500 text-white hover:bg-green-700' ><FaArrowUpRightFromSquare /></button>
                                             </Link>
                                             </td>
                                             <th>
-                                                <button onClick={() => handleJobDelete(_id)} className="btn btn-ghost btn-xs">Delete</button>
+                                                <button onClick={() => handleJobDelete(_id)} className="btn bg-red-800 text-white hover:bg-red-900"><FaDeleteLeft /></button>
                                             </th>
                                         </tr>
                                     )

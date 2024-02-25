@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.17",
+    "@headlessui/react": "^1.7.18",
     "@stripe/react-stripe-js": "^2.4.0",
     "@stripe/stripe-js": "^2.4.0",
     "@tanstack/react-query": "^5.17.15",
@@ -49,7 +49,7 @@
     "react-to-print": "^2.14.15",
     "react-type-animation": "^3.2.0",
     "rechart": "^0.0.1",
-    "recharts": "^2.12.0",
+    "recharts": "^2.12.1",
     "sort-by": "^1.2.0",
     "styled-components": "^6.1.8",
     "sweetalert2": "^11.10.5",

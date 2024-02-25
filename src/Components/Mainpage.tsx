@@ -6,16 +6,20 @@ import { useQuery } from "@tanstack/react-query";
 
 const Mainpage = () => {
     const AxiosPublic = useAxiosPublic();
-    const { data:Live } = useQuery({
+    const { isPending, error, refetch, data: Live } = useQuery({
         queryKey: ["Live-Link"],
         queryFn: async () => {
-          const res = await AxiosPublic.get(`/live`);
-          return res.data;
+            const res = await AxiosPublic.get(`/live`);
+            return res.data;
         },
-      });
+    });
+    if (isPending) return 'Loading...'
+    if (error) return 'An error has occurred: ' + error.message
+    refetch()
+
     return (
         <div>
-            <div className="... sticky top-0"><Link to={Live}><button className="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 btn-sm font-medium rounded-lg text-sm px-5 text-center me-2 mb-2">Live</button></Link></div>
+            <div className="... sticky top-0">{Live.map((d: any) =><Link key={d?._id} to={d?.Link}><button className="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 btn-sm font-medium rounded-lg text-sm px-5 text-center me-2 mb-2">Live</button></Link>)}</div>
             <div>
                 <Navbar></Navbar>
                 <Outlet></Outlet>

@@ -7,15 +7,13 @@ import useAdmin from "../../Hook/useAdmin";
 import Weather from "../Weather/Weather";
 import { FaUser } from "react-icons/fa";
 import { useEffect, useState } from "react";
-// import TranslateText from "../TranslateText/TranslateText";
+
 const Navbar = () => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
-  // const [changelng,setchangelag] = useState<boolean>(true);
+
   const [isAdmin] = useAdmin();
-  // console.log(isAdmin);
 
   const { user, logOut } = Context();
-  // console.log(user);
 
   const list = [
     <NavLink
@@ -208,6 +206,7 @@ const Navbar = () => {
   return (
 
     <div>
+     
       <div className="font-sans bg-gray-300  -mt-4 z-50 max-w-screen-xl mx-auto">
         <header className="bg-indigo-950 text-white p-6 text-center flex justify-between px-2 px lg:px-5vw">
           <img
