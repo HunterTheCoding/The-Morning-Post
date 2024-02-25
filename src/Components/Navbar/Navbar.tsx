@@ -208,6 +208,7 @@ const Navbar = () => {
   return (
 
     <div>
+     
       <div className="font-sans bg-gray-300  -mt-4 z-50 max-w-screen-xl mx-auto">
         <header className="bg-indigo-950 text-white p-6 text-center flex justify-between px-2 px lg:px-5vw">
           <img
@@ -223,6 +224,7 @@ const Navbar = () => {
               <p className="lg:pl-52">We are for the people</p>
             </div>
           </div>
+          <li className="text-green-50"><NavLink to="/quiz">Quiz</NavLink></li>
           <div className=" hidden  w-fit lg:flex rounded-md navbar-end">
             <p className="">
               <Weather />
