@@ -35,7 +35,8 @@ const International = () => {
               ))}
             </div>
             {InternationalData.slice(1, 2).map((news) => (
-              <div key={news._id}>
+            <Link key={news._id}  to={`/newsdetails/${news?._id}`} >
+              <div >
                 <div className="md:h-[200px] w-full ml-4 md:ml-0 my-3 relative bg-gray-200">
                   <img src={news.image} className="w-full" alt="image" />
                   <h2 className="font-bold p-2">{news.headline}</h2>
@@ -46,38 +47,43 @@ const International = () => {
                   </div>
                 </div>
               </div>
+            </Link>
             ))}
           </div>
           <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4">
             {InternationalData.slice(2, 6).map((news) => (
-              <div
-                key={news._id}
-                className="md:h-[204px] md:my-3 bg-gray-200 relative"
-              >
-                <img src={news.image} className="w-full" alt="" />
-                <h2 className="font-bold text-sm p-2">{news.headline} </h2>
-                <div className="absolute bottom-2 right-2">
-                  <button className="text-xs">
-                    <FaBookmark></FaBookmark>
-                  </button>
+              <Link key={news._id} to={`/newsdetails/${news?._id}`}>
+                <div
+                  key={news._id}
+                  className="md:h-[204px] md:my-3 bg-gray-200 relative"
+                >
+                  <img src={news.image} className="w-full" alt="" />
+                  <h2 className="font-bold text-sm p-2">{news.headline} </h2>
+                  <div className="absolute bottom-2 right-2">
+                    <button className="text-xs">
+                      <FaBookmark></FaBookmark>
+                    </button>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
         <div className="col-span-2">
           {InternationalData.slice(0, 4).map((news) => (
-            <div key={news._id} className="flex pl-10 md:pl-0 mt-4">
-              <img src={news.image} className="w-1/3 h-[100px]" alt="" />
-              <div className="w-2/3 h-[100px] bg-gray-200 relative">
-                <h2 className="font-bold p-2">{news.headline} </h2>
-                <div className="absolute bottom-2 right-2">
-                  <button className="text-xs">
-                    <FaBookmark></FaBookmark>
-                  </button>
+            <Link key={news._id} to={`/newsdetails/${news?._id}`}>
+              <div key={news._id} className="flex pl-10 md:pl-0 mt-4">
+                <img src={news.image} className="w-1/3 h-[100px]" alt="" />
+                <div className="w-2/3 h-[100px] bg-gray-200 relative">
+                  <h2 className="font-bold p-2">{news.headline} </h2>
+                  <div className="absolute bottom-2 right-2">
+                    <button className="text-xs">
+                      <FaBookmark></FaBookmark>
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
