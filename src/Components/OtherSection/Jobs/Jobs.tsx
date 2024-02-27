@@ -1,22 +1,23 @@
 import { Link } from "react-router-dom";
 import p1 from "../../../assets/National/nation1.jpg"
 import { FaArrowCircleRight } from "react-icons/fa";
-
 import  { News } from "../../../Hook/useNews";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../Hook/useAxiosPublic";
 const Jobs = () => {
     const AxiosPublic = useAxiosPublic();
-
-
-    const { data:Jobs } = useQuery({
+    const { data:Jobs,isLoading } = useQuery({
         queryKey: ["api/v1/jobs"],
         queryFn: async () => {
           const res = await AxiosPublic.get(`/api/v1/jobs`);
           return res.data;
         },
       });
-      console.log(Jobs)
+      if (isLoading) {
+        return (
+          <h1 className="text-2xl font bold text-center mt-[100px]">Loading</h1>
+        );
+      }
     return (
         <div>
             <div className="px-5" >  <h1 className="text-2xl font-bold py-5">Jobs</h1>
