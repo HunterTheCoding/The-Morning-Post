@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import useAdmin from "../../../Hook/useNews";
-
 const Business = () => {
-  const { newsData: businessData, isLoading: businessDataLoading } =
-    useAdmin("Business");
-  console.log(businessData, businessDataLoading);
+  const { newsData: businessData, isLoading: businessDataLoading } =useAdmin("Business");
+  if (businessDataLoading) {
+    return (
+      <h1 className="text-2xl font bold text-center mt-[100px]">Loading</h1>
+    );
+  }
   return (
     <div>
       <div className="lg:flex gap-5">
