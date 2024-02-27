@@ -132,7 +132,7 @@ const Daseboard = () => {
                 </NavLink>
               </li>
             </ul>
-            <ul className="menu ">
+            <ul className="menu">
               <li className=" border uppercase text-white rounded-md font-bold text-lg">
                 <NavLink className={({ isPending, isActive }) =>
                   isPending
@@ -142,8 +142,8 @@ const Daseboard = () => {
                       : isActive
                         ? "btn bg-white btn-sm  text-black font-bold"
                         : "btn btn-ghost btn-sm"
-                } to="/daseboard/userdonation">
-                  <FaAd></FaAd>Donation
+                } to="/daseboard/alldonation">
+                  <FaDollarSign></FaDollarSign>Donation
                 </NavLink>
               </li>
             </ul>
@@ -183,7 +183,7 @@ const Daseboard = () => {
                 </NavLink>
               </li>
             </ul>
-            <ul className="menu">
+            <ul className="menu ">
               <li className=" border uppercase text-white rounded-md font-bold text-lg">
                 <NavLink className={({ isPending, isActive }) =>
                   isPending
@@ -193,8 +193,8 @@ const Daseboard = () => {
                       : isActive
                         ? "btn bg-white btn-sm  text-black font-bold"
                         : "btn btn-ghost btn-sm"
-                } to="/daseboard/alldonation">
-                  <FaDollarSign></FaDollarSign>Donation
+                } to="/daseboard/userdonation">
+                  <FaAd></FaAd>Donation
                 </NavLink>
               </li>
             </ul>
