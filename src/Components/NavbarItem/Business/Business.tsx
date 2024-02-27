@@ -1,25 +1,9 @@
-// import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import useAdmin from "../../../Hook/useNews";
 
-// interface businessItem {
-//     id: number;
-//     headline: string;
-//     paragraph: string
-//     image: string;
-// }
 const Business = () => {
-  // const [businessData, setBusinessData] = useState<businessItem[]>([]);
-  // useEffect(() => {
-  //     fetch("/business.json")
-  //         .then(res => res.json())
-  //         .then(data => setBusinessData(data as businessItem[]))
-  //         .catch(error => {
-  //             console.log(error);
-  //         })
-  // }, [])
   const { newsData: businessData, isLoading: businessDataLoading } =
     useAdmin("Business");
-
   console.log(businessData, businessDataLoading);
   return (
     <div>
@@ -28,11 +12,9 @@ const Business = () => {
           {/* grid grid-rows-2  */}
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4">
             <div className="col-span-2">
-              {businessData.slice(0, 1).map((item, index) => {
-                console.log(item);
-
-                return (
-                  <div className="" key={index}>
+              {businessData.slice(0, 1)?.map((item) => (
+                <Link key={item?._id} to={`/newsdetails/${item?._id}`}>
+                  <div>
                     <div className="max-h-96 h-full overflow-hidden bg-white relative">
                       <div>
                         <img
@@ -41,7 +23,6 @@ const Business = () => {
                           alt=""
                         />
                       </div>
-
                       <div className="absolute bottom-0  ">
                         <a href="#">
                           <h5 className="mb-2 text-2xl font-bold tracking-tight ">
@@ -54,13 +35,12 @@ const Business = () => {
                       </div>
                     </div>
                   </div>
-                );
-              })}
+                </Link>
+              ))}
             </div>
-
             <div>
-              {businessData.slice(0, 1).map((item, index) => {
-                return (
+              {businessData.slice(0, 1)?.map((item, index) => (
+                <Link key={index} to={`/newsdetails/${item?._id}`}>
                   <div className=" h-full" key={index}>
                     <div className="h-full bg-white border-l pl-4">
                       <a href="#">
@@ -82,14 +62,14 @@ const Business = () => {
                       </div>
                     </div>
                   </div>
-                );
-              })}
+                </Link>
+              ))}
             </div>
           </div>
           <div className="border  border-gray-300"></div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            {businessData.slice(1, 4).map((item) => {
-              return (
+            {businessData.slice(1, 4).map((item) => (
+              <Link key={item?._id} to={`/newsdetails/${item?._id}`}>
                 <div className="bg-white  first:pr-4 last:pl-4 border-gray-200 first:border-r last:border-l">
                   <a href="#">
                     <img
@@ -109,11 +89,10 @@ const Business = () => {
                     </p>
                   </div>
                 </div>
-              );
-            })}
+              </Link>
+            ))}
           </div>
         </div>
-
         {/* <div className="border border-gray-300"></div> */}
         <span className="border border-gray-300"></span>
         <div className="border">
