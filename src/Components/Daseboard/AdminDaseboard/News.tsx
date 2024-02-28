@@ -174,6 +174,7 @@ const News:React.FC = () => {
 
                     </div>
 
+                    {/* news details */}
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text text-red-600 font-bold">News Details*</span>
@@ -183,6 +184,7 @@ const News:React.FC = () => {
 
                     </div>
 
+                    {/* input image */}
                     <div className="form-control w-full my-6">
                         <input {...register('image', { required: true })} required type="file" className="file-input my-4 w-full max-w-xs" />
                     </div>
