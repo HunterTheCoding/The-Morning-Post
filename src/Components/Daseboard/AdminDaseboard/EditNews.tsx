@@ -2,6 +2,11 @@ import { useParams } from "react-router-dom";
 import useSingleNews from "../../../Hook/useSingleNews";
 import { useForm, SubmitHandler } from "react-hook-form";
 
+const image_hosting_key = 'b88027922b62974e868687dc6702a672';
+const image_hosting_api =
+    `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
+
+
 type Inputs = {
     section: string,
     headline: string,
@@ -17,15 +22,16 @@ type Inputs = {
 const EditNews: React.FC = () => {
 
     const { id } = useParams();
-    const { singleNews } = useSingleNews(id);
+    const { news:singleNews } = useSingleNews(id);
     console.log(singleNews);
 
-    const {section, headline, source, date, title, writer, image, summary, news} = singleNews;
+    const {_id, section, headline, source, date, title, writer, image, summary, news} = singleNews;
 
     const { register, handleSubmit, reset } = useForm<Inputs>();
 
     const onSubmit: SubmitHandler<Inputs> = async(data) =>{
         console.log(data);
+
     }
 
     return (
