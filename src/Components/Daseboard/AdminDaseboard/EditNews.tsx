@@ -153,6 +153,12 @@ const EditNews: React.FC = () => {
                  <div className="form-control w-full my-6">
                         <input {...register('image', { required: true })} required type="file" className="file-input my-4 w-full max-w-xs" />
                     </div>
+
+                    <div className="text-center">
+                        <button className="btn btn-primary">
+                            Update News
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
