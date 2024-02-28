@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../Hook/useAxiosPublic";
 import { News } from "../../../Hook/useNews";
+import { Link } from "react-router-dom";
 
 const NewsPost = () => {
     const AxiosPublic = useAxiosPublic();
@@ -46,7 +47,9 @@ const NewsPost = () => {
                                         {job?.headline}
 
                                     </td>
-                                    <td><button className='btn btn-ghost btn-xs' >Update</button></td>
+                                    <td><Link to={`/daseboard/editnews/${job?._id}`}>
+                                    <button className='btn btn-ghost btn-xs' >Update</button>
+                                    </Link></td>
                                     <th>
                                         <button className="btn btn-ghost btn-xs">Delete</button>
                                     </th>
