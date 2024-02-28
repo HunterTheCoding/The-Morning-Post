@@ -103,6 +103,20 @@ const EditNews: React.FC = () => {
 
                        
                 </div>
+
+                <div className="flex gap-6">
+
+                        {/* title */}
+                        <div className="form-control w-full md:w-1/2 my-6">
+                            <label className="label">
+                                <span className="label-text text-red-600 font-bold">Title*</span>
+
+                            </label>
+                            <input type="text" placeholder="Title" {...register('title', { required: true })} required className="input input-bordered w-full " />
+
+                        </div>
+                       
+                    </div>
                 </form>
             </div>
         </div>
