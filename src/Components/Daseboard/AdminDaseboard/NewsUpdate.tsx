@@ -41,8 +41,7 @@ const NewsUpdate = () => {
   );
 
   const News: NewsType = useLoaderData() || {};
-  console.log(News);
-  console.log(News);
+  
   const defaultValues: Inputs = {
     section: News?.section || "",
     headline: News?.headline || "", // Provide default value for headline
@@ -62,9 +61,9 @@ const NewsUpdate = () => {
   });
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    console.log(data);
+
     const imageFile = { image: data.image[0] };
-    console.log(imageFile);
+
     const res = await axios.post(image_hosting_api, imageFile, {
       headers: {
         "Content-type": "multipart/form-data",
@@ -94,7 +93,7 @@ const NewsUpdate = () => {
         if (result.isConfirmed) {
           // User confirmed, perform the action
           axiosSecure.put(`/News/${News?._id}`, news).then((data) => {
-            console.log(data);
+
             if (data?.data?.modifiedCount > 0) {
               
               Swal.fire({

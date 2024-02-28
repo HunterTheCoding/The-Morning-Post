@@ -29,7 +29,7 @@ const usePolls = (pollType: PollType): PollsHookResponse => {
     const fetchPolls = async () => {
       try {
         const { data }: AxiosResponse<Poll[]> = await AxiosPublic.get('/Show-Pull');
- console.log(data);
+ 
  
         const filteredPolls: Poll[] =
           pollType === 'active'

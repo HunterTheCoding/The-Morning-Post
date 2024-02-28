@@ -22,7 +22,7 @@ const Bannar = () => {
       return res.data;
     },
   });
-  console.log(bannar);
+
   return (
     <div className="grid md:grid-cols-3 grid-cols-1 my-4 gap-4">
       <div className="col-span-2 shadow-lg">

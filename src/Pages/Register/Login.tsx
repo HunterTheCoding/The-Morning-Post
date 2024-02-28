@@ -18,7 +18,7 @@ interface ImgbbResponse {
 
 const Login: React.FC = () => {
   const location = useLocation();
-  const { signInUser,signInWithGoogle  } = Context();
+  const { signInUser, signInWithGoogle } = Context();
   const [password, setPassword] = useState("");
   const [ShowPassword, setShowPassword] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -53,12 +53,9 @@ const Login: React.FC = () => {
     const Email = target.email.value;
     const Password = target.password.value;
 
-    console.log(Email, typeof Password);
     signInUser(Email, Password)
-      .then((result) => {
-        console.log(result);
+      .then(() => {
         navigate(location.state ? location.state : "/");
-        toast.success("Login Successfully");
       })
       .catch((error) => {
         toast.error(error.message);
@@ -92,14 +89,6 @@ const Login: React.FC = () => {
         formData
       );
 
-      console.log(
-        Name,
-        Email,
-        Password,
-        Confirm_password,
-        data.data.display_url
-      );
-
       if (Password !== Confirm_password) {
         toast.error("Passwords do not match");
         return; // Exit function if passwords do not match
@@ -112,7 +101,7 @@ const Login: React.FC = () => {
 
       createUser(Email, Password)
         .then((result) => {
-          console.log(result);
+        
 
           if (result && result.user) {
             updateUserProfile(Name, data.data.display_url)
@@ -121,19 +110,15 @@ const Login: React.FC = () => {
 
                 navigate("/");
               })
-              .catch((error: { message: unknown }) => {
-                console.log(error.message);
-              });
+   
           } else {
             toast.error("User creation failed.");
           }
         })
-        .catch((error) => {
-          toast.error(error.message);
-        });
+
     } catch (error: any) {
       // Declare the type of 'error' explicitly as 'any' or 'Error'
-      console.error((error as Error).message);
+  
     }
   };
 
@@ -157,46 +142,34 @@ const Login: React.FC = () => {
     }
   };
 
-
-  
-  const handleGoogleSignIn = () =>{
+  const handleGoogleSignIn = () => {
     if (signInWithGoogle) {
-        signInWithGoogle()
-          .then((result: { user: { email: unknown; displayName: unknown } }) => {
-            console.log(result.user);
-            navigate('/');
-           // const userInfo  = {
-        //     email: result.user?.email,
-        //     name: result.user?.displayName
-        // }
-        // axiosPublic.post('/users', userInfo)
-        // .then((res: { data: unknown })  =>{
-        //     console.log(res.data);
-        //     
-        // })
-          })
-          .catch((error: Error) => {
-            // Handle any potential errors
-            console.error(error);
-          });
-      }
-}
-
+      signInWithGoogle()
+        .then(() => {
+         
+          navigate("/");
+        
+        })
+        .catch((error: Error) => {
+          // Handle any potential errors
+          console.error(error);
+        });
+    }
+  };
 
   return (
     <div className="App grid  max-w-screen-xl justify-center h-full mt-10 w-full">
-      <div
-        className="Login_container  container  w-[1250px]"
-        id="container"
-      >
+      <div className="Login_container  container  w-[1250px]" id="container">
         <div className="form-container sign-up-container">
           <form className="Login_form" onSubmit={HandleSignUp}>
             <h1 className="fast_Heading ">Create Account</h1>
             <div className="social-container py-6">
-              <a onClick={handleGoogleSignIn}  className="social cursor-pointer text-black">
-               <FaGoogle></FaGoogle>
+              <a
+                onClick={handleGoogleSignIn}
+                className="social cursor-pointer text-black"
+              >
+                <FaGoogle></FaGoogle>
               </a>
-          
             </div>
             <span className="Content_span">
               or use your email for registration
@@ -255,12 +228,16 @@ const Login: React.FC = () => {
           <form className="Login_form" onSubmit={HandleSignIn}>
             <h1 className="fast_Heading">Sign in With</h1>
             <div className="social-container py-3">
-              <a onClick={handleGoogleSignIn}  className="social  text-black cursor-pointer">
+              <a
+                onClick={handleGoogleSignIn}
+                className="social  text-black cursor-pointer"
+              >
                 <FaGoogle></FaGoogle>
               </a>
-        
             </div>
-            <span className="Content_span text-xl font-bold ">or use your account</span>
+            <span className="Content_span text-xl font-bold ">
+              or use your account
+            </span>
             <input
               className="Login_Input"
               name="email"
@@ -271,7 +248,6 @@ const Login: React.FC = () => {
               className="Login_Input"
               type={ShowPassword ? "text" : "password"}
               name="password"
-            
               placeholder="Password"
             />
             <span

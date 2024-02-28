@@ -92,9 +92,7 @@ const EditPollPage: React.FC<EditPollPageProps> = () => {
       setOptionImages([]);
       setOptionInputFields([]);
       reset();
-    } catch (error) {
-      console.log(error);
-    } finally {
+    }  finally {
       setIsPollSubmitting(false);
     }
   };

@@ -14,7 +14,7 @@ import {
 import { auth } from "../Components/Firbase/Firebase.config";
 import useAxiosPublic from "../Hook/useAxiosPublic";
 
-import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 export interface AuthContextProps {
   updateUserProfile: (name: string, photo: string) => Promise<void>;
   user: User | null;
@@ -32,8 +32,7 @@ export interface AuthContextProps {
   logOut: () => Promise<void>;
 }
 
-
-export const AuthContext = createContext<AuthContextProps | null>(null)
+export const AuthContext = createContext<AuthContextProps | null>(null);
 const googleProvider = new GoogleAuthProvider();
 const FacebookProvider = new FacebookAuthProvider();
 
@@ -56,10 +55,10 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
-  const SignInWithFacebook = ()=>{
+  const SignInWithFacebook = () => {
     setLoading(true);
-    signInWithPopup(auth, FacebookProvider)
-  }
+    signInWithPopup(auth, FacebookProvider);
+  };
 
   const logOut = () => {
     setLoading(true);
@@ -67,7 +66,7 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   };
 
   const updateUserProfile = (name: string, photo: string) => {
-    console.log(name, photo);
+   
     return updateProfile(auth.currentUser!, {
       displayName: name,
       photoURL: photo,
@@ -79,44 +78,35 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       setUser(user);
       const userEmail = user?.email || user?.email;
       const loggedUser = { email: userEmail };
-      console.log("Current user", userEmail, user);
+     
       const userInfo = {
         name: user?.displayName,
-        role:"user",
+        role: "user",
         Email: user?.email,
         photo: user?.photoURL,
         createTime: user?.metadata?.creationTime,
         LastSignInTime: user?.metadata?.lastSignInTime,
       };
-      // console.log(userEmail,loggedUser);
-      
-      if ( userEmail || loggedUser.email) {
-        AxiosPublic.post("/users", userInfo).then((res) => {
      
-          
-          if (res.data.insertedId) {
-            console.log("urser added to the database",res.data.insertedId);
 
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: "User created successfully.",
-              showConfirmButton: false,
-              timer: 1500,
-            });
+      if (userEmail || loggedUser.email) {
+        AxiosPublic.post("/users", userInfo).then((res) => {
+          if (res.data.insertedId) {
+          
+            toast.success("Login Successfully");
           }
         });
       }
       setLoading(false);
       if (user || userEmail) {
-        AxiosPublic.post("/jwt", loggedUser).then((res) => {
-          console.log("token response", res.data);
+        AxiosPublic.post("/jwt", loggedUser).then(() => {
+          
         });
       } else {
         AxiosPublic.post("/logout", loggedUser, {
           withCredentials: true,
-        }).then((res) => {
-          console.log(res);
+        }).then(() => {
+      
         });
       }
     });
@@ -133,7 +123,7 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     signInUser,
     signInWithGoogle,
     logOut,
-    SignInWithFacebook
+    SignInWithFacebook,
   } as AuthContextProps;
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

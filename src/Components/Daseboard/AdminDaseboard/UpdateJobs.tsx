@@ -19,7 +19,7 @@ const UpdateJobs = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = async (data : any) => {
-        console.log(data)
+   
         const jobsInfo = {
             headline: data.headline,
             image: data.img,
@@ -30,9 +30,9 @@ const UpdateJobs = () => {
           
         };
         // reset()
-        console.log(jobsInfo)
+     
         const jobInfo = await axiosPublic.patch(`/api/v1/jobs/${_id}`, jobsInfo);
-        console.log(jobInfo.data)
+     
         if (jobInfo.data.modifiedCount > 0) {
             reset();
             Swal.fire({

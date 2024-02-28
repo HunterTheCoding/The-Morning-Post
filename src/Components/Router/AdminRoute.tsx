@@ -11,7 +11,7 @@ const AdminRoute = ({ children }: AdminRouteProb) => {
   const { user, loading } = Context();
   const location = useLocation();
   const [isAdmin, isAdminLoading] = useAdmin();
-  console.log(location);
+
   if (loading || isAdminLoading)
     return (
       <div className="flex justify-center mx-auto mt-20">

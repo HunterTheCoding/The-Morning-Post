@@ -51,7 +51,7 @@ const DonationForm: React.FC<DonationFormProps> = ({
       option,
     };
 
-    console.log(newDonation);
+
 
     if (!stripe || !elements) {
       return;
@@ -63,19 +63,15 @@ const DonationForm: React.FC<DonationFormProps> = ({
       return;
     }
 
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
+    const { error,  } = await stripe.createPaymentMethod({
       type: "card",
       card,
     });
 
     if (error) {
-      console.log("payment error", error);
+ 
       setError(error.message || "An unknown payment error occurred");
-    } else {
-      console.log("payment method", paymentMethod);
-      setError("");
-    }
-
+    } 
     if (!clientSecret) {
       console.error("Client secret is empty or null");
       return;
@@ -94,26 +90,25 @@ const DonationForm: React.FC<DonationFormProps> = ({
       });
 
     if (confirmError) {
-      console.log("confirm error");
+      // console.log("confirm error");
     } else {
-      console.log("payment intent", paymentIntent);
+      // console.log("payment intent", paymentIntent);
       if (paymentIntent.status === "succeeded") {
-        console.log("transaction id", paymentIntent.id);
+
         setTransactionId(paymentIntent.id);
 
-        console.log(newDonation);
         const res = await AxiosPublic.post("/donation-request", {
           newDonation,
           transactionId,
           donaremail:user?.email,
         });
-        console.log("payment saved", res);
+   
         // refetch();
         if (res.data?.insertedId) {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Thank you for the taka paisa",
+            title: "Thank you for you have donate",
             showConfirmButton: false,
             timer: 1500,
           });
@@ -232,7 +227,7 @@ const Donation = () => {
     if (amount) {
       AxiosPublic.post("/create-payment-intent", { amount })
         .then((res) => {
-          console.log("Client secret received:", res.data.clientSecret);
+        
           setClientSecret(res.data.clientSecret);
         })
         .catch((error) => {

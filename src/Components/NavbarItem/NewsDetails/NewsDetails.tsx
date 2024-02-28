@@ -21,9 +21,9 @@ const NewsDetails: React.FC = () => {
     const { user} = Context()
     const { id } = useParams();
     const { news } = useSingleNews(id);
-    console.log(news,user)
+    
     const axoius = useAxiosPublic()
-    console.log(id);
+
 
     // Declare newsinfo with type NewsInfo
     // const booksmarksnews = () => {
@@ -58,12 +58,12 @@ const NewsDetails: React.FC = () => {
             newsid: id,
             useremail: user?.email || ""// user?.email might be undefined, which is allowed by the interface
         };
-        console.log(newsinfo);
+    
         
         if (user) {
             axoius.post('/bookmarks', newsinfo)
                 .then(res => {
-                    console.log(res.data)
+              
                     if (res.data.acknowledged) {
                         Swal.fire({
                             position: "top-end",

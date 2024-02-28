@@ -20,9 +20,9 @@ const AllDonation = () => {
   useEffect(() => {
     axiosSecure.get(`/Donation`).then((res) => {
       setDonation(res.data);
-      console.log("from donation", res.data);
+
     });
-    console.log("donation", donation);
+
   }, [axiosSecure, donation, user?.email]);
 
   return (

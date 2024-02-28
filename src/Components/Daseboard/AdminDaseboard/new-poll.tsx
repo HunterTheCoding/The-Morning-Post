@@ -57,7 +57,7 @@ const NewPoll: React.FC<NewPollProps> = () => {
         option: options[index],
         optionImage: optionImageUrls[index],
       }));
-      console.log(optionsArray);
+
      
 
       const newPoll = {
@@ -69,7 +69,7 @@ const NewPoll: React.FC<NewPollProps> = () => {
         expiresAt: new Date(expiration.date + "T" + expiration.time),
         isActive: true,
       };
-      console.log(newPoll);
+
 
       await axiosSecure.post("/Polls", newPoll);
 

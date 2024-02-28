@@ -11,7 +11,7 @@ const Addjob = () => {
     // const axioussecret = useAxousSecret();
 
     const onSubmit = async (data : any) => {
-        console.log(data)
+     
         const jobsinfo = {
             headline: data.headline,
             image: data.img,
@@ -22,9 +22,9 @@ const Addjob = () => {
           
         };
         // reset()
-        console.log(jobsinfo)
+  
         const jobinfo = await axouspublic.post('/api/v1/jobs', jobsinfo);
-        console.log(jobinfo.data)
+      
         if (jobinfo.data.insertedId) {
             reset()
             Swal.fire({

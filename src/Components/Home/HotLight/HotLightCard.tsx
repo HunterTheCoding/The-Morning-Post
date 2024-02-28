@@ -8,7 +8,7 @@ interface HotLightCardProps {
 
 const HotLightCard: React.FC<HotLightCardProps> = ({ news:News }) => {
   const { _id, headline,summary, image} = News;
-  // console.log(News);
+
   
 
   return (

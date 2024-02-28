@@ -42,7 +42,7 @@ const ResultChart: React.FC<{ pollId: string }> = ({ pollId }) => {
         console.error('Error fetching poll data:', error);
       });
   }, [AxiosPublic, pollId]);
- console.log(pollData);
+
  
   const data: Data[] = pollData.map((optionData) => ({
     name: optionData?.option,

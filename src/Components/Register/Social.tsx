@@ -2,6 +2,7 @@ import { FaGoogle } from "react-icons/fa";
 
 import { useNavigate } from "react-router-dom";
 import Context from "../../Hook/useContext"
+import toast from "react-hot-toast";
 const SocialLogin = () => {
     const { signInWithGoogle } = Context();
     // const axiosPublic = useAxiosPublic();
@@ -10,22 +11,14 @@ const SocialLogin = () => {
     const handleGoogleSignIn = () =>{
         if (signInWithGoogle) {
             signInWithGoogle()
-              .then((result: { user: { email: unknown; displayName: unknown } }) => {
-                console.log(result.user);
-                navigate('/');
-               // const userInfo  = {
-            //     email: result.user?.email,
-            //     name: result.user?.displayName
-            // }
-            // axiosPublic.post('/users', userInfo)
-            // .then((res: { data: unknown })  =>{
-            //     console.log(res.data);
-            //     
-            // })
+              .then(() => {
+           navigate('/');
+  
               })
               .catch((error: Error) => {
                 // Handle any potential errors
-                console.error(error);
+                toast.error(error.message)
+               
               });
           }
     }

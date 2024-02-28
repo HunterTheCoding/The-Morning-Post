@@ -10,7 +10,7 @@ interface PrivateRouteProbs {
 const PrivateRoute = ({ children }:PrivateRouteProbs) => {
   const { user, loading } = Context();
   const location = useLocation();
-  console.log(location);
+
   if (loading)
     return (
       <div className="flex justify-center mx-auto mt-20">

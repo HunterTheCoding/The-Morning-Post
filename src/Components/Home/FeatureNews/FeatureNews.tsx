@@ -16,7 +16,7 @@ const FeatureNews = () => {
   if (FeatureLoading || !Feature) {
     return <div>Loading...</div>;
   }
-  console.log(Feature);
+  
   return (
     <div className="md:px-6">
       <h1 className="text-4xl font-bold py-3">Feature News</h1>

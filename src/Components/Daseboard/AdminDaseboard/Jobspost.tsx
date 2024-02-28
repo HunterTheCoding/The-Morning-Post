@@ -22,7 +22,7 @@ const Jobspost = () => {
             return response.data
         }
     })
-    console.log(jobsData);
+
 
     const handleJobDelete = async (_id: string) => {
         try {
@@ -37,9 +37,8 @@ const Jobspost = () => {
             })
             if (result.isConfirmed) {
                 const response = await AxiosPublic.delete(`/api/v1/jobs/${_id}`)
-                console.log(response.data);
+            
                 if (response.data.deletedCount > 0) {
-                    console.log('job item deleted successfully', response.data);
                     refetch();
                     Swal.fire({
                         position: "top-end",
@@ -48,9 +47,7 @@ const Jobspost = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
-                } else {
-                    console.log('Job item did not delete',);
-                }
+                } 
             }
 
         } catch (error) {

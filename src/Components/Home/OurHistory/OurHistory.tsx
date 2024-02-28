@@ -7,9 +7,9 @@ import useAdmin, { News } from "../../../Hook/useNews";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const FixedRating = Rating as any;
 const OurHistory = () => {
-  const { newsData: history, isLoading: historyLoading } = useAdmin("history");
+  const { newsData: history} = useAdmin("history");
   //   const {_id, section, headline, source, date, summary, details, image} =National;
-  console.log(history, historyLoading);
+
   return (
     <div className="mt-10 lg:flex ">
       <div className="lg:w-2/3 w-full p-3">

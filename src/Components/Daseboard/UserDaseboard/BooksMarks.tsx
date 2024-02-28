@@ -24,10 +24,10 @@ const BooksMarks = () => {
       });
 const hengledelete=(id:any)=>{
     // todo
-    console.log(id)
+
     AxiousSecru.delete(`/bookmarks/${id}`)
     .then((res)=>{
-        console.log(res.data);
+
         if(res.data.deletedCount){
             Swal.fire({
                 position: "top-end",

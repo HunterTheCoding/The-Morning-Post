@@ -3,10 +3,11 @@ import axios from "axios";
 import { useEffect } from "react";
 import Context from "./useContext";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 export const axiosSecure = axios.create({
-  baseURL: "https://the-mornong-post-server-omega.vercel.app",
-  // baseURL: "http://localhost:5000",
+  // baseURL: "https://the-mornong-post-server-omega.vercel.app",
+  baseURL: "http://localhost:5000",
   withCredentials: true,
 });
 const useAxiosSecure = () => {
@@ -15,18 +16,18 @@ const useAxiosSecure = () => {
   useEffect(() => {
     const interceptor = axiosSecure.interceptors.response.use(
       (res) => {
-        console.log(res, "ressss");
+     
         return res;
       },
       (error) => {
-        console.log("error tracked in the interceptor", error.response);
+    // toast.error("error tracked in the interceptor", error.response);
         if (error.response.status === 401 || error.response.status === 403) {
-          console.log("logout the user");
+       toast.error("logout the user");
           logOut()
             .then(() => {
               navigate("/login");
             })
-            .catch((error) => console.log(error));
+            .catch((error) => toast.error(error));
         }
       }
     );
