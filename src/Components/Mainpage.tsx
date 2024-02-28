@@ -4,6 +4,7 @@ import Footer from "./Navbar/Footer";
 import useAxiosPublic from "../Hook/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 
+
 const Mainpage = () => {
     const AxiosPublic = useAxiosPublic();
     const { isPending, error, refetch, data: Live } = useQuery({
