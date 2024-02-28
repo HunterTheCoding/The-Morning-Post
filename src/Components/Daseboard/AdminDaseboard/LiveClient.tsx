@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 
 type Inputs = {
     Link: string,
+    Find: number,
 }
 
 const LiveClient = () => {
@@ -12,9 +13,10 @@ const LiveClient = () => {
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
             const live = {
                 Link: data.Link,
+                Find:440,
             }
-            const newsRes = await axiosPublic.post('/live', live);
-            if (newsRes.data.insertedId) {
+            const newsRes = await axiosPublic.put('/live', live);
+            if (newsRes.data.modifiedCount) {
                 reset();
                 Swal.fire({
                     position: "center",

@@ -7,15 +7,13 @@ import useAdmin from "../../Hook/useAdmin";
 import Weather from "../Weather/Weather";
 import { FaUser } from "react-icons/fa";
 import { useEffect, useState } from "react";
-// import TranslateText from "../TranslateText/TranslateText";
+
 const Navbar = () => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
-  // const [changelng,setchangelag] = useState<boolean>(true);
+
   const [isAdmin] = useAdmin();
-  // console.log(isAdmin);
 
   const { user, logOut } = Context();
-  // console.log(user);
 
   const list = [
     <NavLink
@@ -224,7 +222,6 @@ const Navbar = () => {
               <p className="lg:pl-52">We are for the people</p>
             </div>
           </div>
-       
           <div className=" hidden  w-fit lg:flex rounded-md navbar-end">
             <p className="">
               <Weather />
