@@ -31,7 +31,7 @@ const EditNews: React.FC = () => {
             <h1 className="text-center font-bold my-4 text-4xl ">Update News</h1>
             <div className="bg-gray-200 p-4 rounded-lg m-4">
                 <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="flex gap-6">
+                <div className="md:flex gap-6">
                         {/* section */}
                         <div className="form-control md:w-1/2 w-full my-6">
                             <label className="label">
@@ -79,7 +79,7 @@ const EditNews: React.FC = () => {
 
                 </div>
 
-                <div className="flex gap-6">
+                <div className="md:flex gap-6">
 
                         {/* source */}
                         <div className="form-control md:w-1/2 w-full my-6">
@@ -104,7 +104,7 @@ const EditNews: React.FC = () => {
                        
                 </div>
 
-                <div className="flex gap-6">
+                <div className="md:flex gap-6">
 
                         {/* title */}
                         <div className="form-control w-full md:w-1/2 my-6">
