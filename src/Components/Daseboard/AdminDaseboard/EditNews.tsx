@@ -2,7 +2,17 @@ import { useParams } from "react-router-dom";
 import useSingleNews from "../../../Hook/useSingleNews";
 import { useForm, SubmitHandler } from "react-hook-form";
 
-
+type Inputs = {
+    section: string,
+    headline: string,
+    source: string,
+    date: string,
+    title: string,
+    writer: string,
+    image: string,
+    summary: string,
+    news: string
+}
 
 const EditNews: React.FC = () => {
 
@@ -10,9 +20,9 @@ const EditNews: React.FC = () => {
     const { news } = useSingleNews(id);
     console.log(news);
 
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit, reset } = useForm<Inputs>();
 
-    const onSubmit: SubmitHandler = async(data) =>{
+    const onSubmit: SubmitHandler<Inputs> = async(data) =>{
         console.log(data);
     }
 

@@ -19,7 +19,7 @@ type Inputs = {
     news: string
 }
 
-const News = () => {
+const News:React.FC = () => {
 
     const axiosPublic = useAxiosPublic();
 
