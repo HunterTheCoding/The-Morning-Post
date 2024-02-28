@@ -30,6 +30,7 @@ import UserDonation from "../Daseboard/AdminDaseboard/UserDonation";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import Error from "../Error/Error";
+import EditNews from "../Daseboard/AdminDaseboard/EditNews";
 
 const Mybrowser = createBrowserRouter([
   {
@@ -129,7 +130,11 @@ const Mybrowser = createBrowserRouter([
       },
       {
         path: "addnews",
-        element: <NewsPost></NewsPost>,
+        element: <NewsPost></NewsPost>
+      },
+      {
+        path: "editnews",
+        element: <EditNews></EditNews>
       },
       {
         path: "live",
