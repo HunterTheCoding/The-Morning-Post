@@ -133,7 +133,7 @@ const Mybrowser = createBrowserRouter([
         element: <NewsPost></NewsPost>
       },
       {
-        path: "editnews",
+        path: "editnews/:id",
         element: <EditNews></EditNews>
       },
       {

@@ -21,7 +21,7 @@ const NewsDetails: React.FC = () => {
     const { user} = Context()
     const { id } = useParams();
     const { news } = useSingleNews(id);
-    console.log(news,user)
+    // console.log(news,user)
     const axoius = useAxiosPublic()
     console.log(id);
 
