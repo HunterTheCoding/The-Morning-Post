@@ -137,6 +137,16 @@ const EditNews: React.FC = () => {
                             required
                             className="input input-bordered w-full " />
 
+                </div>
+
+                {/* news details */}
+                <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-red-600 font-bold">News Details*</span>
+
+                        </label>
+                        <textarea {...register('news', { required: true })} required className="textarea textarea-bordered h-24" placeholder="News Details"></textarea>
+
                     </div>
                 </form>
             </div>

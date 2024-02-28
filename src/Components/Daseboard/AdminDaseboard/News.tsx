@@ -179,7 +179,7 @@ const News:React.FC = () => {
                             <span className="label-text text-red-600 font-bold">News Details*</span>
 
                         </label>
-                        <textarea {...register('news', { required: true })} required className="textarea textarea-bordered h-24" placeholder="Recipe Details"></textarea>
+                        <textarea {...register('news', { required: true })} required className="textarea textarea-bordered h-24" placeholder="News Details"></textarea>
 
                     </div>
 
