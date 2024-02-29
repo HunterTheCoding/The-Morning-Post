@@ -28,13 +28,13 @@ const National = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[2px] lg:gap-6">
           {National?.slice(1, National.length)?.map((news2) => (
             <Link key={news2?._id} to={`/newsdetails/${news2?._id}`}>
-              <div className="w-full mb-5 md:mb-0 object-cover  md:w-[100%] lg:w-[100%] h-[200px] md:h-[220px] lg:h-[224px] border rounded-lg">
+              <div className="w-full mb-5 md:mb-0 object-cover  md:w-[100%] lg:w-[100%] h-[200px] md:h-[220px] lg:h-[224px] border rounded-md ">
                 <img
-                  className=" w-full md:w-[100%] lg:w-[100%] h-[150px] md:h-[110px] "
+                  className=" w-full md:w-[100%] lg:w-[100%] h-[150px] md:h-[110px] rounded-md "
                   src={news2?.image}
                   alt=""
                 />
-                <h1 className="p-1 text-black lg:py-1 text-[14px] md:text-[12px] py-2 lg:text-base font-medium">
+                <h1 className="p-1 text-black lg:py-1 text-[14px] md:text-[12px] py-2 lg:text-base font-medium px-2">
                   {news2?.headline}
                 </h1>
               </div>

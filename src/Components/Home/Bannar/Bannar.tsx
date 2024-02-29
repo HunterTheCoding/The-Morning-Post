@@ -40,7 +40,7 @@ const Bannar = () => {
               <div>
                 <img
                   src={item?.image}
-                  className="w-full lg:h-[100%] object-cover md:h-[500px] h-[300px]"
+                  className="w-full lg:h-[100%] object-cover rounded-md md:h-[500px] h-[300px]"
                   alt=""
                 />
                 <h2 className="card-title mt-2 pl-2">{item.title}</h2>
@@ -52,11 +52,11 @@ const Bannar = () => {
       <div className="flex flex-col gap-4">
         {bannar?.slice(3, 5).map((item: Bannar) => (
           <Link to={`/newsdetails/${item?._id}`} key={item._id}>
-            <div className="card card-compact bg-base-100 shadow-xl">
+            <div className=" card-compact bg-base-100 shadow-xl rounded-md">
               <figure>
                 <img
                   src={item?.image}
-                  className="w-full md:h-[150px] lg:h-[200px]"
+                  className="w-full md:h-[150px] lg:h-[200px] rounded-md"
                   alt="news"
                 />
               </figure>

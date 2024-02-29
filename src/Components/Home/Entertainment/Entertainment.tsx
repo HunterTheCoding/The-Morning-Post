@@ -14,6 +14,12 @@ const Entertainment = () => {
   const { newsData: EntertainmentCover } = useAdmin("Entertainment-cover");
   return (
     <div>
+      <div>
+        <h1 className=" text-xl lg:text-[32px] font-bold px-5 mb-5">
+          Entertainment
+        </h1>
+        <hr />
+      </div>
       <div className="grid grid-cols-6 gap-4">
         <div className="col-span-6 md:col-span-3 lg:col-span-3">
           <div className="grid grid-cols-9">

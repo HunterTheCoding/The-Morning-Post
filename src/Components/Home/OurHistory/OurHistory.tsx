@@ -3,13 +3,10 @@ import { FaRegClock } from "react-icons/fa";
 import { IoIosStar, IoIosStarHalf, IoIosStarOutline } from "react-icons/io";
 import Rating from "react-rating";
 import useAdmin, { News } from "../../../Hook/useNews";
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const FixedRating = Rating as any;
 const OurHistory = () => {
-  const { newsData: history, isLoading: historyLoading } = useAdmin("history");
-  //   const {_id, section, headline, source, date, summary, details, image} =National;
-  console.log(history, historyLoading);
+  const { newsData: history } = useAdmin("history");
   return (
     <div className="mt-10 lg:flex ">
       <div className="lg:w-2/3 w-full p-3">
@@ -24,7 +21,7 @@ const OurHistory = () => {
           <div className=" w-full lg:w-[50%] ">
             {history?.slice(0, 1).map((news1: News) => (
               <Link to={`/newsdetails/${news1?._id}`} key={news1?._id}>
-                <div className=" w-full lg:w-[400px]  bg-base-100 shadow-xl rounded-md">
+                <div className=" w-full lg:w-[400px]  bg-base-100 rounded-md">
                   <figure>
                     <img
                       className="lg:h-[280px] md:h-[350px] h-[175px] w-full lg:w-full rounded-md"

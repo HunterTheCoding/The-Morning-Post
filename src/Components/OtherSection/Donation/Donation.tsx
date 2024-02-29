@@ -15,7 +15,6 @@ interface DonationFormProps {
   setAmount: React.Dispatch<React.SetStateAction<number | null>>;
   clientSecret: string | null;
 }
-
 const DonationForm: React.FC<DonationFormProps> = ({
   setAmount,
   clientSecret,
@@ -30,7 +29,6 @@ const DonationForm: React.FC<DonationFormProps> = ({
   const [transactionId, setTransactionId] = useState<number | string | null>(
     null
   );
-
   const handleSubmit = async (
     event: React.FormEvent<HTMLFormElement>
   ): Promise<void> => {
@@ -41,33 +39,24 @@ const DonationForm: React.FC<DonationFormProps> = ({
     const name = (form.name as unknown as HTMLInputElement).value;
     const email = (form.email as unknown as HTMLInputElement).value;
     const option = (form.option as unknown as HTMLInputElement).value;
-
     const newDonation = {
       id: Date.now(),
       amount: parseFloat(amount),
-
       name,
       email,
       option,
     };
-
-    console.log(newDonation);
-
     if (!stripe || !elements) {
       return;
     }
-
     const card = elements.getElement(CardElement);
-
     if (card === null) {
       return;
     }
-
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card,
     });
-
     if (error) {
       console.log("payment error", error);
       setError(error.message || "An unknown payment error occurred");
@@ -75,12 +64,10 @@ const DonationForm: React.FC<DonationFormProps> = ({
       console.log("payment method", paymentMethod);
       setError("");
     }
-
     if (!clientSecret) {
       console.error("Client secret is empty or null");
       return;
     }
-
     // confirm payment
     const { paymentIntent, error: confirmError } =
       await stripe.confirmCardPayment(clientSecret, {
@@ -105,7 +92,7 @@ const DonationForm: React.FC<DonationFormProps> = ({
         const res = await AxiosPublic.post("/donation-request", {
           newDonation,
           transactionId,
-          donaremail:user?.email,
+          donaremail: user?.email,
         });
         console.log("payment saved", res);
         // refetch();
@@ -125,7 +112,7 @@ const DonationForm: React.FC<DonationFormProps> = ({
 
   return (
     <div className="col-span-2 p-5">
-      <h1 className="text-center font-semibold text-xl"> Donate Here</h1>
+      <h1 className="text-center font-semibold text-xl lg:text-2xl"> Donate Here</h1>
       <form onSubmit={handleSubmit} className="card-body w-full">
         <div className="grid grid-cols-2 gap-3">
           <div className="form-control">

@@ -1,8 +1,6 @@
 import React from 'react';
 import usePolls, { Poll } from '../../Hook/use-polls';
 import PollCard from '../poll-card/poll-card';
-
-// Define the Option type
 export interface Option {
   votes: any;
   _id: string;
