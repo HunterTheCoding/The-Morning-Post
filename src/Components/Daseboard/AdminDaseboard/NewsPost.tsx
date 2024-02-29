@@ -55,7 +55,7 @@ const NewsPost = () => {
           confirmButtonText: "Yes, delete it!",
         }).then((result) => {
           if (result.isConfirmed) {
-            axiosSecure.delete(`/AllNews/${id}`).then((res) => {
+            axiosSecure.delete(`/AllNews/${id}`).then((res: any) => {
               if (res.data.deletedCount > 0) {
                 refetch();
                 Swal.fire({
@@ -112,6 +112,7 @@ const NewsPost = () => {
                                     <td><Link to={`/daseboard/NewsUpdate/${job?._id}`} className='btn btn-ghost btn-xs' >Update</Link></td>
                                     <th>
                                         <button     onClick={()=>handleDeleteVlog(job?._id)} className="btn btn-ghost btn-xs">Delete</button>
+                                    </th>
                                     </th>
                                 </tr>)
                             }
