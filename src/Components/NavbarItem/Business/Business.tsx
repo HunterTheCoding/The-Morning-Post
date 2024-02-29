@@ -1,33 +1,33 @@
 import { Link } from "react-router-dom";
 import useAdmin from "../../../Hook/useNews";
 const Business = () => {
-  const { newsData: businessData, isLoading: businessDataLoading } =useAdmin("Business");
+  const { newsData: businessData, isLoading: businessDataLoading } = useAdmin("Business");
   if (businessDataLoading) {
-    return (
-      <h1 className="text-2xl font bold text-center mt-[100px]">Loading</h1>
-    );
+    return <span className="loading loading-spinner loading-lg mx-auto"></span>
   }
   return (
     <div>
+      <div className="" >  <h1 className="text-2xl font-bold py-5">Business</h1>
+        <div className="border border-gray-400 mb-10 "></div></div>
       <div className="lg:flex gap-5">
-        <div className="max-w-[980px] grid gap-5">
-          {/* grid grid-rows-2  */}
+        <div className="basis-3/4 gap-5">
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4">
             <div className="col-span-2">
               {businessData.slice(0, 1)?.map((item) => (
                 <Link key={item?._id} to={`/newsdetails/${item?._id}`}>
                   <div>
-                    <div className="max-h-96 h-full overflow-hidden bg-white relative">
-                      <div>
+                    <div className="overflow-hidden bg-white relative">
+                      <div className="h-96">
                         <img
-                          className=" h-full object-cover overflow-hidden"
+                          className="object-cover w-full h-full overflow-hidden p-4 lg:p-0 md:p-4"
                           src={item.image}
                           alt=""
                         />
                       </div>
-                      <div className="absolute bottom-0  ">
+
+                      <div className="absolute bottom-10 left-6 lg:left-3 lg:bottom-4 md:left-8 md:bottom-6">
                         <a href="#">
-                          <h5 className="mb-2 text-2xl font-bold tracking-tight ">
+                          <h5 className="text-2xl font-bold tracking-tight text-white">
                             {item.headline}
                           </h5>
                         </a>
@@ -41,7 +41,7 @@ const Business = () => {
               ))}
             </div>
             <div>
-              {businessData.slice(0, 1)?.map((item, index) => (
+              {businessData.slice(1, 2)?.map((item, index) => (
                 <Link key={index} to={`/newsdetails/${item?._id}`}>
                   <div className=" h-full" key={index}>
                     <div className="h-full bg-white border-l pl-4">
@@ -68,9 +68,9 @@ const Business = () => {
               ))}
             </div>
           </div>
-          <div className="border  border-gray-300"></div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            {businessData.slice(1, 4).map((item) => (
+          <div className="border my-3  border-gray-300"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {businessData?.slice(2, 5).map((item) => (
               <Link key={item?._id} to={`/newsdetails/${item?._id}`}>
                 <div className="bg-white  first:pr-4 last:pl-4 border-gray-200 first:border-r last:border-l">
                   <a href="#">
@@ -87,7 +87,7 @@ const Business = () => {
                       </h5>
                     </a>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                      {item.title}
+                    {item.title && item.title?.substring(0, 70)}...
                     </p>
                   </div>
                 </div>
@@ -95,24 +95,24 @@ const Business = () => {
             ))}
           </div>
         </div>
-        {/* <div className="border border-gray-300"></div> */}
         <span className="border border-gray-300"></span>
-        <div className="border">
+        <div className="border basis-3/12">
           <div className="">
             <h1 className="text-2xl text-center bg-green-700 block p-5 text-white">
               Summary
             </h1>
-            <p className="p-5">
-              It seems like you're looking for a brief summary or update on
-              business-related news or activities for today. However, I don't
-              have real-time data or access to current news updates. If you have
-              specific questions or topics you'd like information on, feel free
-              to provide more details, and I'll do my best to assist you based
-              on the information available up to my last training cut-off in
-              January 2022. If you have access to news sources or specific
-              topics you're interested in, that could be a good starting point
-              for discussing today's business summary.
+            <p>
+              {
+                businessData?.slice(0, 1).map((item) => {
+                  return (
+                    <div key={item._id}>
+                      <p className="m-2">{item.summary}</p>
+                    </div>
+                  )
+                })
+              }
             </p>
+
           </div>
         </div>
       </div>
