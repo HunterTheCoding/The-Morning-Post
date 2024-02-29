@@ -1,23 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../../Hook/useAxiosPublic";
-import { News } from "../../../Hook/useNews";
 import { Link } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
-
-
+import useAxiosSecure from "../../../Hook/useAxiosSecure";
 const NewsPost = () => {
     const axiosSecure = useAxiosSecure();
     const { data, refetch } = useQuery({
         queryKey: ["News"],
         queryFn: async () => {
             const res = await axiosSecure.get(`/News`);
-            // Set news data to state
+
             return res.data;
         },
     });
-
-    const handleDeleteNews = id => {
+    const handleDeleteNews = (id:any) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -29,7 +25,7 @@ const NewsPost = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                AxiosPublic.delete(`/News/${id}`)
+                axiosSecure.delete(`/News/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             refetch();
