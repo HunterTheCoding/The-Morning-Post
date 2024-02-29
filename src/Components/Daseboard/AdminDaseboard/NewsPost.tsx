@@ -1,10 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../../Hook/useAxiosPublic";
 import { News } from "../../../Hook/useNews";
 import { Link } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
-
+import useAxiosSecure from "../../../Hook/useAxiosSecure";
 
 const NewsPost = () => {
     const axiosSecure = useAxiosSecure();
@@ -17,7 +16,7 @@ const NewsPost = () => {
         },
     });
 
-    const handleDeleteNews = id => {
+    const handleDeleteNews = (id:any) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -28,8 +27,7 @@ const NewsPost = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-
-                AxiosPublic.delete(`/News/${id}`)
+                axiosSecure.delete(`/News/${id}`)
                     .then(res => {
                         if (res.data.deletedCount > 0) {
                             refetch();
@@ -88,7 +86,7 @@ const NewsPost = () => {
                         </thead>
                         <tbody>
                             {
-                                data?.map((job:any) => <tr key={job._id}>
+                                data?.map((job:News) => <tr key={job._id}>
                                     <td>
                                         <div className="flex items-center gap-3">
                                             <div className="avatar">
@@ -96,7 +94,6 @@ const NewsPost = () => {
                                                     <img src={job?.image} alt="jobs" />
                                                 </div>
                                             </div>
-
                                         </div>
                                     </td>
                                     <td>
