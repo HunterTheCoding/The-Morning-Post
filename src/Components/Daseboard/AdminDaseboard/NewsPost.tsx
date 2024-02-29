@@ -1,5 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
+import { News } from "../../../Hook/useNews";
 import { Link } from "react-router-dom";
+import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hook/useAxiosSecure";
 
@@ -14,6 +16,32 @@ const NewsPost = () => {
         },
     });
 
+    const handleDeleteNews = (id:any) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.delete(`/News/${id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            refetch();
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "The news has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+            }
+        });
+    }
+
     const handleDeleteVlog = (id: string) => {
         Swal.fire({
           title: "Are you sure?",
@@ -25,7 +53,7 @@ const NewsPost = () => {
           confirmButtonText: "Yes, delete it!",
         }).then((result) => {
           if (result.isConfirmed) {
-            axiosSecure.delete(`/AllNews/${id}`).then((res) => {
+            axiosSecure.delete(`/AllNews/${id}`).then((res: any) => {
               if (res.data.deletedCount > 0) {
                 refetch();
                 Swal.fire({
@@ -58,7 +86,7 @@ const NewsPost = () => {
                         </thead>
                         <tbody>
                             {
-                                data?.map((job:any) => <tr key={job._id}>
+                                data?.map((job:News) => <tr key={job._id}>
                                     <td>
                                         <div className="flex items-center gap-3">
                                             <div className="avatar">
@@ -66,16 +94,22 @@ const NewsPost = () => {
                                                     <img src={job?.image} alt="jobs" />
                                                 </div>
                                             </div>
-
                                         </div>
                                     </td>
                                     <td>
                                         {job?.headline}
-
                                     </td>
+                                    <td><Link to={`/daseboard/editnews/${job?._id}`}>
+                                    <button className='btn btn-ghost btn-xs' >Update</button>
+                                    </Link></td>
+                                    <th>
+                                        <button onClick={()=> handleDeleteNews(job._id)} className="btn btn-ghost btn-xs">
+                                            <FaTrash></FaTrash>
+                                            Delete</button>
                                     <td><Link to={`/daseboard/NewsUpdate/${job?._id}`} className='btn btn-ghost btn-xs' >Update</Link></td>
                                     <th>
                                         <button     onClick={()=>handleDeleteVlog(job?._id)} className="btn btn-ghost btn-xs">Delete</button>
+                                    </th>
                                     </th>
                                 </tr>)
                             }
