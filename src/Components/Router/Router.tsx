@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../Home/Home";
 import Mainpage from "../Mainpage";
-
 import Contact from "../../Pages/Contact/Contact";
 import NavEntertainment from "../Home/Entertainment/NavEntertainment";
 import NavNational from "../Home/National/NavNational";
@@ -15,7 +14,6 @@ import Jobs from "../OtherSection/Jobs/Jobs";
 import Donation from "../OtherSection/Donation/Donation";
 import LiveTelecast from "../OtherSection/Live-telecast/LiveTelecast";
 import Photo from "../NavbarItem/Photo/Photo";
-import Signup from "../../Pages/Register/Signup";
 import Daseboard from "../Daseboard/Daseboard";
 import AdminHome from "../Daseboard/AdminDaseboard/AdminHome";
 import Jobspost from "../Daseboard/AdminDaseboard/Jobspost";
@@ -34,6 +32,8 @@ import NewPoll from "../Daseboard/AdminDaseboard/new-poll";
 import UpdateJobs from "../Daseboard/AdminDaseboard/UpdateJobs";
 import HomePage from "../Survey/Servey";
 import LiveClient from "../Daseboard/AdminDaseboard/LiveClient";
+import Quiz from "../Daseboard/UserDaseboard/Quiz/Quiz";
+
 
 
 const Mybrowser = createBrowserRouter([
@@ -50,6 +50,7 @@ const Mybrowser = createBrowserRouter([
         path: "/Contact-US",
         element: <Contact></Contact>,
       },
+    
       {
         path: "/entertainment",
         element: <NavEntertainment></NavEntertainment>,
@@ -82,10 +83,7 @@ const Mybrowser = createBrowserRouter([
         path: "/Login",
         element: <Login></Login>,
       },
-      {
-        path: "/SignUp",
-        element: <Signup></Signup>,
-      },
+ 
       {
         path: "/jobs",
         element: <Jobs></Jobs>,
@@ -117,7 +115,7 @@ const Mybrowser = createBrowserRouter([
     ),
     children: [
       {
-        path: "/daseboard/adminhome",
+        path: "adminhome",
         element: (
           <PrivateRoute><AdminRoute>
             <AdminHome></AdminHome>
@@ -177,6 +175,10 @@ const Mybrowser = createBrowserRouter([
       {
         path: "alldonation",
         element: <AllDonation></AllDonation>,
+      },
+      {
+        path: "quiz",
+        element: <Quiz></Quiz>,
       },
     ],
   },

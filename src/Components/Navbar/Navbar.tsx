@@ -7,15 +7,13 @@ import useAdmin from "../../Hook/useAdmin";
 import Weather from "../Weather/Weather";
 import { FaUser } from "react-icons/fa";
 import { useEffect, useState } from "react";
-// import TranslateText from "../TranslateText/TranslateText";
+
 const Navbar = () => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
-  // const [changelng,setchangelag] = useState<boolean>(true);
+
   const [isAdmin] = useAdmin();
-  // console.log(isAdmin);
 
   const { user, logOut } = Context();
-  // console.log(user);
 
   const list = [
     <NavLink
@@ -208,6 +206,7 @@ const Navbar = () => {
   return (
 
     <div>
+     
       <div className="font-sans bg-gray-300  -mt-4 z-50 max-w-screen-xl mx-auto">
         <header className="bg-indigo-950 text-white p-6 text-center flex justify-between px-2 px lg:px-5vw">
           <img
@@ -215,7 +214,6 @@ const Navbar = () => {
             src={logo}
             alt=""
           />
-
           <div className="flex flex-col  text-start lg:ml-40  justify-center   ">
             <h1 className=" ml-3 lg:ml-5 font-semibold lg:font-extrabold text-2xl lg:text-4xl">
               The Morning Post
@@ -275,10 +273,10 @@ const Navbar = () => {
                         isPending
                           ? "pending "
                           : isPending
-                            ? "pending "
-                            : isActive
-                              ? "btn btn-outline  "
-                              : "btn btn-ghost "
+                          ? "pending "
+                          : isActive
+                          ? "btn btn-outline  "
+                          : "btn btn-ghost "
                       }
                       onClick={logOut}
                       to={""}

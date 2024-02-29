@@ -10,6 +10,7 @@ import Button from "../ui/button";
 import { axiosSecure } from "../../Hook/useAxiosSecure";
 import PollMenu from "./pole-menu";
 import ResultChart from "../Chart/result-chart";
+import { useNavigate } from "react-router-dom";
 
 interface Option {
   _id: string;
@@ -28,7 +29,6 @@ interface PollCardProps {
 
 interface ErrorResponse {
   message: string;
-
 }
 
 const PollCard: React.FC<PollCardProps> = ({
@@ -44,7 +44,7 @@ const PollCard: React.FC<PollCardProps> = ({
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [voteSubmitted, setVoteSubmitted] = useState<boolean>(false); // Track whether vote has been submitted
   const [toastShown, setToastShown] = useState<boolean>(false); // Track whether toast has been shown for expiration
-
+  const navigate = useNavigate();
   useEffect(() => {
     const prevVotedOption = options.find((option) =>
       option.votes.includes(user?.uid || "")
@@ -63,10 +63,12 @@ const PollCard: React.FC<PollCardProps> = ({
       }
 
       if (!user) {
-        return errorToast("Something went wrong");
+        errorToast("Please Join US");
+        navigate("/login");
+        return;
       }
 
-      await axiosSecure.patch(`/updatePoll/${ _id }`, {
+      await axiosSecure.patch(`/updatePoll/${_id}`, {
         userId: user.uid,
         options: selectedOption,
       });
@@ -76,7 +78,8 @@ const PollCard: React.FC<PollCardProps> = ({
     } catch (error) {
       console.error(error);
       const axiosError = error as AxiosError<ErrorResponse>;
-      const errorMessage = axiosError.response?.data?.message || "Something went wrong";
+      const errorMessage =
+        axiosError.response?.data?.message || "Something went wrong";
       errorToast(errorMessage);
     } finally {
       setIsSubmitting(false);
@@ -86,12 +89,10 @@ const PollCard: React.FC<PollCardProps> = ({
   const handlePollActiveToggle = async (pollId: string) => {
     try {
       if (!isActive || toastShown) {
-
         return;
       }
-      await axiosSecure.patch(`/polls/toggle/${ pollId }`, { isActive: false });
+      await axiosSecure.patch(`/polls/toggle/${pollId}`, { isActive: false });
       setToastShown(true);
-
     } catch (error) {
       console.error(error);
     }
