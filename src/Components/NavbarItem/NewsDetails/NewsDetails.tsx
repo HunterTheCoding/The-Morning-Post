@@ -26,7 +26,6 @@ const NewsDetails: React.FC = () => {
       useremail: user?.email || "", // user?.email might be undefined, which is allowed by the interface
     };
     console.log(newsinfo);
-
     if (user) {
       axoius
         .post("/bookmarks", newsinfo)
@@ -76,7 +75,6 @@ const NewsDetails: React.FC = () => {
           </button>
         </Link>
       </div>
-
       <div className="grid md:grid-cols-6 grid-cols-1 gap-4 mt-4">
         <div className="col-span-4 ">
           <div className="text-center mb-4 bg-base-200 relative rounded-md">
@@ -90,13 +88,11 @@ const NewsDetails: React.FC = () => {
               </button>
             </div>
           </div>
-
           <div className="p-5">
             <h2 className="text-2xl font-bold my-4">
               Stuff Correspondent || New York || USA.
             </h2>
             <p className="text-lg font-medium">{news?.summary}</p>
-
             <TranslateText></TranslateText>
             <div>
               <div>

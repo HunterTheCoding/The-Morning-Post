@@ -1,42 +1,51 @@
+import { useParams } from "react-router-dom";
+import useSingleNews from "../../../Hook/useSingleNews";
 import { useForm, SubmitHandler } from "react-hook-form";
-import useAxiosPublic from "../../../Hook/useAxiosPublic";
 import axios from "axios";
+import useAxiosPublic from "../../../Hook/useAxiosPublic";
 import Swal from "sweetalert2";
+import { FaSave } from "react-icons/fa";
 
 const image_hosting_key = 'b88027922b62974e868687dc6702a672';
 const image_hosting_api =
     `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 
-    type Inputs = {
-        section: string,
-        headline: string,
-        source: string,
-        date: string,
-        title: string,
-        writer: string,
-        image: string,
-        summary: string,
-        news: string
-    }
 
+type Inputs = {
+    section: string,
+    headline: string,
+    source: string,
+    date: string,
+    title: string,
+    writer: string,
+    image: string,
+    summary: string,
+    news: string
+}
 
-const News:React.FC = () => {
+const EditNews: React.FC = () => {
+
+    const { id } = useParams();
+    const { news: singleNews } = useSingleNews(id);
+    console.log(singleNews);
 
     const axiosPublic = useAxiosPublic();
 
+    const { _id, section, headline, source, date, title, writer, image, summary, news } = singleNews;
+
     const { register, handleSubmit, reset } = useForm<Inputs>();
 
-    const onSubmit: SubmitHandler<Inputs> = async (data) =>{
-        // console.log(data);
+    const onSubmit: SubmitHandler<Inputs> = async (data) => {
+        console.log(data);
         const imageFile = { image: data.image[0] }
-        // console.log(imageFile)
+        console.log(imageFile)
         const res = await axios.post(image_hosting_api, imageFile, {
             headers: {
                 'Content-type': 'multipart/form-data'
             }
         })
         if (res.data.success) {
-            const news = {
+            const updatedNews = {
                 section: data.section,
                 headline: data.headline,
                 source: data.source,
@@ -47,30 +56,28 @@ const News:React.FC = () => {
                 summary: data.summary,
                 news: data.news
             }
-
-            const newsRes = await axiosPublic.post('/News', news);
-            // console.log(newsRes);
-            if (newsRes.data.insertedId) {
+            const newsRes = await axiosPublic.put(`/News/${_id}`, updatedNews);
+            console.log(newsRes);
+            if (newsRes.data.modifiedCount > 0) {
                 reset();
                 Swal.fire({
                     position: "center",
                     icon: "success",
-                    title: `${data.headline} is added successfully`,
+                    title: `${data.headline} is updated successfully`,
                     showConfirmButton: false,
                     timer: 1500
                 });
             }
+
         }
-        // console.log(res.data)
     }
 
     return (
         <div>
-            <h1 className="text-center font-bold my-4 text-4xl ">Post News</h1>
+            <h1 className="text-center font-bold my-4 text-4xl ">Update {headline} News</h1>
             <div className="bg-gray-200 p-4 rounded-lg m-4">
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    
-                <div className="md:flex gap-6">
+                    <div className="md:flex gap-6">
                         {/* section */}
                         <div className="form-control md:w-1/2 w-full my-6">
                             <label className="label">
@@ -78,8 +85,8 @@ const News:React.FC = () => {
 
                             </label>
 
-                            
-                            <select defaultValue='default' {...register("section", { required: true })} required className="select select-bordered w-full mr-4">
+
+                            <select defaultValue={section} {...register("section", { required: true })} required className="select select-bordered w-full mr-4">
                                 <option disabled value='default'>Select a section</option>
                                 <option value="National">National</option>
                                 <option value="International">International</option>
@@ -111,13 +118,14 @@ const News:React.FC = () => {
                                 <span className="label-text text-red-600 font-bold">Headline*</span>
 
                             </label>
-                            <input type="text" placeholder="Headline" {...register('headline', { required: true })} required className="input input-bordered w-full " />
+                            <input defaultValue={headline} type="text" placeholder="Headline" {...register('headline', { required: true })} required className="input input-bordered w-full " />
 
                         </div>
 
-                </div>
 
-                <div className="md:flex gap-6">
+                    </div>
+
+                    <div className="md:flex gap-6">
 
                         {/* source */}
                         <div className="form-control md:w-1/2 w-full my-6">
@@ -125,22 +133,24 @@ const News:React.FC = () => {
                                 <span className="label-text text-red-600 font-bold">Source*</span>
 
                             </label>
-                            <input type="text" placeholder="Source" {...register('source', { required: true })} required className="input input-bordered w-full " />
+                            <input defaultValue={source} type="text" placeholder="Source" {...register('source', { required: true })} required className="input input-bordered w-full " />
 
                         </div>
+
                         {/* date */}
                         <div className="form-control md:w-1/2 w-full my-6">
                             <label className="label">
                                 <span className="label-text text-red-600 font-bold">Date*</span>
 
                             </label>
-                            <input type="date" placeholder="Date" {...register('date', { required: true })} required className="input input-bordered w-full " />
+                            <input defaultValue={date} type="date" placeholder="Date" {...register('date', { required: true })} required className="input input-bordered w-full " />
 
                         </div>
 
-                </div>
 
-                <div className="md:flex gap-6">
+                    </div>
+
+                    <div className="md:flex gap-6">
 
                         {/* title */}
                         <div className="form-control w-full md:w-1/2 my-6">
@@ -148,56 +158,58 @@ const News:React.FC = () => {
                                 <span className="label-text text-red-600 font-bold">Title*</span>
 
                             </label>
-                            <input type="text" placeholder="Title" {...register('title', { required: true })} required className="input input-bordered w-full " />
+                            <input defaultValue={title} type="text" placeholder="Title" {...register('title', { required: true })} required className="input input-bordered w-full " />
 
                         </div>
-                        
                         {/* writer */}
                         <div className="form-control w-full md:w-1/2 my-6">
                             <label className="label">
                                 <span className="label-text text-red-600 font-bold">Writer*</span>
 
                             </label>
-                            <input type="text" placeholder="Writer" {...register('writer', { required: true })} required className="input input-bordered w-full " />
+                            <input defaultValue={writer} type="text" placeholder="Writer" {...register('writer', { required: true })} required className="input input-bordered w-full " />
 
                         </div>
-                </div>
 
-                {/* summary */}
-                <div className="form-control w-full my-6">
+                    </div>
+
+                    {/* summary */}
+                    <div className="form-control w-full my-6">
                         <label className="label">
                             <span className="label-text text-red-600 font-bold">Summary*</span>
 
                         </label>
-                        <input type="text" placeholder="Summary" {...register('summary', { required: true })}
+                        <input defaultValue={summary} type="text" placeholder="Summary" {...register('summary', { required: true })}
                             required
                             className="input input-bordered w-full " />
-                </div>
 
-                {/* news details */}
-                <div className="form-control">
+                    </div>
 
+                    {/* news details */}
+                    <div className="form-control">
                         <label className="label">
                             <span className="label-text text-red-600 font-bold">News Details*</span>
 
                         </label>
-                        <textarea {...register('news', { required: true })} required className="textarea textarea-bordered h-24" placeholder="News Details"></textarea>
+                        <textarea defaultValue={news} {...register('news', { required: true })} required className="textarea textarea-bordered h-24" placeholder="News Details"></textarea>
 
-                </div>
-                {/* image */}
-                <div className="form-control w-full my-6">
-                        <input {...register('image', { required: true })} required type="file" className="file-input my-4 w-full max-w-xs" />
-                </div>
-                
-                <div className="text-center">
+                    </div>
+
+                    {/* input image */}
+                    <div className="form-control w-full my-6">
+                        <input defaultValue={image} {...register('image', { required: true })} required type="file" className="file-input my-4 w-full max-w-xs" />
+                    </div>
+
+                    <div className="text-center">
                         <button className="btn btn-primary">
-                            Post News
+                            <FaSave></FaSave>
+                            Update News
                         </button>
-                </div>
+                    </div>
                 </form>
             </div>
         </div>
     );
 };
 
-export default News;
+export default EditNews;
