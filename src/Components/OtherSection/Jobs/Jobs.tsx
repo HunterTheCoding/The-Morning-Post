@@ -1,11 +1,23 @@
 import { Link } from "react-router-dom";
 import p1 from "../../../assets/National/nation1.jpg"
 import { FaArrowCircleRight } from "react-icons/fa";
-
-import useAdmin, { News } from "../../../Hook/useNews";
+import  { News } from "../../../Hook/useNews";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../../Hook/useAxiosPublic";
 const Jobs = () => {
-    const { newsData: Jobs} = useAdmin("jobs");
-    //   const {_id, section, headline, source, date, summary, details, image} =National;
+    const AxiosPublic = useAxiosPublic();
+    const { data:Jobs,isLoading } = useQuery({
+        queryKey: ["api/v1/jobs"],
+        queryFn: async () => {
+          const res = await AxiosPublic.get(`/api/v1/jobs`);
+          return res.data;
+        },
+      });
+      if (isLoading) {
+        return (
+          <h1 className="text-2xl font bold text-center mt-[100px]">Loading</h1>
+        );
+      }
     return (
         <div>
             <div className="px-5" >  <h1 className="text-2xl font-bold py-5">Jobs</h1>
@@ -14,7 +26,7 @@ const Jobs = () => {
                 <div className="lg:w-3/4 w-full">
                     <div className=" md:flex gap-5 p-5">
                         {
-                            Jobs?.slice(0, 1)?.map((news1: News) => <Link to={`/newsdetails/${news1?._id}`} key={news1?._id}>
+                            Jobs?.slice(0, 1)?.map((news1: News) => <Link to={`${news1?.jobUrl}`} key={news1?._id}>
                                 <div className=" md:w-2/3  relative mb-5 md:mb-0 w-full  lg:w-[600px] h-[300px] md:h-[350px] rounded-md border">
                                     <img src={news1?.image} className="w-full obj lg:w-[600px] md:w-full rounded-md md:h-[350px] h-[300px]" alt="" />
                                     <h4 className="absolute w-full h-14 mt-4  text-white bottom-0 md:bottom-10 lg:bottom-0 font-2xl font-bold px-5">{news1?.headline}</h4>
@@ -22,7 +34,7 @@ const Jobs = () => {
                             </Link>)
                         }
                         {
-                            Jobs?.slice(1, 2)?.map((news2: News) => <Link to={`/newsdetails/${news2?._id}`} key={news2?._id}>
+                            Jobs?.slice(1, 2)?.map((news2: News) => <Link  to={`${news2?.jobUrl}`} key={news2?._id}>
                                 <div >
                                     <div className="w-full  rounded-md h-[400px] md:h-[180px] ">
                                         <img className="w-full h-[250px] md:h-[160px] rounded-md" src={news2?.image} alt="" />
@@ -38,7 +50,7 @@ const Jobs = () => {
                     <div className="border px-10"></div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-5 gap-3">
                         {
-                            Jobs?.slice(2, Jobs.length)?.map((news3: News) => <Link to={`/newsdetails/${news3?._id}`} key={news3?._id} >
+                            Jobs?.slice(2, Jobs.length)?.map((news3: News) => <Link  to={`${news3?.jobUrl}`} key={news3?._id} >
                                 <div className="w-[100%] border h-[400] bg-gray-200  md:h-[400px] lg:h-[400px] rounded-md">
                                     <img src={news3?.image} className="h-[185px] w-full rounded-md" alt="" />
                                     <div className="mt-3 p-1 lg:space-y-1 space-y-2">

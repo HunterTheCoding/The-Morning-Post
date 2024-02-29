@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../Home/Home";
 import Mainpage from "../Mainpage";
-
 import Contact from "../../Pages/Contact/Contact";
 import NavEntertainment from "../Home/Entertainment/NavEntertainment";
 import NavNational from "../Home/National/NavNational";
@@ -15,7 +14,6 @@ import Jobs from "../OtherSection/Jobs/Jobs";
 import Donation from "../OtherSection/Donation/Donation";
 import LiveTelecast from "../OtherSection/Live-telecast/LiveTelecast";
 import Photo from "../NavbarItem/Photo/Photo";
-import Signup from "../../Pages/Register/Signup";
 import Daseboard from "../Daseboard/Daseboard";
 import AdminHome from "../Daseboard/AdminDaseboard/AdminHome";
 import Jobspost from "../Daseboard/AdminDaseboard/Jobspost";
@@ -31,6 +29,12 @@ import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import Error from "../Error/Error";
 import EditNews from "../Daseboard/AdminDaseboard/EditNews";
+import NewPoll from "../Daseboard/AdminDaseboard/new-poll";
+import UpdateJobs from "../Daseboard/AdminDaseboard/UpdateJobs";
+import HomePage from "../Survey/Servey";
+import LiveClient from "../Daseboard/AdminDaseboard/LiveClient";
+import Quiz from "../Daseboard/UserDaseboard/Quiz/Quiz";
+
 
 const Mybrowser = createBrowserRouter([
   {
@@ -46,6 +50,7 @@ const Mybrowser = createBrowserRouter([
         path: "/Contact-US",
         element: <Contact></Contact>,
       },
+    
       {
         path: "/entertainment",
         element: <NavEntertainment></NavEntertainment>,
@@ -78,10 +83,7 @@ const Mybrowser = createBrowserRouter([
         path: "/Login",
         element: <Login></Login>,
       },
-      {
-        path: "/SignUp",
-        element: <Signup></Signup>,
-      },
+ 
       {
         path: "/jobs",
         element: <Jobs></Jobs>,
@@ -98,6 +100,10 @@ const Mybrowser = createBrowserRouter([
         path: "/picture",
         element: <Photo></Photo>,
       },
+      {
+        path: "/survay",
+        element: <HomePage></HomePage>
+      },
     ],
   },
   {
@@ -109,13 +115,22 @@ const Mybrowser = createBrowserRouter([
     ),
     children: [
       {
-        path: "/daseboard/adminhome",
+        path: "adminhome",
         element: (
           <PrivateRoute><AdminRoute>
-          <AdminHome></AdminHome>
-        </AdminRoute></PrivateRoute>
+            <AdminHome></AdminHome>
+          </AdminRoute></PrivateRoute>
         ),
       },
+      {
+        path: "Add-poll",
+        element: (
+        <AdminRoute>
+          <NewPoll></NewPoll>
+        </AdminRoute>
+        ),
+      },
+
       {
         path: "jobs",
         element: <Jobspost></Jobspost>,
@@ -123,6 +138,11 @@ const Mybrowser = createBrowserRouter([
       {
         path: "addjobs",
         element: <Addjobs></Addjobs>,
+      },
+      {
+        path: "updateJobs/:id",
+        element: <UpdateJobs></UpdateJobs>,
+        loader: ({ params }) => fetch(`http://localhost:5000/api/v1/job/${params.id}`)
       },
       {
         path: "news",
@@ -141,6 +161,10 @@ const Mybrowser = createBrowserRouter([
         element: <LiveSection></LiveSection>,
       },
       {
+        path: "liveClient",
+        element: <LiveClient />,
+      },
+      {
         path: "userdonation",
         element: <UserDonation></UserDonation>,
       },
@@ -155,6 +179,10 @@ const Mybrowser = createBrowserRouter([
       {
         path: "alldonation",
         element: <AllDonation></AllDonation>,
+      },
+      {
+        path: "quiz",
+        element: <Quiz></Quiz>,
       },
     ],
   },

@@ -22,6 +22,7 @@ const firebaseConfig : FirebaseProps= {
   storageBucket: "the-morning-post.appspot.com",
   messagingSenderId: "1066398034849",
   appId: "1:1066398034849:web:ecd3de8d582feeb0e979e0"
+
 };
 
 

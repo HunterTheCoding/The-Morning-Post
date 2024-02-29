@@ -1,23 +1,24 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hook/useAxiosPublic";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const image_hosting_key = 'b88027922b62974e868687dc6702a672';
 const image_hosting_api =
     `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 
-type Inputs = {
-    section: string,
-    headline: string,
-    source: string,
-    date: string,
-    title: string,
-    writer: string,
-    image: string,
-    summary: string,
-    news: string
-}
+    type Inputs = {
+        section: string,
+        headline: string,
+        source: string,
+        date: string,
+        title: string,
+        writer: string,
+        image: string,
+        summary: string,
+        news: string
+    }
+
 
 const News:React.FC = () => {
 
@@ -25,10 +26,10 @@ const News:React.FC = () => {
 
     const { register, handleSubmit, reset } = useForm<Inputs>();
 
-    const onSubmit: SubmitHandler<Inputs> = async (data) => {
-        console.log(data);
+    const onSubmit: SubmitHandler<Inputs> = async (data) =>{
+        // console.log(data);
         const imageFile = { image: data.image[0] }
-        console.log(imageFile)
+        // console.log(imageFile)
         const res = await axios.post(image_hosting_api, imageFile, {
             headers: {
                 'Content-type': 'multipart/form-data'
@@ -48,7 +49,7 @@ const News:React.FC = () => {
             }
 
             const newsRes = await axiosPublic.post('/News', news);
-            console.log(newsRes);
+            // console.log(newsRes);
             if (newsRes.data.insertedId) {
                 reset();
                 Swal.fire({
@@ -60,16 +61,16 @@ const News:React.FC = () => {
                 });
             }
         }
-        console.log(res.data)
+        // console.log(res.data)
     }
+
     return (
         <div>
             <h1 className="text-center font-bold my-4 text-4xl ">Post News</h1>
             <div className="bg-gray-200 p-4 rounded-lg m-4">
                 <form onSubmit={handleSubmit(onSubmit)}>
-
-
-                    <div className="md:flex gap-6">
+                    
+                <div className="md:flex gap-6">
                         {/* section */}
                         <div className="form-control md:w-1/2 w-full my-6">
                             <label className="label">
@@ -114,9 +115,9 @@ const News:React.FC = () => {
 
                         </div>
 
-                    </div>
+                </div>
 
-                    <div className="md:flex gap-6">
+                <div className="md:flex gap-6">
 
                         {/* source */}
                         <div className="form-control md:w-1/2 w-full my-6">
@@ -137,9 +138,9 @@ const News:React.FC = () => {
 
                         </div>
 
-                    </div>
+                </div>
 
-                    <div className="md:flex gap-6">
+                <div className="md:flex gap-6">
 
                         {/* title */}
                         <div className="form-control w-full md:w-1/2 my-6">
@@ -150,6 +151,7 @@ const News:React.FC = () => {
                             <input type="text" placeholder="Title" {...register('title', { required: true })} required className="input input-bordered w-full " />
 
                         </div>
+                        
                         {/* writer */}
                         <div className="form-control w-full md:w-1/2 my-6">
                             <label className="label">
@@ -159,11 +161,10 @@ const News:React.FC = () => {
                             <input type="text" placeholder="Writer" {...register('writer', { required: true })} required className="input input-bordered w-full " />
 
                         </div>
+                </div>
 
-                    </div>
-
-                    {/* summary */}
-                    <div className="form-control w-full my-6">
+                {/* summary */}
+                <div className="form-control w-full my-6">
                         <label className="label">
                             <span className="label-text text-red-600 font-bold">Summary*</span>
 
@@ -171,29 +172,28 @@ const News:React.FC = () => {
                         <input type="text" placeholder="Summary" {...register('summary', { required: true })}
                             required
                             className="input input-bordered w-full " />
+                </div>
 
-                    </div>
+                {/* news details */}
+                <div className="form-control">
 
-                    {/* news details */}
-                    <div className="form-control">
                         <label className="label">
                             <span className="label-text text-red-600 font-bold">News Details*</span>
 
                         </label>
                         <textarea {...register('news', { required: true })} required className="textarea textarea-bordered h-24" placeholder="News Details"></textarea>
 
-                    </div>
-
-                    {/* input image */}
-                    <div className="form-control w-full my-6">
+                </div>
+                {/* image */}
+                <div className="form-control w-full my-6">
                         <input {...register('image', { required: true })} required type="file" className="file-input my-4 w-full max-w-xs" />
-                    </div>
-
-                    <div className="text-center">
+                </div>
+                
+                <div className="text-center">
                         <button className="btn btn-primary">
                             Post News
                         </button>
-                    </div>
+                </div>
                 </form>
             </div>
         </div>

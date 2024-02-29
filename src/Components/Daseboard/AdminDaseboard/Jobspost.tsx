@@ -1,11 +1,69 @@
-
-import useAdmin from '../../../Hook/useNews';
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../../Hook/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { FaDeleteLeft } from "react-icons/fa6";
+interface HandleType {
+    _id: string;
+    headline: string;
+    image: string;
+    summary: string;
+    date: string;
+    section: string;
+    jobUrl: string;
+}
 const Jobspost = () => {
-    const { newsData: Jobs } = useAdmin("jobs");
+    const AxiosPublic = useAxiosPublic();
+    const { data: jobsData = [], refetch } = useQuery({
+        queryKey: ['jobs'],
+        queryFn: async () => {
+            const response = await AxiosPublic("/api/v1/jobs")
+            return response.data
+        }
+    })
+    console.log(jobsData);
+
+    const handleJobDelete = async (_id: string) => {
+        try {
+            const result = await Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            })
+            if (result.isConfirmed) {
+                const response = await AxiosPublic.delete(`/api/v1/jobs/${_id}`)
+                console.log(response.data);
+                if (response.data.deletedCount > 0) {
+                    console.log('job item deleted successfully', response.data);
+                    refetch();
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `${_id} has been deleted`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                } else {
+                    console.log('Job item did not delete',);
+                }
+            }
+
+        } catch (error) {
+            console.error('Job item did not delete', error)
+        }
+
+
+
+    }
     return (
-        <div className='py-5 px-5'>
+        <div className='py-5 px-5 bg-green-100'>
             <div>
-                <h1 className='text-2xl font-bold text-center'>Jobs</h1>
+                <h1 className='text-2xl font-bold text-center'>Total Jobs: {jobsData.length}</h1>
                 <div className='border mt-5 mb-5 text-black'></div>
             </div>
             <div>
@@ -14,33 +72,41 @@ const Jobspost = () => {
                         <thead className='text-lg py-5'>
                             <tr>
                                 <th>Image</th>
-                                <th>Jobs</th>
+                                <th>Job heading</th>
                                 <th>Update</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                Jobs?.map((job) => <tr key={job._id}>
-                                    <td>
-                                        <div className="flex items-center gap-3">
-                                            <div className="avatar">
-                                                <div className="mask mask-squircle w-12 h-12">
-                                                    <img src={job?.image} alt="jobs" />
+                                jobsData?.map((job : HandleType) => {
+                                    const { _id, headline } = job
+                                    return (
+                                        <tr key={job._id}>
+                                            <td>
+                                                <div className="flex items-center gap-3">
+                                                    <div className="avatar">
+                                                        <div className="mask mask-squircle w-12 h-12">
+                                                            <img src={job?.image} alt="jobs" />
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            </td>
+                                            <td>
+                                                {headline}
 
-                                        </div>
-                                    </td>
-                                    <td>
-                                        {job?.headline}
-
-                                    </td>
-                                    <td><button  className='btn btn-ghost btn-xs' >Update</button></td>
-                                    <th>
-                                        <button className="btn btn-ghost btn-xs">Delete</button>
-                                    </th>
-                                </tr>)
+                                            </td>
+                                            <td> <Link to={`/daseboard/updateJobs/${_id}`}>
+                                                <button className='btn bg-green-500 text-white hover:bg-green-700' ><FaArrowUpRightFromSquare /></button>
+                                            </Link>
+                                            </td>
+                                            <th>
+                                                <button onClick={() => handleJobDelete(_id)} className="btn bg-red-800 text-white hover:bg-red-900"><FaDeleteLeft /></button>
+                                            </th>
+                                        </tr>
+                                    )
+                                }
+                                )
                             }
 
                         </tbody>

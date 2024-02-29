@@ -4,10 +4,10 @@ import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 function randomID(len: number): string {
   let result = '';
   if (result) return result;
-  var chars =
+  const chars =
     '12345qwertyuiopasdfgh67890jklmnbvcxzMNBVCZXASDQWERTYHGFUIOLKJP';
-  var maxPos = chars.length;
-  var i;
+  const maxPos = chars.length;
+  let i;
   len = len || 5;
   for (i = 0; i < len; i++) {
     result += chars.charAt(Math.floor(Math.random() * maxPos));
@@ -16,13 +16,13 @@ function randomID(len: number): string {
 }
 
 export function getUrlParams(url: string = window.location.href): URLSearchParams {
-  let urlStr = url.split('?')[1];
+  const urlStr = url.split('?')[1];
   return new URLSearchParams(urlStr);
 }
 
 const LiveSection = () => {
   const roomID = getUrlParams().get('roomID') || randomID(5);
-  let role_str = getUrlParams(window.location.href).get('role') || 'Host';
+  const role_str = getUrlParams(window.location.href).get('role') || 'Host';
   const role =
     role_str === 'Host'
       ? ZegoUIKitPrebuilt.Host
@@ -30,7 +30,7 @@ const LiveSection = () => {
       ? ZegoUIKitPrebuilt.Cohost
       : ZegoUIKitPrebuilt.Audience;
 
-  let sharedLinks: { name: string; url: string }[] = [];
+  const sharedLinks: { name: string; url: string }[] = [];
   if (role === ZegoUIKitPrebuilt.Host || role === ZegoUIKitPrebuilt.Cohost) {
     sharedLinks.push({
       name: 'Join as co-host',
@@ -54,7 +54,7 @@ const LiveSection = () => {
   );
 
   // start the call
-  let myMeeting = async (element: HTMLDivElement | null): Promise<void> => {
+  const myMeeting = async (element: HTMLDivElement | null): Promise<void> => {
     if (!element) return;
 
     // Create instance object from Kit Token.

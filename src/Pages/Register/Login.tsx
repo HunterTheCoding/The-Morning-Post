@@ -1,32 +1,59 @@
-import React, { useEffect, useState } from "react";
-import {
-  loadCaptchaEnginge,
-  LoadCanvasTemplate,
-  validateCaptcha,
-} from "react-simple-captcha";
-
-import SocialLogin from "../../Components/Register/Social";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import Context from "../../Hook/useContext";
+import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
+import Context from "../../Hook/useContext";
+import "../../App.css";
+import axios, { AxiosResponse } from "axios";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
+
+interface ImgbbResponse {
+  display_url: string;
+  data: {
+    display_url: string;
+    // Add other properties if needed
+
+    // Add other properties if needed
+  };
+}
 
 const Login: React.FC = () => {
-  const navigate = useNavigate();
   const location = useLocation();
-  console.log(location);
-  const [disabled, setDisabled] = useState(true);
-const {signInUser}= Context()
+  const { signInUser,signInWithGoogle  } = Context();
+  const [password, setPassword] = useState("");
+  const [ShowPassword, setShowPassword] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
+  const { createUser, updateUserProfile } = Context();
+  const navigate = useNavigate();
+
+  const api_key = "2096348e81bc39817643de553a77e7db";
+
+  const handleSignUpClick = () => {
+    const container = document.getElementById("container");
+    if (container) {
+      container.classList.add("right-panel-active");
+    }
+  };
+
+  const handleSignInClick = () => {
+    const container = document.getElementById("container");
+    if (container) {
+      container.classList.remove("right-panel-active");
+    }
+  };
+
   const HandleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const target = e.target as typeof e.target & {
       email: { value: string };
-      password: { value: string  };
+      password: { value: string };
     };
     const Email = target.email.value;
     const Password = target.password.value;
 
-    console.log(Email,typeof(Password));
+    console.log(Email, typeof Password);
     signInUser(Email, Password)
       .then((result) => {
         console.log(result);
@@ -36,114 +63,259 @@ const {signInUser}= Context()
       .catch((error) => {
         toast.error(error.message);
       });
-
   };
-  useEffect(() => {
-    loadCaptchaEnginge(6);
-  }, []);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handlevalidetCapture = (e: { target: { value: unknown } }) => {
-    const user_captcha_value = e.target.value;
-    console.log(user_captcha_value);
-    if (validateCaptcha(user_captcha_value)) {
-      setDisabled(false);
-    } else {
-      setDisabled(true);
+
+  const HandleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const target = e.target as typeof e.target & {
+      name: { value: string };
+      email: { value: string };
+      image: { files: FileList };
+      password: { value: string };
+      Confirm_password: { value: string | number };
+    };
+
+    const Name = target.name.value;
+    const Email = target.email.value;
+    const image = target.image.files[0];
+    const Password = target.password.value;
+    const Confirm_password = target.Confirm_password.value;
+
+    const formData = new FormData();
+    formData.append("image", image);
+
+    try {
+      // Use async/await to handle the Promise returned by axios.post
+      const { data } = await axios.post<AxiosResponse<ImgbbResponse>>(
+        `https://api.imgbb.com/1/upload?key=${api_key}`,
+        formData
+      );
+
+      console.log(
+        Name,
+        Email,
+        Password,
+        Confirm_password,
+        data.data.display_url
+      );
+
+      if (Password !== Confirm_password) {
+        toast.error("Passwords do not match");
+        return; // Exit function if passwords do not match
+      } else if (passwordError) {
+        toast.error(passwordError);
+        return;
+      } else {
+        // Proceed with sign-up logic
+      }
+
+      createUser(Email, Password)
+        .then((result) => {
+          console.log(result);
+
+          if (result && result.user) {
+            updateUserProfile(Name, data.data.display_url)
+              .then(() => {
+                toast.success("You Have Successfully Created an Account");
+
+                navigate("/");
+              })
+              .catch((error: { message: unknown }) => {
+                console.log(error.message);
+              });
+          } else {
+            toast.error("User creation failed.");
+          }
+        })
+        .catch((error) => {
+          toast.error(error.message);
+        });
+    } catch (error: any) {
+      // Declare the type of 'error' explicitly as 'any' or 'Error'
+      console.error((error as Error).message);
     }
   };
+
+  const handlePasswordChange = (e: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
+    setPassword(e.target.value);
+  };
+
+  const handleConfirmPasswordChange = (e: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
+    setConfirmPassword(e.target.value);
+  };
+
+  const validatePassword = () => {
+    if (password.length < 8) {
+      setPasswordError("Password must be at least 8 characters long");
+    } else {
+      setPasswordError("");
+    }
+  };
+
+
+  
+  const handleGoogleSignIn = () =>{
+    if (signInWithGoogle) {
+        signInWithGoogle()
+          .then((result: { user: { email: unknown; displayName: unknown } }) => {
+            console.log(result.user);
+            navigate('/');
+           // const userInfo  = {
+        //     email: result.user?.email,
+        //     name: result.user?.displayName
+        // }
+        // axiosPublic.post('/users', userInfo)
+        // .then((res: { data: unknown })  =>{
+        //     console.log(res.data);
+        //     
+        // })
+          })
+          .catch((error: Error) => {
+            // Handle any potential errors
+            console.error(error);
+          });
+      }
+}
+
+
   return (
-    <div className="grid lg:grid-cols-5">
-      <div className="hero grid col-span-3 min-h-screen w-full  bg-base-200 border-2">
-        <div className="hero-content w-full flex-col ">
-          <div className="text-center lg:text-left">
-            <h1 className=" ml-3 lg:ml-5 font-bold lg:font-extrabold text-3xl lg:text-4xl">
-              The Morning Post
-            </h1>
-            <p className="py-6 ml-3 lg:ml-5 font-semibold lg:font-bold text-2xl lg:text-4xl text-blue-700 dark:text-blue-500">
-              Login The Account
-            </p>
-          </div>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <form onSubmit={HandleSignIn} className="card-body">
-              <div className="relative z-0 w-full mb-5 group">
-                <input
-                  type="email"
-                  name="email"
-                  id="floating_email"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder=" "
-                  required
-                />
-                <label
-                  htmlFor="floating_email"
-                  className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
-                  Email address
-                </label>
-              </div>
-              <div className="relative z-0 w-full mb-5 group">
-                <input
-                  type="password"
-                  name="password"
-                  id="Password"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder=" "
-                  required
-                />
-                <label
-                  htmlFor="Password"
-                  className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                >
-                  Password
-                </label>
-              </div>
+    <div className="App grid  max-w-screen-xl justify-center h-full mt-10 w-full">
+      <div
+        className="Login_container  container  w-[1250px]"
+        id="container"
+      >
+        <div className="form-container sign-up-container">
+          <form className="Login_form" onSubmit={HandleSignUp}>
+            <h1 className="fast_Heading ">Create Account</h1>
+            <div className="social-container py-6">
+              <a onClick={handleGoogleSignIn}  className="social cursor-pointer text-black">
+               <FaGoogle></FaGoogle>
+              </a>
+          
+            </div>
+            <span className="Content_span">
+              or use your email for registration
+            </span>
+            <input
+              className="Login_Input"
+              name="name"
+              type="text"
+              placeholder="Name"
+            />
+            <input
+              className="Login_Input"
+              name="email"
+              type="email"
+              placeholder="Email"
+            />
+            <input className="Login_Input" name="image" type="file" />
+            <input
+              className="Login_Input"
+              name="password"
+              type={ShowPassword ? "text" : "password"}
+              placeholder="Password"
+              value={password}
+              onChange={handlePasswordChange}
+              onBlur={validatePassword}
+            />
+            <span
+              className="relative text-xl -top-9 left-60 md:left-44 lg:left-56 "
+              onClick={() => setShowPassword(!ShowPassword)}
+            >
+              {ShowPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
+            </span>
+            <input
+              className="Login_Input"
+              name="Confirm_password"
+              value={confirmPassword}
+              onChange={handleConfirmPasswordChange}
+              onBlur={validatePassword}
+              type={ShowPassword ? "text" : "password"}
+              placeholder="Confirm Password"
+            />
+            <span
+              className="relative text-xl  -top-9 left-60 md:left-44 lg:left-56 "
+              onClick={() => setShowPassword(!ShowPassword)}
+            >
+              {ShowPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
+            </span>
+            {passwordError && (
+              <span style={{ color: "red" }}>{passwordError}</span>
+            )}
 
-              <div className="relative z-0 w-full mb-5 group">
-                <label className="label">
-                  {/* <span className="label-text">Password</span>
-                   */}
-                  <LoadCanvasTemplate />
-                </label>
-                <input
-                  onBlur={handlevalidetCapture}
-                  type="text"
-                  name="Password"
-                  id="Password"
-                  className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-                  placeholder="type the captcha above"
-                  required
-                />
-              </div>
-
-              <div className="form-control mt-6">
-                {/* <input type="submit"  className="btn btn-primary">Login Now</input> */}
-                <input
-                  type="submit"
-                  className="btn btn-outline"
-                  disabled={disabled}
-                  value="Login Now"
-                />
-              </div>
-            </form>
-            <div className="text-sm font-medium text-gray-500 dark:text-gray-300 text-center">
-              You have Not registered?{" "}
-              <Link
-                to="/SignUp"
-                className="text-blue-700 hover:underline dark:text-blue-500"
+            <button className="Login_btn">Sign Up</button>
+          </form>
+        </div>
+        <div className="form-container sign-in-container">
+          <form className="Login_form" onSubmit={HandleSignIn}>
+            <h1 className="fast_Heading">Sign in With</h1>
+            <div className="social-container py-3">
+              <a onClick={handleGoogleSignIn}  className="social  text-black cursor-pointer">
+                <FaGoogle></FaGoogle>
+              </a>
+        
+            </div>
+            <span className="Content_span text-xl font-bold ">or use your account</span>
+            <input
+              className="Login_Input"
+              name="email"
+              type="email"
+              placeholder="Email"
+            />
+            <input
+              className="Login_Input"
+              type={ShowPassword ? "text" : "password"}
+              name="password"
+            
+              placeholder="Password"
+            />
+            <span
+              className="relative text-xl -top-9 left-60  lg:left-56"
+              onClick={() => setShowPassword(!ShowPassword)}
+            >
+              {ShowPassword ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>}
+            </span>
+            <a className="Login_anchor" href="#">
+              Forgot your password?
+            </a>
+            <button className="Login_btn">Sign In</button>
+          </form>
+        </div>
+        <div className="overlay-container">
+          <div className="overlay">
+            <div className="overlay-panel overlay-left">
+              <h1 className="fast_Heading">Welcome Back!</h1>
+              <p className="Content_text">
+                To keep connected with us please login with your personal info
+              </p>
+              <button
+                className="ghost Login_btn"
+                id="signIn"
+                onClick={handleSignInClick}
               >
-                Sign Up{" "}
-              </Link>
-              <h1 className="pt-5">OR</h1>
+                Sign In
+              </button>
             </div>
-            <div className="flex -mt-8 justify-center">
-              <SocialLogin></SocialLogin>
+            <div className="overlay-panel overlay-right">
+              <h1 className="fast_Heading">Hello, Friend!</h1>
+              <p className="Content_text">
+                Enter your personal details and start your journey with us
+              </p>
+              <button
+                className="ghost Login_btn"
+                id="signUp"
+                onClick={handleSignUpClick}
+              >
+                Sign Up
+              </button>
             </div>
-       
           </div>
         </div>
-      </div>
-      <div>
-        <h1>animition</h1>
       </div>
     </div>
   );

@@ -6,13 +6,12 @@ import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 
-
 const NewsPost = () => {
-    const AxiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
     const { data, refetch } = useQuery({
         queryKey: ["News"],
         queryFn: async () => {
-            const res = await AxiosPublic.get(`/News`);
+            const res = await axiosSecure.get(`/News`);
             // Set news data to state
             return res.data;
         },
@@ -44,6 +43,32 @@ const NewsPost = () => {
             }
         });
     }
+
+    const handleDeleteVlog = (id: string) => {
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            axiosSecure.delete(`/AllNews/${id}`).then((res) => {
+              if (res.data.deletedCount > 0) {
+                refetch();
+                Swal.fire({
+                  title: "Deleted!",
+                  text: "User has been deleted.",
+                  icon: "success",
+                });
+              }
+            });
+          }
+        });
+      };
+    
     return (
         <div className='py-5 px-5 bg-green-100'>
             <div>
@@ -63,7 +88,7 @@ const NewsPost = () => {
                         </thead>
                         <tbody>
                             {
-                                data?.map((job: News) => <tr key={job._id}>
+                                data?.map((job:any) => <tr key={job._id}>
                                     <td>
                                         <div className="flex items-center gap-3">
                                             <div className="avatar">
@@ -76,7 +101,6 @@ const NewsPost = () => {
                                     </td>
                                     <td>
                                         {job?.headline}
-
                                     </td>
                                     <td><Link to={`/daseboard/editnews/${job?._id}`}>
                                     <button className='btn btn-ghost btn-xs' >Update</button>
@@ -85,6 +109,9 @@ const NewsPost = () => {
                                         <button onClick={()=> handleDeleteNews(job._id)} className="btn btn-ghost btn-xs">
                                             <FaTrash></FaTrash>
                                             Delete</button>
+                                    <td><Link to={`/daseboard/NewsUpdate/${job?._id}`} className='btn btn-ghost btn-xs' >Update</Link></td>
+                                    <th>
+                                        <button     onClick={()=>handleDeleteVlog(job?._id)} className="btn btn-ghost btn-xs">Delete</button>
                                     </th>
                                 </tr>)
                             }

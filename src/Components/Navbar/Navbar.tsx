@@ -7,14 +7,13 @@ import useAdmin from "../../Hook/useAdmin";
 import Weather from "../Weather/Weather";
 import { FaUser } from "react-icons/fa";
 import { useEffect, useState } from "react";
+
 const Navbar = () => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
   const [isAdmin] = useAdmin();
-  // console.log(isAdmin);
 
   const { user, logOut } = Context();
-  // console.log(user);
 
   const list = [
     <NavLink
@@ -169,10 +168,29 @@ const Navbar = () => {
               ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
               : "btn btn-ghost btn-sm"
       }
+      to="survay"
+    >
+      <span className="uppercase text-white text-center">Survay</span>
+    </NavLink>,
+    <NavLink
+      className={({ isPending, isActive }) =>
+        isPending
+          ? "pending"
+          : isPending
+            ? "pending"
+            : isActive
+              ? "btn bg-sky-400 btn-sm text-blue-900 font-bold"
+              : "btn btn-ghost btn-sm"
+      }
+
       to="/Contact-US"
     >
       <span className="font-bold uppercase text-white"> Contact Us</span>
     </NavLink>,
+
+        //  <button className="font-bold uppercase text-white"  onClick={()=>setchangelag(!changelng)}>{changelng?"English":"Bangla"}</button>
+        //  <TranslateText></TranslateText>
+
   ];
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -186,7 +204,9 @@ const Navbar = () => {
   const formattedDate = currentDateTime.toLocaleDateString();
 
   return (
-    <div >
+
+    <div>
+     
       <div className="font-sans bg-gray-300  -mt-4 z-50 max-w-screen-xl mx-auto">
         <header className="bg-indigo-950 text-white p-6 text-center flex justify-between px-2 px lg:px-5vw">
           <img
@@ -218,7 +238,9 @@ const Navbar = () => {
                     <img className=" h-5/6" src={user.photoURL || undefined} />
                     <SlBadge />
                   </div>
+              
                 </label>
+              
                 <ul
                   tabIndex={0}
                   className="menu menu-sm border-2 dropdown-content  mt-3 z-[1] p-2 shadow bg-blue-100 rounded-box w-52"
@@ -251,10 +273,10 @@ const Navbar = () => {
                         isPending
                           ? "pending "
                           : isPending
-                            ? "pending "
-                            : isActive
-                              ? "btn btn-outline  "
-                              : "btn btn-ghost "
+                          ? "pending "
+                          : isActive
+                          ? "btn btn-outline  "
+                          : "btn btn-ghost "
                       }
                       onClick={logOut}
                       to={""}
@@ -284,15 +306,15 @@ const Navbar = () => {
                   <FaUser />
                 </div>
               </NavLink>
+              
             )}
           </div>
         </header>
-
         <nav className="bg-indigo-900 overflow-hidden grid grid-cols-4 md:grid-cols-5 lg:flex lg:pl-14 py-4 space-x-2 items-center justify-center">
           {list}
         </nav>
         <div className="flex pl-5vw pr-5vw">
-          <div className=" pl-5 text-white font-bold uppercase  bg-yellow-500 rounded-r-md">
+          <div className=" pl-5 text-black font-bold uppercase  bg-yellow-500 rounded-r-md">
             Breaking News
           </div>
           <Marquee className="bg-white text-black">
@@ -300,7 +322,7 @@ const Navbar = () => {
             100-day action plan of the Ministry of Environment of Arakan Army,
             which demands the occupation of the important port city of Myanmar.
           </Marquee>
-          <div className="pl-5 text-white font-bold uppercase bg-yellow-500 rounded-l-md">
+          <div className="pl-5 text-black font-bold uppercase  bg-yellow-500 rounded-l-md">
             {formattedTime}  {formattedDate}
           </div>
         </div>
