@@ -28,12 +28,12 @@ import UserDonation from "../Daseboard/AdminDaseboard/UserDonation";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import Error from "../Error/Error";
+import EditNews from "../Daseboard/AdminDaseboard/EditNews";
 import NewPoll from "../Daseboard/AdminDaseboard/new-poll";
 import UpdateJobs from "../Daseboard/AdminDaseboard/UpdateJobs";
 import HomePage from "../Survey/Servey";
 import LiveClient from "../Daseboard/AdminDaseboard/LiveClient";
 import Quiz from "../Daseboard/UserDaseboard/Quiz/Quiz";
-
 
 
 const Mybrowser = createBrowserRouter([
@@ -150,7 +150,11 @@ const Mybrowser = createBrowserRouter([
       },
       {
         path: "addnews",
-        element: <NewsPost></NewsPost>,
+        element: <NewsPost></NewsPost>
+      },
+      {
+        path: "editnews/:id",
+        element: <EditNews></EditNews>
       },
       {
         path: "live",
