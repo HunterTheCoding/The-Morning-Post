@@ -36,11 +36,11 @@ const Bannar = () => {
           className="mySwiper"
         >
           {bannar?.slice(0, 3).map((item: Bannar) => (
-            <SwiperSlide key={item._id}>
+            <SwiperSlide key={item._id} className="rounded-md">
               <div>
                 <img
                   src={item?.image}
-                  className="w-full lg:h-[550px] md:h-[500px] h-[300px]"
+                  className="w-full lg:h-[100%] object-cover md:h-[500px] h-[300px]"
                   alt=""
                 />
                 <h2 className="card-title mt-2 pl-2">{item.title}</h2>

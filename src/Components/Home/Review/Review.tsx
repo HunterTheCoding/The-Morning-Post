@@ -1,6 +1,7 @@
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import userpic from "../../../assets/user.png"
 
 // Import Swiper styles
 import 'swiper/css';
@@ -57,10 +58,10 @@ export default function Review() {
       {
         data?.map((item:review)=><SwiperSlide key={item?._id} className='bg-blue-100 border rounded-md'>
         <div className='p-5 '>
-          <p className='text-base'>{item?.text}</p>
+          <p className='text-base h-[180px] '>{item?.text}</p>
           <div className="flex px-2 mt-5">
             <div className="w-14 mask mask-squircle">
-              <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+              <img src={userpic} />
             </div>
             <div className="mt-2 ml-3 text-gray-500">
               <p className="text-black font-blod">{item?.name}</p>
@@ -70,30 +71,6 @@ export default function Review() {
         </div>
       </SwiperSlide>)
       }
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
-        </SwiperSlide>
       </Swiper>
     </>
   );
