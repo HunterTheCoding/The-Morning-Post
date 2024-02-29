@@ -3,7 +3,7 @@ import useAdmin from "../../../Hook/useNews";
 const Sport = () => {
   const { newsData: SportData, isLoading: SportDataLoading } = useAdmin("Sports");
   if(SportDataLoading){
-    return <span className="loading loading-spinner loading-lg"></span>
+    return <span className="loading loading-spinner loading-lg mx-auto"></span>
   }
   return (
     <div className="">
@@ -17,7 +17,7 @@ const Sport = () => {
                 <Link key={item?._id} to={`/newsdetails/${item?._id}`}>
                   <div>
                     <div className="overflow-hidden bg-white relative">
-                          <div className="h-96">
+                          <div className="h-[400px]">
                         <img
                           className="object-cover w-full h-full overflow-hidden p-4 lg:p-0 md:p-4"
                           src={item.image}
