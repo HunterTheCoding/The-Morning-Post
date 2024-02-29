@@ -68,7 +68,7 @@ const FeatureNews = () => {
                         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                           {news.title}
                         </p>
-                        <div className="flex gap-5">
+                        {/* <div className="flex gap-5">
                           <p className="flex items-center text-sm">
                             <TfiWrite className="mr-1" />
                             {news.writer}
@@ -77,7 +77,7 @@ const FeatureNews = () => {
                             <TiStopwatch className="mr-1" />
                             {moment().format("LL")}
                           </p>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                 </Link>
