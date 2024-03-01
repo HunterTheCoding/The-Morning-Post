@@ -6,119 +6,130 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hook/useAxiosSecure";
 
 const NewsPost = () => {
-    const axiosSecure = useAxiosSecure();
-    const { data, refetch } = useQuery({
-        queryKey: ["News"],
-        queryFn: async () => {
-            const res = await axiosSecure.get(`/News`);
-            // Set news data to state
-            return res.data;
-        },
-    });
+  const axiosSecure = useAxiosSecure();
+  const { data, refetch } = useQuery({
+    queryKey: ["News"],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/News`);
+      // Set news data to state
+      return res.data;
+    },
+  });
 
-    const handleDeleteNews = (id:any) => {
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                axiosSecure.delete(`/News/${id}`)
-                    .then(res => {
-                        if (res.data.deletedCount > 0) {
-                            refetch();
-                            Swal.fire({
-                                title: "Deleted!",
-                                text: "The news has been deleted.",
-                                icon: "success"
-                            });
-                        }
-                    })
-            }
-        });
-    }
-
-    const handleDeleteVlog = (id: string) => {
-        Swal.fire({
-          title: "Are you sure?",
-          text: "You won't be able to revert this!",
-          icon: "warning",
-          showCancelButton: true,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Yes, delete it!",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            axiosSecure.delete(`/AllNews/${id}`).then((res: any) => {
-              if (res.data.deletedCount > 0) {
-                refetch();
-                Swal.fire({
-                  title: "Deleted!",
-                  text: "User has been deleted.",
-                  icon: "success",
-                });
-              }
+  const handleDeleteNews = (id: any) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/News/${id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "The news has been deleted.",
+              icon: "success",
             });
           }
         });
-      };
-    
-    return (
-        <div className='py-5 px-5 bg-green-100'>
-            <div>
-                <h1 className='text-2xl font-bold text-center'>News</h1>
-                <div className='border mt-5 mb-5 text-black'></div>
-            </div>
-            <div>
-                <div className="overflow-x-auto">
-                    <table className="table">
-                        <thead className='text-lg py-5'>
-                            <tr>
-                                <th>Image</th>
-                                <th>News</th>
-                                <th>Update</th>
-                                <th>Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                data?.map((job:News) => <tr key={job._id}>
-                                    <td>
-                                        <div className="flex items-center gap-3">
-                                            <div className="avatar">
-                                                <div className="mask mask-squircle w-12 h-12">
-                                                    <img src={job?.image} alt="jobs" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        {job?.headline}
-                                    </td>
-                                    <td><Link to={`/daseboard/editnews/${job?._id}`}>
-                                    <button className='btn btn-ghost btn-xs' >Update</button>
-                                    </Link></td>
-                                    <th>
-                                        <button onClick={()=> handleDeleteNews(job._id)} className="btn btn-ghost btn-xs">
-                                            <FaTrash></FaTrash>
-                                            Delete</button>
-                                    <td><Link to={`/daseboard/NewsUpdate/${job?._id}`} className='btn btn-ghost btn-xs' >Update</Link></td>
-                                    <th>
-                                        <button     onClick={()=>handleDeleteVlog(job?._id)} className="btn btn-ghost btn-xs">Delete</button>
-                                    </th>
-                                    </th>
-                                </tr>)
-                            }
-                        </tbody>
-                        {/* foot */}
-                    </table>
-                </div>
-            </div>
+      }
+    });
+  };
+
+  const handleDeleteVlog = (id: string) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/AllNews/${id}`).then((res: any) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "User has been deleted.",
+              icon: "success",
+            });
+          }
+        });
+      }
+    });
+  };
+
+  return (
+    <div className="py-5 px-5 bg-green-100">
+      <div>
+        <h1 className="text-2xl font-bold text-center">News</h1>
+        <div className="border mt-5 mb-5 text-black"></div>
+      </div>
+      <div>
+        <div className="overflow-x-auto">
+          <table className="table">
+            <thead className="text-lg py-5">
+              <tr>
+                <th>Image</th>
+                <th>News</th>
+                <th>Update</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data?.map((job: News) => (
+                <tr key={job._id}>
+                  <td>
+                    <div className="flex items-center gap-3">
+                      <div className="avatar">
+                        <div className="mask mask-squircle w-12 h-12">
+                          <img src={job?.image} alt="jobs" />
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>{job?.headline}</td>
+                  <td>
+                      <Link
+                        to={`/daseboard/newsupdate/${job?._id}`}
+                        className="btn btn-ghost btn-xs"
+                      >
+                        Update
+                      </Link>
+                    </td>
+                  <th>
+                    <button
+                      onClick={() => handleDeleteNews(job._id)}
+                      className="btn btn-ghost btn-xs"
+                    >
+                      <FaTrash></FaTrash>
+                      Delete
+                    </button>
+                 
+                    <th>
+                      <button
+                        onClick={() => handleDeleteVlog(job?._id)}
+                        className="btn btn-ghost btn-xs"
+                      >
+                        Delete
+                      </button>
+                    </th>
+                  </th>
+                </tr>
+              ))}
+            </tbody>
+            {/* foot */}
+          </table>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 export default NewsPost;
