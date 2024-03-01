@@ -36,8 +36,8 @@ const AdminHome = () => {
 		</a>
 	</div>
 </div>
-<div className="w-2/3 grid justify-center items-center left-72  top-5  absolute">
-<Lottie className="w-1/4" animationData={profileAnimation}></Lottie>
+<div className="w-full  lg:w-2/3 grid justify-center items-center left-24 lg:left-36 md:left-28 top-20 md:top-14 lg:top-6  absolute">
+<Lottie className="w-2/4  md:w-1/4 lg:w-1/3" animationData={profileAnimation}></Lottie>
 </div>
         </div>
     );

@@ -27,8 +27,8 @@ const DonationForm: React.FC<DonationFormProps> = ({
   const AxiosPublic = useAxiosPublic();
 
   const [error, setError] = useState<string>("");
-  const [transactionId, setTransactionId] = useState<number | string | null>(
-    null
+  const [transactionId, setTransactionId] = useState<number | string >(
+    
   );
 
   const handleSubmit = async (
@@ -78,30 +78,27 @@ const DonationForm: React.FC<DonationFormProps> = ({
     }
 
     // confirm payment
-    const { paymentIntent, error: confirmError } =
-      await stripe.confirmCardPayment(clientSecret, {
-        payment_method: {
-          card: card,
-          billing_details: {
-            email: user?.email || "anonymous",
-            name: user?.displayName || "anonymous",
-          },
-        },
-      });
 
-    if (confirmError) {
-      // console.log("confirm error");
-    } else {
-      // console.log("payment intent", paymentIntent);
-      if (paymentIntent.status === "succeeded") {
+const { paymentIntent, error: confirmError } =
+  await stripe.confirmCardPayment(clientSecret, {
+    payment_method: {
+      card: card,
+      billing_details: {
+        email: user?.email || "anonymous",
+        name: user?.displayName || "anonymous",
+      },
+    },
+  });
 
-        setTransactionId(paymentIntent.id);
-
-        const res = await AxiosPublic.post("/donation-request", {
-          newDonation,
-          transactionId,
-          donaremail:user?.email,
-        });
+if (confirmError) {
+  // Handle error
+} else {
+  if (paymentIntent.status === "succeeded") {
+    const res = await AxiosPublic.post("/donation-request", {
+      newDonation,
+      transactionId: paymentIntent.id, // Use paymentIntent.id directly here
+      donaremail: user?.email,
+    });
    
         // refetch();
         if (res.data?.insertedId) {
