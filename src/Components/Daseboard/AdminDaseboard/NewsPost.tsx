@@ -16,31 +16,6 @@ const NewsPost = () => {
     },
   });
 
-  const handleDeleteNews = (id: any) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axiosSecure.delete(`/News/${id}`).then((res) => {
-          if (res.data.deletedCount > 0) {
-            refetch();
-            Swal.fire({
-              title: "Deleted!",
-              text: "The news has been deleted.",
-              icon: "success",
-            });
-          }
-        });
-      }
-    });
-  };
-
   const handleDeleteVlog = (id: string) => {
     Swal.fire({
       title: "Are you sure?",
@@ -67,7 +42,7 @@ const NewsPost = () => {
   };
 
   return (
-    <div className="py-5 px-5 bg-green-100">
+    <div className="py-5 px-5 ">
       <div>
         <h1 className="text-2xl font-bold text-center">News</h1>
         <div className="border mt-5 mb-5 text-black"></div>
@@ -79,6 +54,7 @@ const NewsPost = () => {
               <tr>
                 <th>Image</th>
                 <th>News</th>
+                <th>Category</th>
                 <th>Update</th>
                 <th>Delete</th>
               </tr>
@@ -95,32 +71,19 @@ const NewsPost = () => {
                       </div>
                     </div>
                   </td>
-                  <td>{job?.headline}</td>
+                  <td className="text-lg">{job?.headline}</td>
+                  <td className="text-lg">{job?.section}</td>
                   <td>
-                      <Link
-                        to={`/daseboard/newsupdate/${job?._id}`}
-                        className="btn btn-ghost btn-xs"
-                      >
-                        Update
-                      </Link>
-                    </td>
+                    <Link to={`/daseboard/editnews/${job?._id}`}>
+                      <button className=" text-lg bg-blue-400 px-3 py-1 font-semibold hover:bg-blue-800 hover:text-white rounded-md ">Update</button>
+                    </Link>
+                  </td>
                   <th>
                     <button
-                      onClick={() => handleDeleteNews(job._id)}
-                      className="btn btn-ghost btn-xs"
+                      onClick={() => handleDeleteVlog(job._id)}
                     >
-                      <FaTrash></FaTrash>
-                      Delete
+                      <FaTrash className="text-xl text-red-400 hover:text-red-800"></FaTrash>
                     </button>
-                 
-                    <th>
-                      <button
-                        onClick={() => handleDeleteVlog(job?._id)}
-                        className="btn btn-ghost btn-xs"
-                      >
-                        Delete
-                      </button>
-                    </th>
                   </th>
                 </tr>
               ))}
