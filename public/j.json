@@ -1,31 +1,17 @@
 [{
-    "section": "International",
-    "headline": "104 Palestinians massacred at Gaza aid point",
-    "source": "The Daily Star",
-    "date": "2024-02-29",
-    "title": "Israeli forces open fire on people gathered for food aid; death toll tops 30,000",
-    "writer": "John Doe",
-    "image": "https://tds-images.thedailystar.net/sites/default/files/styles/big_202/public/images/2024/02/29/gaza_0.jpg",
-    "summary": "Israeli forces shot dead 104 people when a crowd rushed towards aid trucks yesterday, the health ministry in Gaza said, in one of the worst single incidents of a nearly five-month war. ",
-    "news": "More than 750 people were also hurt in the incident, the ministry said. It came after aid agencies had intensified warnings over Gaza's humanitarian situation, with famine threatening particularly in Gaza's north.Looting of aid trucks had previously occurred in northern Gaza, where residents have taken to eating animal fodder and even leaves to try to stave off hunger.Ministry spokesman Ashraf al-Qudra said hundreds were killed and wounded from 'bullets of the occupation forces that targeted a gathering of citizens' at Gaza City's Nabulsi roundabout. He called it a 'massacre'."
-}, {
-    "section": "International",
-    "headline": "Nuke war risks 'real': Putin",
-    "source": "The Daily Star",
-    "date": "2024-02-29",
-    "title": "The Russian president warns of 'destruction of civilisation' if the West escalates the conflict in Ukraine",
-    "writer": "Jane Smith",
-    "image": "https://tds-images.thedailystar.net/sites/default/files/styles/big_202/public/images/2024/02/29/2022-06-30t200330z_1125346299_rc2j2v9ztz0w_rtrmadp_3_russia-putin.jpg",
-    "summary": "President Vladimir Putin warned on Thursday of a 'real' risk of nuclear war if the West escalates the conflict in Ukraine.",
-    "news": "In a defiant speech in Moscow, the Russian leader said his soldiers were advancing in Ukraine and warned the West of 'tragic consequences' for any country that dared to send troops to Kyiv.'They have announced the possibility of sending Western military contingents to Ukraine... The consequences for possible interventionists will be much more tragic,' Putin said in his annual address to the nation.'They should eventually realise that we also have weapons that can hit targets on their territory. Everything that the West comes up with creates the real threat of a conflict with the use of nuclear weapons, and thus the destruction of civilisation,' said Putin."
-}, {
-    "section": "International",
-    "headline": "At least 24 dead in migrant shipwreck off Senegal",
-    "source": "AFP",
-    "date": "2024-02-29",
-    "title": "At least 24 people seeking to reach Europe drowned off northern Senegal when their loaded vessel sank, the governor of the Saint Louis region told AFP on Thursday.",
-    "writer": "Alex Johnson",
-    "image": "https://tds-images.thedailystar.net/sites/default/files/styles/big_202/public/feature/images/shipwreck_reuters.jpg",
-    "summary": "Governor Alioune Badara Samb said 24 bodies had been found since Wednesday after the boat got into difficulty in a particularly dangerous part of the northern coast.",
-    "news": "The Saint Louis estuary, where the Senegal River meets the Atlantic Ocean, is notorious for its strong currents and areas of thick mud.Samb did not say how many people were missing from the vessel, which witnesses said could have been carrying more than 300 people.A number of survivors managed to reach shore and dispersed among locals on the banks, making it difficult to say exactly how many people were involved, he said.Mamady Dianfo, a survivor from Casamance in the south, told AFP there were more than 300 people on board when the boat left Senegal a week ago."
-}]
+        "headline ": "Data Entry Operator Executive Fresher Job (Part time/Remote) ",
+        "summary": "ISOCONIC is seeking a highly skilled and detail-oriented data entry operator executive who is proficient in MS Excel to join our dynamic team. In this role, you will be responsible for accurately inputting and managing large volumes of data to ensure the smooth operation of our business processes. If you have a passion for data accuracy and a strong understanding of Excel, we want to hear from you!",
+        "image ": "https://i.ibb.co/7WMgrhW/h1.jpg",
+        "jobUrl ": "https://internshala.com/job/detail/fresher-remote-part-time-data-entry-operator-executive-job-at-isoconic1708585435",
+        "date": "2024-02-29",
+        "section ": "jobs"
+    },
+    {
+        "headline ": "Linux Techical Specialist Job (Remote)",
+        "summary": "We are seeking a highly skilled and motivated Linux system administrator to join our team. As a Linux system administrator, you will be responsible for managing and maintaining our Linux-based systems and infrastructure, with particular expertise in Mail Server, DNS, and Ansible Automation. This role requires both technical specialism and broad knowledge of various server technologies. This is a probationary position with a duration of 6 months, after which salary may be increased based on performance.",
+        "image ": "https://i.ibb.co/7WMgrhW/h1.jpg",
+        "jobUrl ": "https://internshala.com/job/detail/remote-linux-techical-specialist-job-at-k-rite1708664603",
+        "date": "2024-02-29",
+        "section ": "jobs"
+    }
+]
