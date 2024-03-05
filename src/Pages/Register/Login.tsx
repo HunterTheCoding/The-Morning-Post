@@ -9,8 +9,6 @@ const Login: React.FC = () => {
   const location = useLocation();
   const { signInUser, signInWithGoogle } = Context();
   const [error, seterror] = useState();
-
-  // const { createUser, updateUserProfile } = Context();
   const navigate = useNavigate();
   const HandleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -105,7 +103,6 @@ const Login: React.FC = () => {
               </div>
             </button>
           </div>
-
           <div></div>
         </div>
       </div>
