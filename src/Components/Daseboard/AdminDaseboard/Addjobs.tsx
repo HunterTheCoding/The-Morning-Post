@@ -37,7 +37,7 @@ const Addjob = () => {
         }
     }
     return (
-        <div className="bg-green-100 py-10">
+        <div className="bg-blue-400 h-full py-10">
                      <h1 className='text-2xl font-bold text-center'>Add a Job</h1>
             <div className="px-10">
                 <form onSubmit={handleSubmit(onSubmit)}>

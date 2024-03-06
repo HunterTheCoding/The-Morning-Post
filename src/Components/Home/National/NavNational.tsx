@@ -5,7 +5,11 @@ const NavNational = () => {
   const { newsData: National } = useAdmin("National");
   return (
     <div>
-      <div className="-mt-5 lg:flex">
+      <div>
+        <h1 className=" text-xl lg:text-[32px] font-bold p-5">National</h1>
+        <hr className="border" />
+      </div>
+      <div className="lg:flex">
         <div className="w-full md:w-full lg:w-2/3 my-element" id="alls">
           {National?.slice(0, 1).map((news1) => (
             <Link key={news1._id} to={`/newsdetails/${news1?._id}`}>
@@ -40,7 +44,7 @@ const NavNational = () => {
               </Link>
             ))}
           </div>
-          <div className="flex justify-center px-5">
+          <div className="flex justify-start px-5">
             <button className="btn text-xl hover:text-black hover:bg-green-200  font-medium text-black border-none bg-green-300 ">
               View All
             </button>
@@ -48,7 +52,7 @@ const NavNational = () => {
         </div>
         <div className="w-full lg:w-1/3  p-5">
           <div className="  rounded-md flex justify-between border bg-gray-200">
-            <h1 className="text-2xl px-2 text-red-400 mt-1 font-bold ">
+            <h1 className="text-2xl px-2 text-black mt-1 font-bold ">
               Resent news
             </h1>
             <button className="bg-red-500 px-4 py-3 rounded-r-md ">

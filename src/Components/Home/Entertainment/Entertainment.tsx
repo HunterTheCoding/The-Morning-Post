@@ -14,8 +14,14 @@ const Entertainment = () => {
   const { newsData: EntertainmentCover } = useAdmin("Entertainment-cover");
   return (
     <div>
+      <div>
+        <h1 className=" text-xl lg:text-[32px] font-bold px-5 mb-5">
+          Entertainment
+        </h1>
+        <hr />
+      </div>
       <div className="grid grid-cols-6 gap-4">
-        <div className="col-span-4">
+        <div className="col-span-6 md:col-span-3 lg:col-span-3">
           <div className="grid grid-cols-9">
             <div className="col-span-9 md:col-span-9 lg:col-span-9 p-4">
               <Swiper
@@ -36,7 +42,7 @@ const Entertainment = () => {
                           className="w-full lg:h-[550px] md:h-[500px] h-[300px]"
                           alt=""
                         />
-                        <h2 className="card-title mt-2 pl-2">
+                        <h2 className="card-title mt-4 pl-2">
                           {cover.headline}
                         </h2>
                       </div>
@@ -45,22 +51,6 @@ const Entertainment = () => {
                 ))}
               </Swiper>
             </div>
-            {/* <div className="hidden md:flex lg:flex md:col-span-3 lg:col-span-3 p-4">
-              <div className="card card-compact bg-base-100 shadow-xl">
-                <figure>
-                  <img
-                    src={sidebanner2}
-                    className="w-full md:h-[150px] lg:h-[200px]"
-                    alt="news"
-                  />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title">
-                    Bangladesh and USA will work together - says Peter Haas.
-                  </h2>
-                </div>
-              </div>
-            </div> */}
           </div>
           <div className="mt-4">
             <div className="">
@@ -134,7 +124,7 @@ const Entertainment = () => {
           </div>
         </div>
         {/* sidebar */}
-        <div className="col-span-2 mt-4 rounded-md">
+        <div className="hidden md:flex lg:flex col-span-2 rounded-md">
           <HomePage></HomePage>
         </div>
       </div>

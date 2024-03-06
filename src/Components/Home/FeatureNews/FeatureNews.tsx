@@ -14,9 +14,8 @@ import { Link } from "react-router-dom";
 const FeatureNews = () => {
   const { newsData: Feature, isLoading: FeatureLoading } = useAdmin("Feature");
   if (FeatureLoading || !Feature) {
-    return <div>Loading...</div>;
+    return <span className="loading loading-spinner loading-lg mx-auto"></span>
   }
-  
   return (
     <div className="md:px-6">
       <h1 className="text-4xl font-bold py-3">Feature News</h1>

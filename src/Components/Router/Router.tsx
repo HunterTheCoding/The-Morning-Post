@@ -28,12 +28,13 @@ import UserDonation from "../Daseboard/AdminDaseboard/UserDonation";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import Error from "../Error/Error";
+import EditNews from "../Daseboard/AdminDaseboard/EditNews";
 import NewPoll from "../Daseboard/AdminDaseboard/new-poll";
 import UpdateJobs from "../Daseboard/AdminDaseboard/UpdateJobs";
 import HomePage from "../Survey/Servey";
 import LiveClient from "../Daseboard/AdminDaseboard/LiveClient";
 import Quiz from "../Daseboard/UserDaseboard/Quiz/Quiz";
-
+import NewsUpdate from "../Daseboard/AdminDaseboard/NewsUpdate";
 
 
 const Mybrowser = createBrowserRouter([
@@ -142,7 +143,7 @@ const Mybrowser = createBrowserRouter([
       {
         path: "updateJobs/:id",
         element: <UpdateJobs></UpdateJobs>,
-        loader: ({ params }) => fetch(`http://localhost:5000/api/v1/job/${params.id}`)
+        loader: ({ params }) => fetch(`https://the-mornong-post-server-omega.vercel.app/api/v1/job/${params.id}`)
       },
       {
         path: "news",
@@ -150,7 +151,11 @@ const Mybrowser = createBrowserRouter([
       },
       {
         path: "addnews",
-        element: <NewsPost></NewsPost>,
+        element: <NewsPost></NewsPost>
+      },
+      {
+        path: "editnews/:id",
+        element: <EditNews></EditNews>
       },
       {
         path: "live",
@@ -180,6 +185,10 @@ const Mybrowser = createBrowserRouter([
         path: "quiz",
         element: <Quiz></Quiz>,
       },
+      {
+        path: "newsupdate/:id",
+        element: <NewsUpdate></NewsUpdate>,
+      }
     ],
   },
 ]);

@@ -16,7 +16,6 @@ const useAxiosSecure = () => {
   useEffect(() => {
     const interceptor = axiosSecure.interceptors.response.use(
       (res) => {
-     
         return res;
       },
       (error) => {

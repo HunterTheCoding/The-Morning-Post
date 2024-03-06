@@ -1,20 +1,14 @@
 import React from 'react';
-
-
 import usePolls, { Poll } from '../../Hook/use-polls';
 import PollCard from '../poll-card/poll-card';
-
-// Define the Option type
 export interface Option {
   votes: any;
   _id: string;
   option: string;
 }
-interface HomePageProps {}
-
+interface HomePageProps { }
 const HomePage: React.FC<HomePageProps> = () => {
   const { polls, pollsLoading, pollsError } = usePolls('active');
-
   return (
     <main className="container grid py-5 md:py-10 ">
       <h2 className="pb-5 text-2xl font-bold text-center text-white md:text-3xl md:pb-8 font-secondary">
@@ -29,10 +23,7 @@ const HomePage: React.FC<HomePageProps> = () => {
           </div>
         ) : polls.length ? (
           polls.map((poll: Poll) => (
-            
-            
             <PollCard
-          
               expiresAt={''}
               key={poll._id}
               {...poll}
