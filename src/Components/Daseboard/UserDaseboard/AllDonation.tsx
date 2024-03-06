@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
-
 import Context from "../../../Hook/useContext";
 import useAxiosSecure from "../../../Hook/useAxiosSecure";
-
-
 interface HandleType {
   
   id: string,
