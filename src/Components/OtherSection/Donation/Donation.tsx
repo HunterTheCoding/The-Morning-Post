@@ -215,7 +215,6 @@ const Donation = () => {
   );
 
   
-
   useEffect(() => {
     // Fetch the client secret and amount from the server
     if (amount) {
