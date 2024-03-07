@@ -211,8 +211,10 @@ const Donation = () => {
   // const { user } = Context();
 
   const stripePromise = loadStripe(
-    "pk_test_51OhB04Ga159S7jj5ZjulOYevFjftJnr5DNil1EOou47LVIK8EBmFOkbhhLXA6cDSZT9rn5M8qSrksPzr4aOoPvsQ00EMac6eFw"
+    import.meta.env.VITE_STRIPE_KEY_PK
   );
+
+  
 
   useEffect(() => {
     // Fetch the client secret and amount from the server
