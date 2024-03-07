@@ -4,14 +4,14 @@ importScripts(
 );
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBxtWXY_xT1g7877KsTRePWXM5tMJ20Xi4",
-    authDomain: "the-morning-post.firebaseapp.com",
-    projectId: "the-morning-post",
-    storageBucket: "the-morning-post.appspot.com",
-    messagingSenderId: "1066398034849",
-    appId: "1:1066398034849:web:ecd3de8d582feeb0e979e0"
-  };
-  
+  apiKey: import.meta.env.Vite_APIKEY,
+  authDomain: import.meta.env.Vite_AUTHDOMAIN,
+  projectId: import.meta.env.Vite_PROJECTID,
+  storageBucket: import.meta.env.Vite_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.Vite_MESSAGINGSENDERID,
+  appId: import.meta.env.Vite_APPID,
+};
+
 
 firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
