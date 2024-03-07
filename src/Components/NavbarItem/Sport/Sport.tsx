@@ -1,14 +1,18 @@
 import { Link } from "react-router-dom";
 import useAdmin from "../../../Hook/useNews";
 const Sport = () => {
-  const { newsData: SportData, isLoading: SportDataLoading } = useAdmin("Sports");
-  if(SportDataLoading){
-    return <span className="loading loading-spinner loading-lg mx-auto"></span>
+  const { newsData: SportData, isLoading: SportDataLoading } =
+    useAdmin("Sports");
+  if (SportDataLoading) {
+    return <span className="loading loading-spinner loading-lg mx-auto"></span>;
   }
   return (
     <div className="">
-        <div className="" >  <h1 className="text-2xl font-bold py-5">Sports</h1>
-                <div className="border border-gray-400 mb-10 "></div></div>
+      <div className="">
+        {" "}
+        <h1 className="text-2xl font-bold py-5">Sports</h1>
+        <div className="border border-gray-400 mb-10 "></div>
+      </div>
       <div className="lg:flex gap-5">
         <div className="basis-3/4 gap-5">
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4">
@@ -17,7 +21,7 @@ const Sport = () => {
                 <Link key={item?._id} to={`/newsdetails/${item?._id}`}>
                   <div>
                     <div className="overflow-hidden bg-white relative">
-                          <div className="h-[400px]">
+                      <div className="h-[400px]">
                         <img
                           className="object-cover w-full h-full overflow-hidden p-4 lg:p-0 md:p-4"
                           src={item.image}
@@ -40,7 +44,6 @@ const Sport = () => {
                 </Link>
               ))}
             </div>
-         
             <div>
               {SportData.slice(1, 2).map((item) => (
                 <Link key={item?._id} to={`/newsdetails/${item?._id}`}>
@@ -105,15 +108,13 @@ const Sport = () => {
               Summary
             </h1>
             <p>
-              {
-                SportData?.slice(0, 1).map((item) => {
-                  return (
-                    <div key={item._id}>
-                      <p className="m-2">{item.summary}</p>
-                    </div>
-                  )
-                })
-              }
+              {SportData?.slice(0, 1).map((item) => {
+                return (
+                  <div key={item._id}>
+                    <p className="m-2">{item.summary}</p>
+                  </div>
+                );
+              })}
             </p>
           </div>
         </div>

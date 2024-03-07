@@ -10,7 +10,7 @@ const World = () => {
   });
   const { newsData: InternationalData } = useAdmin("International");
   return (
-    <div className="md:px-6">
+    <div className="md:px-6 my-5">
       <div className="flex justify-between bg-gray-200 p-4">
         <h2 className="text-3xl font-bold ">World News</h2>
         <Link to="/">

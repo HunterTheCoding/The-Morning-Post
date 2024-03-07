@@ -61,7 +61,7 @@ const Jobspost = () => {
 
     }
     return (
-        <div className='py-5 px-5 bg-green-100'>
+        <div className='py-5 px-5'>
             <div>
                 <h1 className='text-2xl font-bold text-center'>Total Jobs: {jobsData.length}</h1>
                 <div className='border mt-5 mb-5 text-black'></div>
@@ -92,7 +92,7 @@ const Jobspost = () => {
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td>
+                                            <td className="text-lg">
                                                 {headline}
 
                                             </td>

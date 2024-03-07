@@ -10,11 +10,8 @@ import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
-
   const [isAdmin] = useAdmin();
-
   const { user, logOut } = Context();
-
   const list = [
     <NavLink
       className={({ isPending, isActive }) =>
@@ -100,7 +97,6 @@ const Navbar = () => {
     >
       <a className="uppercase text-white text-center">Sport</a>
     </NavLink>,
-
     <NavLink
       className={({ isPending, isActive }) =>
         isPending

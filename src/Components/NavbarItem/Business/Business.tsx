@@ -1,14 +1,18 @@
 import { Link } from "react-router-dom";
 import useAdmin from "../../../Hook/useNews";
 const Business = () => {
-  const { newsData: businessData, isLoading: businessDataLoading } = useAdmin("Business");
+  const { newsData: businessData, isLoading: businessDataLoading } =
+    useAdmin("Business");
   if (businessDataLoading) {
-    return <span className="loading loading-spinner loading-lg mx-auto"></span>
+    return <span className="loading loading-spinner loading-lg mx-auto"></span>;
   }
   return (
     <div>
-      <div className="" >  <h1 className="text-2xl font-bold py-5">Business</h1>
-        <div className="border border-gray-400 mb-10 "></div></div>
+      <div className="">
+        {" "}
+        <h1 className="text-2xl font-bold py-5">Business</h1>
+        <div className="border border-gray-400 mb-10 "></div>
+      </div>
       <div className="lg:flex gap-5">
         <div className="basis-3/4 gap-5">
           <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4">
@@ -87,7 +91,7 @@ const Business = () => {
                       </h5>
                     </a>
                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                    {item.title && item.title?.substring(0, 70)}...
+                      {item.title && item.title?.substring(0, 70)}...
                     </p>
                   </div>
                 </div>
@@ -102,17 +106,14 @@ const Business = () => {
               Summary
             </h1>
             <p>
-              {
-                businessData?.slice(0, 1).map((item) => {
-                  return (
-                    <div key={item._id}>
-                      <p className="m-2">{item.summary}</p>
-                    </div>
-                  )
-                })
-              }
+              {businessData?.slice(0, 1).map((item) => {
+                return (
+                  <div key={item._id}>
+                    <p className="m-2">{item.summary}</p>
+                  </div>
+                );
+              })}
             </p>
-
           </div>
         </div>
       </div>

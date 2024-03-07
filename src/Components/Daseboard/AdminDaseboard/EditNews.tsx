@@ -22,19 +22,12 @@ type Inputs = {
     summary: string,
     news: string
 }
-
 const EditNews: React.FC = () => {
-
     const { id } = useParams();
-    const { news: singleNews } = useSingleNews(id);
-    console.log(singleNews);
-
+    const { news: singleNews} = useSingleNews(id);
     const axiosPublic = useAxiosPublic();
-
-    const { _id, section, headline, source, date, title, writer, image, summary, news } = singleNews;
-
+    // const { _id, section, headline, source, date, title, writer, image, summary, news } = singleNews;
     const { register, handleSubmit, reset } = useForm<Inputs>();
-
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         console.log(data);
         const imageFile = { image: data.image[0] }
@@ -56,7 +49,7 @@ const EditNews: React.FC = () => {
                 summary: data.summary,
                 news: data.news
             }
-            const newsRes = await axiosPublic.put(`/News/${_id}`, updatedNews);
+            const newsRes = await axiosPublic.put(`/News/${singleNews?._id}`, updatedNews);
             console.log(newsRes);
             if (newsRes.data.modifiedCount > 0) {
                 reset();
@@ -74,7 +67,7 @@ const EditNews: React.FC = () => {
 
     return (
         <div>
-            <h1 className="text-center font-bold my-4 text-4xl ">Update {headline} News</h1>
+            <h1 className="text-center font-bold my-4 text-4xl ">Update {singleNews?.headline} News</h1>
             <div className="bg-gray-200 p-4 rounded-lg m-4">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="md:flex gap-6">
@@ -86,7 +79,7 @@ const EditNews: React.FC = () => {
                             </label>
 
 
-                            <select defaultValue={section} {...register("section", { required: true })} required className="select select-bordered w-full mr-4">
+                            <select defaultValue={singleNews?.section} {...register("section", { required: true })} required className="select select-bordered w-full mr-4">
                                 <option disabled value='default'>Select a section</option>
                                 <option value="National">National</option>
                                 <option value="International">International</option>
@@ -118,7 +111,7 @@ const EditNews: React.FC = () => {
                                 <span className="label-text text-red-600 font-bold">Headline*</span>
 
                             </label>
-                            <input defaultValue={headline} type="text" placeholder="Headline" {...register('headline', { required: true })} required className="input input-bordered w-full " />
+                            <input defaultValue={singleNews?.headline} type="text" placeholder="Headline" {...register('headline', { required: true })} required className="input input-bordered w-full " />
 
                         </div>
 
@@ -133,7 +126,7 @@ const EditNews: React.FC = () => {
                                 <span className="label-text text-red-600 font-bold">Source*</span>
 
                             </label>
-                            <input defaultValue={source} type="text" placeholder="Source" {...register('source', { required: true })} required className="input input-bordered w-full " />
+                            <input defaultValue={singleNews?.source} type="text" placeholder="Source" {...register('source', { required: true })} required className="input input-bordered w-full " />
 
                         </div>
 
@@ -143,7 +136,7 @@ const EditNews: React.FC = () => {
                                 <span className="label-text text-red-600 font-bold">Date*</span>
 
                             </label>
-                            <input defaultValue={date} type="date" placeholder="Date" {...register('date', { required: true })} required className="input input-bordered w-full " />
+                            <input defaultValue={singleNews?.date} type="date" placeholder="Date" {...register('date', { required: true })} required className="input input-bordered w-full " />
 
                         </div>
 
@@ -158,7 +151,7 @@ const EditNews: React.FC = () => {
                                 <span className="label-text text-red-600 font-bold">Title*</span>
 
                             </label>
-                            <input defaultValue={title} type="text" placeholder="Title" {...register('title', { required: true })} required className="input input-bordered w-full " />
+                            <input defaultValue={singleNews?.title} type="text" placeholder="Title" {...register('title', { required: true })} required className="input input-bordered w-full " />
 
                         </div>
                         {/* writer */}
@@ -167,7 +160,7 @@ const EditNews: React.FC = () => {
                                 <span className="label-text text-red-600 font-bold">Writer*</span>
 
                             </label>
-                            <input defaultValue={writer} type="text" placeholder="Writer" {...register('writer', { required: true })} required className="input input-bordered w-full " />
+                            <input defaultValue={singleNews?.writer} type="text" placeholder="Writer" {...register('writer', { required: true })} required className="input input-bordered w-full " />
 
                         </div>
 
@@ -179,7 +172,7 @@ const EditNews: React.FC = () => {
                             <span className="label-text text-red-600 font-bold">Summary*</span>
 
                         </label>
-                        <input defaultValue={summary} type="text" placeholder="Summary" {...register('summary', { required: true })}
+                        <input defaultValue={singleNews?.summary} type="text" placeholder="Summary" {...register('summary', { required: true })}
                             required
                             className="input input-bordered w-full " />
 
@@ -191,13 +184,13 @@ const EditNews: React.FC = () => {
                             <span className="label-text text-red-600 font-bold">News Details*</span>
 
                         </label>
-                        <textarea defaultValue={news} {...register('news', { required: true })} required className="textarea textarea-bordered h-24" placeholder="News Details"></textarea>
+                        <textarea defaultValue={singleNews?.news} {...register('news', { required: true })} required className="textarea textarea-bordered h-24" placeholder="News Details"></textarea>
 
                     </div>
 
                     {/* input image */}
                     <div className="form-control w-full my-6">
-                        <input defaultValue={image} {...register('image', { required: true })} required type="file" className="file-input my-4 w-full max-w-xs" />
+                        <input defaultValue={singleNews?.image} {...register('image', { required: true })} required type="file" className="file-input my-4 w-full max-w-xs" />
                     </div>
 
                     <div className="text-center">

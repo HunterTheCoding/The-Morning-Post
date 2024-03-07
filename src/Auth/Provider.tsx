@@ -92,11 +92,7 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       
       if ( userEmail || loggedUser.email) {
         AxiosPublic.post("/users", userInfo).then((res) => {
-     
-          
           if (res.data.insertedId) {
-            console.log("urser added to the database",res.data.insertedId);
-
             Swal.fire({
               position: "top-end",
               icon: "success",
