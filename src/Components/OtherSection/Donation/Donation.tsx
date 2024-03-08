@@ -24,7 +24,6 @@ const DonationForm: React.FC<DonationFormProps> = ({
   const { user } = Context();
   const navigate = useNavigate();
   const AxiosPublic = useAxiosPublic();
-
   const [error, setError] = useState<string>("");
   const [transactionId, setTransactionId] = useState<number | string | null>(
     null
@@ -65,7 +64,6 @@ const DonationForm: React.FC<DonationFormProps> = ({
       setError("");
     }
     if (!clientSecret) {
-      console.error("Client secret is empty or null");
       return;
     }
     // confirm payment
@@ -83,19 +81,15 @@ const DonationForm: React.FC<DonationFormProps> = ({
     if (confirmError) {
       console.log("confirm error");
     } else {
-      console.log("payment intent", paymentIntent);
       if (paymentIntent.status === "succeeded") {
         console.log("transaction id", paymentIntent.id);
         setTransactionId(paymentIntent.id);
-
-        console.log(newDonation);
         const res = await AxiosPublic.post("/donation-request", {
           newDonation,
           transactionId,
           donaremail: user?.email,
         });
-        console.log("payment saved", res);
-        // refetch();
+
         if (res.data?.insertedId) {
           Swal.fire({
             position: "top-end",
