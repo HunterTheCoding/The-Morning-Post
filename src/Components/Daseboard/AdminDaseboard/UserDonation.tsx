@@ -65,30 +65,4 @@ const UserDonation = () => {
 
 export default UserDonation;
 
-{
-  /* <tbody className="bg-yellow-50 text-yellow-600">
-  {users?.map((user, index) => (
-    <tr key={user?._id}>
-      <td>{index + 1}</td>
-      <td className="p-3">
-        <p>
-          <img className="w-10 h-10" src={user.image} alt="" />
-        </p>
-      </td>
-      <td className="p-3">{user?.name}</td>
-      <td className="p-3">{user?.email}</td>
-    
-      <td className="p-3 text-right grid grid-cols-2">
-        <p>
-          <button
-            onClick={() => handleDeleteuser(user?._id)}
-            className="btn p-2 bg-yellow-400 text-white hover:bg-yellow-600 btn-sm"
-          >
-            <FaTimesCircle /> Delete
-          </button>
-        </p>
-      </td>
-    </tr>
-  ))}
-  </tbody> */
-}
+

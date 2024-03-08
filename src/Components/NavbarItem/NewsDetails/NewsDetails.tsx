@@ -1,15 +1,11 @@
 import { FaBookmark } from "react-icons/fa";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import satelite from "../../../assets/091413_bangladesh_pratidin_Satellite.jpg";
-import jail from "../../../assets/095722_bangladesh_pratidin_Jail.jpg";
-import netaniyahu from "../../../assets/081157_bangladesh_pratidin_US_Israel.jpg";
-import mendela from "../../../assets/131904_bangladesh_pratidin_Mandela.jpg";
 import useAxiosPublic from "../../../Hook/useAxiosPublic";
 import Swal from "sweetalert2";
 import useSingleNews from "../../../Hook/useSingleNews";
 import Context from "../../../Hook/useContext";
 import TranslateText from "../../TranslateText/TranslateText";
-// Define a type for newsinfo
 interface NewsInfo {
   newsid: string | undefined;
   useremail: string | undefined;
@@ -127,109 +123,11 @@ const NewsDetails: React.FC = () => {
                 </div>
               </div>
             </div>
-            <div className="flex mt-2">
-              <img src={jail} className="lg:w-1/3 w-1/2 h-[100px]" alt="" />
-              <div className="lg:w-2/3 w-1/2 h-[100px] bg-gray-200 relative">
-                <h2 className="font-bold text-sm  lg:text-base p-2">
-                  Putin is sending people to jail.{" "}
-                </h2>
-                <div className="absolute bottom-2 right-2">
-                  <button className="text-xs">
-                    <FaBookmark></FaBookmark>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="flex mt-2">
-              <img
-                src={netaniyahu}
-                className="lg:w-1/3 w-1/2 h-[100px]"
-                alt=""
-              />
-              <div className="lg:w-2/3 w-1/2 h-[100px] bg-gray-200 relative">
-                <h2 className="font-bold text-sm  lg:text-base p-2">
-                  Israel is returning army from gaza.{" "}
-                </h2>
-                <div className="absolute bottom-2 right-2">
-                  <button className="text-xs">
-                    <FaBookmark></FaBookmark>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="flex mt-2">
-              <img src={mendela} className="lg:w-1/3 w-1/2 h-[100px]" alt="" />
-              <div className="lg:w-2/3 w-1/2 h-[100px] bg-gray-200 relative">
-                <h2 className="font-bold text-sm  lg:text-base p-2">
-                  Everybody is remembering Mendela.{" "}
-                </h2>
-                <div className="absolute bottom-2 right-2">
-                  <button className="text-xs">
-                    <FaBookmark></FaBookmark>
-                  </button>
-                </div>
-              </div>
-            </div>
+          
+          
+          
           </div>
-          <div className="ml-10 md:ml-0 lg:mt-5 md:mt-[50px] bg-gray-200 p-4">
-            <h2 className="text-3xl font-bold ">Most Read</h2>
-            <div className="flex mt-4">
-              <img src={satelite} className="lg:w-1/3 w-1/2 h-[100px]" alt="" />
-              <div className="lg:w-2/3 w-1/2 h-[100px] bg-gray-200 relative">
-                <h2 className="font-bold text-sm  lg:text-base p-2">
-                  Iran sent new satelite in space.{" "}
-                </h2>
-                <div className="absolute bottom-2 right-2">
-                  <button className="text-xs">
-                    <FaBookmark></FaBookmark>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="flex mt-2">
-              <img src={jail} className="lg:w-1/3 w-1/2 h-[100px]" alt="" />
-              <div className="lg:w-2/3 w-1/2 h-[100px] bg-gray-200 relative">
-                <h2 className="font-bold text-sm  lg:text-base p-2">
-                  Putin is sending people to jail.{" "}
-                </h2>
-                <div className="absolute bottom-2 right-2">
-                  <button className="text-xs">
-                    <FaBookmark></FaBookmark>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="flex mt-2">
-              <img
-                src={netaniyahu}
-                className="lg:w-1/3 w-1/2 h-[100px]"
-                alt=""
-              />
-              <div className="lg:w-2/3 w-1/2 h-[100px] bg-gray-200 relative">
-                <h2 className="font-bold text-sm  lg:text-base p-2">
-                  Israel is returning army from gaza.{" "}
-                </h2>
-                <div className="absolute bottom-2 right-2">
-                  <button className="text-xs">
-                    <FaBookmark></FaBookmark>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="flex mt-2">
-              <img src={mendela} className="lg:w-1/3 w-1/2 h-[100px]" alt="" />
-              <div className="lg:w-2/3 w-1/2 h-[100px] bg-gray-200 relative">
-                <h2 className="font-bold text-sm  lg:text-base p-2">
-                  Everybody is remembering Mendela.{" "}
-                </h2>
-                <div className="absolute bottom-2 right-2">
-                  <button className="text-xs">
-                    <FaBookmark></FaBookmark>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+       
         </div>
       </div>
     </div>
