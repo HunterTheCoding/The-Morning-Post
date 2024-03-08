@@ -33,14 +33,14 @@ const Bannar = () => {
           autoplay={true}
           navigation={true}
           modules={[Pagination, Navigation, Autoplay]}
-          className="mySwiper"
+          className="mySwiper h-full"
         >
           {bannar?.slice(0, 3).map((item: Bannar) => (
             <SwiperSlide key={item._id} className="rounded-md">
               <div>
                 <img
                   src={item?.image}
-                  className="w-full lg:h-[100%] object-cover rounded-md md:h-[500px] h-[300px]"
+                  className="w-full h-[300px] md:h-[500px] lg:h-full object-cover rounded-md "
                   alt=""
                 />
                 <h2 className="card-title mt-2 pl-2">{item.title}</h2>
@@ -49,7 +49,7 @@ const Bannar = () => {
           ))}
         </Swiper>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 mt-2 md:mt-12 lg:mt-12">
         {bannar?.slice(3, 5).map((item: Bannar) => (
           <Link to={`/newsdetails/${item?._id}`} key={item._id}>
             <div className=" card-compact bg-base-100 shadow-xl rounded-md">
