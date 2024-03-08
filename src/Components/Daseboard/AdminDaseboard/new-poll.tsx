@@ -48,31 +48,25 @@ const NewPoll: React.FC<NewPollProps> = () => {
   }) => {
     try {
       setIsPollSubmitting(true);
-
       const optionImageUrls = await Promise.all(
         optionImages?.map(async (image) => await uploadImage(image))
       );
-
       const optionsArray = optionInputFields.map((_, index) => ({
         option: options[index],
         optionImage: optionImageUrls[index],
       }));
-      console.log(optionsArray);
-     
+
 
       const newPoll = {
         title,
         description,
-     
         options: optionsArray,
         createdAt: new Date(),
         expiresAt: new Date(expiration.date + "T" + expiration.time),
         isActive: true,
       };
       console.log(newPoll);
-
       await axiosSecure.post("/Polls", newPoll);
-
       successToast("Poll added");
       setOptionImages([]);
       setOptionInputFields([null]);

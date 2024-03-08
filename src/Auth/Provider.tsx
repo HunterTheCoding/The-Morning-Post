@@ -104,14 +104,12 @@ const Provider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         });
       }
       setLoading(false);
-      if (user || userEmail) {
+      if (auth.currentUser) {
         AxiosPublic.post("/jwt", loggedUser).then((res) => {
           console.log("token response", res.data);
         });
       } else {
-        AxiosPublic.post("/logout", loggedUser, {
-          withCredentials: true,
-        }).then((res) => {
+        AxiosPublic.post("/logout", loggedUser).then((res) => {
           console.log(res);
         });
       }

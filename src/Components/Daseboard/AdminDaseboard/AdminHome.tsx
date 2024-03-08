@@ -1,5 +1,3 @@
-import Lottie from "lottie-react";
-import profileAnimation from "../../../../public/adminProfile-animation.json";
 import Context from "../../../Hook/useContext";
 const AdminHome = () => {
   const { user } = Context();
@@ -83,8 +81,7 @@ const AdminHome = () => {
           </a>
         </div>
       </div>
-      <div className="w-2/3 grid justify-center items-center left-72  top-5  absolute">
-        <Lottie className="w-1/4" animationData={profileAnimation}></Lottie>
+      <div>
       </div>
     </div>
   );

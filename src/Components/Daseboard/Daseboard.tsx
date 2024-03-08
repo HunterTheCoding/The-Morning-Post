@@ -11,15 +11,15 @@ import useAdmin from "../../Hook/useAdmin";
 import { FaBars } from "react-icons/fa";
 import { useState } from "react";
 import { TbArrowsCross } from "react-icons/tb";
+import Context from "../../Hook/useContext";
 
 const Daseboard = () => {
   const [isAdmin] = useAdmin();
   const [togol, settogol] = useState<boolean>(false);
-
+  const { logOut } = Context();
 
   return (
     <div className="md:flex relative z-10">
-
       <div className="block md:hidden" ><button className="p-5" onClick={() => settogol(!togol)}>{togol ? <TbArrowsCross className="text-2xl" /> : <FaBars className="text-2xl" />}</button></div>
       <div className={` ${togol ? "block" : "hidden"} absolute z-20  bg-indigo-400 rounded-md ml-2 p-3 `}>
         {isAdmin?.isAdmin ? (
@@ -484,7 +484,7 @@ const Daseboard = () => {
           </li>
         </ul>
         <ul className="menu p-2">
-          <button>
+          <button onClick={logOut}>
             <li className=" border uppercase text-white rounded-md font-bold text-lg">
               <NavLink className={({ isPending, isActive }) =>
                 isPending

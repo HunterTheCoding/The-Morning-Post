@@ -29,9 +29,9 @@ const HomePage: React.FC<HomePageProps> = () => {
               {...poll}
               _id={poll?._id}
               options={poll.options.map(option => ({
-                _id: option._id, // Provide a unique identifier for each option
+                _id: option._id, 
                 option: option.option,
-                votes: [], // Assuming votes are initially empty
+                votes: [], 
               }))}
             />
           ))

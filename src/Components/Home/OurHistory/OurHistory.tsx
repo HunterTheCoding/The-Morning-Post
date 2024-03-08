@@ -12,9 +12,6 @@ const OurHistory = () => {
       <div className="lg:w-2/3 w-full p-3">
         <div className="flex justify-between w-full lg:w-full">
           <h1 className="text-xl lg:text-2xl font-bold p-1">OUR HISTORY</h1>
-          <button className=" text-base  font-serif lg:text-xl border px-2 lg:px-5 rounded-lg bg-slate-300">
-            View All
-          </button>
         </div>
         <hr className="w-full lg:w-full bg-green-500   mt-5 mb-5 " />
         <div className="md:flex justify-between w-full  lg:w-full  ">
