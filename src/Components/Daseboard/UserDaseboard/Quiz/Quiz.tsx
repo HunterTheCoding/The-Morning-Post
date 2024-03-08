@@ -39,8 +39,7 @@ const Quiz: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    console.log("user answer", userAnswer);
-    AxiosPublic.post("http://localhost:5000/api/v1/quiz", userAnswer)
+    AxiosPublic.post("/api/v1/quiz", userAnswer)
       .then((response) => {
         setQuizResult(response.data);
         setSubmitted(true);
